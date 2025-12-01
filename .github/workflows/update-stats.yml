@@ -1,0 +1,34 @@
+name: Update NFL Weekly Stats
+
+on:
+  workflow_dispatch:     # allows manual runs
+  schedule:
+    - cron: '0 6 * * TUE' # weekly: Tuesday 06:00 UTC (adjust if needed)
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install R dependencies
+        run: |
+          Rscript -e "options(repos='https://cloud.r-project.org'); install.packages(c('remotes','dplyr','jsonlite','readr','lubridate','data.table'))"
+          Rscript -e "remotes::install_github('nflverse/nflreadr', dependencies = TRUE)"
+
+      - name: Run stats generator
+        run: |
+          Rscript scripts/generate_weekly_stats.R
+
+      - name: Commit generated JSON (if changed)
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "github-actions"
+          git add data/weekly_stats.json
+          git commit -m "Update weekly_stats.json" || echo "No changes"
+          git push
