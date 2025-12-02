@@ -26,12 +26,7 @@ jobs:
       - name: Install R dependencies (including nflreadr)
         run: |
           Rscript -e "options(repos='https://cloud.r-project.org'); install.packages(c('dplyr','jsonlite','readr','lubridate','data.table'))"
-      
-          # Try installing nflreadr from CRAN first
           Rscript -e "install.packages('nflreadr', repos='https://cloud.r-project.org')"
-      
-          # If CRAN version is not available or fails (common during offseason),
-          # fall back to NFLverse R-universe
           Rscript -e "if (!require('nflreadr')) install.packages('nflreadr', repos=c('https://nflverse.r-universe.dev', 'https://cloud.r-project.org'))"
 
       - name: Run stats generator
