@@ -7,12 +7,12 @@ library(jsonlite)
 library(data.table)
 
 # === CONFIG ===
-season <- as.integer(Sys.getenv("SEASON", "2024"))  # default season; change if needed
+season <- 2025   # <-- always fetch current 2025 NFL season
 out_path <- "data/weekly_stats.json"
 
 message("Loading official weekly player stats for season: ", season)
 
-# nflreadr provides built-in weekly stats (much cleaner than building pbp summaries)
+# nflreadr provides built-in weekly stats (clean weekly aggregates)
 weekly <- tryCatch(
   nflreadr::load_player_stats(seasons = season),
   error = function(e) {
@@ -20,7 +20,7 @@ weekly <- tryCatch(
   }
 )
 
-# Keep only useful columns for your app
+# Keep only useful stat fields
 weekly_clean <- weekly %>%
   select(
     season,
