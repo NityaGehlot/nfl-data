@@ -12,7 +12,7 @@ season <- as.numeric(format(Sys.Date(), "%Y"))   # auto-set to current year
 # If you want manual override sometimes, replace with:
 # season <- 2025
 
-output_name <- paste0("player_stats_", season, ".json")  # <-- Step 1 compliant filename
+output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 message("Loading official weekly player stats for season: ", season)
