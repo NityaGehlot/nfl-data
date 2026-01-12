@@ -27,9 +27,9 @@ weekly <- tryCatch(
 desired_cols <- c(
   "season", "week", "player_id", "player_name", "position", "team",
   "completions", "attempts", "passing_yards", "passing_tds",
-  "interceptions", "carries", "rushing_yards", "rushing_tds",
+  "interceptions", "carries", "rushing_yards", "rushing_tds", "targets",
   "receptions", "receiving_yards", "receiving_tds",
-  "fumbles", "fantasy_points_ppr"
+  "fumbles", "fantasy_points_ppr", "headshot_url"
 )
 
 existing_cols <- intersect(desired_cols, colnames(weekly))
