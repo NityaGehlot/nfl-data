@@ -8,16 +8,15 @@ library(jsonlite)
 library(data.table)
 
 # === CONFIG ===
-season <- as.numeric(format(Sys.Date(), "%Y"))   # auto-set to current year
-# If you want manual override sometimes, replace with:
-# season <- 2025
+current_year <- as.numeric(format(Sys.Date(), "%Y"))
+latest_season <- nflreadr::most_recent_season()
+season <- min(current_year, latest_season)
 
 output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 message("Loading official weekly player stats for season: ", season)
 
-# Load weekly player stats
 weekly <- tryCatch(
   nflreadr::load_player_stats(seasons = season),
   error = function(e) stop("Failed to load weekly stats: ", e$message)
