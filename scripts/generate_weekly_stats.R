@@ -24,25 +24,64 @@ weekly <- tryCatch(
 
 # Columns to keep (future-proof — selects only those that exist)
 desired_cols <- c(
-  "season", "week", "player_id", "player_name", "position", "team",
-  "completions", "attempts", "passing_yards", "passing_tds",
-  "interceptions", "carries", "rushing_yards", "rushing_tds", "targets",
-  "receptions", "receiving_yards", "receiving_tds",
-  "fumbles", "fantasy_points_ppr", "headshot_url"
+  "season", "week", "player_id", "player_name", "position", "team", "opponent_team",
+  "completions", "attempts", "passing_yards", "passing_tds", "passing_interceptions", "passing_cpoe", "passing_epa",
+  "carries", "rushing_yards", "rushing_tds", "rushing_epa", 
+  "targets", "receptions", "receiving_yards", "receiving_tds", "receiving_fumbles", "receiving_epa", "target_share",
+  "fumbles", "fantasy_points_ppr", "headshot_url",
+  "special_teams_tds", "fumble_recovery_tds",
+  "fg_made", "fg_att", "fg_missed", "fg_blocked", "fg_long", "fg_pct", "pat_made", "pat_att", "pat_missed", "pat_blocked","pat_pct"
 )
 
 existing_cols <- intersect(desired_cols, colnames(weekly))
 weekly_clean <- weekly[, existing_cols, drop = FALSE]
 
-# Convert to data.table
-weekly_dt <- as.data.table(weekly_clean)
+# =========================
+# Position-based filtering
+# =========================
+
+# Which stats each position should keep
+position_cols <- list(
+  QB = c("completions","attempts","passing_yards","passing_tds","passing_interceptions","passing_cpoe","passing_epa","carries",
+         "rushing_yards","rushing_tds","fumbles","rushing_epa"),
+  RB = c("carries","rushing_yards","rushing_tds","fumbles","rushing_epa","target_share"),
+  WR = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
+  TE = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
+  DEF = c("fantasy_points_ppr","special_teams_tds","fumble_recovery_tds",),
+  K = c("fantasy_points_ppr","fg_made","fg_att","fg_missed","fg_blocked","fg_long","fg_pct","pat_made","pat_att","pat_missed",
+        "pat_blocked","pat_pct")
+)
+
+# Columns always kept
+base_cols <- c(
+  "season","week","player_id","player_name",
+  "position","team","opponent_team",
+  "headshot_url","fantasy_points_ppr"
+)
+
+weekly_clean <- as.data.frame(weekly_clean)
+
+player_list <- apply(weekly_clean, 1, function(row) {
+  pos <- row[["position"]]
+  pos_stats <- position_cols[[pos]]
+
+  if (is.null(pos_stats)) pos_stats <- character(0)
+
+  keep <- unique(c(base_cols, pos_stats))
+  keep <- intersect(keep, names(row))
+
+  as.list(row[keep])
+})
+
+# =========================
+# Export JSON
+# =========================
 
 # Create output folder if needed
 if (!dir.exists("data")) dir.create("data")
 
-# Write JSON — pretty & compatible with JavaScript import
 jsonlite::write_json(
-  weekly_dt,
+  player_list,
   out_path,
   pretty = TRUE,
   na = "null",
