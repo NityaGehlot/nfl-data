@@ -47,7 +47,7 @@ position_cols <- list(
   RB = c("carries","rushing_yards","rushing_tds","fumbles","rushing_epa","target_share"),
   WR = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
   TE = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
-  DEF = c("fantasy_points_ppr","special_teams_tds","fumble_recovery_tds",),
+  # DEF = c("fantasy_points_ppr","special_teams_tds","fumble_recovery_tds",), Find different API for Team Defensive stats, not just individual defensive player
   K = c("fantasy_points_ppr","fg_made","fg_att","fg_missed","fg_blocked","fg_long","fg_pct","pat_made","pat_att","pat_missed",
         "pat_blocked","pat_pct")
 )
