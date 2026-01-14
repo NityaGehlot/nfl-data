@@ -44,10 +44,18 @@ weekly_clean <- weekly[, existing_cols, drop = FALSE]
 position_cols <- list(
   QB = c("completions","attempts","passing_yards","passing_tds","passing_interceptions","passing_cpoe","passing_epa","carries",
          "rushing_yards","rushing_tds","fumbles","rushing_epa"),
-  RB = c("carries","rushing_yards","rushing_tds","fumbles","rushing_epa","target_share"),
-  WR = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
-  TE = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
+  
+  RB = c("carries","rushing_yards","rushing_tds","fumbles","rushing_epa","receptions","receiving_yards",
+         "receiving_tds","targets","receiving_fumbles","receiving_epa","target_share"),
+  
+  WR = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share","carries",
+         "rushing_yards","rushing_tds","fumbles","rushing_epa"),
+  
+  TE = c("receptions","receiving_yards","receiving_tds","targets","receiving_fumbles","receiving_epa","target_share","carries",
+         "rushing_yards","rushing_tds","fumbles","rushing_epa"),
+  
   # DEF = c("fantasy_points_ppr","special_teams_tds","fumble_recovery_tds",), Find different API for Team Defensive stats, not just individual defensive player
+  
   K = c("fantasy_points_ppr","fg_made","fg_att","fg_missed","fg_blocked","fg_long","fg_pct","pat_made","pat_att","pat_missed",
         "pat_blocked","pat_pct")
 )
