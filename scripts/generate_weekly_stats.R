@@ -118,7 +118,7 @@ team_def <- team_weekly %>%
     # points_allowed = points_allowed,
     # yards_allowed = yards_allowed,
     # fantasy_points_ppr = fantasy_points
-    )
+    
   )
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) {
