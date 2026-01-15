@@ -108,16 +108,16 @@ team_def <- team_weekly %>%
     team = team,
     opponent_team = opponent_team,
 
-    sacks = sacks,
-    interceptions = interceptions,
-    fumbles_forced = fumbles_forced,
-    fumbles_recovered = fumbles_recovered,
-    defensive_tds = defensive_tds + special_teams_tds,
-    safeties = safeties,
-    points_allowed = points_allowed,
-    yards_allowed = yards_allowed,
-
-    fantasy_points_ppr = fantasy_points
+    sacks = def_sacks,
+    interceptions = def_interceptions,
+    fumbles_forced = def_fumbles_forced,
+    fumbles_recovered = fumble_recovery_own,
+    defensive_tds = def_tds + special_teams_tds,
+    safeties = def_safeties,
+    
+    # points_allowed = points_allowed,
+    # yards_allowed = yards_allowed,
+    # fantasy_points_ppr = fantasy_points
     )
   )
 
