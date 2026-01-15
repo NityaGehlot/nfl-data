@@ -106,7 +106,7 @@ team_def <- team_weekly %>%
     player_name = paste(team, "DEF"),
     position = "DEF",
     team = team,
-    opponent_team = opponent,
+    opponent_team = opponent_team,
 
     sacks = sacks,
     interceptions = interceptions,
@@ -117,7 +117,7 @@ team_def <- team_weekly %>%
     points_allowed = points_allowed,
     yards_allowed = yards_allowed,
 
-    fantasy_points_ppr = fantasy_points,
+    fantasy_points_ppr = fantasy_points
     )
   )
 
