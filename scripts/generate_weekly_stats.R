@@ -20,7 +20,6 @@ out_path <- file.path("data", output_name)
 # LOAD PLAYER STATS
 # =====================
 message("Loading official weekly PLAYER stats for season: ", season)
-
 weekly <- nflreadr::load_player_stats(seasons = season)
 
 # =====================
@@ -28,23 +27,19 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 # =====================
 weekly <- weekly %>%
   mutate(
-    fg_made_50 = ifelse(fg_made_distance >= 50, floor(fg_made_distance / 55), 0),
-    fg_made_40 = ifelse(
-      fg_made_distance > 0,
-      pmax(0, floor((fg_made_distance - fg_made_50 * 55) / 45)),
-      0
-    ),
-    fg_made_30 = pmax(0, fg_made - fg_made_50 - fg_made_40),
-
+    # Fantasy points for kickers based on distance buckets
     fantasy_points_ppr = ifelse(
       position == "K",
-      (fg_made_30 * 3) +
-      (fg_made_40 * 4) +
-      (fg_made_50 * 5) +
+      (fg_made_0_19 * 3) +
+      (fg_made_20_29 * 3) +
+      (fg_made_30_39 * 3) +
+      (fg_made_40_49 * 4) +
+      (fg_made_50_59 * 5) +
+      (fg_made_60_ * 5) +
       (pat_made * 1) -
       (fg_missed * 1) -
       (pat_missed * 1),
-      fantasy_points_ppr
+      fantasy_points_ppr  # leave others unchanged
     )
   )
 
@@ -57,7 +52,9 @@ desired_cols <- c(
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles","fantasy_points_ppr","headshot_url",
-  "fg_made","fg_att","fg_missed","fg_made_distance",
+  "fg_made","fg_att","fg_missed",
+  "fg_made_0_19","fg_made_20_29","fg_made_30_39",
+  "fg_made_40_49","fg_made_50_59","fg_made_60_",
   "pat_made","pat_att","pat_missed"
 )
 
@@ -80,7 +77,9 @@ position_cols <- list(
   TE = c("receptions","targets","receiving_yards","receiving_tds",
          "carries","rushing_yards","rushing_tds","fumbles"),
 
-  K  = c("fg_made","fg_att","fg_missed","fg_made_distance",
+  K  = c("fg_made","fg_att","fg_missed",
+         "fg_made_0_19","fg_made_20_29","fg_made_30_39",
+         "fg_made_40_49","fg_made_50_59","fg_made_60_",
          "pat_made","pat_att","pat_missed")
 )
 
@@ -103,12 +102,12 @@ player_list <- apply(weekly_clean, 1, function(row) {
 # LOAD TEAM DEF STATS
 # =====================
 message("Loading official weekly TEAM DEF stats")
-
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
   mutate(
+    # Sleeper fantasy scoring for defenses
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
