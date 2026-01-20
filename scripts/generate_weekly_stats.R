@@ -66,8 +66,7 @@ position_cols <- list(
          "carries","rushing_yards","rushing_tds","rushing_epa","fumbles"),
 
   K  = c("fg_made","fg_att","fg_missed","fg_blocked","fg_long",
-         "fg_pct","pat_made","pat_att","pat_missed","pat_blocked","pat_pct",
-         "fantasy_points_ppr")
+         "fg_pct","pat_made","pat_att","pat_missed","pat_blocked","pat_pct",)
 )
 
 base_cols <- c(
