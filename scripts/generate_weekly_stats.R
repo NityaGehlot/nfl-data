@@ -1,12 +1,10 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
-# Includes player stats + team DEF stats
-# Season-flexible & React Native friendly
+# Includes Sleeper-accurate K + DEF fantasy scoring
 
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
-library(data.table)
 
 # =====================
 # CONFIG
@@ -23,50 +21,67 @@ out_path <- file.path("data", output_name)
 # =====================
 message("Loading official weekly PLAYER stats for season: ", season)
 
-weekly <- tryCatch(
-  nflreadr::load_player_stats(seasons = season),
-  error = function(e) stop("Failed to load weekly stats: ", e$message)
-)
+weekly <- nflreadr::load_player_stats(seasons = season)
 
-# Columns to keep (future-proof)
+# =====================
+# SLEEPER KICKER SCORING
+# =====================
+weekly <- weekly %>%
+  mutate(
+    fg_made_50 = ifelse(fg_made_distance >= 50, floor(fg_made_distance / 55), 0),
+    fg_made_40 = ifelse(
+      fg_made_distance > 0,
+      pmax(0, floor((fg_made_distance - fg_made_50 * 55) / 45)),
+      0
+    ),
+    fg_made_30 = pmax(0, fg_made - fg_made_50 - fg_made_40),
+
+    fantasy_points_ppr = ifelse(
+      position == "K",
+      (fg_made_30 * 3) +
+      (fg_made_40 * 4) +
+      (fg_made_50 * 5) +
+      (pat_made * 1) -
+      (fg_missed * 1) -
+      (pat_missed * 1),
+      fantasy_points_ppr
+    )
+  )
+
+# =====================
+# SELECT PLAYER COLUMNS
+# =====================
 desired_cols <- c(
-  "season", "week", "player_id", "player_name", "position", "team", "opponent_team",
-  "completions", "attempts", "passing_yards", "passing_tds",
-  "passing_interceptions", "passing_cpoe", "passing_epa",
-  "carries", "rushing_yards", "rushing_tds", "rushing_epa",
-  "targets", "receptions", "receiving_yards", "receiving_tds",
-  "receiving_fumbles", "receiving_epa", "target_share",
-  "fumbles", "fantasy_points_ppr", "headshot_url",
-  "fg_made", "fg_att", "fg_missed", "fg_blocked", "fg_long",
-  "fg_pct", "pat_made", "pat_att", "pat_missed", "pat_blocked", "pat_pct"
+  "season","week","player_id","player_name","position","team","opponent_team",
+  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
+  "carries","rushing_yards","rushing_tds",
+  "targets","receptions","receiving_yards","receiving_tds",
+  "fumbles","fantasy_points_ppr","headshot_url",
+  "fg_made","fg_att","fg_missed","fg_made_distance",
+  "pat_made","pat_att","pat_missed"
 )
 
-existing_cols <- intersect(desired_cols, colnames(weekly))
-weekly_clean <- weekly[, existing_cols, drop = FALSE]
-weekly_clean <- as.data.frame(weekly_clean)
+weekly_clean <- weekly %>%
+  select(any_of(desired_cols))
 
 # =====================
 # POSITION-BASED FILTERING
 # =====================
 position_cols <- list(
   QB = c("completions","attempts","passing_yards","passing_tds",
-         "passing_interceptions","passing_cpoe","passing_epa",
-         "carries","rushing_yards","rushing_tds","rushing_epa","fumbles"),
+         "passing_interceptions","carries","rushing_yards","rushing_tds","fumbles"),
 
-  RB = c("carries","rushing_yards","rushing_tds","rushing_epa",
-         "receptions","receiving_yards","receiving_tds",
-         "targets","receiving_fumbles","receiving_epa","target_share","fumbles"),
+  RB = c("carries","rushing_yards","rushing_tds",
+         "receptions","targets","receiving_yards","receiving_tds","fumbles"),
 
-  WR = c("receptions","receiving_yards","receiving_tds",
-         "targets","receiving_fumbles","receiving_epa","target_share",
-         "carries","rushing_yards","rushing_tds","rushing_epa","fumbles"),
+  WR = c("receptions","targets","receiving_yards","receiving_tds",
+         "carries","rushing_yards","rushing_tds","fumbles"),
 
-  TE = c("receptions","receiving_yards","receiving_tds",
-         "targets","receiving_fumbles","receiving_epa","target_share",
-         "carries","rushing_yards","rushing_tds","rushing_epa","fumbles"),
+  TE = c("receptions","targets","receiving_yards","receiving_tds",
+         "carries","rushing_yards","rushing_tds","fumbles"),
 
-  K  = c("fg_made","fg_att","fg_missed","fg_blocked","fg_long",
-         "fg_pct","pat_made","pat_att","pat_missed","pat_blocked","pat_pct")
+  K  = c("fg_made","fg_att","fg_missed","fg_made_distance",
+         "pat_made","pat_att","pat_missed")
 )
 
 base_cols <- c(
@@ -80,9 +95,7 @@ player_list <- apply(weekly_clean, 1, function(row) {
   pos_stats <- position_cols[[pos]]
   if (is.null(pos_stats)) pos_stats <- character(0)
 
-  keep <- unique(c(base_cols, pos_stats))
-  keep <- intersect(keep, names(row))
-
+  keep <- intersect(c(base_cols, pos_stats), names(row))
   as.list(row[keep])
 })
 
@@ -91,13 +104,18 @@ player_list <- apply(weekly_clean, 1, function(row) {
 # =====================
 message("Loading official weekly TEAM DEF stats")
 
-team_weekly <- tryCatch(
-  nflreadr::load_team_stats(seasons = season),
-  error = function(e) stop("Failed to load team stats: ", e$message)
-)
+team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
+  mutate(
+    fantasy_points_ppr =
+      (def_sacks * 1) +
+      (def_interceptions * 2) +
+      (fumble_recovery_own * 2) +
+      ((def_tds + special_teams_tds) * 6) +
+      (def_safeties * 2)
+  ) %>%
   transmute(
     season = season,
     week = week,
@@ -106,23 +124,15 @@ team_def <- team_weekly %>%
     position = "DEF",
     team = team,
     opponent_team = opponent_team,
-
     sacks = def_sacks,
     interceptions = def_interceptions,
-    fumbles_forced = def_fumbles_forced,
     fumbles_recovered = fumble_recovery_own,
     defensive_tds = def_tds + special_teams_tds,
     safeties = def_safeties,
-    
-    # points_allowed = points_allowed,
-    # yards_allowed = yards_allowed,
-    # fantasy_points_ppr = fantasy_points
-    
+    fantasy_points_ppr = fantasy_points_ppr
   )
 
-def_list <- apply(as.data.frame(team_def), 1, function(row) {
-  as.list(row)
-})
+def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
 
 # =====================
 # EXPORT JSON
@@ -131,12 +141,12 @@ all_players <- c(player_list, def_list)
 
 if (!dir.exists("data")) dir.create("data")
 
-jsonlite::write_json(
+write_json(
   all_players,
   out_path,
   pretty = TRUE,
-  na = "null",
-  auto_unbox = TRUE
+  auto_unbox = TRUE,
+  na = "null"
 )
 
-message("Success! JSON exported → ", out_path)
+message("✅ Success! JSON exported → ", out_path)
