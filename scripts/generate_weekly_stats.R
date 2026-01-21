@@ -1,6 +1,7 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
+# DEF points & yards allowed derived from play-by-play
 
 library(nflreadr)
 library(dplyr)
@@ -23,28 +24,34 @@ message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
 
 # =====================
-# SLEEPER KICKER SCORING
+# KICKER FANTASY SCORING (Sleeper)
 # =====================
 weekly <- weekly %>%
   mutate(
-    # Fantasy points for kickers based on distance buckets
+    fg_0_19  = coalesce(fg_made_0_19, 0),
+    fg_20_29 = coalesce(fg_made_20_29, 0),
+    fg_30_39 = coalesce(fg_made_30_39, 0),
+    fg_40_49 = coalesce(fg_made_40_49, 0),
+    fg_50_59 = coalesce(fg_made_50_59, 0),
+    fg_60p   = coalesce(fg_made_60_, 0),
+
     fantasy_points_ppr = ifelse(
       position == "K",
-      (fg_made_0_19 * 3) +
-      (fg_made_20_29 * 3) +
-      (fg_made_30_39 * 3) +
-      (fg_made_40_49 * 4) +
-      (fg_made_50_59 * 5) +
-      (fg_made_60_ * 5) +
+      (fg_0_19 * 3) +
+      (fg_20_29 * 3) +
+      (fg_30_39 * 3) +
+      (fg_40_49 * 4) +
+      (fg_50_59 * 5) +
+      (fg_60p   * 5) +
       (pat_made * 1) -
       (fg_missed * 1) -
       (pat_missed * 1),
-      fantasy_points_ppr  # leave others unchanged
+      fantasy_points_ppr
     )
   )
 
 # =====================
-# SELECT PLAYER COLUMNS
+# PLAYER COLUMN SELECTION
 # =====================
 desired_cols <- c(
   "season","week","player_id","player_name","position","team","opponent_team",
@@ -53,8 +60,7 @@ desired_cols <- c(
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles","fantasy_points_ppr","headshot_url",
   "fg_made","fg_att","fg_missed",
-  "fg_made_0_19","fg_made_20_29","fg_made_30_39",
-  "fg_made_40_49","fg_made_50_59","fg_made_60_",
+  "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
   "pat_made","pat_att","pat_missed"
 )
 
@@ -62,7 +68,7 @@ weekly_clean <- weekly %>%
   select(any_of(desired_cols))
 
 # =====================
-# POSITION-BASED FILTERING
+# POSITION FILTERING
 # =====================
 position_cols <- list(
   QB = c("completions","attempts","passing_yards","passing_tds",
@@ -77,10 +83,11 @@ position_cols <- list(
   TE = c("receptions","targets","receiving_yards","receiving_tds",
          "carries","rushing_yards","rushing_tds","fumbles"),
 
-  K  = c("fg_made","fg_att","fg_missed",
-         "fg_made_0_19","fg_made_20_29","fg_made_30_39",
-         "fg_made_40_49","fg_made_50_59","fg_made_60_",
-         "pat_made","pat_att","pat_missed")
+  K  = c(
+    "fg_made","fg_att","fg_missed",
+    "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
+    "pat_made","pat_att","pat_missed"
+  )
 )
 
 base_cols <- c(
@@ -91,44 +98,87 @@ base_cols <- c(
 
 player_list <- apply(weekly_clean, 1, function(row) {
   pos <- row[["position"]]
-  pos_stats <- position_cols[[pos]]
-  if (is.null(pos_stats)) pos_stats <- character(0)
-
-  keep <- intersect(c(base_cols, pos_stats), names(row))
+  keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
   as.list(row[keep])
 })
+
+# =====================
+# LOAD PLAY-BY-PLAY FOR DEF ALLOWED STATS
+# =====================
+message("Loading play-by-play data for DEF points/yards allowed")
+
+pbp <- nflreadr::load_pbp(seasons = season) %>%
+  filter(!is.na(week))
+
+# ---- Points Allowed ----
+def_points_allowed <- pbp %>%
+  mutate(
+    defense_team = defteam,
+    points =
+      (td * 6) +
+      (extra_point_good * 1) +
+      (two_point_conv_result == "success") * 2 +
+      (field_goal_result == "made") * 3 +
+      (safety * 2)
+  ) %>%
+  group_by(season, week, defense_team) %>%
+  summarise(points_allowed = sum(points, na.rm = TRUE), .groups = "drop")
+
+# ---- Yards Allowed ----
+def_yards_allowed <- pbp %>%
+  group_by(season, week, defteam) %>%
+  summarise(yards_allowed = sum(yards_gained, na.rm = TRUE), .groups = "drop") %>%
+  rename(defense_team = defteam)
+
+def_allowed <- def_points_allowed %>%
+  left_join(def_yards_allowed, by = c("season","week","defense_team"))
 
 # =====================
 # LOAD TEAM DEF STATS
 # =====================
 message("Loading official weekly TEAM DEF stats")
+
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
+  left_join(
+    def_allowed,
+    by = c("season","week","team" = "defense_team")
+  ) %>%
   mutate(
-    # Sleeper fantasy scoring for defenses
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
       (fumble_recovery_own * 2) +
       ((def_tds + special_teams_tds) * 6) +
-      (def_safeties * 2)
+      (def_safeties * 2) +
+      case_when(
+        points_allowed == 0  ~ 10,
+        points_allowed <= 6  ~ 7,
+        points_allowed <= 13 ~ 4,
+        points_allowed <= 20 ~ 1,
+        points_allowed <= 27 ~ 0,
+        points_allowed <= 34 ~ -1,
+        TRUE ~ -4
+      )
   ) %>%
   transmute(
-    season = season,
-    week = week,
+    season,
+    week,
     player_id = paste0("DEF_", team),
     player_name = paste(team, "DEF"),
     position = "DEF",
-    team = team,
-    opponent_team = opponent_team,
+    team,
+    opponent_team,
     sacks = def_sacks,
     interceptions = def_interceptions,
     fumbles_recovered = fumble_recovery_own,
     defensive_tds = def_tds + special_teams_tds,
     safeties = def_safeties,
-    fantasy_points_ppr = fantasy_points_ppr
+    points_allowed,
+    yards_allowed,
+    fantasy_points_ppr
   )
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
