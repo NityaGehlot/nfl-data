@@ -1,11 +1,12 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
-# DEF points & yards allowed derived from play-by-play
+# DEF points allowed derived from SCHEDULES (official scores)
 
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(tidyr)
 
 # =====================
 # CONFIG
@@ -103,35 +104,39 @@ player_list <- apply(weekly_clean, 1, function(row) {
 })
 
 # =====================
-# LOAD PLAY-BY-PLAY FOR DEF ALLOWED STATS
+# DEF POINTS ALLOWED (FROM SCHEDULES)
 # =====================
-message("Loading play-by-play data for DEF points/yards allowed")
+message("Loading schedules for DEF points allowed")
 
-pbp <- nflreadr::load_pbp(seasons = season) %>%
-  filter(!is.na(week))
+schedules <- nflreadr::load_schedules(seasons = season)
 
-# ---- Points Allowed ----
-def_points_allowed <- pbp %>%
-  mutate(
-    defense_team = defteam,
-    points =
-      (td * 6) +
-      (extra_point_good * 1) +
-      (two_point_conv_result == "success") * 2 +
-      (field_goal_result == "made") * 3 +
-      (safety * 2)
+def_points_allowed <- schedules %>%
+  filter(
+    game_type == "REG",
+    !is.na(home_score),
+    !is.na(away_score)
   ) %>%
-  group_by(season, week, defense_team) %>%
-  summarise(points_allowed = sum(points, na.rm = TRUE), .groups = "drop")
-
-# ---- Yards Allowed ----
-def_yards_allowed <- pbp %>%
-  group_by(season, week, defteam) %>%
-  summarise(yards_allowed = sum(yards_gained, na.rm = TRUE), .groups = "drop") %>%
-  rename(defense_team = defteam)
-
-def_allowed <- def_points_allowed %>%
-  left_join(def_yards_allowed, by = c("season","week","defense_team"))
+  transmute(
+    season,
+    week,
+    home_team,
+    away_team,
+    home_points_allowed = away_score,
+    away_points_allowed = home_score
+  ) %>%
+  pivot_longer(
+    cols = c(home_team, away_team),
+    names_to = "side",
+    values_to = "team"
+  ) %>%
+  mutate(
+    points_allowed = ifelse(
+      side == "home_team",
+      home_points_allowed,
+      away_points_allowed
+    )
+  ) %>%
+  select(season, week, team, points_allowed)
 
 # =====================
 # LOAD TEAM DEF STATS
@@ -143,8 +148,8 @@ team_weekly <- nflreadr::load_team_stats(seasons = season)
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
   left_join(
-    def_allowed,
-    by = c("season","week","team" = "defense_team")
+    def_points_allowed,
+    by = c("season","week","team")
   ) %>%
   mutate(
     fantasy_points_ppr =
@@ -177,7 +182,6 @@ team_def <- team_weekly %>%
     defensive_tds = def_tds + special_teams_tds,
     safeties = def_safeties,
     points_allowed,
-    yards_allowed,
     fantasy_points_ppr
   )
 
