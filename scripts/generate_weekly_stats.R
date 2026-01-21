@@ -6,7 +6,6 @@
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
-library(tidyr)
 
 # =====================
 # CONFIG
@@ -108,35 +107,30 @@ player_list <- apply(weekly_clean, 1, function(row) {
 # =====================
 message("Loading schedules for DEF points allowed")
 
-schedules <- nflreadr::load_schedules(seasons = season)
-
-def_points_allowed <- schedules %>%
+schedules <- nflreadr::load_schedules(seasons = season) %>%
   filter(
     game_type == "REG",
     !is.na(home_score),
     !is.na(away_score)
-  ) %>%
+  )
+
+home_def <- schedules %>%
   transmute(
     season,
     week,
-    home_team,
-    away_team,
-    home_points_allowed = away_score,
-    away_points_allowed = home_score
-  ) %>%
-  pivot_longer(
-    cols = c(home_team, away_team),
-    names_to = "side",
-    values_to = "team"
-  ) %>%
-  mutate(
-    points_allowed = ifelse(
-      side == "home_team",
-      home_points_allowed,
-      away_points_allowed
-    )
-  ) %>%
-  select(season, week, team, points_allowed)
+    team = home_team,
+    points_allowed = away_score
+  )
+
+away_def <- schedules %>%
+  transmute(
+    season,
+    week,
+    team = away_team,
+    points_allowed = home_score
+  )
+
+def_points_allowed <- bind_rows(home_def, away_def)
 
 # =====================
 # LOAD TEAM DEF STATS
