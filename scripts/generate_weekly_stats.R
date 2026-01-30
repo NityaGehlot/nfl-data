@@ -1,11 +1,12 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
-# DEF points allowed derived from SCHEDULES (official scores)
+# Includes player injury status (report + practice)
 
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(stringr)
 
 # =====================
 # CONFIG
@@ -22,6 +23,36 @@ out_path <- file.path("data", output_name)
 # =====================
 message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
+
+# =====================
+# LOAD INJURY DATA
+# =====================
+message("Loading injury reports")
+
+injuries <- nflreadr::load_injuries(seasons = season) %>%
+  filter(season_type == "REG") %>%
+  transmute(
+    season,
+    week,
+    team,
+    position,
+    full_name,
+    report_status,
+    practice_status,
+    join_name = str_to_lower(str_replace_all(full_name, "[^a-z]", ""))
+  )
+
+# =====================
+# NORMALIZE PLAYER NAMES FOR JOIN
+# =====================
+weekly <- weekly %>%
+  mutate(
+    join_name = str_to_lower(str_replace_all(player_name, "[^a-z]", ""))
+  ) %>%
+  left_join(
+    injuries,
+    by = c("season", "week", "team", "position", "join_name")
+  )
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -55,6 +86,7 @@ weekly <- weekly %>%
 # =====================
 desired_cols <- c(
   "season","week","player_id","player_name","position","team","opponent_team",
+  "report_status","practice_status",
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
@@ -93,7 +125,8 @@ position_cols <- list(
 base_cols <- c(
   "season","week","player_id","player_name",
   "position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr"
+  "headshot_url","fantasy_points_ppr",
+  "report_status","practice_status"
 )
 
 player_list <- apply(weekly_clean, 1, function(row) {
@@ -115,20 +148,10 @@ schedules <- nflreadr::load_schedules(seasons = season) %>%
   )
 
 home_def <- schedules %>%
-  transmute(
-    season,
-    week,
-    team = home_team,
-    points_allowed = away_score
-  )
+  transmute(season, week, team = home_team, points_allowed = away_score)
 
 away_def <- schedules %>%
-  transmute(
-    season,
-    week,
-    team = away_team,
-    points_allowed = home_score
-  )
+  transmute(season, week, team = away_team, points_allowed = home_score)
 
 def_points_allowed <- bind_rows(home_def, away_def)
 
@@ -141,16 +164,13 @@ team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
-  left_join(
-    def_points_allowed,
-    by = c("season","week","team")
-  ) %>%
+  left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
-      (def_fumbles * 1) +              # Forced fumbles (Sleeper = 1 pt)
-      (fumble_recovery_opp * 2) +       # DEFENSIVE recoveries only
+      (def_fumbles_forced * 1) +
+      (fumble_recovery_opp * 2) +
       ((def_tds + special_teams_tds) * 6) +
       (def_safeties * 2) +
       case_when(
@@ -171,20 +191,15 @@ team_def <- team_weekly %>%
     position = "DEF",
     team,
     opponent_team,
-
     sacks = def_sacks,
     interceptions = def_interceptions,
-
-    # ✅ SLEEPER-CORRECT FUMBLE STATS
-    fumbles_forced = def_fumbles,
+    fumbles_forced = def_fumbles_forced,
     fumbles_recovered = fumble_recovery_opp,
-
     defensive_tds = def_tds + special_teams_tds,
     safeties = def_safeties,
     points_allowed,
     fantasy_points_ppr
   )
-
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
 
