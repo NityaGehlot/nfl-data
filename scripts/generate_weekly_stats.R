@@ -149,7 +149,8 @@ team_def <- team_weekly %>%
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
-      (fumble_recovery_own * 2) +
+      (def_fumbles * 1) +              # Forced fumbles (Sleeper = 1 pt)
+      (fumble_recovery_opp * 2) +       # DEFENSIVE recoveries only
       ((def_tds + special_teams_tds) * 6) +
       (def_safeties * 2) +
       case_when(
@@ -170,14 +171,20 @@ team_def <- team_weekly %>%
     position = "DEF",
     team,
     opponent_team,
+
     sacks = def_sacks,
     interceptions = def_interceptions,
-    fumbles_recovered = fumble_recovery_own,
+
+    # ✅ SLEEPER-CORRECT FUMBLE STATS
+    fumbles_forced = def_fumbles,
+    fumbles_recovered = fumble_recovery_opp,
+
     defensive_tds = def_tds + special_teams_tds,
     safeties = def_safeties,
     points_allowed,
     fantasy_points_ppr
   )
+
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
 
