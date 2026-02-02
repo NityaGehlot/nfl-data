@@ -6,6 +6,7 @@
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(stringr)
 
 # =====================
 # CONFIG
@@ -26,7 +27,7 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 # =====================
 # LOAD INJURY DATA
 # =====================
-message("Loading weekly injury reports")
+message("Loading injury reports")
 
 injuries <- nflreadr::load_injuries(seasons = season) %>%
   filter(season_type == "REG") %>%
@@ -35,15 +36,18 @@ injuries <- nflreadr::load_injuries(seasons = season) %>%
     week,
     team,
     position,
+    full_name,
     report_status,
     practice_status,
-    join_name = tolower(gsub("[^a-z]", "", full_name))
+    join_name = str_to_lower(str_replace_all(full_name, "[^a-z]", ""))
   )
 
-# Normalize names in weekly stats and JOIN injuries
+# =====================
+# NORMALIZE PLAYER NAMES FOR JOIN
+# =====================
 weekly <- weekly %>%
   mutate(
-    join_name = tolower(gsub("[^a-z]", "", player_name))
+    join_name = str_to_lower(str_replace_all(player_name, "[^a-z]", ""))
   ) %>%
   left_join(
     injuries,
@@ -82,20 +86,11 @@ weekly <- weekly %>%
 # =====================
 desired_cols <- c(
   "season","week","player_id","player_name","position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr",
-
-  # Injury info
   "report_status","practice_status",
-
-  # Passing
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-
-  # Rushing / Receiving
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
-  "fumbles",
-
-  # Kicking
+  "fumbles","fantasy_points_ppr","headshot_url",
   "fg_made","fg_att","fg_missed",
   "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
   "pat_made","pat_att","pat_missed"
