@@ -24,21 +24,38 @@ message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
 
 # =====================
-# LOAD INJURY DATA
+# LOAD INJURY DATA (SAFE)
 # =====================
-message("Loading weekly injury reports")
+message("Loading weekly injury reports (if available)")
 
-injuries <- nflreadr::load_injuries(seasons = season) %>%
-  filter(season_type == "REG") %>%
-  transmute(
-    season,
-    week,
-    team,
-    position,
-    report_status,
-    practice_status,
-    join_name = tolower(gsub("[^a-z]", "", full_name))
-  )
+injuries <- tryCatch(
+  {
+    nflreadr::load_injuries(seasons = season) %>%
+      filter(!is.na(week)) %>%
+      transmute(
+        season,
+        week,
+        team,
+        position,
+        report_status,
+        practice_status,
+        join_name = tolower(gsub("[^a-z]", "", full_name))
+      )
+  },
+  error = function(e) {
+    message("⚠️ Injury data not available yet — continuing without injuries")
+    tibble(
+      season = integer(),
+      week = integer(),
+      team = character(),
+      position = character(),
+      report_status = character(),
+      practice_status = character(),
+      join_name = character()
+    )
+  }
+)
+
 
 # Normalize names in weekly stats and JOIN injuries
 weekly <- weekly %>%
@@ -48,7 +65,12 @@ weekly <- weekly %>%
   left_join(
     injuries,
     by = c("season", "week", "team", "position", "join_name")
+  ) %>%
+  mutate(
+    report_status = ifelse(is.na(report_status), "Healthy", report_status),
+    practice_status = ifelse(is.na(practice_status), "Full", practice_status)
   )
+
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
