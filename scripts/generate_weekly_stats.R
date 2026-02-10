@@ -1,7 +1,7 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # ✅ Includes ALL players every week
-# ✅ Includes injury status
+# ✅ Includes injury status (safe fallback)
 # ✅ Sleeper-accurate K + DEF fantasy scoring
 
 library(nflreadr)
@@ -14,27 +14,29 @@ library(jsonlite)
 current_year <- as.numeric(format(Sys.Date(), "%Y"))
 latest_season <- nflreadr::most_recent_season()
 season <- min(current_year, latest_season)
-
 weeks <- 1:18
 
 output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD BASE PLAYER UNIVERSE
+# LOAD NFL ROSTERS (SOURCE OF TRUTH)
 # =====================
 message("Loading NFL rosters")
 
 rosters <- nflreadr::load_rosters(seasons = season) %>%
   filter(position %in% c("QB","RB","WR","TE","K")) %>%
-  select(
-    gsis_id,
-    player_name = full_name,
+  transmute(
+    gsis_id = player_id,
+    player_name = coalesce(player_display_name, full_name),
     team,
     position,
     headshot_url
   )
 
+# =====================
+# CREATE FULL PLAYER × WEEK GRID
+# =====================
 player_weeks <- expand.grid(
   gsis_id = rosters$gsis_id,
   week = weeks
@@ -43,7 +45,7 @@ player_weeks <- expand.grid(
   mutate(season = season)
 
 # =====================
-# LOAD PLAYER STATS
+# LOAD WEEKLY PLAYER STATS
 # =====================
 message("Loading weekly player stats")
 
@@ -60,16 +62,6 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# FIX POSITION COLUMN AFTER JOIN
-# =====================
-player_weeks <- player_weeks %>%
-  mutate(
-    position = coalesce(position.x, position.y)
-  ) %>%
-  select(-position.x, -position.y)
-
-
-# =====================
 # LOAD INJURY DATA (SAFE)
 # =====================
 message("Loading injury reports")
@@ -84,6 +76,7 @@ injuries <- tryCatch(
       practice_status
     ),
   error = function(e) {
+    message("⚠️ Injury data not available — defaulting to Healthy")
     tibble(
       gsis_id = character(),
       week = integer(),
@@ -101,28 +94,37 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# NORMALIZE STATS (CRITICAL)
+# NORMALIZE ALL STATS (NO MISSING COLUMNS)
 # =====================
 player_weeks <- player_weeks %>%
   mutate(
-    fantasy_points_ppr = coalesce(fantasy_points_ppr, 0)
-  ) %>%
-  mutate(
-    across(
-      any_of(c(
-        "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-        "carries","rushing_yards","rushing_tds",
-        "targets","receptions","receiving_yards","receiving_tds",
-        "fumbles",
-        "fg_made_0_19","fg_made_20_29","fg_made_30_39",
-        "fg_made_40_49","fg_made_50_59","fg_made_60_",
-        "fg_att","fg_missed",
-        "pat_made","pat_att","pat_missed"
-      )),
-      ~ coalesce(.x, 0)
-    )
-  )
+    fantasy_points_ppr = coalesce(fantasy_points_ppr, 0),
+    completions = coalesce(completions, 0),
+    attempts = coalesce(attempts, 0),
+    passing_yards = coalesce(passing_yards, 0),
+    passing_tds = coalesce(passing_tds, 0),
+    passing_interceptions = coalesce(passing_interceptions, 0),
+    carries = coalesce(carries, 0),
+    rushing_yards = coalesce(rushing_yards, 0),
+    rushing_tds = coalesce(rushing_tds, 0),
+    targets = coalesce(targets, 0),
+    receptions = coalesce(receptions, 0),
+    receiving_yards = coalesce(receiving_yards, 0),
+    receiving_tds = coalesce(receiving_tds, 0),
+    fumbles = coalesce(fumbles, 0),
 
+    fg_made_0_19 = coalesce(fg_made_0_19, 0),
+    fg_made_20_29 = coalesce(fg_made_20_29, 0),
+    fg_made_30_39 = coalesce(fg_made_30_39, 0),
+    fg_made_40_49 = coalesce(fg_made_40_49, 0),
+    fg_made_50_59 = coalesce(fg_made_50_59, 0),
+    fg_made_60_ = coalesce(fg_made_60_, 0),
+    fg_att = coalesce(fg_att, 0),
+    fg_missed = coalesce(fg_missed, 0),
+    pat_made = coalesce(pat_made, 0),
+    pat_att = coalesce(pat_att, 0),
+    pat_missed = coalesce(pat_missed, 0)
+  )
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
