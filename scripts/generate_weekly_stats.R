@@ -60,6 +60,16 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
+# FIX POSITION COLUMN AFTER JOIN
+# =====================
+player_weeks <- player_weeks %>%
+  mutate(
+    position = coalesce(position.x, position.y)
+  ) %>%
+  select(-position.x, -position.y)
+
+
+# =====================
 # LOAD INJURY DATA (SAFE)
 # =====================
 message("Loading injury reports")
