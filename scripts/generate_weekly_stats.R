@@ -1,7 +1,7 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # ✅ Includes ALL players every week
-# ✅ Includes injury status (safe fallback)
+# ✅ Skips injuries (get from another source)
 # ✅ Sleeper-accurate K + DEF fantasy scoring
 
 library(nflreadr)
@@ -20,17 +20,14 @@ output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD NFL ROSTERS (SOURCE OF TRUTH)
+# LOAD NFL ROSTERS
 # =====================
 message("Loading NFL rosters")
-rosters <- nflreadr::load_rosters(seasons = season)
-
-# Handle different column names robustly
-rosters <- rosters %>%
+rosters <- nflreadr::load_rosters(seasons = season) %>%
   filter(position %in% c("QB","RB","WR","TE","K")) %>%
   mutate(
-    gsis_id = if("player_id" %in% names(rosters)) player_id else gsis_id,
-    player_name = if("player_display_name" %in% names(rosters)) coalesce(player_display_name, full_name) else full_name
+    gsis_id = if("player_id" %in% names(.)) player_id else gsis_id,
+    player_name = if("player_display_name" %in% names(.)) coalesce(player_display_name, full_name) else full_name
   ) %>%
   select(
     gsis_id,
@@ -60,32 +57,6 @@ player_weeks <- player_weeks %>%
   left_join(
     weekly_stats,
     by = c("gsis_id" = "player_id", "season", "week")
-  )
-
-# =====================
-# LOAD INJURY DATA (SAFE)
-# =====================
-message("Loading injury reports")
-injuries <- tryCatch(
-  nflreadr::load_injuries(seasons = season) %>%
-    filter(!is.na(week)) %>%
-    select(gsis_id, week, report_status, practice_status),
-  error = function(e) {
-    message("⚠️ Injury data not available — defaulting to Healthy")
-    tibble(
-      gsis_id = character(),
-      week = integer(),
-      report_status = character(),
-      practice_status = character()
-    )
-  }
-)
-
-player_weeks <- player_weeks %>%
-  left_join(injuries, by = c("gsis_id", "week")) %>%
-  mutate(
-    report_status = ifelse(is.na(report_status), "Healthy", report_status),
-    practice_status = ifelse(is.na(practice_status), "Full", practice_status)
   )
 
 # =====================
@@ -164,7 +135,7 @@ team_def <- team_weekly %>%
     position = "DEF",
     team, opponent_team,
     sacks = def_sacks,
-    interceptions = def_interceptions,
+    interceptions = def_def_interceptions,
     fumbles_forced = def_fumbles_forced,
     fumbles_recovered = fumble_recovery_opp,
     defensive_tds = def_tds + special_teams_tds,
@@ -182,7 +153,7 @@ final_players <- bind_rows(
       season, week,
       player_id = gsis_id,
       player_name, position, team, opponent_team, headshot_url,
-      fantasy_points_ppr, report_status, practice_status,
+      fantasy_points_ppr,
       completions, attempts, passing_yards, passing_tds, passing_interceptions,
       carries, rushing_yards, rushing_tds,
       targets, receptions, receiving_yards, receiving_tds,
