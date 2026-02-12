@@ -6,7 +6,7 @@
 
 library(nflreadr)
 library(dplyr)
-@@ -14,84 +15,127 @@ current_year <- as.numeric(format(Sys.Date(), "%Y"))
+current_year <- as.numeric(format(Sys.Date(), "%Y"))
 latest_season <- nflreadr::most_recent_season()
 season <- min(current_year, latest_season)
 
@@ -134,7 +134,7 @@ player_weeks <- player_weeks %>%
       (pat_made * 1) -
       (fg_missed * 1) -
       (pat_missed * 1),
-@@ -100,79 +144,12 @@ weekly <- weekly %>%
+weekly <- weekly %>%
   )
 
 # =====================
@@ -147,13 +147,13 @@ schedules <- nflreadr::load_schedules(seasons = season) %>%
 
 home_def <- schedules %>%
   transmute(season, week, team = home_team, points_allowed = away_score)
-@@ -182,11 +159,6 @@ away_def <- schedules %>%
+away_def <- schedules %>%
 
 def_points_allowed <- bind_rows(home_def, away_def)
     team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
-@@ -228,17 +200,53 @@ team_def <- team_weekly %>%
+team_def <- team_weekly %>%
     fantasy_points_ppr
   )
 # =====================
