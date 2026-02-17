@@ -170,6 +170,7 @@ team_def <- team_weekly %>%
 # =====================
 final_players <- bind_rows(
   player_weeks %>%
+    mutate(opponent_team = NA_character_) %>%  # <- ADD THIS LINE
     transmute(
       season,
       week,
@@ -210,6 +211,7 @@ final_players <- bind_rows(
     ),
   team_def
 )
+
 
 if (!dir.exists("data")) dir.create("data")
 
