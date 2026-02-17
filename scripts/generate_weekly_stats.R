@@ -20,7 +20,7 @@ output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD ROSTERS
+# LOAD ROSTERS (SOURCE OF TRUTH)
 # =====================
 message("Loading NFL rosters")
 
@@ -58,6 +58,15 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
+# FIX POSITION COLUMN AFTER JOIN (CRITICAL)
+# =====================
+player_weeks <- player_weeks %>%
+  mutate(
+    position = coalesce(position.y, position.x)
+  ) %>%
+  select(-position.x, -position.y)
+
+# =====================
 # FORCE REQUIRED COLUMNS TO EXIST
 # =====================
 required_cols <- c(
@@ -73,7 +82,6 @@ required_cols <- c(
 )
 
 missing_cols <- setdiff(required_cols, names(player_weeks))
-
 if (length(missing_cols) > 0) {
   player_weeks[missing_cols] <- 0
 }
@@ -85,7 +93,7 @@ player_weeks <- player_weeks %>%
   mutate(across(all_of(required_cols), ~coalesce(.x, 0)))
 
 # =====================
-# KICKER FANTASY SCORING (Sleeper)
+# KICKER FANTASY SCORING (SLEEPER)
 # =====================
 player_weeks <- player_weeks %>%
   mutate(
@@ -105,12 +113,12 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# DEF POINTS ALLOWED
+# DEF POINTS ALLOWED (SCHEDULES)
 # =====================
 message("Loading DEF points allowed")
 
 schedules <- nflreadr::load_schedules(seasons = season) %>%
-  filter(game_type == "REG", !is.na(home_score))
+  filter(game_type == "REG", !is.na(home_score), !is.na(away_score))
 
 home_def <- schedules %>%
   transmute(season, week, team = home_team, points_allowed = away_score)
