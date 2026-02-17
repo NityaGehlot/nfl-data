@@ -1,8 +1,5 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
-# ✅ All players every week
-# ✅ K + DEF fantasy scoring
-# ✅ No nulls for player name, team, or position
 
 library(nflreadr)
 library(dplyr)
@@ -21,68 +18,40 @@ output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD PLAYERS (MASTER TABLE)
+# LOAD PLAYERS / ROSTERS
 # =====================
-message("Loading master player info")
+message("Loading player info and rosters")
 
 players <- nflreadr::load_players(seasons = season) %>%
-  transmute(
-    player_id = gsis_id,
-    player_name = player_display_name,
-    team = team,
-    position = position,
-    headshot_url = headshot_url
-  )
+  rename(player_id = gsis_id) %>%
+  select(player_id, player_name = display_name, team = latest_team, position, position_group, headshot_url)
 
-# =====================
-# LOAD ROSTERS (OPTIONAL: POSITION FILTER)
-# =====================
-message("Loading rosters")
-
-rosters <- nflreadr::load_rosters(seasons = season) %>%
-  filter(position %in% c("QB","RB","WR","TE","K")) %>%
-  transmute(
-    player_id = gsis_id,
-    player_name = full_name,
-    team,
-    position,
-    headshot_url
-  )
+# Only keep positions we care about
+players <- players %>%
+  filter(position %in% c("QB","RB","WR","TE","K"))
 
 # =====================
 # CREATE PLAYER × WEEK GRID
 # =====================
 player_weeks <- expand.grid(
-  player_id = unique(c(rosters$player_id, players$player_id)),
+  player_id = players$player_id,
   week = weeks
 ) %>%
-  mutate(season = season)
+  mutate(season = season) %>%
+  left_join(players, by = "player_id")
 
 # =====================
 # LOAD WEEKLY PLAYER STATS
 # =====================
 message("Loading weekly player stats")
-
-weekly_stats <- nflreadr::load_player_stats(seasons = season)
+weekly_stats <- nflreadr::load_player_stats(seasons = season) %>%
+  rename(player_id = gsis_id)
 
 player_weeks <- player_weeks %>%
   left_join(weekly_stats, by = c("player_id", "season", "week"))
 
 # =====================
-# FILL MISSING INFO FROM MASTER PLAYER TABLE
-# =====================
-player_weeks <- player_weeks %>%
-  left_join(players, by = "player_id", suffix = c("", "_master")) %>%
-  mutate(
-    player_name = coalesce(player_name, player_name_master),
-    team = coalesce(team, team_master),
-    position = coalesce(position, position_master),
-    headshot_url = coalesce(headshot_url, headshot_url_master)
-  ) %>%
-  select(-ends_with("_master"))
-
-# =====================
-# FORCE REQUIRED COLUMNS TO EXIST
+# FORCE REQUIRED COLUMNS
 # =====================
 required_cols <- c(
   "fantasy_points_ppr",
@@ -99,9 +68,7 @@ required_cols <- c(
 missing_cols <- setdiff(required_cols, names(player_weeks))
 if(length(missing_cols) > 0) player_weeks[missing_cols] <- 0
 
-# =====================
-# NORMALIZE STATS
-# =====================
+# Replace NA with 0
 player_weeks <- player_weeks %>%
   mutate(across(all_of(required_cols), ~coalesce(.x, 0)))
 
@@ -126,24 +93,24 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# LOAD TEAM DEF STATS
+# DEF POINTS ALLOWED
 # =====================
-message("Loading team defensive points")
-
+message("Loading DEF points allowed")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
   filter(game_type == "REG", !is.na(home_score))
 
 home_def <- schedules %>%
   transmute(season, week, team = home_team, points_allowed = away_score)
-
 away_def <- schedules %>%
   transmute(season, week, team = away_team, points_allowed = home_score)
-
 def_points_allowed <- bind_rows(home_def, away_def)
 
-team_weekly <- nflreadr::load_team_stats(seasons = season)
+# =====================
+# TEAM DEF STATS
+# =====================
+team_stats <- nflreadr::load_team_stats(seasons = season)
 
-team_def <- team_weekly %>%
+team_def <- team_stats %>%
   filter(!is.na(week)) %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
@@ -176,7 +143,7 @@ team_def <- team_weekly %>%
   )
 
 # =====================
-# EXPORT FINAL JSON
+# FINAL JSON EXPORT
 # =====================
 final_players <- bind_rows(
   player_weeks %>%
@@ -190,19 +157,24 @@ final_players <- bind_rows(
       opponent_team,
       headshot_url,
       fantasy_points_ppr,
+
       completions,
       attempts,
       passing_yards,
       passing_tds,
       passing_interceptions,
+
       carries,
       rushing_yards,
       rushing_tds,
+
       targets,
       receptions,
       receiving_yards,
       receiving_tds,
+
       fumbles_lost,
+
       fg_att,
       fg_made_0_19,
       fg_made_20_29,
@@ -211,8 +183,7 @@ final_players <- bind_rows(
       fg_made_50_59,
       fg_made_60_,
       pat_att,
-      pat_made,
-      pat_missed
+      pat_made
     ),
   team_def
 )
