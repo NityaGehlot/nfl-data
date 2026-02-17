@@ -20,7 +20,7 @@ output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD ROSTERS (SOURCE OF TRUTH)
+# LOAD ROSTERS
 # =====================
 message("Loading NFL rosters")
 
@@ -58,42 +58,31 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# NORMALIZE ALL STATS (NO NAs)
+# FORCE REQUIRED COLUMNS TO EXIST
+# =====================
+required_cols <- c(
+  "fantasy_points_ppr",
+  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
+  "carries","rushing_yards","rushing_tds",
+  "targets","receptions","receiving_yards","receiving_tds",
+  "fumbles_lost",
+  "fg_made_0_19","fg_made_20_29","fg_made_30_39",
+  "fg_made_40_49","fg_made_50_59","fg_made_60_",
+  "fg_att","fg_missed",
+  "pat_made","pat_att","pat_missed"
+)
+
+missing_cols <- setdiff(required_cols, names(player_weeks))
+
+if (length(missing_cols) > 0) {
+  player_weeks[missing_cols] <- 0
+}
+
+# =====================
+# NORMALIZE ALL STATS
 # =====================
 player_weeks <- player_weeks %>%
-  mutate(
-    fantasy_points_ppr = coalesce(fantasy_points_ppr, 0),
-
-    completions = coalesce(completions, 0),
-    attempts = coalesce(attempts, 0),
-    passing_yards = coalesce(passing_yards, 0),
-    passing_tds = coalesce(passing_tds, 0),
-    passing_interceptions = coalesce(passing_interceptions, 0),
-
-    carries = coalesce(carries, 0),
-    rushing_yards = coalesce(rushing_yards, 0),
-    rushing_tds = coalesce(rushing_tds, 0),
-
-    targets = coalesce(targets, 0),
-    receptions = coalesce(receptions, 0),
-    receiving_yards = coalesce(receiving_yards, 0),
-    receiving_tds = coalesce(receiving_tds, 0),
-
-    fumbles_lost = coalesce(fumbles_lost, 0),
-
-    fg_made_0_19 = coalesce(fg_made_0_19, 0),
-    fg_made_20_29 = coalesce(fg_made_20_29, 0),
-    fg_made_30_39 = coalesce(fg_made_30_39, 0),
-    fg_made_40_49 = coalesce(fg_made_40_49, 0),
-    fg_made_50_59 = coalesce(fg_made_50_59, 0),
-    fg_made_60_ = coalesce(fg_made_60_, 0),
-
-    fg_att = coalesce(fg_att, 0),
-    fg_missed = coalesce(fg_missed, 0),
-    pat_made = coalesce(pat_made, 0),
-    pat_att = coalesce(pat_att, 0),
-    pat_missed = coalesce(pat_missed, 0)
-  )
+  mutate(across(all_of(required_cols), ~coalesce(.x, 0)))
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -116,7 +105,7 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# DEF POINTS ALLOWED (SCHEDULES)
+# DEF POINTS ALLOWED
 # =====================
 message("Loading DEF points allowed")
 
@@ -141,12 +130,12 @@ team_def <- team_weekly %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
     fantasy_points_ppr =
-      (def_sacks * 1) +
-      (def_interceptions * 2) +
-      (def_fumbles_forced * 1) +
-      (fumble_recovery_opp * 2) +
-      ((def_tds + special_teams_tds) * 6) +
-      (def_safeties * 2) +
+      (coalesce(def_sacks,0) * 1) +
+      (coalesce(def_interceptions,0) * 2) +
+      (coalesce(def_fumbles_forced,0) * 1) +
+      (coalesce(fumble_recovery_opp,0) * 2) +
+      ((coalesce(def_tds,0) + coalesce(special_teams_tds,0)) * 6) +
+      (coalesce(def_safeties,0) * 2) +
       case_when(
         points_allowed == 0  ~ 10,
         points_allowed <= 6  ~ 7,
@@ -165,13 +154,6 @@ team_def <- team_weekly %>%
     position = "DEF",
     team,
     opponent_team,
-    sacks = def_sacks,
-    interceptions = def_interceptions,
-    fumbles_forced = def_fumbles_forced,
-    fumbles_recovered = fumble_recovery_opp,
-    defensive_tds = def_tds + special_teams_tds,
-    safeties = def_safeties,
-    points_allowed,
     fantasy_points_ppr
   )
 
