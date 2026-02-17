@@ -23,5 +23,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
+    # 🔴 THIS IS THE MISSING PIECE
+    environment:
+      name: github-pages
+
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
