@@ -1,5 +1,8 @@
 # scripts/generate_weekly_stats.R
-# Robust NFL weekly stats generator
+# Generate official NFL weekly stats JSON using nflreadr
+# ✅ All players every week
+# ✅ Sleeper-accurate K + DEF fantasy scoring
+# ✅ Handles missing columns safely
 
 library(nflreadr)
 library(dplyr)
@@ -36,7 +39,8 @@ rosters <- nflreadr::load_rosters(seasons = season) %>%
 # =====================
 player_weeks <- expand.grid(
   player_id = rosters$player_id,
-  week = weeks
+  week = weeks,
+  stringsAsFactors = FALSE
 ) %>%
   left_join(rosters, by = "player_id") %>%
   mutate(season = season)
@@ -45,7 +49,6 @@ player_weeks <- expand.grid(
 # LOAD WEEKLY PLAYER STATS
 # =====================
 message("Loading weekly player stats")
-
 weekly_stats <- nflreadr::load_player_stats(seasons = season)
 
 player_weeks <- player_weeks %>%
@@ -57,38 +60,38 @@ player_weeks <- player_weeks %>%
 # =====================
 # FORCE REQUIRED COLUMNS TO EXIST
 # =====================
-required_cols <- c(
+# Character vs numeric defaults
+numeric_cols <- c(
   "fantasy_points_ppr",
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
-  "rushing_fumbles_lost","receiving_fumbles_lost","sack_fumbles_lost",
+  "fumbles_lost",
   "fg_made_0_19","fg_made_20_29","fg_made_30_39",
   "fg_made_40_49","fg_made_50_59","fg_made_60_",
   "fg_att","fg_missed",
   "pat_made","pat_att","pat_missed"
 )
 
-missing_cols <- setdiff(required_cols, names(player_weeks))
-if (length(missing_cols) > 0) {
-  player_weeks[missing_cols] <- 0
+character_cols <- c("position","opponent_team","headshot_url","team","player_name")
+
+# Fill missing numeric columns with 0
+missing_numeric <- setdiff(numeric_cols, names(player_weeks))
+if(length(missing_numeric) > 0) {
+  player_weeks[missing_numeric] <- 0
 }
 
-# =====================
-# COMPUTE TOTAL FUMBLES LOST
-# =====================
-player_weeks <- player_weeks %>%
-  mutate(
-    fumbles_lost = coalesce(rushing_fumbles_lost,0) +
-                   coalesce(receiving_fumbles_lost,0) +
-                   coalesce(sack_fumbles_lost,0)
-  )
+# Fill missing character columns with NA
+missing_character <- setdiff(character_cols, names(player_weeks))
+if(length(missing_character) > 0) {
+  player_weeks[missing_character] <- NA_character_
+}
 
 # =====================
 # NORMALIZE ALL STATS
 # =====================
 player_weeks <- player_weeks %>%
-  mutate(across(all_of(required_cols), ~coalesce(.x,0)))
+  mutate(across(all_of(numeric_cols), ~coalesce(.x, 0)))
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -97,16 +100,16 @@ player_weeks <- player_weeks %>%
   mutate(
     fantasy_points_ppr = ifelse(
       !is.na(position) & position == "K",
-      (fg_made_0_19 * 3) +
-      (fg_made_20_29 * 3) +
-      (fg_made_30_39 * 3) +
-      (fg_made_40_49 * 4) +
-      (fg_made_50_59 * 5) +
-      (fg_made_60_ * 5) +
-      (pat_made * 1) -
-      (fg_missed * 1) -
-      (pat_missed * 1),
-      coalesce(fantasy_points_ppr, 0)
+      (coalesce(fg_made_0_19,0)*3) + 
+      (coalesce(fg_made_20_29,0)*3) + 
+      (coalesce(fg_made_30_39,0)*3) +
+      (coalesce(fg_made_40_49,0)*4) +
+      (coalesce(fg_made_50_59,0)*5) +
+      (coalesce(fg_made_60_,0)*5) +
+      (coalesce(pat_made,0)*1) -
+      (coalesce(fg_missed,0)*1) -
+      (coalesce(pat_missed,0)*1),
+      coalesce(fantasy_points_ppr,0)
     )
   )
 
@@ -114,7 +117,6 @@ player_weeks <- player_weeks %>%
 # DEF POINTS ALLOWED
 # =====================
 message("Loading DEF points allowed")
-
 schedules <- nflreadr::load_schedules(seasons = season) %>%
   filter(game_type == "REG", !is.na(home_score))
 
@@ -136,12 +138,12 @@ team_def <- team_weekly %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
     fantasy_points_ppr =
-      (coalesce(def_sacks,0) * 1) +
-      (coalesce(def_interceptions,0) * 2) +
-      (coalesce(def_fumbles_forced,0) * 1) +
-      (coalesce(fumble_recovery_opp,0) * 2) +
-      ((coalesce(def_tds,0) + coalesce(special_teams_tds,0)) * 6) +
-      (coalesce(def_safeties,0) * 2) +
+      (coalesce(def_sacks,0)*1) +
+      (coalesce(def_interceptions,0)*2) +
+      (coalesce(def_fumbles_forced,0)*1) +
+      (coalesce(fumble_recovery_opp,0)*2) +
+      ((coalesce(def_tds,0) + coalesce(special_teams_tds,0))*6) +
+      (coalesce(def_safeties,0)*2) +
       case_when(
         points_allowed == 0  ~ 10,
         points_allowed <= 6  ~ 7,
@@ -160,64 +162,34 @@ team_def <- team_weekly %>%
     position = "DEF",
     team,
     opponent_team,
-    headshot_url = NA_character_,
     fantasy_points_ppr
   )
 
 # =====================
 # EXPORT JSON
 # =====================
-final_players <- bind_rows(
-  player_weeks %>%
-    transmute(
-      season,
-      week,
-      player_id,
-      player_name,
-      position,
-      team,
-      opponent_team,
-      headshot_url,
-      fantasy_points_ppr,
-
-      completions,
-      attempts,
-      passing_yards,
-      passing_tds,
-      passing_interceptions,
-
-      carries,
-      rushing_yards,
-      rushing_tds,
-
-      targets,
-      receptions,
-      receiving_yards,
-      receiving_tds,
-
-      fumbles_lost,
-
-      fg_att,
-      fg_made_0_19,
-      fg_made_20_29,
-      fg_made_30_39,
-      fg_made_40_49,
-      fg_made_50_59,
-      fg_made_60_,
-      pat_att,
-      pat_made
-    ),
-  team_def
+final_players <- bind_rows(player_weeks %>% 
+                             transmute(
+                               season,
+                               week,
+                               player_id,
+                               player_name,
+                               position,
+                               team,
+                               opponent_team,
+                               headshot_url,
+                               fantasy_points_ppr,
+                               completions, attempts, passing_yards, passing_tds, passing_interceptions,
+                               carries, rushing_yards, rushing_tds,
+                               targets, receptions, receiving_yards, receiving_tds,
+                               fumbles_lost,
+                               fg_att, fg_made_0_19, fg_made_20_29, fg_made_30_39, fg_made_40_49, fg_made_50_59, fg_made_60_,
+                               pat_att, pat_made
+                             ),
+                           team_def
 )
 
-if (!dir.exists("data")) dir.create("data")
-
-write_json(
-  final_players,
-  out_path,
-  pretty = TRUE,
-  auto_unbox = TRUE,
-  na = "null"
-)
+if(!dir.exists("data")) dir.create("data")
+write_json(final_players, out_path, pretty = TRUE, auto_unbox = TRUE, na = "null")
 
 message("✅ Success! JSON exported → ", out_path)
