@@ -1,8 +1,5 @@
 # scripts/generate_weekly_stats.R
-# Generate official NFL weekly stats JSON using nflreadr
-# ✅ All players every week
-# ✅ Sleeper-accurate K + DEF fantasy scoring
-# ❌ No injuries (handled elsewhere)
+# Robust NFL weekly stats generator
 
 library(nflreadr)
 library(dplyr)
@@ -20,7 +17,7 @@ output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
 # =====================
-# LOAD ROSTERS (SOURCE OF TRUTH)
+# LOAD ROSTERS
 # =====================
 message("Loading NFL rosters")
 
@@ -58,15 +55,6 @@ player_weeks <- player_weeks %>%
   )
 
 # =====================
-# FIX POSITION COLUMN AFTER JOIN (CRITICAL)
-# =====================
-player_weeks <- player_weeks %>%
-  mutate(
-    position = coalesce(position.y, position.x)
-  ) %>%
-  select(-position.x, -position.y)
-
-# =====================
 # FORCE REQUIRED COLUMNS TO EXIST
 # =====================
 required_cols <- c(
@@ -74,7 +62,7 @@ required_cols <- c(
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
-  "fumbles_lost",
+  "rushing_fumbles_lost","receiving_fumbles_lost","sack_fumbles_lost",
   "fg_made_0_19","fg_made_20_29","fg_made_30_39",
   "fg_made_40_49","fg_made_50_59","fg_made_60_",
   "fg_att","fg_missed",
@@ -87,18 +75,28 @@ if (length(missing_cols) > 0) {
 }
 
 # =====================
+# COMPUTE TOTAL FUMBLES LOST
+# =====================
+player_weeks <- player_weeks %>%
+  mutate(
+    fumbles_lost = coalesce(rushing_fumbles_lost,0) +
+                   coalesce(receiving_fumbles_lost,0) +
+                   coalesce(sack_fumbles_lost,0)
+  )
+
+# =====================
 # NORMALIZE ALL STATS
 # =====================
 player_weeks <- player_weeks %>%
-  mutate(across(all_of(required_cols), ~coalesce(.x, 0)))
+  mutate(across(all_of(required_cols), ~coalesce(.x,0)))
 
 # =====================
-# KICKER FANTASY SCORING (SLEEPER)
+# KICKER FANTASY SCORING (Sleeper)
 # =====================
 player_weeks <- player_weeks %>%
   mutate(
     fantasy_points_ppr = ifelse(
-      position == "K",
+      !is.na(position) & position == "K",
       (fg_made_0_19 * 3) +
       (fg_made_20_29 * 3) +
       (fg_made_30_39 * 3) +
@@ -108,17 +106,17 @@ player_weeks <- player_weeks %>%
       (pat_made * 1) -
       (fg_missed * 1) -
       (pat_missed * 1),
-      fantasy_points_ppr
+      coalesce(fantasy_points_ppr, 0)
     )
   )
 
 # =====================
-# DEF POINTS ALLOWED (SCHEDULES)
+# DEF POINTS ALLOWED
 # =====================
 message("Loading DEF points allowed")
 
 schedules <- nflreadr::load_schedules(seasons = season) %>%
-  filter(game_type == "REG", !is.na(home_score), !is.na(away_score))
+  filter(game_type == "REG", !is.na(home_score))
 
 home_def <- schedules %>%
   transmute(season, week, team = home_team, points_allowed = away_score)
@@ -162,6 +160,7 @@ team_def <- team_weekly %>%
     position = "DEF",
     team,
     opponent_team,
+    headshot_url = NA_character_,
     fantasy_points_ppr
   )
 
@@ -170,7 +169,6 @@ team_def <- team_weekly %>%
 # =====================
 final_players <- bind_rows(
   player_weeks %>%
-    mutate(opponent_team = NA_character_) %>%  # <- ADD THIS LINE
     transmute(
       season,
       week,
@@ -211,7 +209,6 @@ final_players <- bind_rows(
     ),
   team_def
 )
-
 
 if (!dir.exists("data")) dir.create("data")
 
