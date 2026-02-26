@@ -22,6 +22,15 @@ out_path <- file.path("data", output_name)
 # =====================
 message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
+message("Loading players table for full names")
+players <- nflreadr::load_players() %>%
+  select(gsis_id, display_name, first_name, last_name)
+weekly <- weekly %>%
+  left_join(players, by = c("player_id" = "gsis_id")) %>%
+  mutate(
+    player_name = coalesce(display_name, player_name)
+  )
+
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
