@@ -1,11 +1,12 @@
 # scripts/generate_weekly_stats.R
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
-# DEF points allowed derived from SCHEDULES (official scores)
+# Adds injury data + fills missing injured weeks
 
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(tidyr)
 
 # =====================
 # CONFIG
@@ -20,17 +21,41 @@ out_path <- file.path("data", output_name)
 # =====================
 # LOAD PLAYER STATS
 # =====================
-message("Loading official weekly PLAYER stats for season: ", season)
+message("Loading official weekly PLAYER stats")
 weekly <- nflreadr::load_player_stats(seasons = season)
-message("Loading players table for full names")
+
 players <- nflreadr::load_players() %>%
-  select(gsis_id, display_name, first_name, last_name)
+  select(gsis_id, display_name)
+
 weekly <- weekly %>%
   left_join(players, by = c("player_id" = "gsis_id")) %>%
-  mutate(
-    player_name = coalesce(display_name, player_name)
-  )
+  mutate(player_name = coalesce(display_name, player_name))
 
+# =====================
+# LOAD INJURY DATA
+# =====================
+message("Loading injury data")
+injuries <- nflreadr::load_injuries(seasons = season) %>%
+  filter(season == !!season) %>%
+  select(season, week, player_id, report_status, injury_desc)
+
+# =====================
+# ENSURE ALL WEEKS EXIST (FILL IN INJURED WEEKS)
+# =====================
+all_weeks <- weekly %>%
+  distinct(player_id) %>%
+  crossing(week = 1:18) %>%
+  mutate(season = season)
+
+weekly <- all_weeks %>%
+  left_join(weekly, by = c("season","week","player_id")) %>%
+  left_join(injuries, by = c("season","week","player_id")) %>%
+  mutate(
+    injured = ifelse(!is.na(report_status), TRUE, FALSE),
+    injury_status = coalesce(report_status, "Healthy"),
+    injury_desc = coalesce(injury_desc, NA),
+    fantasy_points_ppr = coalesce(fantasy_points_ppr, 0)
+  )
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -53,7 +78,7 @@ weekly <- weekly %>%
   )
 
 # =====================
-# PLAYER COLUMN SELECTION
+# SELECT PLAYER COLUMNS
 # =====================
 desired_cols <- c(
   "season","week","player_id","player_name","position","team","opponent_team",
@@ -61,10 +86,12 @@ desired_cols <- c(
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles","fantasy_points_ppr","headshot_url",
+  "injured","injury_status","injury_desc",
   "fg_made","fg_att","fg_missed",
   "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
   "pat_made","pat_att","pat_missed"
 )
+
 weekly_clean <- weekly %>% select(any_of(desired_cols))
 
 # =====================
@@ -87,7 +114,8 @@ position_cols <- list(
 base_cols <- c(
   "season","week","player_id","player_name",
   "position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr"
+  "headshot_url","fantasy_points_ppr",
+  "injured","injury_status","injury_desc"
 )
 
 player_list <- apply(weekly_clean, 1, function(row) {
@@ -97,7 +125,7 @@ player_list <- apply(weekly_clean, 1, function(row) {
 })
 
 # =====================
-# DEF POINTS ALLOWED (FROM SCHEDULES)
+# DEF POINTS ALLOWED
 # =====================
 message("Loading schedules for DEF points allowed")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
@@ -121,10 +149,9 @@ team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
-    fantasy_points_ppr = (def_sacks * 1) + (def_interceptions * 2) + (def_fumbles_forced * 1) +
-      # Forced fumbles (Sleeper = 1 pt)
+    fantasy_points_ppr = (def_sacks * 1) + (def_interceptions * 2) +
+      (def_fumbles_forced * 1) +
       (fumble_recovery_opp * 2) +
-      # DEFENSIVE recoveries only
       ((def_tds + special_teams_tds) * 6) +
       (def_safeties * 2) +
       case_when(
@@ -143,14 +170,6 @@ team_def <- team_weekly %>%
     player_name = paste(team, "DEF"),
     position = "DEF",
     team, opponent_team,
-    sacks = def_sacks,
-    interceptions = def_interceptions,
-    # ✅ SLEEPER-CORRECT FUMBLE STATS
-    fumbles_forced = def_fumbles_forced,
-    fumbles_recovered = fumble_recovery_opp,
-    defensive_tds = def_tds + special_teams_tds,
-    safeties = def_safeties,
-    points_allowed,
     fantasy_points_ppr
   )
 
