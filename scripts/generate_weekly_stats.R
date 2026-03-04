@@ -2,11 +2,11 @@
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
 # Adds injury data + fills missing injured weeks
+# NO TIDYR REQUIRED
 
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
-library(tidyr)
 
 # =====================
 # CONFIG
@@ -22,12 +22,12 @@ out_path <- file.path("data", output_name)
 # LOAD PLAYER STATS
 # =====================
 message("Loading official weekly PLAYER stats")
-weekly <- nflreadr::load_player_stats(seasons = season)
+weekly_raw <- nflreadr::load_player_stats(seasons = season)
 
 players <- nflreadr::load_players() %>%
   select(gsis_id, display_name)
 
-weekly <- weekly %>%
+weekly_raw <- weekly_raw %>%
   left_join(players, by = c("player_id" = "gsis_id")) %>%
   mutate(player_name = coalesce(display_name, player_name))
 
@@ -36,29 +36,43 @@ weekly <- weekly %>%
 # =====================
 message("Loading injury data")
 injuries <- nflreadr::load_injuries(seasons = season) %>%
-  filter(season == !!season) %>%
   select(season, week, player_id, report_status, injury_desc)
 
 # =====================
-# ENSURE ALL WEEKS EXIST (FILL IN INJURED WEEKS)
+# ENSURE ALL WEEKS EXIST (FIXED VERSION – NO TIDYR)
 # =====================
-all_weeks <- weekly %>%
-  distinct(player_id) %>%
-  crossing(week = 1:18) %>%
-  mutate(season = season)
+
+message("Expanding players to all weeks")
+
+player_info <- weekly_raw %>%
+  select(player_id, player_name, position, team, headshot_url) %>%
+  distinct()
+
+all_weeks <- expand.grid(
+  player_id = player_info$player_id,
+  week = 1:18,
+  season = season,
+  stringsAsFactors = FALSE
+)
 
 weekly <- all_weeks %>%
-  left_join(weekly, by = c("season","week","player_id")) %>%
+  left_join(player_info, by = "player_id") %>%
+  left_join(weekly_raw, by = c("season","week","player_id")) %>%
   left_join(injuries, by = c("season","week","player_id")) %>%
   mutate(
+    player_name = coalesce(player_name.x, player_name.y),
+    position = coalesce(position.x, position.y),
+    team = coalesce(team.x, team.y),
+    headshot_url = coalesce(headshot_url.x, headshot_url.y),
     injured = ifelse(!is.na(report_status), TRUE, FALSE),
     injury_status = coalesce(report_status, "Healthy"),
     injury_desc = coalesce(injury_desc, NA),
     fantasy_points_ppr = coalesce(fantasy_points_ppr, 0)
-  )
+  ) %>%
+  select(-ends_with(".x"), -ends_with(".y"))
 
 # =====================
-# KICKER FANTASY SCORING (Sleeper)
+# KICKER FANTASY SCORING
 # =====================
 weekly <- weekly %>%
   mutate(
@@ -81,7 +95,7 @@ weekly <- weekly %>%
 # SELECT PLAYER COLUMNS
 # =====================
 desired_cols <- c(
-  "season","week","player_id","player_name","position","team","opponent_team",
+  "season","week","player_id","player_name","position","team",
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
@@ -113,8 +127,8 @@ position_cols <- list(
 
 base_cols <- c(
   "season","week","player_id","player_name",
-  "position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr",
+  "position","team","headshot_url",
+  "fantasy_points_ppr",
   "injured","injury_status","injury_desc"
 )
 
@@ -125,7 +139,7 @@ player_list <- apply(weekly_clean, 1, function(row) {
 })
 
 # =====================
-# DEF POINTS ALLOWED
+# DEF SECTION (UNCHANGED)
 # =====================
 message("Loading schedules for DEF points allowed")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
@@ -139,17 +153,16 @@ away_def <- schedules %>%
 
 def_points_allowed <- bind_rows(home_def, away_def)
 
-# =====================
-# LOAD TEAM DEF STATS
-# =====================
-message("Loading official weekly TEAM DEF stats")
+message("Loading TEAM DEF stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
-    fantasy_points_ppr = (def_sacks * 1) + (def_interceptions * 2) +
+    fantasy_points_ppr =
+      (def_sacks * 1) +
+      (def_interceptions * 2) +
       (def_fumbles_forced * 1) +
       (fumble_recovery_opp * 2) +
       ((def_tds + special_teams_tds) * 6) +
@@ -169,7 +182,14 @@ team_def <- team_weekly %>%
     player_id = paste0("DEF_", team),
     player_name = paste(team, "DEF"),
     position = "DEF",
-    team, opponent_team,
+    team,
+    sacks = def_sacks,
+    interceptions = def_interceptions,
+    fumbles_forced = def_fumbles_forced,
+    fumbles_recovered = fumble_recovery_opp,
+    defensive_tds = def_tds + special_teams_tds,
+    safeties = def_safeties,
+    points_allowed,
     fantasy_points_ppr
   )
 
