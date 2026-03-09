@@ -25,10 +25,11 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading players table for full names")
 players <- nflreadr::load_players() %>%
   select(gsis_id, display_name, first_name, last_name)
-
 weekly <- weekly %>%
   left_join(players, by = c("player_id" = "gsis_id")) %>%
-  mutate(player_name = coalesce(display_name, player_name))
+  mutate(
+    player_name = coalesce(display_name, player_name)
+  )
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -66,46 +67,6 @@ desired_cols <- c(
 weekly_clean <- weekly %>% select(any_of(desired_cols))
 
 # =====================
-# CREATE FULL PLAYER x WEEK GRID
-# =====================
-all_weeks <- 1:17
-all_players_info <- weekly_clean %>%
-  select(player_id, player_name, position, team, headshot_url) %>%
-  distinct(player_id, .keep_all = TRUE)  # Ensure no duplicate player_ids
-
-player_week_grid <- expand.grid(
-  player_id = all_players_info$player_id,
-  week = all_weeks,
-  stringsAsFactors = FALSE
-) %>%
-  left_join(all_players_info, by = "player_id")
-
-# =====================
-# MERGE WEEKLY STATS ONTO GRID
-# =====================
-weekly_full <- player_week_grid %>%
-  left_join(weekly_clean, by = c("player_id", "week"))
-
-# =====================
-# FILL MISSING STAT COLUMNS DYNAMICALLY
-# =====================
-stat_cols <- c(
-  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-  "carries","rushing_yards","rushing_tds","receptions","targets",
-  "receiving_yards","receiving_tds","fumbles","fantasy_points_ppr",
-  "fg_made","fg_att","fg_missed","fg_0_19","fg_20_29","fg_30_39",
-  "fg_40_49","fg_50_59","fg_60p","pat_made","pat_att","pat_missed"
-)
-
-for (col in stat_cols) {
-  if (!col %in% colnames(weekly_full)) {
-    weekly_full[[col]] <- 0
-  } else {
-    weekly_full[[col]] <- coalesce(weekly_full[[col]], 0)
-  }
-}
-
-# =====================
 # POSITION FILTERING
 # =====================
 position_cols <- list(
@@ -128,6 +89,52 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
+# =====================
+# CREATE FULL PLAYER × WEEK GRID
+# =====================
+all_players_info <- weekly_clean %>%
+  select(player_id, player_name, position, team, headshot_url) %>%
+  distinct()
+
+all_weeks <- sort(unique(weekly_clean$week))
+
+full_grid <- expand.grid(
+  player_id = all_players_info$player_id,
+  week = all_weeks,
+  stringsAsFactors = FALSE
+) %>%
+  left_join(all_players_info, by = "player_id") %>%
+  mutate(opponent_team = NA)
+
+# =====================
+# MERGE WEEKLY STATS WITH GRID
+# =====================
+weekly_full <- full_grid %>%
+  left_join(weekly_clean, by = c("player_id", "week", "player_name","position","team","headshot_url")) %>%
+  select(any_of(c(base_cols, unlist(position_cols))))
+
+# =====================
+# FILL MISSING STAT COLUMNS DYNAMICALLY
+# =====================
+stat_cols <- c(
+  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
+  "carries","rushing_yards","rushing_tds","receptions","targets",
+  "receiving_yards","receiving_tds","fumbles","fantasy_points_ppr",
+  "fg_made","fg_att","fg_missed","fg_0_19","fg_20_29","fg_30_39",
+  "fg_40_49","fg_50_59","fg_60p","pat_made","pat_att","pat_missed"
+)
+
+for (col in stat_cols) {
+  if (!col %in% colnames(weekly_full)) {
+    weekly_full[[col]] <- 0
+  } else {
+    weekly_full[[col]] <- ifelse(is.na(weekly_full[[col]]), 0, weekly_full[[col]])
+  }
+}
+
+# =====================
+# CREATE PLAYER LIST
+# =====================
 player_list <- apply(weekly_full, 1, function(row) {
   pos <- row[["position"]]
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
