@@ -2,7 +2,6 @@
 # Generate official NFL weekly stats JSON using nflreadr
 # Includes Sleeper-accurate K + DEF fantasy scoring
 # DEF points allowed derived from SCHEDULES (official scores)
-# Now ensures every player has an entry for each week, even if no stats
 
 library(nflreadr)
 library(dplyr)
@@ -33,104 +32,60 @@ weekly <- weekly %>%
   mutate(player_name = coalesce(display_name, player_name))
 
 # =====================
+# ENSURE ALL STAT COLUMNS EXIST
+# =====================
+stat_cols <- c(
+  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
+  "carries","rushing_yards","rushing_tds",
+  "targets","receptions","receiving_yards","receiving_tds",
+  "fumbles",
+  "fg_made","fg_att","fg_missed","fg_0_19","fg_20_29","fg_30_39",
+  "fg_40_49","fg_50_59","fg_60p","pat_made","pat_att","pat_missed"
+)
+
+for(col in stat_cols){
+  if(!col %in% names(weekly)){
+    weekly[[col]] <- 0
+  }
+}
+
+# =====================
 # KICKER FANTASY SCORING (Sleeper)
 # =====================
 weekly <- weekly %>%
   mutate(
-    fg_0_19 = coalesce(fg_made_0_19, 0),
-    fg_20_29 = coalesce(fg_made_20_29, 0),
-    fg_30_39 = coalesce(fg_made_30_39, 0),
-    fg_40_49 = coalesce(fg_made_40_49, 0),
-    fg_50_59 = coalesce(fg_made_50_59, 0),
-    fg_60p   = coalesce(fg_made_60_, 0),
-    fantasy_points_ppr = ifelse(
-      position == "K",
-      (fg_0_19 * 3) + (fg_20_29 * 3) + (fg_30_39 * 3) +
-      (fg_40_49 * 4) + (fg_50_59 * 5) + (fg_60p * 5) +
-      (coalesce(pat_made,0) * 1) - (coalesce(fg_missed,0) * 1) - (coalesce(pat_missed,0) * 1),
-      coalesce(fantasy_points_ppr, 0)
-    )
-  )
-
-# =====================
-# FILL MISSING STATS WITH 0
-# =====================
-weekly <- weekly %>%
-  mutate(
-    completions = coalesce(completions, 0),
-    attempts = coalesce(attempts, 0),
-    passing_yards = coalesce(passing_yards, 0),
-    passing_tds = coalesce(passing_tds, 0),
-    passing_interceptions = coalesce(passing_interceptions, 0),
-    carries = coalesce(carries, 0),
-    rushing_yards = coalesce(rushing_yards, 0),
-    rushing_tds = coalesce(rushing_tds, 0),
-    targets = coalesce(targets, 0),
-    receptions = coalesce(receptions, 0),
-    receiving_yards = coalesce(receiving_yards, 0),
-    receiving_tds = coalesce(receiving_tds, 0),
-    fumbles = coalesce(fumbles, 0)
-  )
-
-# =====================
-# ENSURE ALL PLAYERS HAVE ALL WEEKS
-# =====================
-all_weeks <- sort(unique(weekly$week))
-all_players <- unique(weekly$player_id)
-
-all_combinations <- expand.grid(player_id = all_players, week = all_weeks, stringsAsFactors = FALSE)
-
-weekly <- all_combinations %>%
-  left_join(weekly, by = c("player_id", "week")) %>%
-  mutate(
-    season = coalesce(season, !!season),
-    player_name = coalesce(player_name, "Unknown"),
-    position = coalesce(position, "Unknown"),
-    team = coalesce(team, "UNK"),
-    opponent_team = coalesce(opponent_team, "UNK"),
-    headshot_url = coalesce(headshot_url, ""),
-    completions = coalesce(completions, 0),
-    attempts = coalesce(attempts, 0),
-    passing_yards = coalesce(passing_yards, 0),
-    passing_tds = coalesce(passing_tds, 0),
-    passing_interceptions = coalesce(passing_interceptions, 0),
-    carries = coalesce(carries, 0),
-    rushing_yards = coalesce(rushing_yards, 0),
-    rushing_tds = coalesce(rushing_tds, 0),
-    targets = coalesce(targets, 0),
-    receptions = coalesce(receptions, 0),
-    receiving_yards = coalesce(receiving_yards, 0),
-    receiving_tds = coalesce(receiving_tds, 0),
-    fumbles = coalesce(fumbles, 0),
-    fantasy_points_ppr = coalesce(fantasy_points_ppr, 0),
-    fg_made = coalesce(fg_made, 0),
-    fg_att = coalesce(fg_att, 0),
-    fg_missed = coalesce(fg_missed, 0),
     fg_0_19 = coalesce(fg_0_19, 0),
     fg_20_29 = coalesce(fg_20_29, 0),
     fg_30_39 = coalesce(fg_30_39, 0),
     fg_40_49 = coalesce(fg_40_49, 0),
     fg_50_59 = coalesce(fg_50_59, 0),
-    fg_60p = coalesce(fg_60p, 0),
-    pat_made = coalesce(pat_made, 0),
-    pat_att = coalesce(pat_att, 0),
-    pat_missed = coalesce(pat_missed, 0)
+    fg_60p   = coalesce(fg_60p, 0),
+    fantasy_points_ppr = ifelse(
+      position == "K",
+      (fg_0_19 * 3) + (fg_20_29 * 3) + (fg_30_39 * 3) +
+      (fg_40_49 * 4) + (fg_50_59 * 5) + (fg_60p * 5) +
+      (pat_made * 1) - (fg_missed * 1) - (pat_missed * 1),
+      0
+    )
   )
 
 # =====================
-# PLAYER COLUMN SELECTION
+# GENERATE FULL PLAYER x WEEK GRID
 # =====================
-desired_cols <- c(
-  "season","week","player_id","player_name","position","team","opponent_team",
-  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-  "carries","rushing_yards","rushing_tds",
-  "targets","receptions","receiving_yards","receiving_tds",
-  "fumbles","fantasy_points_ppr","headshot_url",
-  "fg_made","fg_att","fg_missed",
-  "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
-  "pat_made","pat_att","pat_missed"
-)
-weekly_clean <- weekly %>% select(any_of(desired_cols))
+all_weeks <- sort(unique(weekly$week))
+all_players <- unique(weekly$player_id)
+
+full_grid <- expand.grid(player_id = all_players, week = all_weeks, stringsAsFactors = FALSE)
+
+weekly <- full_grid %>%
+  left_join(weekly, by = c("player_id","week"))
+
+# =====================
+# REPLACE NAs WITH 0 FOR ALL STATS
+# =====================
+weekly <- weekly %>%
+  mutate(across(c(stat_cols, "fantasy_points_ppr"), ~coalesce(.x, 0))) %>%
+  mutate(across(c("player_name","position","team","opponent_team","headshot_url"), ~coalesce(.x,"")))
 
 # =====================
 # POSITION FILTERING
@@ -155,7 +110,7 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
-player_list <- apply(weekly_clean, 1, function(row) {
+player_list <- apply(weekly, 1, function(row) {
   pos <- row[["position"]]
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
   as.list(row[keep])
