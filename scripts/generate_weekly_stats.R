@@ -6,6 +6,7 @@
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(tidyr)
 
 # =====================
 # CONFIG
@@ -22,14 +23,14 @@ out_path <- file.path("data", output_name)
 # =====================
 message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
+
 message("Loading players table for full names")
 players <- nflreadr::load_players() %>%
   select(gsis_id, display_name, first_name, last_name)
+
 weekly <- weekly %>%
   left_join(players, by = c("player_id" = "gsis_id")) %>%
-  mutate(
-    player_name = coalesce(display_name, player_name)
-  )
+  mutate(player_name = coalesce(display_name, player_name))
 
 # =====================
 # KICKER FANTASY SCORING (Sleeper)
@@ -92,44 +93,31 @@ base_cols <- c(
 # =====================
 # CREATE FULL PLAYER × WEEK GRID
 # =====================
-all_players_info <- weekly_clean %>%
+all_weeks <- sort(unique(weekly$week))
+all_players_info <- weekly %>%
   select(player_id, player_name, position, team, headshot_url) %>%
-  distinct()
+  distinct(player_id, .keep_all = TRUE)
 
-all_weeks <- sort(unique(weekly_clean$week))
-
-full_grid <- expand.grid(
+full_grid <- expand_grid(
   player_id = all_players_info$player_id,
-  week = all_weeks,
-  stringsAsFactors = FALSE
+  week = all_weeks
 ) %>%
-  left_join(all_players_info, by = "player_id") %>%
-  mutate(opponent_team = NA)
+  left_join(all_players_info, by = "player_id")
 
 # =====================
-# MERGE WEEKLY STATS WITH GRID
+# MERGE WEEKLY STATS INTO FULL GRID
 # =====================
 weekly_full <- full_grid %>%
-  left_join(weekly_clean, by = c("player_id", "week", "player_name","position","team","headshot_url")) %>%
-  select(any_of(c(base_cols, unlist(position_cols))))
+  left_join(
+    weekly_clean %>% select(player_id, week, all_of(unlist(position_cols))),
+    by = c("player_id", "week")
+  )
 
-# =====================
-# FILL MISSING STAT COLUMNS DYNAMICALLY
-# =====================
-stat_cols <- c(
-  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-  "carries","rushing_yards","rushing_tds","receptions","targets",
-  "receiving_yards","receiving_tds","fumbles","fantasy_points_ppr",
-  "fg_made","fg_att","fg_missed","fg_0_19","fg_20_29","fg_30_39",
-  "fg_40_49","fg_50_59","fg_60p","pat_made","pat_att","pat_missed"
-)
-
+# Replace NA stats with 0
+stat_cols <- unlist(position_cols)
 for (col in stat_cols) {
-  if (!col %in% colnames(weekly_full)) {
-    weekly_full[[col]] <- 0
-  } else {
-    weekly_full[[col]] <- ifelse(is.na(weekly_full[[col]]), 0, weekly_full[[col]])
-  }
+  if (!col %in% names(weekly_full)) next
+  weekly_full[[col]] <- coalesce(weekly_full[[col]], 0)
 }
 
 # =====================
