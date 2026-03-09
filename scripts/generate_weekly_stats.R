@@ -23,13 +23,12 @@ out_path <- file.path("data", output_name)
 message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
 
-message("Loading players table for full names")
+message("Loading master players table for full names")
 players <- nflreadr::load_players() %>%
-  select(gsis_id, display_name, first_name, last_name)
+  select(gsis_id, display_name, position, team, headshot_url)
 
-weekly <- weekly %>%
-  left_join(players, by = c("player_id" = "gsis_id")) %>%
-  mutate(player_name = coalesce(display_name, player_name))
+# Ensure player_name exists
+players <- players %>% mutate(player_name = display_name)
 
 # =====================
 # ENSURE ALL STAT COLUMNS EXIST
@@ -70,22 +69,27 @@ weekly <- weekly %>%
   )
 
 # =====================
-# GENERATE FULL PLAYER x WEEK GRID
+# GENERATE FULL PLAYER x WEEK GRID USING MASTER PLAYERS
 # =====================
 all_weeks <- sort(unique(weekly$week))
-all_players <- unique(weekly$player_id)
+full_grid <- expand.grid(player_id = players$gsis_id, week = all_weeks, stringsAsFactors = FALSE)
 
-full_grid <- expand.grid(player_id = all_players, week = all_weeks, stringsAsFactors = FALSE)
+# Join player metadata
+full_grid <- full_grid %>%
+  left_join(players %>% select(gsis_id, player_name, position, team, headshot_url),
+            by = c("player_id" = "gsis_id"))
 
-weekly <- full_grid %>%
-  left_join(weekly, by = c("player_id","week"))
+# Join actual weekly stats (may be missing for some weeks)
+weekly_full <- full_grid %>%
+  left_join(weekly, by = c("player_id","week","player_name","position","team","headshot_url"))
 
-# =====================
-# REPLACE NAs WITH 0 FOR ALL STATS
-# =====================
-weekly <- weekly %>%
-  mutate(across(c(stat_cols, "fantasy_points_ppr"), ~coalesce(.x, 0))) %>%
-  mutate(across(c("player_name","position","team","opponent_team","headshot_url"), ~coalesce(.x,"")))
+# Replace NAs with 0 for stats
+weekly_full <- weekly_full %>%
+  mutate(across(c(stat_cols, "fantasy_points_ppr"), ~coalesce(.x, 0)))
+
+# Fill missing opponent_team with empty string
+weekly_full <- weekly_full %>%
+  mutate(opponent_team = coalesce(opponent_team, ""))
 
 # =====================
 # POSITION FILTERING
@@ -110,7 +114,7 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
-player_list <- apply(weekly, 1, function(row) {
+player_list <- apply(weekly_full, 1, function(row) {
   pos <- row[["position"]]
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
   as.list(row[keep])
