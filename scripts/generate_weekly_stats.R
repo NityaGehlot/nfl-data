@@ -92,7 +92,7 @@ weekly_full <- full_grid %>%
 
 # Replace NAs with 0 for stats
 weekly_full <- weekly_full %>%
-  mutate(across(c(stat_cols, "fantasy_points_ppr"), ~coalesce(.x, 0)))
+  mutate(across(all_of(c(stat_cols, "fantasy_points_ppr")), ~coalesce(.x, 0)))
 
 # Fill missing opponent_team with empty string
 weekly_full <- weekly_full %>%
@@ -121,10 +121,15 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
-player_list <- apply(weekly_full, 1, function(row) {
-  pos <- row[["position"]]
+player_list <- lapply(seq_len(nrow(weekly_full)), function(i) {
+
+  row <- weekly_full[i, ]
+  pos <- row$position
+
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
+
   as.list(row[keep])
+
 })
 
 # =====================
