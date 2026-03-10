@@ -24,7 +24,14 @@ message("Loading official weekly PLAYER stats for season: ", season)
 weekly <- nflreadr::load_player_stats(seasons = season)
 
 message("Loading master players table for full names")
-players <- nflreadr::load_players() %>%
+players <- nflreadr::load_players()
+
+# Ensure required columns exist
+if(!"display_name" %in% names(players)) players$display_name <- ""
+if(!"position" %in% names(players)) players$position <- ""
+if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
+
+players <- players %>%
   select(gsis_id, display_name, position, headshot_url)
 
 # Ensure player_name exists
@@ -81,7 +88,7 @@ full_grid <- full_grid %>%
 
 # Join actual weekly stats (may be missing for some weeks)
 weekly_full <- full_grid %>%
-  left_join(weekly, by = c("player_id","week","player_name","position","team","headshot_url"))
+  left_join(weekly, by = c("player_id","week"))
 
 # Replace NAs with 0 for stats
 weekly_full <- weekly_full %>%
