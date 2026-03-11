@@ -26,16 +26,13 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading master players table for full names")
 players <- nflreadr::load_players()
 
-# Ensure required columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
 
 players <- players %>%
-  select(gsis_id, display_name, position, headshot_url)
-
-# Ensure player_name exists
-players <- players %>% mutate(player_name = display_name)
+  select(gsis_id, display_name, position, headshot_url) %>%
+  mutate(player_name = display_name)
 
 # =====================
 # ENSURE ALL STAT COLUMNS EXIST
@@ -56,7 +53,7 @@ for(col in stat_cols){
 }
 
 # =====================
-# KICKER FANTASY SCORING (Sleeper)
+# KICKER FANTASY SCORING
 # =====================
 weekly <- weekly %>%
   mutate(
@@ -76,25 +73,47 @@ weekly <- weekly %>%
   )
 
 # =====================
-# GENERATE FULL PLAYER x WEEK GRID USING MASTER PLAYERS
+# GENERATE FULL PLAYER x WEEK GRID
 # =====================
 all_weeks <- sort(unique(weekly$week))
-full_grid <- expand.grid(player_id = players$gsis_id, week = all_weeks, stringsAsFactors = FALSE)
 
-# Join player metadata
+full_grid <- expand.grid(
+  player_id = players$gsis_id,
+  week = all_weeks,
+  stringsAsFactors = FALSE
+)
+
+# Join metadata
 full_grid <- full_grid %>%
-  left_join(players %>% select(gsis_id, player_name, position, headshot_url),
-          by = c("player_id" = "gsis_id"))
+  left_join(players, by = c("player_id" = "gsis_id"))
 
-# Join actual weekly stats (may be missing for some weeks)
+# Join stats
 weekly_full <- full_grid %>%
   left_join(weekly, by = c("player_id","week"))
 
-# Replace NAs with 0 for stats
+# =====================
+# FILL PLAYER METADATA FOR INJURED WEEKS
+# =====================
+weekly_full <- weekly_full %>%
+  group_by(player_id) %>%
+  mutate(
+    player_name = ifelse(is.na(player_name) | player_name=="",
+                         first(na.omit(player_name)), player_name),
+    position = ifelse(is.na(position) | position=="",
+                      first(na.omit(position)), position),
+    team = ifelse(is.na(team) | team=="",
+                  first(na.omit(team)), team),
+    headshot_url = ifelse(is.na(headshot_url) | headshot_url=="",
+                          first(na.omit(headshot_url)), headshot_url),
+    season = ifelse(is.na(season),
+                    first(na.omit(season)), season)
+  ) %>%
+  ungroup()
+
+# Replace NA stats
 weekly_full <- weekly_full %>%
   mutate(across(all_of(c(stat_cols, "fantasy_points_ppr")), ~coalesce(.x, 0)))
 
-# Fill missing opponent_team with empty string
 weekly_full <- weekly_full %>%
   mutate(opponent_team = coalesce(opponent_team, ""))
 
@@ -121,26 +140,23 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
-player_list <- lapply(seq_len(nrow(weekly_full)), function(i) {
+player_list <- lapply(seq_len(nrow(weekly_full)), function(i){
 
-  row <- weekly_full[i, ]
+  row <- weekly_full[i,]
   pos <- as.character(row$position)
 
-  # Skip non fantasy positions
-  if(!(pos %in% names(position_cols))) return(NULL)
+  if(is.na(pos) || pos=="" || !(pos %in% names(position_cols))){
+    return(NULL)
+  }
 
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
-
   as.list(row[keep])
-
 })
 
-# Remove NULL entries
 player_list <- Filter(Negate(is.null), player_list)
 
-
 # =====================
-# DEF POINTS ALLOWED (FROM SCHEDULES)
+# DEF POINTS ALLOWED
 # =====================
 message("Loading schedules for DEF points allowed")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
@@ -155,7 +171,7 @@ away_def <- schedules %>%
 def_points_allowed <- bind_rows(home_def, away_def)
 
 # =====================
-# LOAD TEAM DEF STATS
+# TEAM DEF STATS
 # =====================
 message("Loading official weekly TEAM DEF stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
@@ -164,24 +180,26 @@ team_def <- team_weekly %>%
   filter(!is.na(week)) %>%
   left_join(def_points_allowed, by = c("season","week","team")) %>%
   mutate(
-    fantasy_points_ppr = (def_sacks * 1) + (def_interceptions * 2) + (def_fumbles_forced * 1) +
-      (fumble_recovery_opp * 2) +
-      ((def_tds + special_teams_tds) * 6) +
-      (def_safeties * 2) +
+    fantasy_points_ppr = (def_sacks*1) +
+      (def_interceptions*2) +
+      (def_fumbles_forced*1) +
+      (fumble_recovery_opp*2) +
+      ((def_tds + special_teams_tds)*6) +
+      (def_safeties*2) +
       case_when(
-        points_allowed == 0 ~ 10,
-        points_allowed <= 6 ~ 7,
-        points_allowed <= 13 ~ 4,
-        points_allowed <= 20 ~ 1,
-        points_allowed <= 27 ~ 0,
-        points_allowed <= 34 ~ -1,
+        points_allowed==0 ~ 10,
+        points_allowed<=6 ~ 7,
+        points_allowed<=13 ~ 4,
+        points_allowed<=20 ~ 1,
+        points_allowed<=27 ~ 0,
+        points_allowed<=34 ~ -1,
         TRUE ~ -4
       )
   ) %>%
   transmute(
     season, week,
-    player_id = paste0("DEF_", team),
-    player_name = paste(team, "DEF"),
+    player_id = paste0("DEF_",team),
+    player_name = paste(team,"DEF"),
     position = "DEF",
     team, opponent_team,
     sacks = def_sacks,
@@ -194,14 +212,14 @@ team_def <- team_weekly %>%
     fantasy_points_ppr
   )
 
-def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
+def_list <- apply(as.data.frame(team_def),1,function(row) as.list(row))
 
 # =====================
 # EXPORT JSON
 # =====================
 all_players <- c(player_list, def_list)
 
-if (!dir.exists("data")) dir.create("data")
+if(!dir.exists("data")) dir.create("data")
 
 write_json(
   all_players,
