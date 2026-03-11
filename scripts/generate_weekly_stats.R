@@ -124,13 +124,20 @@ base_cols <- c(
 player_list <- lapply(seq_len(nrow(weekly_full)), function(i) {
 
   row <- weekly_full[i, ]
-  pos <- row$position
+  pos <- as.character(row$position)
+
+  # Skip non fantasy positions
+  if(!(pos %in% names(position_cols))) return(NULL)
 
   keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
 
   as.list(row[keep])
 
 })
+
+# Remove NULL entries
+player_list <- Filter(Negate(is.null), player_list)
+
 
 # =====================
 # DEF POINTS ALLOWED (FROM SCHEDULES)
