@@ -1,8 +1,4 @@
 # scripts/generate_weekly_stats.R
-# Generate official NFL weekly stats JSON using nflreadr
-# Includes Sleeper-accurate K + DEF fantasy scoring
-# DEF points allowed derived from SCHEDULES (official scores)
-
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
@@ -17,25 +13,38 @@ season <- min(current_year, latest_season)
 output_name <- paste0("player_stats_", season, ".json")
 out_path <- file.path("data", output_name)
 
-# =====================
-# LOAD PLAYER STATS
-# =====================
-message("Loading official weekly PLAYER stats for season: ", season)
+message("Loading weekly player stats")
 weekly <- nflreadr::load_player_stats(seasons = season)
 
-message("Loading master players table for full names")
+message("Loading player metadata")
 players <- nflreadr::load_players()
 
+# Ensure required columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
 
 players <- players %>%
-  select(gsis_id, display_name, position, headshot_url) %>%
-  mutate(player_name = display_name)
+  transmute(
+    player_id = gsis_id,
+    player_name = display_name,
+    position,
+    headshot_url
+  )
 
 # =====================
-# ENSURE ALL STAT COLUMNS EXIST
+# KEEP ONLY FANTASY POSITIONS
+# =====================
+fantasy_positions <- c("QB","RB","WR","TE","K")
+
+players <- players %>%
+  filter(position %in% fantasy_positions)
+
+weekly <- weekly %>%
+  filter(position %in% fantasy_positions)
+
+# =====================
+# ENSURE STAT COLUMNS
 # =====================
 stat_cols <- c(
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
@@ -53,134 +62,97 @@ for(col in stat_cols){
 }
 
 # =====================
-# KICKER FANTASY SCORING
+# KICKER SCORING
 # =====================
 weekly <- weekly %>%
   mutate(
-    fg_0_19 = coalesce(fg_0_19, 0),
-    fg_20_29 = coalesce(fg_20_29, 0),
-    fg_30_39 = coalesce(fg_30_39, 0),
-    fg_40_49 = coalesce(fg_40_49, 0),
-    fg_50_59 = coalesce(fg_50_59, 0),
-    fg_60p   = coalesce(fg_60p, 0),
     fantasy_points_ppr = ifelse(
       position == "K",
-      (fg_0_19 * 3) + (fg_20_29 * 3) + (fg_30_39 * 3) +
-      (fg_40_49 * 4) + (fg_50_59 * 5) + (fg_60p * 5) +
-      (pat_made * 1) - (fg_missed * 1) - (pat_missed * 1),
-      0
+      (fg_0_19 * 3) +
+      (fg_20_29 * 3) +
+      (fg_30_39 * 3) +
+      (fg_40_49 * 4) +
+      (fg_50_59 * 5) +
+      (fg_60p * 5) +
+      (pat_made * 1) -
+      (fg_missed * 1) -
+      (pat_missed * 1),
+      fantasy_points_ppr
     )
   )
 
 # =====================
-# GENERATE FULL PLAYER x WEEK GRID
+# CREATE PLAYER × WEEK GRID
 # =====================
 all_weeks <- sort(unique(weekly$week))
 
 full_grid <- expand.grid(
-  player_id = players$gsis_id,
+  player_id = players$player_id,
   week = all_weeks,
   stringsAsFactors = FALSE
 )
 
 # Join metadata
-full_grid <- full_grid %>%
-  left_join(players, by = c("player_id" = "gsis_id"))
-
-# Join stats
 weekly_full <- full_grid %>%
+  left_join(players, by = "player_id") %>%
   left_join(weekly, by = c("player_id","week"))
 
 # =====================
-# FILL PLAYER METADATA FOR INJURED WEEKS
+# FILL PLAYER METADATA
 # =====================
 weekly_full <- weekly_full %>%
   group_by(player_id) %>%
   mutate(
-    player_name = ifelse(is.na(player_name) | player_name=="",
-                         first(na.omit(player_name)), player_name),
-    position = ifelse(is.na(position) | position=="",
-                      first(na.omit(position)), position),
-    team = ifelse(is.na(team) | team=="",
-                  first(na.omit(team)), team),
-    headshot_url = ifelse(is.na(headshot_url) | headshot_url=="",
-                          first(na.omit(headshot_url)), headshot_url),
-    season = ifelse(is.na(season),
-                    first(na.omit(season)), season)
+    player_name = coalesce(player_name.x, player_name.y),
+    position = coalesce(position.x, position.y)
   ) %>%
   ungroup()
 
-# Replace NA stats
+# Replace NA stats with 0
 weekly_full <- weekly_full %>%
-  mutate(across(all_of(c(stat_cols, "fantasy_points_ppr")), ~coalesce(.x, 0)))
-
-weekly_full <- weekly_full %>%
-  mutate(opponent_team = coalesce(opponent_team, ""))
+  mutate(across(all_of(stat_cols), ~coalesce(.x,0))) %>%
+  mutate(
+    fantasy_points_ppr = coalesce(fantasy_points_ppr,0),
+    opponent_team = coalesce(opponent_team,"")
+  )
 
 # =====================
-# POSITION FILTERING
+# SELECT FIELDS
 # =====================
-position_cols <- list(
-  QB = c("completions","attempts","passing_yards","passing_tds",
-         "passing_interceptions","carries","rushing_yards","rushing_tds","fumbles"),
-  RB = c("carries","rushing_yards","rushing_tds",
-         "receptions","targets","receiving_yards","receiving_tds","fumbles"),
-  WR = c("receptions","targets","receiving_yards","receiving_tds",
-         "carries","rushing_yards","rushing_tds","fumbles"),
-  TE = c("receptions","targets","receiving_yards","receiving_tds",
-         "carries","rushing_yards","rushing_tds","fumbles"),
-  K  = c("fg_made","fg_att","fg_missed",
-         "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
-         "pat_made","pat_att","pat_missed")
-)
-
 base_cols <- c(
   "season","week","player_id","player_name",
   "position","team","opponent_team",
   "headshot_url","fantasy_points_ppr"
 )
 
-player_list <- lapply(seq_len(nrow(weekly_full)), function(i){
-
-  row <- weekly_full[i,]
-  pos <- as.character(row$position)
-
-  if(is.na(pos) || pos=="" || !(pos %in% names(position_cols))){
-    return(NULL)
-  }
-
-  keep <- intersect(c(base_cols, position_cols[[pos]]), names(row))
-  as.list(row[keep])
-})
-
-player_list <- Filter(Negate(is.null), player_list)
+weekly_list <- weekly_full %>%
+  select(any_of(c(base_cols, stat_cols))) %>%
+  split(seq(nrow(.))) %>%
+  lapply(as.list)
 
 # =====================
-# DEF POINTS ALLOWED
+# DEFENSE SCORING
 # =====================
-message("Loading schedules for DEF points allowed")
+message("Loading schedules")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
-  filter(game_type == "REG", !is.na(home_score), !is.na(away_score))
+  filter(game_type == "REG")
 
 home_def <- schedules %>%
-  transmute(season, week, team = home_team, points_allowed = away_score)
+  transmute(season,week,team=home_team,points_allowed=away_score)
 
 away_def <- schedules %>%
-  transmute(season, week, team = away_team, points_allowed = home_score)
+  transmute(season,week,team=away_team,points_allowed=home_score)
 
-def_points_allowed <- bind_rows(home_def, away_def)
+def_points <- bind_rows(home_def,away_def)
 
-# =====================
-# TEAM DEF STATS
-# =====================
-message("Loading official weekly TEAM DEF stats")
+message("Loading team stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
 team_def <- team_weekly %>%
-  filter(!is.na(week)) %>%
-  left_join(def_points_allowed, by = c("season","week","team")) %>%
+  left_join(def_points,by=c("season","week","team")) %>%
   mutate(
-    fantasy_points_ppr = (def_sacks*1) +
+    fantasy_points_ppr =
+      (def_sacks*1) +
       (def_interceptions*2) +
       (def_fumbles_forced*1) +
       (fumble_recovery_opp*2) +
@@ -197,36 +169,30 @@ team_def <- team_weekly %>%
       )
   ) %>%
   transmute(
-    season, week,
-    player_id = paste0("DEF_",team),
-    player_name = paste(team,"DEF"),
-    position = "DEF",
-    team, opponent_team,
-    sacks = def_sacks,
-    interceptions = def_interceptions,
-    fumbles_forced = def_fumbles_forced,
-    fumbles_recovered = fumble_recovery_opp,
-    defensive_tds = def_tds + special_teams_tds,
-    safeties = def_safeties,
-    points_allowed,
+    season,week,
+    player_id=paste0("DEF_",team),
+    player_name=paste(team,"DEF"),
+    position="DEF",
+    team,opponent_team,
     fantasy_points_ppr
   )
 
-def_list <- apply(as.data.frame(team_def),1,function(row) as.list(row))
+def_list <- split(team_def,seq(nrow(team_def))) %>%
+  lapply(as.list)
 
 # =====================
-# EXPORT JSON
+# EXPORT
 # =====================
-all_players <- c(player_list, def_list)
+all_players <- c(weekly_list, def_list)
 
 if(!dir.exists("data")) dir.create("data")
 
 write_json(
   all_players,
   out_path,
-  pretty = TRUE,
-  auto_unbox = TRUE,
-  na = "null"
+  pretty=TRUE,
+  auto_unbox=TRUE,
+  na="null"
 )
 
 message("✅ Success! JSON exported → ", out_path)
