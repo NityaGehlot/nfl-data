@@ -10,16 +10,17 @@ current_year <- as.numeric(format(Sys.Date(), "%Y"))
 latest_season <- nflreadr::most_recent_season()
 season <- min(current_year, latest_season)
 
-output_name <- paste0("player_stats_", season, ".json")
-out_path <- file.path("data", output_name)
+message("Generating stats for season: ", season)
 
+# =====================
+# LOAD PLAYER DATA
+# =====================
 message("Loading weekly player stats")
 weekly <- nflreadr::load_player_stats(seasons = season)
 
 message("Loading player metadata")
 players <- nflreadr::load_players()
 
-# Ensure required columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
@@ -82,7 +83,7 @@ weekly <- weekly %>%
   )
 
 # =====================
-# CREATE PLAYER × WEEK GRID
+# CREATE PLAYER x WEEK GRID
 # =====================
 all_weeks <- sort(unique(weekly$week))
 
@@ -92,10 +93,9 @@ full_grid <- expand.grid(
   stringsAsFactors = FALSE
 )
 
-# Join metadata
 weekly_full <- full_grid %>%
-  left_join(players, by = "player_id") %>%
-  left_join(weekly, by = c("player_id","week"))
+  left_join(players, by="player_id") %>%
+  left_join(weekly, by=c("player_id","week"))
 
 # =====================
 # FILL PLAYER METADATA
@@ -108,7 +108,6 @@ weekly_full <- weekly_full %>%
   ) %>%
   ungroup()
 
-# Replace NA stats with 0
 weekly_full <- weekly_full %>%
   mutate(across(all_of(stat_cols), ~coalesce(.x,0))) %>%
   mutate(
@@ -125,10 +124,8 @@ base_cols <- c(
   "headshot_url","fantasy_points_ppr"
 )
 
-weekly_list <- weekly_full %>%
-  select(any_of(c(base_cols, stat_cols))) %>%
-  split(seq(nrow(.))) %>%
-  lapply(as.list)
+weekly_df <- weekly_full %>%
+  select(any_of(c(base_cols, stat_cols)))
 
 # =====================
 # DEFENSE SCORING
@@ -177,22 +174,38 @@ team_def <- team_weekly %>%
     fantasy_points_ppr
   )
 
-def_list <- split(team_def,seq(nrow(team_def))) %>%
-  lapply(as.list)
+# Combine player + defense
+combined_df <- bind_rows(weekly_df, team_def)
 
 # =====================
-# EXPORT
+# EXPORT BY WEEK
 # =====================
-all_players <- c(weekly_list, def_list)
-
 if(!dir.exists("data")) dir.create("data")
 
-write_json(
-  all_players,
-  out_path,
-  pretty=TRUE,
-  auto_unbox=TRUE,
-  na="null"
-)
+weeks <- sort(unique(combined_df$week))
 
-message("✅ Success! JSON exported → ", out_path)
+for(w in weeks){
+
+  week_data <- combined_df %>%
+    filter(week == w)
+
+  file_name <- paste0(
+    "data/player_stats_",
+    season,
+    "_week",
+    w,
+    ".json"
+  )
+
+  write_json(
+    split(week_data, seq(nrow(week_data))),
+    file_name,
+    pretty = TRUE,
+    auto_unbox = TRUE,
+    na = "null"
+  )
+
+  message("Exported: ", file_name)
+}
+
+message("✅ Weekly JSON files generated successfully.")
