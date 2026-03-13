@@ -52,8 +52,9 @@ stat_cols <- c(
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles",
-  "fg_made","fg_att","fg_missed","fg_0_19","fg_20_29","fg_30_39",
-  "fg_40_49","fg_50_59","fg_60p","pat_made","pat_att","pat_missed"
+  "fg_made","fg_att","fg_missed",
+  "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
+  "pat_made","pat_att","pat_missed"
 )
 
 for(col in stat_cols){
@@ -116,7 +117,7 @@ weekly_full <- weekly_full %>%
   )
 
 # =====================
-# SELECT FIELDS
+# BASE PLAYER COLUMNS
 # =====================
 base_cols <- c(
   "season","week","player_id","player_name",
@@ -126,6 +127,40 @@ base_cols <- c(
 
 weekly_df <- weekly_full %>%
   select(any_of(c(base_cols, stat_cols)))
+
+# =====================
+# POSITION-SPECIFIC STATS
+# =====================
+position_cols <- list(
+  QB = c("completions","attempts","passing_yards","passing_tds",
+         "passing_interceptions","carries","rushing_yards","rushing_tds","fumbles"),
+
+  RB = c("carries","rushing_yards","rushing_tds",
+         "receptions","targets","receiving_yards","receiving_tds","fumbles"),
+
+  WR = c("receptions","targets","receiving_yards","receiving_tds",
+         "carries","rushing_yards","rushing_tds","fumbles"),
+
+  TE = c("receptions","targets","receiving_yards","receiving_tds",
+         "carries","rushing_yards","rushing_tds","fumbles"),
+
+  K = c("fg_made","fg_att","fg_missed",
+        "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
+        "pat_made","pat_att","pat_missed")
+)
+
+# convert dataframe to list with filtered stats
+player_list <- apply(weekly_df, 1, function(row) {
+
+  pos <- row[["position"]]
+
+  keep_cols <- intersect(
+    c(base_cols, position_cols[[pos]]),
+    names(row)
+  )
+
+  as.list(row[keep_cols])
+})
 
 # =====================
 # DEFENSE SCORING
@@ -174,8 +209,11 @@ team_def <- team_weekly %>%
     fantasy_points_ppr
   )
 
-# Combine player + defense
-combined_df <- bind_rows(weekly_df, team_def)
+def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
+
+all_players <- c(player_list, def_list)
+
+combined_df <- bind_rows(lapply(all_players, as.data.frame))
 
 # =====================
 # EXPORT BY WEEK
