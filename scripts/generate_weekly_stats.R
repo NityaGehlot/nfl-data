@@ -21,6 +21,7 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading player metadata")
 players <- nflreadr::load_players()
 
+# Ensure columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
@@ -31,6 +32,29 @@ players <- players %>%
     player_name = display_name,
     position,
     headshot_url
+  )
+
+# =====================
+# LOAD INJURY DATA
+# =====================
+message("Loading injury data")
+
+injuries <- nflreadr::load_injuries(seasons = season)
+
+# Ensure columns exist safely
+if(!"gsis_id" %in% names(injuries)) injuries$gsis_id <- ""
+if(!"week" %in% names(injuries)) injuries$week <- NA
+if(!"report_status" %in% names(injuries)) injuries$report_status <- ""
+if(!"practice_status" %in% names(injuries)) injuries$practice_status <- ""
+if(!"injury_type" %in% names(injuries)) injuries$injury_type <- ""
+
+injuries <- injuries %>%
+  transmute(
+    player_id = gsis_id,
+    week,
+    injury_status = report_status,
+    practice_status = practice_status,
+    injury_type = injury_type
   )
 
 # =====================
@@ -99,6 +123,12 @@ weekly_full <- full_grid %>%
   left_join(weekly, by=c("player_id","week"))
 
 # =====================
+# JOIN INJURY DATA
+# =====================
+weekly_full <- weekly_full %>%
+  left_join(injuries, by=c("player_id","week"))
+
+# =====================
 # FILL PLAYER METADATA
 # =====================
 weekly_full <- weekly_full %>%
@@ -109,11 +139,17 @@ weekly_full <- weekly_full %>%
   ) %>%
   ungroup()
 
+# =====================
+# CLEAN + FILL VALUES
+# =====================
 weekly_full <- weekly_full %>%
   mutate(across(all_of(stat_cols), ~coalesce(.x,0))) %>%
   mutate(
     fantasy_points_ppr = coalesce(fantasy_points_ppr,0),
-    opponent_team = coalesce(opponent_team,"")
+    opponent_team = coalesce(opponent_team,""),
+    injury_status = coalesce(injury_status,"ACTIVE"),
+    practice_status = coalesce(practice_status,""),
+    injury_type = coalesce(injury_type,"")
   )
 
 # =====================
@@ -122,37 +158,35 @@ weekly_full <- weekly_full %>%
 base_cols <- c(
   "season","week","player_id","player_name",
   "position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr"
+  "headshot_url","fantasy_points_ppr",
+  "injury_status","practice_status","injury_type"
 )
 
 weekly_df <- weekly_full %>%
   select(any_of(c(base_cols, stat_cols)))
 
 # =====================
-# POSITION-SPECIFIC STATS
+# POSITION FILTERING
 # =====================
 position_cols <- list(
   QB = c("completions","attempts","passing_yards","passing_tds",
          "passing_interceptions","carries","rushing_yards","rushing_tds","fumbles"),
-
   RB = c("carries","rushing_yards","rushing_tds",
          "receptions","targets","receiving_yards","receiving_tds","fumbles"),
-
   WR = c("receptions","targets","receiving_yards","receiving_tds",
          "carries","rushing_yards","rushing_tds","fumbles"),
-
   TE = c("receptions","targets","receiving_yards","receiving_tds",
          "carries","rushing_yards","rushing_tds","fumbles"),
-
   K = c("fg_made","fg_att","fg_missed",
         "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
         "pat_made","pat_att","pat_missed")
 )
 
-# convert dataframe to list with filtered stats
 player_list <- apply(weekly_df, 1, function(row) {
 
   pos <- row[["position"]]
+
+  if(!(pos %in% names(position_cols))) return(NULL)
 
   keep_cols <- intersect(
     c(base_cols, position_cols[[pos]]),
@@ -161,6 +195,8 @@ player_list <- apply(weekly_df, 1, function(row) {
 
   as.list(row[keep_cols])
 })
+
+player_list <- Filter(Negate(is.null), player_list)
 
 # =====================
 # DEFENSE SCORING
@@ -206,7 +242,10 @@ team_def <- team_weekly %>%
     player_name=paste(team,"DEF"),
     position="DEF",
     team,opponent_team,
-    fantasy_points_ppr
+    fantasy_points_ppr,
+    injury_status="N/A",
+    practice_status="",
+    injury_type=""
   )
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
