@@ -52,9 +52,13 @@ injuries <- injuries %>%
   transmute(
     player_id = gsis_id,
     week,
+    primary_injury = report_primary_injury,
+    secondary_injury = report_secondary_injury,
     injury_status = report_status,
+    practice_primary_injury = practice_primary_injury,
+    practice_secondary_injury = practice_secondary_injury,
     practice_status = practice_status,
-    injury_type = injury_type
+    
   )
 
 # =====================
