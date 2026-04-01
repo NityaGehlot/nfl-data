@@ -46,7 +46,7 @@ if(!"gsis_id" %in% names(injuries)) injuries$gsis_id <- ""
 if(!"week" %in% names(injuries)) injuries$week <- NA
 if(!"report_status" %in% names(injuries)) injuries$report_status <- ""
 if(!"practice_status" %in% names(injuries)) injuries$practice_status <- ""
-if(!"injury_type" %in% names(injuries)) injuries$injury_type <- ""
+# if(!"injury_type" %in% names(injuries)) injuries$injury_type <- ""
 
 injuries <- injuries %>%
   transmute(
