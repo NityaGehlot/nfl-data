@@ -54,10 +54,10 @@ injuries <- injuries %>%
     week,
     primary_injury = report_primary_injury,
     secondary_injury = report_secondary_injury,
-    # injury_status = report_status,
-    # practice_primary_injury = practice_primary_injury,
-    # practice_secondary_injury = practice_secondary_injury,
-    # practice_status = practice_status,
+    injury_status = report_status,
+    practice_primary_injury = practice_primary_injury,
+    practice_secondary_injury = practice_secondary_injury,
+    practice_status = practice_status,
     
   )
 
@@ -151,9 +151,12 @@ weekly_full <- weekly_full %>%
   mutate(
     fantasy_points_ppr = coalesce(fantasy_points_ppr,0),
     opponent_team = coalesce(opponent_team,""),
+    primary_injury = coalesce(report_primary_injury,""),
+    secondary_injury = coalesce(report_secondary_injury,""),
     injury_status = coalesce(injury_status,"ACTIVE"),
+    practice_primary_injury = coalesce(practice_primary_injury,""),
+    practice_secondary_injury = coalesce(practice_secondary_injury,""),
     practice_status = coalesce(practice_status,""),
-    injury_type = coalesce(injury_type,"")
   )
 
 # =====================
@@ -163,7 +166,8 @@ base_cols <- c(
   "season","week","player_id","player_name",
   "position","team","opponent_team",
   "headshot_url","fantasy_points_ppr",
-  "injury_status","practice_status","injury_type"
+  "primary_injury","secondary_injury","injury_status",
+  "practice_primary_injury","practice_secondary_injury","practice_status",
 )
 
 weekly_df <- weekly_full %>%
@@ -247,9 +251,12 @@ team_def <- team_weekly %>%
     position="DEF",
     team,opponent_team,
     fantasy_points_ppr,
+    primary_injury="",
+    secondary_injury="",
     injury_status="N/A",
+    practice_primary_injury="",
+    practice_secondary_injury="",
     practice_status="",
-    injury_type=""
   )
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
