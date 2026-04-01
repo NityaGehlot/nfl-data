@@ -42,11 +42,19 @@ message("Loading injury data")
 injuries <- nflreadr::load_injuries(seasons = season)
 
 # Ensure columns exist safely
-if(!"gsis_id" %in% names(injuries)) injuries$gsis_id <- ""
-if(!"week" %in% names(injuries)) injuries$week <- NA
-if(!"report_status" %in% names(injuries)) injuries$report_status <- ""
-if(!"practice_status" %in% names(injuries)) injuries$practice_status <- ""
-# if(!"injury_type" %in% names(injuries)) injuries$injury_type <- ""
+safe_col <- function(df, col){
+  if(!col %in% names(df)) df[[col]] <- ""
+  df
+}
+
+injuries <- safe_col(injuries, "gsis_id")
+injuries <- safe_col(injuries, "week")
+injuries <- safe_col(injuries, "report_status")
+injuries <- safe_col(injuries, "practice_status")
+injuries <- safe_col(injuries, "report_primary_injury")
+injuries <- safe_col(injuries, "report_secondary_injury")
+injuries <- safe_col(injuries, "practice_primary_injury")
+injuries <- safe_col(injuries, "practice_secondary_injury")
 
 injuries <- injuries %>%
   transmute(
@@ -54,7 +62,10 @@ injuries <- injuries %>%
     week,
     injury_status = report_status,
     practice_status = practice_status,
-    
+    primary_injury = report_primary_injury,
+    secondary_injury = report_secondary_injury,
+    practice_primary_injury,
+    practice_secondary_injury
   )
 
 # =====================
@@ -140,7 +151,7 @@ weekly_full <- weekly_full %>%
   ungroup()
 
 # =====================
-# CLEAN + FILL VALUES
+# CLEAN VALUES
 # =====================
 weekly_full <- weekly_full %>%
   mutate(across(all_of(stat_cols), ~coalesce(.x,0))) %>%
@@ -149,6 +160,10 @@ weekly_full <- weekly_full %>%
     opponent_team = coalesce(opponent_team,""),
     injury_status = coalesce(injury_status,"ACTIVE"),
     practice_status = coalesce(practice_status,""),
+    primary_injury = coalesce(primary_injury,""),
+    secondary_injury = coalesce(secondary_injury,""),
+    practice_primary_injury = coalesce(practice_primary_injury,""),
+    practice_secondary_injury = coalesce(practice_secondary_injury,"")
   )
 
 # =====================
@@ -159,6 +174,8 @@ base_cols <- c(
   "position","team","opponent_team",
   "headshot_url","fantasy_points_ppr",
   "injury_status","practice_status",
+  "primary_injury","secondary_injury",
+  "practice_primary_injury","practice_secondary_injury"
 )
 
 weekly_df <- weekly_full %>%
@@ -244,17 +261,20 @@ team_def <- team_weekly %>%
     fantasy_points_ppr,
     injury_status="N/A",
     practice_status="",
+    primary_injury="",
+    secondary_injury="",
+    practice_primary_injury="",
+    practice_secondary_injury=""
   )
 
 def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
 
-all_players <- c(player_list, def_list)
-
-combined_df <- bind_rows(lapply(all_players, as.data.frame))
-
 # =====================
 # EXPORT BY WEEK
 # =====================
+all_players <- c(player_list, def_list)
+combined_df <- bind_rows(lapply(all_players, as.data.frame))
+
 if(!dir.exists("data")) dir.create("data")
 
 weeks <- sort(unique(combined_df$week))
