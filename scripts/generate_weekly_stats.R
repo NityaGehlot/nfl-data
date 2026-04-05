@@ -146,7 +146,9 @@ weekly_full <- weekly_full %>%
   group_by(player_id) %>%
   mutate(
     player_name = coalesce(player_name.x, player_name.y),
-    position = coalesce(position.x, position.y)
+    position = coalesce(position.x, position.y),
+    # ✅ Fill team from the most recent week they had a non-null team
+    team = if(all(is.na(team))) NA_character_ else last(na.omit(team))
   ) %>%
   ungroup()
 
