@@ -238,7 +238,7 @@ team_weekly <- nflreadr::load_team_stats(seasons = season)
 team_def <- team_weekly %>%
   select(
     season, week, team,
-    def_fumbles_forced,
+    def_fumbles,
     def_sacks,
     def_interceptions,
     def_tds,
