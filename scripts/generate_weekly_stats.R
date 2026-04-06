@@ -21,7 +21,6 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading player metadata")
 players <- nflreadr::load_players()
 
-# Ensure columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
@@ -41,7 +40,6 @@ message("Loading injury data")
 
 injuries <- nflreadr::load_injuries(seasons = season)
 
-# Ensure columns exist safely
 safe_col <- function(df, col){
   if(!col %in% names(df)) df[[col]] <- ""
   df
@@ -69,15 +67,12 @@ injuries <- injuries %>%
   )
 
 # =====================
-# KEEP ONLY FANTASY POSITIONS
+# FILTER POSITIONS
 # =====================
 fantasy_positions <- c("QB","RB","WR","TE","K")
 
-players <- players %>%
-  filter(position %in% fantasy_positions)
-
-weekly <- weekly %>%
-  filter(position %in% fantasy_positions)
+players <- players %>% filter(position %in% fantasy_positions)
+weekly  <- weekly  %>% filter(position %in% fantasy_positions)
 
 # =====================
 # ENSURE STAT COLUMNS
@@ -119,7 +114,7 @@ weekly <- weekly %>%
   )
 
 # =====================
-# CREATE PLAYER x WEEK GRID
+# PLAYER x WEEK GRID
 # =====================
 all_weeks <- sort(unique(weekly$week))
 
@@ -131,23 +126,17 @@ full_grid <- expand.grid(
 
 weekly_full <- full_grid %>%
   left_join(players, by="player_id") %>%
-  left_join(weekly, by=c("player_id","week"))
-
-# =====================
-# JOIN INJURY DATA
-# =====================
-weekly_full <- weekly_full %>%
+  left_join(weekly, by=c("player_id","week")) %>%
   left_join(injuries, by=c("player_id","week"))
 
 # =====================
-# FILL PLAYER METADATA
+# FILL METADATA
 # =====================
 weekly_full <- weekly_full %>%
   group_by(player_id) %>%
   mutate(
     player_name = coalesce(player_name.x, player_name.y),
     position = coalesce(position.x, position.y),
-    # ✅ Fill team from the most recent week they had a non-null team
     team = if(all(is.na(team))) NA_character_ else last(na.omit(team))
   ) %>%
   ungroup()
@@ -169,7 +158,7 @@ weekly_full <- weekly_full %>%
   )
 
 # =====================
-# BASE PLAYER COLUMNS
+# BASE COLUMNS
 # =====================
 base_cols <- c(
   "season","week","player_id","player_name",
@@ -201,25 +190,20 @@ position_cols <- list(
 )
 
 player_list <- apply(weekly_df, 1, function(row) {
-
   pos <- row[["position"]]
-
   if(!(pos %in% names(position_cols))) return(NULL)
 
-  keep_cols <- intersect(
-    c(base_cols, position_cols[[pos]]),
-    names(row)
-  )
-
+  keep_cols <- intersect(c(base_cols, position_cols[[pos]]), names(row))
   as.list(row[keep_cols])
 })
 
 player_list <- Filter(Negate(is.null), player_list)
 
 # =====================
-# DEFENSE SCORING
+# DEFENSE SECTION (FIXED + CLEAN)
 # =====================
 message("Loading schedules")
+
 schedules <- nflreadr::load_schedules(seasons = season) %>%
   filter(game_type == "REG")
 
@@ -231,99 +215,71 @@ away_def <- schedules %>%
 
 def_points <- bind_rows(home_def, away_def)
 
-message("Loading team stats for defense")
+message("Loading team stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
-
-# =====================
-# CHECK AVAILABLE COLUMNS
-# =====================
-message("Team stats columns: ", paste(names(team_weekly), collapse = ", "))
-
-# Safely get defensive columns with fallback to 0
-safe_def_col <- function(df, col) {
-  if (!col %in% names(df)) {
-    message("⚠️ Column not found, defaulting to 0: ", col)
-    df[[col]] <- 0
-  }
-  df
-}
-
-team_weekly <- safe_def_col(team_weekly, "def_sacks")
-team_weekly <- safe_def_col(team_weekly, "def_interceptions")
-team_weekly <- safe_def_col(team_weekly, "def_fumbles_forced")
-team_weekly <- safe_def_col(team_weekly, "fumble_recovery_opp")
-team_weekly <- safe_def_col(team_weekly, "def_tds")
-team_weekly <- safe_def_col(team_weekly, "special_teams_tds")
-team_weekly <- safe_def_col(team_weekly, "def_safeties")
 
 team_def <- team_weekly %>%
   left_join(def_points, by = c("season", "week", "team")) %>%
   mutate(
     points_allowed = coalesce(as.numeric(points_allowed), 0),
 
-    # =====================
-    # FANTASY SCORING
-    # =====================
     pts_allowed_score = case_when(
-      points_allowed == 0             ~ 10,
-      points_allowed <= 6             ~ 7,
-      points_allowed <= 13            ~ 4,
-      points_allowed <= 20            ~ 1,
-      points_allowed <= 27            ~ 0,
-      points_allowed <= 34            ~ -1,
-      TRUE                            ~ -4
+      points_allowed == 0  ~ 10,
+      points_allowed <= 6  ~ 7,
+      points_allowed <= 13 ~ 4,
+      points_allowed <= 20 ~ 1,
+      points_allowed <= 27 ~ 0,
+      points_allowed <= 34 ~ -1,
+      TRUE                 ~ -4
     ),
 
     fantasy_points_ppr =
-      (coalesce(def_sacks, 0) * 1) +
-      (coalesce(def_interceptions, 0) * 2) +
-      (coalesce(def_fumbles_forced, 0) * 1) +
-      (coalesce(fumble_recovery_opp, 0) * 2) +
-      ((coalesce(def_tds, 0) + coalesce(special_teams_tds, 0)) * 6) +
-      (coalesce(def_safeties, 0) * 2) +
+      coalesce(def_sacks, 0) * 1 +
+      coalesce(def_interceptions, 0) * 2 +
+      coalesce(def_fumbles_forced, 0) * 1 +
+      coalesce(fumble_recovery_opp, 0) * 2 +
+      (coalesce(def_tds, 0) + coalesce(special_teams_tds, 0)) * 6 +
+      coalesce(def_safeties, 0) * 2 +
       pts_allowed_score
   ) %>%
   transmute(
-    season,
+    season = as.character(season),
     week,
-    player_id    = paste0("DEF_", team),
-    player_name  = paste(team, "DEF"),
-    position     = "DEF",
+    player_id   = paste0("DEF_", team),
+    player_name = paste(team, "DEF"),
+    position    = "DEF",
     team,
     opponent_team,
     fantasy_points_ppr,
 
-    # =====================
-    # ACTUAL DEFENSIVE STATS (no nulls)
-    # =====================
-    def_sacks              = coalesce(def_sacks, 0),
-    def_interceptions      = coalesce(def_interceptions, 0),
-    def_fumbles_forced     = coalesce(def_fumbles_forced, 0),
-    fumbles_recovered      = coalesce(fumble_recovery_opp, 0),
-    def_tds                = coalesce(def_tds, 0),
-    special_teams_tds      = coalesce(special_teams_tds, 0),
-    def_safeties           = coalesce(def_safeties, 0),
-    points_allowed         = coalesce(points_allowed, 0),
-    pts_allowed_score,
+    def_sacks           = coalesce(def_sacks, 0),
+    def_interceptions   = coalesce(def_interceptions, 0),
+    def_fumbles_forced  = coalesce(def_fumbles_forced, 0),
+    fumbles_recovered   = coalesce(fumble_recovery_opp, 0),
+    def_tds             = coalesce(def_tds, 0),
+    special_teams_tds   = coalesce(special_teams_tds, 0),
+    def_safeties        = coalesce(def_safeties, 0),
+    points_allowed,
 
-    # Injury fields — always N/A for DEF
-    injury_status          = "N/A",
-    practice_status        = "",
-    primary_injury         = "",
-    secondary_injury       = "",
-    practice_primary_injury   = "",
+    injury_status = "N/A",
+    practice_status = "",
+    primary_injury = "",
+    secondary_injury = "",
+    practice_primary_injury = "",
     practice_secondary_injury = ""
   )
 
-def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
+def_df <- as.data.frame(team_def)
 
 # =====================
-# EXPORT BY WEEK
+# EXPORT
 # =====================
 player_df <- bind_rows(lapply(player_list, as.data.frame))
-def_df    <- as.data.frame(team_def)
 
-# Keep only weeks that exist in player data
+# ✅ FIX TYPES GLOBALLY
+player_df$season <- as.character(player_df$season)
+def_df$season    <- as.character(def_df$season)
+
 weeks <- sort(unique(player_df$week))
 
 for (w in weeks) {
@@ -331,17 +287,13 @@ for (w in weeks) {
   player_week <- player_df %>% filter(week == w)
   def_week    <- def_df    %>% filter(week == w)
 
-  # ✅ Only keep columns relevant to each row type
-  # Player rows already have position-filtered cols from position_cols above
-  # DEF rows get only DEF-relevant cols — no carries/passing_yards/etc nulls
-
   combined_week <- bind_rows(player_week, def_week)
 
   file_name <- paste0(
     "data/player_stats_",
     season,
     "_week",
-    formatC(w, width = 0),  # no zero padding
+    w,
     ".json"
   )
 
