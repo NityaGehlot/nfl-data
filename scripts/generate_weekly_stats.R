@@ -243,7 +243,7 @@ team_def <- team_weekly %>%
     def_interceptions,
     def_tds,
     def_safeties,
-    fumble_recovery_opp
+    fumble_recovery_own
   ) %>%
   left_join(def_teams, by = c("season", "week", "team")) %>%
   mutate(
@@ -252,7 +252,7 @@ team_def <- team_weekly %>%
       (def_sacks * 1) +
       (def_interceptions * 2) +
       (def_fumbles * 1) +
-      (fumble_recovery_opp * 2) +
+      (fumble_recovery_own * 2) +
       (def_tds * 6) +
       (def_safeties * 2)
   ) %>%
@@ -271,7 +271,7 @@ team_def <- team_weekly %>%
     def_interceptions,
     def_tds,
     def_safeties,
-    fumble_recovery_opp,
+    fumble_recovery_own,
     # Empty placeholders for injury data (optional)
     injury_status        = "N/A",
     practice_status      = "",
