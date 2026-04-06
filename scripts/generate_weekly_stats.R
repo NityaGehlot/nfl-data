@@ -238,12 +238,12 @@ team_weekly <- nflreadr::load_team_stats(seasons = season)
 team_def <- team_weekly %>%
   select(
     season, week, team,
-    def_fumbles,
+    def_fumbles_forced,
     def_sacks,
     def_interceptions,
     def_tds,
     def_safeties,
-    fumble_recovery_own
+    fumble_recovery_opp
   ) %>%
   left_join(def_teams, by = c("season", "week", "team")) %>%
   mutate(
@@ -251,8 +251,8 @@ team_def <- team_weekly %>%
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
-      (def_fumbles * 1) +
-      (fumble_recovery_own * 2) +
+      (def_fumbles_forced * 1) +
+      (fumble_recovery_opp * 2) +
       (def_tds * 6) +
       (def_safeties * 2)
   ) %>%
@@ -266,12 +266,12 @@ team_def <- team_weekly %>%
     opponent_team,
     fantasy_points_ppr,
     # Defensive stats only
-    def_fumbles,
+    def_fumbles_forced,
     def_sacks,
     def_interceptions,
     def_tds,
     def_safeties,
-    fumble_recovery_own,
+    fumble_recovery_opp,
     # Empty placeholders for injury data (optional)
     injury_status        = "N/A",
     practice_status      = "",
