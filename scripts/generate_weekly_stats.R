@@ -277,8 +277,24 @@ def_df <- as.data.frame(team_def)
 player_df <- bind_rows(lapply(player_list, as.data.frame))
 
 # ✅ FIX TYPES GLOBALLY
-player_df$season <- as.character(player_df$season)
-def_df$season    <- as.character(def_df$season)
+player_df <- player_df %>%
+  mutate(
+    season = as.character(season),
+    week   = as.integer(week)
+  )
+
+def_df <- def_df %>%
+  mutate(
+    season = as.character(season),
+    week   = as.integer(week)
+  )
+
+weekly_df <- weekly_df %>%
+  mutate(
+    season = as.character(season),
+    week   = as.integer(week)
+  )
+    
 
 weeks <- sort(unique(player_df$week))
 
