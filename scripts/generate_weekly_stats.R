@@ -21,6 +21,7 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading player metadata")
 players <- nflreadr::load_players()
 
+# Ensure columns exist
 if(!"display_name" %in% names(players)) players$display_name <- ""
 if(!"position" %in% names(players)) players$position <- ""
 if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
@@ -40,6 +41,7 @@ message("Loading injury data")
 
 injuries <- nflreadr::load_injuries(seasons = season)
 
+# Ensure columns exist safely
 safe_col <- function(df, col){
   if(!col %in% names(df)) df[[col]] <- ""
   df
@@ -67,12 +69,15 @@ injuries <- injuries %>%
   )
 
 # =====================
-# FILTER POSITIONS
+# KEEP ONLY FANTASY POSITIONS
 # =====================
 fantasy_positions <- c("QB","RB","WR","TE","K")
 
-players <- players %>% filter(position %in% fantasy_positions)
-weekly  <- weekly  %>% filter(position %in% fantasy_positions)
+players <- players %>%
+  filter(position %in% fantasy_positions)
+
+weekly <- weekly %>%
+  filter(position %in% fantasy_positions)
 
 # =====================
 # ENSURE STAT COLUMNS
@@ -114,7 +119,7 @@ weekly <- weekly %>%
   )
 
 # =====================
-# PLAYER x WEEK GRID
+# CREATE PLAYER x WEEK GRID
 # =====================
 all_weeks <- sort(unique(weekly$week))
 
@@ -126,17 +131,23 @@ full_grid <- expand.grid(
 
 weekly_full <- full_grid %>%
   left_join(players, by="player_id") %>%
-  left_join(weekly, by=c("player_id","week")) %>%
+  left_join(weekly, by=c("player_id","week"))
+
+# =====================
+# JOIN INJURY DATA
+# =====================
+weekly_full <- weekly_full %>%
   left_join(injuries, by=c("player_id","week"))
 
 # =====================
-# FILL METADATA
+# FILL PLAYER METADATA
 # =====================
 weekly_full <- weekly_full %>%
   group_by(player_id) %>%
   mutate(
     player_name = coalesce(player_name.x, player_name.y),
     position = coalesce(position.x, position.y),
+    # ✅ Fill team from the most recent week they had a non-null team
     team = if(all(is.na(team))) NA_character_ else last(na.omit(team))
   ) %>%
   ungroup()
@@ -158,7 +169,7 @@ weekly_full <- weekly_full %>%
   )
 
 # =====================
-# BASE COLUMNS
+# BASE PLAYER COLUMNS
 # =====================
 base_cols <- c(
   "season","week","player_id","player_name",
@@ -190,60 +201,63 @@ position_cols <- list(
 )
 
 player_list <- apply(weekly_df, 1, function(row) {
+
   pos <- row[["position"]]
+
   if(!(pos %in% names(position_cols))) return(NULL)
 
-  keep_cols <- intersect(c(base_cols, position_cols[[pos]]), names(row))
+  keep_cols <- intersect(
+    c(base_cols, position_cols[[pos]]),
+    names(row)
+  )
+
   as.list(row[keep_cols])
 })
 
 player_list <- Filter(Negate(is.null), player_list)
 
 # =====================
-# DEFENSE SECTION (FIXED + CLEAN)
+# DEFENSE SCORING (CLEAN)
 # =====================
 message("Loading schedules")
-
 schedules <- nflreadr::load_schedules(seasons = season) %>%
   filter(game_type == "REG")
 
 home_def <- schedules %>%
-  transmute(season, week, team = home_team, points_allowed = away_score)
+  transmute(season, week, team = home_team, opponent_team = away_team)
 
 away_def <- schedules %>%
-  transmute(season, week, team = away_team, points_allowed = home_score)
+  transmute(season, week, team = away_team, opponent_team = home_team)
 
-def_points <- bind_rows(home_def, away_def)
+def_teams <- bind_rows(home_def, away_def)
 
 message("Loading team stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
+# Keep only relevant defensive stats
 team_def <- team_weekly %>%
-  left_join(def_points, by = c("season", "week", "team")) %>%
+  select(
+    season, week, team,
+    def_fumbles_forced,
+    def_sacks,
+    def_interceptions,
+    def_tds,
+    def_safeties,
+    fumble_recovery_opp
+  ) %>%
+  left_join(def_teams, by = c("season", "week", "team")) %>%
   mutate(
-    points_allowed = coalesce(as.numeric(points_allowed), 0),
-
-    pts_allowed_score = case_when(
-      points_allowed == 0  ~ 10,
-      points_allowed <= 6  ~ 7,
-      points_allowed <= 13 ~ 4,
-      points_allowed <= 20 ~ 1,
-      points_allowed <= 27 ~ 0,
-      points_allowed <= 34 ~ -1,
-      TRUE                 ~ -4
-    ),
-
+    # Calculate fantasy points using standard scoring
     fantasy_points_ppr =
-      coalesce(def_sacks, 0) * 1 +
-      coalesce(def_interceptions, 0) * 2 +
-      coalesce(def_fumbles_forced, 0) * 1 +
-      coalesce(fumble_recovery_opp, 0) * 2 +
-      (coalesce(def_tds, 0) + coalesce(special_teams_tds, 0)) * 6 +
-      coalesce(def_safeties, 0) * 2 +
-      pts_allowed_score
+      (def_sacks * 1) +
+      (def_interceptions * 2) +
+      (def_fumbles_forced * 1) +
+      (fumble_recovery_opp * 2) +
+      (def_tds * 6) +
+      (def_safeties * 2)
   ) %>%
   transmute(
-    season = as.character(season),
+    season,
     week,
     player_id   = paste0("DEF_", team),
     player_name = paste(team, "DEF"),
@@ -251,59 +265,38 @@ team_def <- team_weekly %>%
     team,
     opponent_team,
     fantasy_points_ppr,
-
-    def_sacks           = coalesce(def_sacks, 0),
-    def_interceptions   = coalesce(def_interceptions, 0),
-    def_fumbles_forced  = coalesce(def_fumbles_forced, 0),
-    fumbles_recovered   = coalesce(fumble_recovery_opp, 0),
-    def_tds             = coalesce(def_tds, 0),
-    special_teams_tds   = coalesce(special_teams_tds, 0),
-    def_safeties        = coalesce(def_safeties, 0),
-    points_allowed,
-
-    injury_status = "N/A",
-    practice_status = "",
-    primary_injury = "",
-    secondary_injury = "",
-    practice_primary_injury = "",
+    # Defensive stats only
+    def_fumbles_forced,
+    def_sacks,
+    def_interceptions,
+    def_tds,
+    def_safeties,
+    fumble_recovery_opp,
+    # Empty placeholders for injury data (optional)
+    injury_status        = "N/A",
+    practice_status      = "",
+    primary_injury       = "",
+    secondary_injury     = "",
+    practice_primary_injury   = "",
     practice_secondary_injury = ""
   )
 
-def_df <- as.data.frame(team_def)
+def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
 
 # =====================
-# EXPORT
+# EXPORT BY WEEK
 # =====================
-player_df <- bind_rows(lapply(player_list, as.data.frame))
+all_players <- c(player_list, def_list)
+combined_df <- bind_rows(lapply(all_players, as.data.frame))
 
-# ✅ FIX TYPES GLOBALLY
-player_df <- player_df %>%
-  mutate(
-    season = as.character(season),
-    week   = as.integer(week)
-  )
+if(!dir.exists("data")) dir.create("data")
 
-def_df <- def_df %>%
-  mutate(
-    season = as.character(season),
-    week   = as.integer(week)
-  )
+weeks <- sort(unique(combined_df$week))
 
-weekly_df <- weekly_df %>%
-  mutate(
-    season = as.character(season),
-    week   = as.integer(week)
-  )
-    
+for(w in weeks){
 
-weeks <- sort(unique(player_df$week))
-
-for (w in weeks) {
-
-  player_week <- player_df %>% filter(week == w)
-  def_week    <- def_df    %>% filter(week == w)
-
-  combined_week <- bind_rows(player_week, def_week)
+  week_data <- combined_df %>%
+    filter(week == w)
 
   file_name <- paste0(
     "data/player_stats_",
@@ -314,14 +307,17 @@ for (w in weeks) {
   )
 
   write_json(
-    split(combined_week, seq(nrow(combined_week))),
+    split(week_data, seq(nrow(week_data))),
     file_name,
-    pretty     = TRUE,
+    pretty = TRUE,
     auto_unbox = TRUE,
-    na         = "null"
+    na = "null"
   )
 
   message("Exported: ", file_name)
 }
 
 message("✅ Weekly JSON files generated successfully.")
+
+
+
