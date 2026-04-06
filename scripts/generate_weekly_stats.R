@@ -251,7 +251,7 @@ team_def <- team_weekly %>%
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
-      (def_fumbles_forced * 1) +
+      (def_fumbles * 1) +
       (fumble_recovery_opp * 2) +
       (def_tds * 6) +
       (def_safeties * 2)
@@ -266,7 +266,7 @@ team_def <- team_weekly %>%
     opponent_team,
     fantasy_points_ppr,
     # Defensive stats only
-    def_fumbles_forced,
+    def_fumbles,
     def_sacks,
     def_interceptions,
     def_tds,
