@@ -217,7 +217,7 @@ player_list <- apply(weekly_df, 1, function(row) {
 player_list <- Filter(Negate(is.null), player_list)
 
 # =====================
-# DEFENSE SCORING (CLEAN)
+# DEFENSE SCORING + OPPONENT YARDS
 # =====================
 message("Loading schedules")
 schedules <- nflreadr::load_schedules(seasons = season) %>%
@@ -234,7 +234,30 @@ def_teams <- bind_rows(home_def, away_def)
 message("Loading team stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
-# Keep only relevant defensive stats
+# =====================
+# OPPONENT OFFENSE (FOR YARDS ALLOWED)
+# =====================
+opponent_stats <- team_weekly %>%
+  select(
+    season,
+    week,
+    team,
+    passing_yards,
+    passing_tds,
+    rushing_yards,
+    rushing_tds
+  ) %>%
+  rename(
+    opponent_team = team,
+    passing_yards_allowed = passing_yards,
+    passing_tds_allowed = passing_tds,
+    rushing_yards_allowed = rushing_yards,
+    rushing_tds_allowed = rushing_tds
+  )
+
+# =====================
+# DEFENSE BUILD
+# =====================
 team_def <- team_weekly %>%
   select(
     season, week, team,
@@ -246,8 +269,9 @@ team_def <- team_weekly %>%
     fumble_recovery_opp
   ) %>%
   left_join(def_teams, by = c("season", "week", "team")) %>%
+  left_join(opponent_stats, by = c("season", "week", "opponent_team")) %>%
   mutate(
-    # Calculate fantasy points using standard scoring
+    # Fantasy scoring
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
@@ -265,14 +289,22 @@ team_def <- team_weekly %>%
     team,
     opponent_team,
     fantasy_points_ppr,
-    # Defensive stats only
+
+    # ✅ Defensive stats
     def_fumbles_forced,
     def_sacks,
     def_interceptions,
     def_tds,
     def_safeties,
     fumble_recovery_opp,
-    # Empty placeholders for injury data (optional)
+
+    # ✅ YARDS ALLOWED (NEW)
+    passing_yards_allowed,
+    passing_tds_allowed,
+    rushing_yards_allowed,
+    rushing_tds_allowed,
+
+    # Injury placeholders
     injury_status        = "N/A",
     practice_status      = "",
     primary_injury       = "",
