@@ -87,14 +87,26 @@ stat_cols <- c(
   "carries","rushing_yards","rushing_tds",
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles",
+
+  # ✅ NEW KICKER STATS
   "fg_made","fg_att","fg_missed",
-  "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
-  "pat_made","pat_att","pat_missed"
+  "fg_pct",
+  "fg_made_0_19","fg_made_20_29","fg_made_30_39",
+  "fg_made_40_49","fg_made_50_59","fg_made_60_",
+  "fg_missed_0_19","fg_missed_20_29","fg_missed_30_39",
+  "fg_missed_40_49","fg_missed_50_59","fg_missed_60_",
+  "fg_made_list","fg_missed_list",
+
+  "pat_made","pat_att","pat_missed","pat_pct"
 )
 
 for(col in stat_cols){
   if(!col %in% names(weekly)){
-    weekly[[col]] <- 0
+    if(col %in% c("fg_made_list","fg_missed_list")){
+      weekly[[col]] <- ""
+    } else {
+      weekly[[col]] <- 0
+    }
   }
 }
 
@@ -105,12 +117,12 @@ weekly <- weekly %>%
   mutate(
     fantasy_points_ppr = ifelse(
       position == "K",
-      (fg_0_19 * 3) +
-      (fg_20_29 * 3) +
-      (fg_30_39 * 3) +
-      (fg_40_49 * 4) +
-      (fg_50_59 * 5) +
-      (fg_60p * 5) +
+      (fg_made_0_19 * 3) +
+      (fg_made_20_29 * 3) +
+      (fg_made_30_39 * 3) +
+      (fg_made_40_49 * 4) +
+      (fg_made_50_59 * 5) +
+      (fg_made_60_ * 5) +
       (pat_made * 1) -
       (fg_missed * 1) -
       (pat_missed * 1),
@@ -195,10 +207,33 @@ position_cols <- list(
          "carries","rushing_yards","rushing_tds","fumbles"),
   TE = c("receptions","targets","receiving_yards","receiving_tds",
          "carries","rushing_yards","rushing_tds","fumbles"),
-  K = c("fg_made","fg_att","fg_missed",
-        "fg_0_19","fg_20_29","fg_30_39","fg_40_49","fg_50_59","fg_60p",
-        "pat_made","pat_att","pat_missed")
+  K = c(
+  "fg_made","fg_att","fg_missed",
+  "fg_pct",
+
+  "fg_made_0_19","fg_made_20_29","fg_made_30_39",
+  "fg_made_40_49","fg_made_50_59","fg_made_60_",
+
+  "fg_missed_0_19","fg_missed_20_29","fg_missed_30_39",
+  "fg_missed_40_49","fg_missed_50_59","fg_missed_60_",
+
+  "fg_made_list","fg_missed_list",
+
+  "pat_made","pat_att","pat_missed","pat_pct"
 )
+)
+
+weekly_df <- weekly_df %>%
+  rowwise() %>%
+  mutate(
+    across(
+      -all_of(c(base_cols, position_cols[[position]])),
+      ~NULL
+    )
+  ) %>%
+  ungroup()
+
+    
 
 player_list <- apply(weekly_df, 1, function(row) {
 
