@@ -75,9 +75,29 @@ players <- players %>% filter(position %in% fantasy_positions)
 weekly  <- weekly  %>% filter(position %in% fantasy_positions)
 
 # =====================
-# ENSURE STAT COLUMNS EXIST
+# RENAME NFLREADR KICKER COLUMNS TO API-ALIGNED NAMES
+# nflreadr provides fg_0_19 ... fg_60p; API expects fg_made_0_19 ... fg_made_60_
 # =====================
-stat_cols <- c(
+kicker_rename <- c(
+  "fg_0_19"  = "fg_made_0_19",
+  "fg_20_29" = "fg_made_20_29",
+  "fg_30_39" = "fg_made_30_39",
+  "fg_40_49" = "fg_made_40_49",
+  "fg_50_59" = "fg_made_50_59",
+  "fg_60p"   = "fg_made_60_"
+)
+for(old_nm in names(kicker_rename)) {
+  new_nm <- kicker_rename[[old_nm]]
+  if(old_nm %in% names(weekly) && !new_nm %in% names(weekly)) {
+    names(weekly)[names(weekly) == old_nm] <- new_nm
+  }
+}
+
+# =====================
+# ENSURE STAT COLUMNS EXIST
+# Numeric stat columns default to 0; character list fields default to ""
+# =====================
+numeric_stat_cols <- c(
   # Passing
   "completions","attempts","passing_yards","passing_tds","passing_interceptions",
   # Rushing
@@ -87,18 +107,29 @@ stat_cols <- c(
   # Misc
   "fumbles",
   # Kicker — corrected API names
-  "fg_made","fg_att","fg_missed","fg_pct",
+  "fg_made","fg_att","fg_missed",
   "fg_made_0_19","fg_made_20_29","fg_made_30_39",
   "fg_made_40_49","fg_made_50_59","fg_made_60_",
   "fg_missed_0_19","fg_missed_20_29","fg_missed_30_39",
   "fg_missed_40_49","fg_missed_50_59","fg_missed_60_",
-  "fg_made_list","fg_missed_list",
-  "pat_made","pat_att","pat_missed","pat_pct"
+  "pat_made","pat_att","pat_missed"
 )
+char_stat_cols <- c("fg_made_list","fg_missed_list")
+stat_cols <- c(numeric_stat_cols, char_stat_cols, "fg_pct", "pat_pct")
 
-for(col in stat_cols){
+for(col in numeric_stat_cols){
   if(!col %in% names(weekly)) weekly[[col]] <- 0
 }
+for(col in char_stat_cols){
+  if(!col %in% names(weekly)) weekly[[col]] <- ""
+}
+
+# Compute fg_pct and pat_pct for kickers
+weekly <- weekly %>%
+  mutate(
+    fg_pct  = ifelse(fg_att  > 0, round(fg_made  / fg_att  * 100, 1), 0),
+    pat_pct = ifelse(pat_att > 0, round(pat_made / pat_att * 100, 1), 0)
+  )
 
 # =====================
 # KICKER SCORING (corrected column names)
@@ -157,7 +188,8 @@ weekly_full <- weekly_full %>%
 # CLEAN VALUES
 # =====================
 weekly_full <- weekly_full %>%
-  mutate(across(all_of(stat_cols), ~coalesce(.x, 0))) %>%
+  mutate(across(all_of(c(numeric_stat_cols, "fg_pct", "pat_pct")), ~coalesce(.x, 0))) %>%
+  mutate(across(all_of(char_stat_cols), ~coalesce(.x, ""))) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
     opponent_team             = coalesce(opponent_team, ""),
