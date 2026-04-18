@@ -31,7 +31,19 @@ message("Loading ACTIVE NFL players (Sleeper)...")
 sleeper_url <- "https://api.sleeper.app/v1/players/nfl"
 players_raw <- fromJSON(sleeper_url)
 
-players_df <- bind_rows(lapply(players_raw, as.data.frame))
+message("Loading ACTIVE NFL players (Sleeper)...")
+
+sleeper_url <- "https://api.sleeper.app/v1/players/nfl"
+players_raw <- fromJSON(sleeper_url, simplifyDataFrame = FALSE)
+
+# REMOVE NULL / EMPTY ENTRIES (THIS FIXES YOUR ERROR)
+players_clean <- players_raw[!sapply(players_raw, is.null)]
+players_clean <- players_clean[sapply(players_clean, function(x) length(x) > 0)]
+
+# SAFE CONVERSION
+players_df <- bind_rows(lapply(players_clean, function(x) {
+  as.data.frame(t(unlist(x)), stringsAsFactors = FALSE)
+}))
 
 active_players <- players_df %>%
   filter(status == "Active") %>%
