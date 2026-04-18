@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (UPGRADED VERSION)
+# scripts/generate_nfl_news.R (STABLE PRODUCTION VERSION)
 # =====================
 
 library(httr)
@@ -7,69 +7,70 @@ library(jsonlite)
 library(dplyr)
 library(stringr)
 library(lubridate)
-library(nflreadr)
 library(xml2)
-
-# =====================
-# SAFE NULL HELPER
-# =====================
-`%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
 # CONFIG
 # =====================
 OUTPUT_FILE <- "data/nfl_news.json"
-
 MAX_ARTICLES <- 100
-HOURS_BACK <- 168  # 7 days
+HOURS_BACK <- 24 * 7  # 7 days
 
 # =====================
-# LOAD ACTIVE NFL PLAYERS (SLEEPER API)
+# SAFE HELPERS
 # =====================
-message("Loading ACTIVE NFL players (Sleeper)...")
+`%||%` <- function(a, b) if (!is.null(a)) a else b
 
-sleeper_url <- "https://api.sleeper.app/v1/players/nfl"
-players_raw <- fromJSON(sleeper_url)
+safe_parse_date <- function(x) {
+  parsed <- tryCatch({
+    parse_date_time(x, orders = c(
+      "ymd HMS", "ymd HM", "Ymd HMS",
+      "a, d b Y H:M:S", "a d b Y H:M:S",
+      "Y-m-d\\TH:M:S"
+    ), quiet = TRUE)
+  }, error = function(e) NA)
 
-message("Loading ACTIVE NFL players (Sleeper)...")
+  if (length(parsed) == 0) return(NA)
+  parsed
+}
+
+# =====================
+# LOAD SLEEPER PLAYERS (SAFE VERSION)
+# =====================
+message("Loading Sleeper players...")
 
 sleeper_url <- "https://api.sleeper.app/v1/players/nfl"
 players_raw <- fromJSON(sleeper_url, simplifyDataFrame = FALSE)
 
-# REMOVE NULL / EMPTY ENTRIES (THIS FIXES YOUR ERROR)
-players_clean <- players_raw[!sapply(players_raw, is.null)]
-players_clean <- players_clean[sapply(players_clean, function(x) length(x) > 0)]
+# keep only valid entries
+players_raw <- players_raw[!sapply(players_raw, is.null)]
 
-# SAFE CONVERSION
-players_df <- bind_rows(lapply(players_clean, function(x) {
-  as.data.frame(t(unlist(x)), stringsAsFactors = FALSE)
+players_df <- bind_rows(lapply(players_raw, function(p) {
+  as.data.frame(as.list(p), stringsAsFactors = FALSE)
 }))
 
+# keep only real active NFL players
 active_players <- players_df %>%
+  filter(!is.na(status)) %>%
   filter(status == "Active") %>%
   filter(position %in% c("QB","RB","WR","TE","K","DEF")) %>%
   mutate(
     full_name = tolower(paste(first_name, last_name))
-  )
+  ) %>%
+  filter(!is.na(full_name) & full_name != "")
 
-player_names <- active_players$full_name
+player_names <- unique(active_players$full_name)
+
+message(paste("Active players loaded:", length(player_names)))
 
 # =====================
-# IMPROVED PLAYER DETECTION
+# PLAYER DETECTION (SAFE + STRICT)
 # =====================
 detect_players <- function(text) {
   text <- tolower(text)
 
   matched <- player_names[sapply(player_names, function(name) {
-
-    parts <- strsplit(name, " ")[[1]]
-    last_name <- tail(parts, 1)
-
-    # STRICT matching (full name OR last name but word-bounded)
-    full_match <- grepl(paste0("\\b", name, "\\b"), text)
-    last_match <- grepl(paste0("\\b", last_name, "\\b"), text)
-
-    full_match | last_match
+    grepl(paste0("\\b", name, "\\b"), text)
   })]
 
   unique(matched)
@@ -81,32 +82,32 @@ detect_players <- function(text) {
 get_impact <- function(text) {
   text <- tolower(text)
 
-  if (grepl("out|injury|injured|doubtful|surgery|ir|pup", text)) {
-    return("negative")
-  } else if (grepl("questionable|limited|day-to-day|monitor", text)) {
-    return("slightly_negative")
-  } else if (grepl("breakout|huge|dominant|career-high|impressive|star", text)) {
-    return("positive")
+  if (grepl("injury|out|surgery|ir|doubtful", text)) {
+    "negative"
+  } else if (grepl("questionable|limited|monitor|day-to-day", text)) {
+    "slightly_negative"
+  } else if (grepl("breakout|dominant|huge|career-high|impressive|star", text)) {
+    "positive"
   } else {
-    return("neutral")
+    "neutral"
   }
 }
 
 # =====================
 # FILTER BAD CONTENT
 # =====================
-is_relevant_news <- function(text) {
+is_relevant <- function(text) {
   text <- tolower(text)
 
-  !grepl("mock draft|draft profile|college|prospect|2026 nfl draft|simulation", text)
+  !grepl("mock draft|college|prospect|simulation|2026 nfl draft", text)
 }
 
 # =====================
-# ESPN NEWS FETCH
+# ESPN NEWS
 # =====================
 fetch_espn <- function() {
 
-  message("Fetching ESPN news...")
+  message("Fetching ESPN...")
 
   url <- "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news"
   res <- GET(url)
@@ -114,8 +115,8 @@ fetch_espn <- function() {
   if (res$status_code != 200) return(list())
 
   data <- fromJSON(content(res, "text", encoding = "UTF-8"))
-  articles <- data$articles
 
+  articles <- data$articles
   if (is.data.frame(articles)) {
     articles <- split(articles, seq(nrow(articles)))
   }
@@ -127,13 +128,15 @@ fetch_espn <- function() {
     link <- a$links$web$href %||% ""
     published <- a$published %||% ""
 
+    if (title == "" || link == "") return(NULL)
+
     text <- paste(title, desc)
 
-    if (!is_relevant_news(text)) return(NULL)
+    if (!is_relevant(text)) return(NULL)
 
     list(
       title = title,
-      summary = str_trunc(desc %||% title, 140),
+      summary = str_trunc(ifelse(desc != "", desc, title), 140),
       link = link,
       published = published,
       source = "ESPN",
@@ -144,15 +147,15 @@ fetch_espn <- function() {
 }
 
 # =====================
-# GOOGLE NEWS RSS (BIG BOOST IN COVERAGE)
+# GOOGLE NEWS RSS (STRONG COVERAGE BOOST)
 # =====================
-fetch_google_news <- function() {
+fetch_google <- function() {
 
   message("Fetching Google News RSS...")
 
-  base_url <- "https://news.google.com/rss/search?q=NFL+football&hl=en-US&gl=US&ceid=US:en"
+  url <- "https://news.google.com/rss/search?q=NFL+football&hl=en-US&gl=US&ceid=US:en"
 
-  xml <- read_xml(base_url)
+  xml <- read_xml(url)
   items <- xml_find_all(xml, "//item")
 
   lapply(items, function(item) {
@@ -161,9 +164,9 @@ fetch_google_news <- function() {
     link <- xml_text(xml_find_first(item, "link"))
     pub <- xml_text(xml_find_first(item, "pubDate"))
 
-    text <- title
+    if (title == "") return(NULL)
 
-    if (!is_relevant_news(text)) return(NULL)
+    if (!is_relevant(title)) return(NULL)
 
     list(
       title = title,
@@ -171,8 +174,8 @@ fetch_google_news <- function() {
       link = link,
       published = pub,
       source = "GoogleNews",
-      players_mentioned = detect_players(text),
-      impact = get_impact(text)
+      players_mentioned = detect_players(title),
+      impact = get_impact(title)
     )
   })
 }
@@ -180,40 +183,36 @@ fetch_google_news <- function() {
 # =====================
 # RUN SOURCES
 # =====================
-all_news <- c(
+news <- c(
   fetch_espn(),
-  fetch_google_news()
+  fetch_google()
 )
 
-all_news <- Filter(Negate(is.null), all_news)
+news <- Filter(Negate(is.null), news)
+
+message(paste("Total raw articles:", length(news)))
 
 # =====================
-# REMOVE EMPTY ENTRIES
+# FILTER RECENT (SAFE)
 # =====================
-all_news <- Filter(function(x) {
-  !is.null(x$title) && x$title != "" &&
-    !is.null(x$link) && x$link != ""
-}, all_news)
-
-# =====================
-# FILTER RECENT NEWS
-# =====================
-message("Filtering recent news...")
-
 cutoff <- Sys.time() - hours(HOURS_BACK)
 
-all_news <- Filter(function(x) {
+news <- Filter(function(x) {
 
-  parsed <- tryCatch(
-    parse_date_time(x$published, orders = c("ymd HMS", "ymd HM", "a b d Y H:M:S")),
-    error = function(e) NA
-  )
+  parsed <- safe_parse_date(x$published)
 
   if (is.na(parsed)) return(FALSE)
 
   parsed >= cutoff
 
-}, all_news)
+}, news)
+
+# =====================
+# REMOVE EMPTY PLAYER MATCHES (BUT NOT TOO STRICT)
+# =====================
+news <- Filter(function(x) {
+  !is.null(x$title) && x$title != ""
+}, news)
 
 # =====================
 # SORT BY IMPACT
@@ -225,26 +224,38 @@ impact_priority <- c(
   "positive" = 0
 )
 
-all_news <- all_news[order(
-  sapply(all_news, function(x) impact_priority[x$impact]),
+news <- news[order(
+  sapply(news, function(x) impact_priority[x$impact]),
   decreasing = TRUE
 )]
 
 # =====================
-# LIMIT RESULTS
+# LIMIT
 # =====================
-all_news <- head(all_news, MAX_ARTICLES)
+news <- head(news, MAX_ARTICLES)
+
+# =====================
+# FALLBACK (PREVENT EMPTY JSON)
+# =====================
+if (length(news) == 0) {
+  message("⚠️ No filtered news found — adding fallback ESPN items")
+
+  news <- list(list(
+    title = "No recent NFL news available",
+    summary = "System fallback entry",
+    link = "https://www.espn.com/nfl/",
+    published = as.character(Sys.time()),
+    source = "SYSTEM",
+    players_mentioned = character(0),
+    impact = "neutral"
+  ))
+}
 
 # =====================
 # SAVE JSON
 # =====================
 if (!dir.exists("data")) dir.create("data")
 
-write_json(
-  all_news,
-  OUTPUT_FILE,
-  pretty = TRUE,
-  auto_unbox = TRUE
-)
+write_json(news, OUTPUT_FILE, pretty = TRUE, auto_unbox = TRUE)
 
 message("✅ NFL news generated successfully!")
