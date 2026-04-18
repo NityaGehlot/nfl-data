@@ -82,6 +82,11 @@ data <- fromJSON(content(response, "text", encoding = "UTF-8"))
 
 articles <- data$articles
 
+# FORCE SAFE LIST FORMAT
+if (is.data.frame(articles)) {
+  articles <- split(articles, seq(nrow(articles)))
+}
+
 # =====================
 # PROCESS ARTICLES
 # =====================
@@ -89,12 +94,15 @@ message("Processing articles...")
 
 cleaned <- lapply(articles, function(a) {
 
-  title <- a$headline %||% ""
-  desc  <- a$description %||% ""
-  published <- a$published %||% ""
+  # SAFETY CHECK (fix your crash)
+  if (is.null(a) || length(a) == 0) return(NULL)
+
+  title <- tryCatch(a$headline %||% "", error = function(e) "")
+  desc  <- tryCatch(a$description %||% "", error = function(e) "")
+  published <- tryCatch(a$published %||% "", error = function(e) "")
 
   link <- ""
-  if (!is.null(a$links$web$href)) {
+  if (!is.null(a$links) && !is.null(a$links$web) && !is.null(a$links$web$href)) {
     link <- a$links$web$href
   }
 
@@ -120,6 +128,8 @@ cleaned <- lapply(articles, function(a) {
     impact = impact
   )
 })
+
+cleaned <- Filter(Negate(is.null), cleaned)
 
 # =====================
 # REMOVE EMPTY ARTICLES
