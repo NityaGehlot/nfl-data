@@ -18,8 +18,10 @@ library(nflreadr)
 # CONFIG
 # =====================
 OUTPUT_FILE <- "data/nfl_news.json"
-MAX_ARTICLES <- 50
-HOURS_BACK <- 48
+
+# 🔥 increased coverage
+MAX_ARTICLES <- 75
+HOURS_BACK <- 168   # 7 days instead of 48
 
 # =====================
 # LOAD PLAYER DATA
@@ -36,29 +38,37 @@ player_names <- players %>%
   tolower()
 
 # =====================
-# DETECT PLAYERS
+# IMPROVED PLAYER DETECTION
+# (matches last name OR full name)
 # =====================
 detect_players <- function(text) {
   text <- tolower(text)
 
   matched <- player_names[sapply(player_names, function(name) {
-    grepl(name, text, fixed = TRUE)
+
+    parts <- strsplit(name, " ")[[1]]
+    last_name <- tail(parts, 1)
+
+    # match full name OR last name
+    grepl(name, text, fixed = TRUE) |
+      grepl(last_name, text, fixed = TRUE)
+
   })]
 
   unique(matched)
 }
 
 # =====================
-# IMPACT SCORING
+# IMPACT SCORING (enhanced)
 # =====================
 get_impact <- function(text) {
   text <- tolower(text)
 
-  if (grepl("out|injured|injury|doubtful|ruled out", text)) {
+  if (grepl("out|injured|injury|doubtful|ruled out|surgery", text)) {
     return("negative")
-  } else if (grepl("questionable|limited|monitor", text)) {
+  } else if (grepl("questionable|limited|monitor|day-to-day", text)) {
     return("slightly_negative")
-  } else if (grepl("breakout|strong|impressive|dominant|huge game", text)) {
+  } else if (grepl("breakout|strong|impressive|dominant|career-high|huge game", text)) {
     return("positive")
   } else {
     return("neutral")
@@ -82,7 +92,7 @@ data <- fromJSON(content(response, "text", encoding = "UTF-8"))
 
 articles <- data$articles
 
-# FORCE SAFE LIST FORMAT
+# FORCE SAFE FORMAT
 if (is.data.frame(articles)) {
   articles <- split(articles, seq(nrow(articles)))
 }
@@ -94,7 +104,6 @@ message("Processing articles...")
 
 cleaned <- lapply(articles, function(a) {
 
-  # SAFETY CHECK (fix your crash)
   if (is.null(a) || length(a) == 0) return(NULL)
 
   title <- tryCatch(a$headline %||% "", error = function(e) "")
@@ -102,7 +111,9 @@ cleaned <- lapply(articles, function(a) {
   published <- tryCatch(a$published %||% "", error = function(e) "")
 
   link <- ""
-  if (!is.null(a$links) && !is.null(a$links$web) && !is.null(a$links$web$href)) {
+  if (!is.null(a$links) &&
+      !is.null(a$links$web) &&
+      !is.null(a$links$web$href)) {
     link <- a$links$web$href
   }
 
@@ -112,8 +123,8 @@ cleaned <- lapply(articles, function(a) {
 
   summary_text <- ifelse(
     desc != "",
-    str_trunc(desc, 120),
-    str_trunc(title, 120)
+    str_trunc(desc, 140),
+    str_trunc(title, 140)
   )
 
   impact <- get_impact(combined_text)
@@ -132,21 +143,14 @@ cleaned <- lapply(articles, function(a) {
 cleaned <- Filter(Negate(is.null), cleaned)
 
 # =====================
-# REMOVE EMPTY ARTICLES
+# KEEP ALL VALID ARTICLES (NO PLAYER REQUIREMENT)
 # =====================
 cleaned <- cleaned[sapply(cleaned, function(x) {
-  x$title != "" && x$link != ""
+  !is.null(x$title) && x$title != "" && !is.null(x$link) && x$link != ""
 })]
 
 # =====================
-# KEEP ONLY PLAYER-RELEVANT NEWS
-# =====================
-cleaned <- cleaned[sapply(cleaned, function(x) {
-  length(x$players_mentioned) > 0
-})]
-
-# =====================
-# FILTER LAST 48 HOURS
+# FILTER RECENT NEWS (7 DAYS)
 # =====================
 message("Filtering recent news...")
 
@@ -158,7 +162,7 @@ cleaned <- cleaned[sapply(cleaned, function(x) {
 
   parsed <- tryCatch(
     ymd_hms(x$published),
-    error = function(e) return(NA)
+    error = function(e) NA
   )
 
   if (is.na(parsed)) return(FALSE)
@@ -167,7 +171,7 @@ cleaned <- cleaned[sapply(cleaned, function(x) {
 })]
 
 # =====================
-# SORT BY IMPACT
+# SORT BY FANTASY IMPACT
 # =====================
 message("Sorting by importance...")
 
@@ -184,7 +188,7 @@ cleaned <- cleaned[order(
 )]
 
 # =====================
-# LIMIT TOTAL ARTICLES
+# LIMIT RESULTS
 # =====================
 cleaned <- head(cleaned, MAX_ARTICLES)
 
