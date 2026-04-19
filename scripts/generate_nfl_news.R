@@ -1,7 +1,6 @@
 # =====================
 # scripts/generate_nfl_news.R
 # Player-targeted NFL news for fantasy football app
-# Offseason-aware version — hard floor Sep 4 2025
 # =====================
 
 library(httr)
@@ -16,25 +15,22 @@ library(xml2)
 # =====================
 OUTPUT_FILE   <- "data/nfl_news.json"
 MAX_ARTICLES  <- 200
-REQUEST_DELAY <- 1.2   # seconds between Google RSS calls
+REQUEST_DELAY <- 1.2
 
 TOP_PLAYER_QUERY_LIMIT <- 60
 
 # ── Date window ───────────────────────────────────────────────────────────────
-# HARD_FLOOR: absolute earliest date we will ever accept.
-# Nothing older than this will appear in the JSON, ever.
-# Set to Sep 4 2025 (NFL season opener) so we cover the full
-# 2025 season + 2026 offseason. Move forward each year.
+# HARD_FLOOR is the absolute earliest article we will ever accept.
+# cutoff = HARD_FLOOR means "show everything from the floor to now."
+#
+# Seasonal guidance (just change these two values each year):
+#   Offseason/current:  HARD_FLOOR <- "2025-09-04"  (full season + offseason)
+#   In-season only:     HARD_FLOOR <- as.POSIXct(Sys.time() - days(14))
+#
 HARD_FLOOR <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
+cutoff     <- HARD_FLOOR   # show everything from floor to today
 
-# Rolling window: only show the last N days from today.
-# During the offseason 45 days is fine. Drop to 14 once
-# the regular season starts so week-old injury news falls off.
-DAYS_BACK <- 45
-cutoff    <- max(HARD_FLOOR, Sys.time() - days(DAYS_BACK))
-
-message(paste("Hard floor :", format(HARD_FLOOR, "%Y-%m-%d")))
-message(paste("Live cutoff:", format(cutoff,     "%Y-%m-%d %H:%M UTC")))
+message(paste("Accepting articles from:", format(HARD_FLOOR, "%Y-%m-%d"), "to now"))
 
 CURRENT_YEAR <- "2026"
 
@@ -60,11 +56,9 @@ safe_parse_date <- function(x) {
   }, error = function(e) NA_real_)
 }
 
-# Returns TRUE only if the article's date is >= cutoff.
-# If date cannot be parsed at all → REJECT (no more free passes for bad dates).
 is_recent_enough <- function(published_str) {
   ts <- safe_parse_date(published_str)
-  if (is.na(ts)) return(FALSE)          # unparseable = reject
+  if (is.na(ts)) return(FALSE)
   ts >= as.numeric(cutoff)
 }
 
@@ -139,22 +133,21 @@ is_relevant <- function(title, desc = "") {
   if (grepl("oldest player|all-time list|throwback|decades ago|flashback|history of|years ago", text))                        return(FALSE)
   if (grepl("week \\d+ recap|final score|box score|game summary|highlights from", text))                                      return(FALSE)
 
-  has_offseason <- grepl(
+  has_keyword <- grepl(
     paste0("free agent|free agency|sign|signed|signs|trade|traded|contract|extension|restructure|",
            "release|released|cut |waiver|visit|agrees|deal |draft|ota|minicamp|training camp|",
            "injur|pup|ir |suspend|retire|comeback|",
            "2026 season|2025 season|offseason|depth chart|compete|competition|starter|",
-           "nfl network|espn|fantasy football"),
+           "nfl network|espn|fantasy football|touchdown|rushing|receiving|passing"),
     text
   )
   has_player <- length(detect_players(text)) > 0
 
-  has_offseason || has_player
+  has_keyword || has_player
 }
 
 # =====================
-# GOOGLE NEWS RSS — single query
-# Rejects articles that fail the date check immediately on fetch
+# GOOGLE NEWS RSS
 # =====================
 fetch_google_query <- function(query) {
   Sys.sleep(REQUEST_DELAY)
@@ -174,9 +167,7 @@ fetch_google_query <- function(query) {
         desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
 
         if (is.na(title) || title == "") return(NULL)
-
-        # ── Hard date gate: reject old articles immediately ──────────────────
-        if (!is_recent_enough(pub)) return(NULL)
+        if (!is_recent_enough(pub))      return(NULL)   # hard date gate
 
         clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
         full_text   <- paste(clean_title, desc)
@@ -222,11 +213,8 @@ fetch_espn <- function() {
         link      <- tryCatch(a$links$web$href %||% "", error = function(e) "")
         published <- a$published   %||% ""
         if (title == "" || link == "") return(NULL)
-
-        # ── Hard date gate ───────────────────────────────────────────────────
-        if (!is_recent_enough(published)) return(NULL)
-
-        if (!is_relevant(title, desc)) return(NULL)
+        if (!is_recent_enough(published)) return(NULL)   # hard date gate
+        if (!is_relevant(title, desc))    return(NULL)
         full_text <- paste(title, desc)
         list(
           title             = title,
@@ -244,10 +232,11 @@ fetch_espn <- function() {
 }
 
 # =====================
-# OFFSEASON TOPIC QUERIES
+# TOPIC QUERIES — covers both 2025 season and 2026 offseason
 # =====================
 fetch_topic_news <- function() {
   topics <- c(
+    # 2026 offseason
     paste("NFL free agency", CURRENT_YEAR),
     paste("NFL free agent signings", CURRENT_YEAR),
     paste("NFL free agent visits", CURRENT_YEAR),
@@ -255,21 +244,23 @@ fetch_topic_news <- function() {
     paste("NFL trade rumors", CURRENT_YEAR),
     paste("NFL contract extension", CURRENT_YEAR),
     paste("NFL contract restructure", CURRENT_YEAR),
-    paste("NFL player released cut", CURRENT_YEAR),
-    paste("NFL waiver wire", CURRENT_YEAR),
+    paste("NFL player released", CURRENT_YEAR),
     paste("NFL draft", CURRENT_YEAR),
-    paste("NFL draft pick trade", CURRENT_YEAR),
-    paste("NFL injury offseason", CURRENT_YEAR),
-    paste("NFL PUP list", CURRENT_YEAR),
-    paste("NFL player suspended", CURRENT_YEAR),
     paste("NFL OTA minicamp", CURRENT_YEAR),
     paste("NFL training camp", CURRENT_YEAR),
-    paste("fantasy football offseason moves", CURRENT_YEAR),
-    paste("NFL depth chart update", CURRENT_YEAR),
-    paste("NFL starter competition", CURRENT_YEAR)
+    paste("NFL depth chart", CURRENT_YEAR),
+    paste("NFL injury offseason", CURRENT_YEAR),
+    paste("NFL player suspended", CURRENT_YEAR),
+    paste("fantasy football offseason", CURRENT_YEAR),
+    # 2025 regular season + playoffs (for season-spanning window)
+    "NFL injury report 2025",
+    "NFL trade deadline 2025",
+    "NFL playoffs 2025",
+    "NFL Super Bowl 2026",
+    "fantasy football waiver wire 2025"
   )
 
-  message("\nFetching offseason topic news (", length(topics), " queries)...")
+  message("\nFetching topic news (", length(topics), " queries)...")
   results <- list()
   for (q in topics) {
     message("  [topic] ", q)
@@ -294,7 +285,8 @@ fetch_player_news <- function() {
 
   for (i in seq_len(nrow(top_players))) {
     name    <- top_players$display_name[i]
-    query   <- paste(name, "NFL", CURRENT_YEAR)
+    # Search without year so Google returns both 2025 season AND 2026 offseason hits
+    query   <- paste(name, "NFL")
     message("  [player] ", name)
     fetched <- fetch_google_query(query)
 
@@ -324,12 +316,11 @@ all_news <- Filter(Negate(is.null), all_news)
 message(paste("\nTotal raw articles:", length(all_news)))
 
 # =====================
-# FINAL DATE PASS — belt-and-suspenders
-# Catches anything that slipped through (e.g. ESPN with bad date field)
+# FINAL DATE PASS (belt-and-suspenders)
 # =====================
-before_date_filter <- length(all_news)
+before <- length(all_news)
 all_news <- Filter(function(x) is_recent_enough(x$published), all_news)
-message(paste("Dropped by final date pass:", before_date_filter - length(all_news)))
+message(paste("Dropped by final date pass:", before - length(all_news)))
 message(paste("After date filter:", length(all_news)))
 
 # =====================
@@ -342,7 +333,6 @@ all_news <- Filter(function(x) {
   seen <<- c(seen, key)
   TRUE
 }, all_news)
-
 message(paste("After dedup:", length(all_news)))
 
 # =====================
@@ -388,5 +378,4 @@ if (length(all_news) == 0) {
 if (!dir.exists("data")) dir.create("data")
 write_json(all_news, OUTPUT_FILE, pretty = TRUE, auto_unbox = TRUE)
 message(paste("\n✅ Done! Articles saved:", length(all_news),
-              "| Cutoff:", format(cutoff, "%Y-%m-%d"),
-              "| Floor:", format(HARD_FLOOR, "%Y-%m-%d")))
+              "| Window:", format(HARD_FLOOR, "%Y-%m-%d"), "to", format(Sys.time(), "%Y-%m-%d")))
