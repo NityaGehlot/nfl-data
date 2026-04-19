@@ -1,7 +1,7 @@
 # =====================
 # scripts/generate_nfl_news.R
 # Player-targeted NFL news for fantasy football app
-# Offseason-aware version — filters to current offseason/season window
+# Offseason-aware version — hard floor Sep 4 2025
 # =====================
 
 library(httr)
@@ -18,23 +18,25 @@ OUTPUT_FILE   <- "data/nfl_news.json"
 MAX_ARTICLES  <- 200
 REQUEST_DELAY <- 1.2   # seconds between Google RSS calls
 
-# How many top players to query individually
 TOP_PLAYER_QUERY_LIMIT <- 60
 
-# ── Date window ──────────────────────────────────────────────────────────────
-# Hard floor: NFL free agency / offseason started March 11 2026.
-# We never show anything older than this, regardless of how far back
-# DAYS_BACK would reach. As the regular season approaches, tighten
-# DAYS_BACK (e.g. drop to 14) so stale offseason news falls off naturally.
-OFFSEASON_FLOOR <- as.POSIXct("2026-03-11 00:00:00", tz = "UTC")
-DAYS_BACK       <- 45   # rolling window from today — increase as needed
-cutoff          <- max(OFFSEASON_FLOOR, Sys.time() - days(DAYS_BACK))
+# ── Date window ───────────────────────────────────────────────────────────────
+# HARD_FLOOR: absolute earliest date we will ever accept.
+# Nothing older than this will appear in the JSON, ever.
+# Set to Sep 4 2025 (NFL season opener) so we cover the full
+# 2025 season + 2026 offseason. Move forward each year.
+HARD_FLOOR <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
 
-message(paste("Date cutoff:", format(cutoff, "%Y-%m-%d %H:%M UTC")))
+# Rolling window: only show the last N days from today.
+# During the offseason 45 days is fine. Drop to 14 once
+# the regular season starts so week-old injury news falls off.
+DAYS_BACK <- 45
+cutoff    <- max(HARD_FLOOR, Sys.time() - days(DAYS_BACK))
 
-# ── Season / year labels used in search queries ───────────────────────────────
-CURRENT_YEAR  <- "2026"   # update to 2026 season once it starts
-OFFSEASON_TAG <- "NFL offseason 2026"
+message(paste("Hard floor :", format(HARD_FLOOR, "%Y-%m-%d")))
+message(paste("Live cutoff:", format(cutoff,     "%Y-%m-%d %H:%M UTC")))
+
+CURRENT_YEAR <- "2026"
 
 # =====================
 # SAFE HELPERS
@@ -42,7 +44,7 @@ OFFSEASON_TAG <- "NFL offseason 2026"
 `%||%` <- function(a, b) if (!is.null(a) && length(a) > 0) a else b
 
 safe_parse_date <- function(x) {
-  if (is.null(x) || is.na(x) || x == "") return(NA)
+  if (is.null(x) || is.na(x) || x == "") return(NA_real_)
   tryCatch({
     parsed <- parse_date_time(x, orders = c(
       "a, d b Y H:M:S z",
@@ -53,9 +55,17 @@ safe_parse_date <- function(x) {
       "Y-m-dTH:M:S",
       "Y-m-d H:M:S"
     ), quiet = TRUE, tz = "UTC")
-    if (length(parsed) == 0 || all(is.na(parsed))) return(NA)
-    parsed[[1]]
-  }, error = function(e) NA)
+    if (length(parsed) == 0 || all(is.na(parsed))) return(NA_real_)
+    as.numeric(parsed[[1]])
+  }, error = function(e) NA_real_)
+}
+
+# Returns TRUE only if the article's date is >= cutoff.
+# If date cannot be parsed at all → REJECT (no more free passes for bad dates).
+is_recent_enough <- function(published_str) {
+  ts <- safe_parse_date(published_str)
+  if (is.na(ts)) return(FALSE)          # unparseable = reject
+  ts >= as.numeric(cutoff)
 }
 
 # =====================
@@ -113,32 +123,28 @@ detect_players <- function(text) {
 get_impact <- function(text) {
   if (is.null(text) || is.na(text) || text == "") return("neutral")
   t <- tolower(text)
-  if (grepl("injur|injured|out for|placed on ir|season-ending|surgery|torn|fracture|concussion|doubtful|ruled out|pup list", t))  return("negative")
-  if (grepl("questionable|limited|day-to-day|sore|ailing|monitor|missed practice|didn't practice", t))                            return("slightly_negative")
+  if (grepl("injur|injured|out for|placed on ir|season-ending|surgery|torn|fracture|concussion|doubtful|ruled out|pup list", t)) return("negative")
+  if (grepl("questionable|limited|day-to-day|sore|ailing|monitor|missed practice|didn't practice", t))                          return("slightly_negative")
   if (grepl("signs|signed|trade|traded|free agent|deal|contract|extension|acquires|claims|waiver|cuts|released|cut |restructure|visits|agrees|joining|leaving", t)) return("roster_move")
-  if (grepl("breakout|dominant|career-high|record|mvp|pro bowl|comeback|return|activated|off ir|re-signs|retained", t))           return("positive")
+  if (grepl("breakout|dominant|career-high|record|mvp|pro bowl|comeback|return|activated|off ir|re-signs|retained", t))         return("positive")
   "neutral"
 }
 
 # =====================
 # RELEVANCE FILTER
-# Offseason-aware: favour FA, trades, contracts, draft, OTAs
 # =====================
 is_relevant <- function(title, desc = "") {
   text <- tolower(paste(title, desc))
-
-  # Hard exclusions — old season noise
   if (grepl("mock draft class|college prospect ranking|simulation|high school|ncaa recruiting|2025 nfl draft prospect", text)) return(FALSE)
   if (grepl("oldest player|all-time list|throwback|decades ago|flashback|history of|years ago", text))                        return(FALSE)
-  # Exclude game recaps from last season
   if (grepl("week \\d+ recap|final score|box score|game summary|highlights from", text))                                      return(FALSE)
 
-  # Offseason-relevant keywords
   has_offseason <- grepl(
     paste0("free agent|free agency|sign|signed|signs|trade|traded|contract|extension|restructure|",
            "release|released|cut |waiver|visit|agrees|deal |draft|ota|minicamp|training camp|",
            "injur|pup|ir |suspend|retire|comeback|",
-           "2026 season|offseason|depth chart|compete|competition|starter"),
+           "2026 season|2025 season|offseason|depth chart|compete|competition|starter|",
+           "nfl network|espn|fantasy football"),
     text
   )
   has_player <- length(detect_players(text)) > 0
@@ -148,6 +154,7 @@ is_relevant <- function(title, desc = "") {
 
 # =====================
 # GOOGLE NEWS RSS — single query
+# Rejects articles that fail the date check immediately on fetch
 # =====================
 fetch_google_query <- function(query) {
   Sys.sleep(REQUEST_DELAY)
@@ -165,9 +172,12 @@ fetch_google_query <- function(query) {
         link  <- xml_text(xml_find_first(item, "link"))
         pub   <- xml_text(xml_find_first(item, "pubDate"))
         desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
+
         if (is.na(title) || title == "") return(NULL)
 
-        # Strip " - Source Name" suffix Google appends
+        # ── Hard date gate: reject old articles immediately ──────────────────
+        if (!is_recent_enough(pub)) return(NULL)
+
         clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
         full_text   <- paste(clean_title, desc)
         if (!is_relevant(clean_title, desc)) return(NULL)
@@ -212,6 +222,10 @@ fetch_espn <- function() {
         link      <- tryCatch(a$links$web$href %||% "", error = function(e) "")
         published <- a$published   %||% ""
         if (title == "" || link == "") return(NULL)
+
+        # ── Hard date gate ───────────────────────────────────────────────────
+        if (!is_recent_enough(published)) return(NULL)
+
         if (!is_relevant(title, desc)) return(NULL)
         full_text <- paste(title, desc)
         list(
@@ -231,35 +245,25 @@ fetch_espn <- function() {
 
 # =====================
 # OFFSEASON TOPIC QUERIES
-# These rotate naturally — add "training camp" topics in July,
-# "depth chart / 53-man roster" in August, etc.
 # =====================
 fetch_topic_news <- function() {
   topics <- c(
-    # Free agency
     paste("NFL free agency", CURRENT_YEAR),
     paste("NFL free agent signings", CURRENT_YEAR),
     paste("NFL free agent visits", CURRENT_YEAR),
-    # Trades
     paste("NFL trade", CURRENT_YEAR),
     paste("NFL trade rumors", CURRENT_YEAR),
-    # Contracts
     paste("NFL contract extension", CURRENT_YEAR),
     paste("NFL contract restructure", CURRENT_YEAR),
-    # Cuts / releases
     paste("NFL player released cut", CURRENT_YEAR),
     paste("NFL waiver wire", CURRENT_YEAR),
-    # Draft
     paste("NFL draft", CURRENT_YEAR),
     paste("NFL draft pick trade", CURRENT_YEAR),
-    # Injuries / roster status
     paste("NFL injury offseason", CURRENT_YEAR),
     paste("NFL PUP list", CURRENT_YEAR),
     paste("NFL player suspended", CURRENT_YEAR),
-    # Offseason programme
     paste("NFL OTA minicamp", CURRENT_YEAR),
     paste("NFL training camp", CURRENT_YEAR),
-    # Fantasy angle
     paste("fantasy football offseason moves", CURRENT_YEAR),
     paste("NFL depth chart update", CURRENT_YEAR),
     paste("NFL starter competition", CURRENT_YEAR)
@@ -289,13 +293,11 @@ fetch_player_news <- function() {
   results <- list()
 
   for (i in seq_len(nrow(top_players))) {
-    name  <- top_players$display_name[i]
-    # Include year so Google doesn't return old season results
-    query <- paste(name, "NFL", CURRENT_YEAR)
+    name    <- top_players$display_name[i]
+    query   <- paste(name, "NFL", CURRENT_YEAR)
     message("  [player] ", name)
     fetched <- fetch_google_query(query)
 
-    # Guarantee player appears in players_mentioned
     fetched <- lapply(fetched, function(art) {
       if (!name %in% art$players_mentioned) {
         art$players_mentioned <- unique(c(name, art$players_mentioned))
@@ -322,17 +324,12 @@ all_news <- Filter(Negate(is.null), all_news)
 message(paste("\nTotal raw articles:", length(all_news)))
 
 # =====================
-# DATE FILTER — enforce offseason floor + rolling window
+# FINAL DATE PASS — belt-and-suspenders
+# Catches anything that slipped through (e.g. ESPN with bad date field)
 # =====================
-all_news <- Filter(function(x) {
-  tryCatch({
-    parsed <- safe_parse_date(x$published)
-    # Keep if date is unreadable (rather than silently dropping)
-    if (is.na(parsed)) return(TRUE)
-    as.numeric(parsed) >= as.numeric(cutoff)
-  }, error = function(e) TRUE)
-}, all_news)
-
+before_date_filter <- length(all_news)
+all_news <- Filter(function(x) is_recent_enough(x$published), all_news)
+message(paste("Dropped by final date pass:", before_date_filter - length(all_news)))
 message(paste("After date filter:", length(all_news)))
 
 # =====================
@@ -349,7 +346,7 @@ all_news <- Filter(function(x) {
 message(paste("After dedup:", length(all_news)))
 
 # =====================
-# SORT: injuries first, then roster moves, positive, neutral
+# SORT
 # =====================
 impact_rank <- c(
   "negative"          = 5,
@@ -375,7 +372,7 @@ all_news <- head(all_news, MAX_ARTICLES)
 if (length(all_news) == 0) {
   message("WARNING: No news found — using fallback")
   all_news <- list(list(
-    title             = "No recent NFL offseason news available",
+    title             = "No recent NFL news available",
     summary           = "Check back soon for the latest player updates.",
     link              = "https://www.espn.com/nfl/",
     published         = format(Sys.time(), "%a, %d %b %Y %H:%M:%S GMT", tz = "GMT"),
@@ -391,4 +388,5 @@ if (length(all_news) == 0) {
 if (!dir.exists("data")) dir.create("data")
 write_json(all_news, OUTPUT_FILE, pretty = TRUE, auto_unbox = TRUE)
 message(paste("\n✅ Done! Articles saved:", length(all_news),
-              "| Cutoff:", format(cutoff, "%Y-%m-%d")))
+              "| Cutoff:", format(cutoff, "%Y-%m-%d"),
+              "| Floor:", format(HARD_FLOOR, "%Y-%m-%d")))
