@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL STABLE VERSION)
+# scripts/generate_nfl_news.R (FINAL CLEAN STABLE)
 # =====================
 
 library(httr)
@@ -8,7 +8,6 @@ library(dplyr)
 library(stringr)
 library(lubridate)
 library(xml2)
-library(tibble)
 
 # =====================
 # CONFIG
@@ -21,46 +20,60 @@ SEASON_START <- as.POSIXct("2025-09-04", tz = "UTC")
 NOW_TIME <- Sys.time()
 
 # =====================
-# LOAD PLAYER STATS (ROBUST FIX)
+# LOAD PLAYER STATS (FINAL FIX — NO ERRORS)
 # =====================
 message("Loading player stats...")
 
-raw_stats <- fromJSON("data/player_stats_2025_week17.json", simplifyDataFrame = FALSE)
+raw_stats <- fromJSON(
+  "data/player_stats_2025_week17.json",
+  simplifyDataFrame = FALSE
+)
 
-rows_list <- list()
+# Extract valid player rows safely
+clean_rows <- lapply(raw_stats, function(entry) {
 
-for (entry in raw_stats) {
-
-  # Skip empty entries
-  if (length(entry) == 0) next
+  if (length(entry) == 0) return(NULL)
 
   player <- entry[[1]]
 
-  # Skip malformed rows
-  if (is.null(player$player_name) || is.null(player$position)) next
-
-  # Convert safely to dataframe row
-  df <- as.data.frame(player, stringsAsFactors = FALSE)
+  # Skip bad entries
+  if (is.null(player$player_name) || is.null(player$position)) return(NULL)
 
   # Convert fantasy points safely
-  df$fantasy_points_ppr <- suppressWarnings(as.numeric(df$fantasy_points_ppr))
+  player$fantasy_points_ppr <- suppressWarnings(
+    as.numeric(player$fantasy_points_ppr)
+  )
 
-  rows_list[[length(rows_list) + 1]] <- df
+  return(player)
+})
+
+# Remove NULLs
+clean_rows <- Filter(Negate(is.null), clean_rows)
+
+# Combine safely
+stats <- bind_rows(clean_rows)
+
+# =====================
+# SAFETY CHECKS
+# =====================
+if (nrow(stats) == 0) {
+  stop("❌ No valid player data loaded — check JSON format")
 }
 
-# Combine all rows
-stats <- bind_rows(rows_list)
+if (!"player_name" %in% colnames(stats)) {
+  stop("❌ player_name column missing from stats")
+}
 
-# Final clean
+# =====================
+# CLEAN + FILTER
+# =====================
 stats <- stats %>%
-  filter(!is.na(player_name), !is.na(position))
-
-# Sort by fantasy performance
-stats <- stats %>%
+  filter(!is.na(player_name), !is.na(position)) %>%
+  filter(fantasy_points_ppr > 0) %>%
   arrange(desc(fantasy_points_ppr))
 
 # =====================
-# LIMIT TO RELEVANT PLAYERS
+# LIMIT TO TOP PLAYERS (PER POSITION)
 # =====================
 qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 20)
 rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 30)
@@ -73,11 +86,11 @@ k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 15)
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
-    parse_date_time(x, orders = c(
-      "a, d b Y H:M:S z",
-      "ymd HMS",
-      "Y-m-dTH:M:SZ"
-    ), tz = "UTC")
+    parse_date_time(
+      x,
+      orders = c("a, d b Y H:M:S z", "ymd HMS", "Y-m-dTH:M:SZ"),
+      tz = "UTC"
+    )
   }, error = function(e) NA)
 }
 
@@ -120,7 +133,7 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub)
 
-    # STRICT DATE FILTER
+    # Strict date filter
     if (!is.na(parsed) && (parsed < SEASON_START || parsed > NOW_TIME)) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
@@ -135,13 +148,13 @@ fetch_google <- function(player_name) {
     )))
   }
 
-  # Sort by newest first
+  # Sort newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE
   )]
 
-  # Return top N per player
+  # Limit per player
   head(articles, MAX_PER_PLAYER)
 }
 
@@ -152,18 +165,17 @@ build_news <- function(player_df) {
 
   result <- list()
 
-  for (i in 1:nrow(player_df)) {
+  for (i in seq_len(nrow(player_df))) {
 
     player_name <- player_df$player_name[i]
 
-    message("Fetching:", player_name)
+    message("Fetching: ", player_name)
 
     Sys.sleep(REQUEST_DELAY)
 
     news <- fetch_google(player_name)
 
-    # Only keep players that actually have news
-    if (length(news) >= 1) {
+    if (length(news) > 0) {
       result <- c(result, news)
     }
   }
@@ -172,7 +184,7 @@ build_news <- function(player_df) {
 }
 
 # =====================
-# GENERATE FILES
+# GENERATE NEWS FILES
 # =====================
 message("Generating QB news...")
 qb_news <- build_news(qb_players)
@@ -194,10 +206,10 @@ k_news <- build_news(k_players)
 # =====================
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR)
 
-write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty = TRUE, auto_unbox = TRUE)
 
-message("✅ DONE")
+message("✅ DONE — All position files generated")
