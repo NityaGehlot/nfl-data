@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL PRODUCTION VERSION)
+# scripts/generate_nfl_news.R (FIXED FINAL VERSION)
 # =====================
 
 library(httr)
@@ -15,7 +15,6 @@ library(xml2)
 OUTPUT_FILE  <- "data/nfl_news.json"
 MAX_ARTICLES <- 150
 
-# 🔥 NFL SEASON WINDOW
 SEASON_START <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
 NOW_TIME     <- Sys.time()
 
@@ -35,7 +34,7 @@ safe_parse_date <- function(x) {
 }
 
 # =====================
-# LOAD ACTIVE PLAYERS (SLEEPER) — FIXED
+# LOAD PLAYERS (FIXED)
 # =====================
 message("Loading players...")
 
@@ -44,10 +43,8 @@ players_raw <- fromJSON(
   simplifyDataFrame = FALSE
 )
 
-# Remove null entries
 players_raw <- players_raw[!sapply(players_raw, is.null)]
 
-# 🔥 SAFE FLATTEN (guarantees columns exist)
 players_df <- bind_rows(lapply(players_raw, function(p) {
 
   tibble::tibble(
@@ -59,9 +56,6 @@ players_df <- bind_rows(lapply(players_raw, function(p) {
 
 }))
 
-# =====================
-# FILTER ACTIVE FANTASY PLAYERS
-# =====================
 active_players <- players_df %>%
   filter(!is.na(status), status == "Active") %>%
   filter(position %in% c("QB","RB","WR","TE")) %>%
@@ -71,8 +65,12 @@ active_players <- players_df %>%
   ) %>%
   filter(!is.na(full_name), full_name != "")
 
+# ✅ CRITICAL FIX (this was missing)
+player_lookup <- setNames(active_players$display_name, active_players$full_name)
+player_names  <- names(player_lookup)
+
 # =====================
-# ⭐ FORCE STAR PLAYERS
+# STAR PLAYERS
 # =====================
 star_players <- c(
   "caleb williams",
@@ -91,6 +89,9 @@ star_players <- c(
 # PLAYER DETECTION
 # =====================
 detect_players <- function(text) {
+
+  if (is.null(text) || text == "") return(character(0))
+
   text <- tolower(text)
 
   matched <- player_names[sapply(player_names, function(nm) {
@@ -104,6 +105,9 @@ detect_players <- function(text) {
 # IMPACT
 # =====================
 get_impact <- function(text) {
+
+  if (is.null(text)) return("neutral")
+
   t <- tolower(text)
 
   if (grepl("injur|out|ir|surgery", t)) return("negative")
@@ -115,7 +119,7 @@ get_impact <- function(text) {
 }
 
 # =====================
-# GOOGLE RSS FETCH
+# GOOGLE FETCH
 # =====================
 fetch_google <- function(query) {
 
@@ -138,19 +142,18 @@ fetch_google <- function(query) {
 
     parsed <- safe_parse_date(pub)
 
-    # 🔥 SEASON FILTER
     if (!is.na(parsed) && parsed < SEASON_START) return(NULL)
 
-    text <- title
+    clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
 
     list(
-      title = str_trim(str_replace(title, "\\s*-\\s*[^-]+$", "")),
-      summary = str_trunc(title, 180),
+      title = clean_title,
+      summary = str_trunc(clean_title, 180),
       link = link,
       published = pub,
       source = "GoogleNews",
-      players_mentioned = detect_players(text),
-      impact = get_impact(text)
+      players_mentioned = detect_players(clean_title),
+      impact = get_impact(clean_title)
     )
   })
 }
@@ -163,22 +166,19 @@ build_player_query <- function(name) {
 }
 
 # =====================
-# FETCH PLAYER NEWS
+# FETCH NEWS
 # =====================
 message("Fetching player news...")
 
 queries <- c(
-  # 🔥 STAR PLAYERS FIRST
   sapply(star_players, build_player_query),
-
-  # Top active players
   sapply(head(active_players$display_name, 50), build_player_query)
 )
 
 all_news <- list()
 
 for (q in queries) {
-  message("Query:", q)
+  message("Query: ", q)
   Sys.sleep(1)
 
   res <- fetch_google(q)
@@ -190,13 +190,12 @@ for (q in queries) {
 # =====================
 all_news <- Filter(Negate(is.null), all_news)
 
-# remove empty
 all_news <- Filter(function(x) {
   x$title != "" && x$link != ""
 }, all_news)
 
 # =====================
-# DATE FILTER (STRICT SEASON)
+# DATE FILTER
 # =====================
 all_news <- Filter(function(x) {
 
@@ -208,7 +207,7 @@ all_news <- Filter(function(x) {
 }, all_news)
 
 # =====================
-# DEDUPLICATE
+# DEDUP
 # =====================
 seen <- c()
 
@@ -224,7 +223,7 @@ all_news <- Filter(function(x) {
 }, all_news)
 
 # =====================
-# SORT (IMPACT PRIORITY)
+# SORT
 # =====================
 priority <- c(
   "negative" = 5,
@@ -240,7 +239,7 @@ all_news <- all_news[order(
 )]
 
 # =====================
-# 🔥 KEEP ONLY MOST RECENT (ROLLING WINDOW)
+# LIMIT
 # =====================
 all_news <- head(all_news, MAX_ARTICLES)
 
