@@ -43,6 +43,9 @@ jobs:
         run: |
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
-          git add data/nfl_news.json
-          git commit -m "Update NFL news" || echo "No changes"
+      
+          # Add ALL generated JSON files
+          git add data/*.json
+      
+          git commit -m "Update NFL news files" || echo "No changes"
           git push
