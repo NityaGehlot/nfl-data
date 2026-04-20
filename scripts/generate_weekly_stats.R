@@ -330,16 +330,18 @@ for(w in weeks){
   week_data <- combined_df %>%
     filter(week == w)
 
+  week_num <- as.integer(trimws(as.character(w)))
+
   file_name <- paste0(
     "data/player_stats_",
     season,
     "_week",
-    w,
+    sprintf("%02d", week_num),
     ".json"
   )
 
   write_json(
-    split(week_data, seq(nrow(week_data))),
+    week_data,
     file_name,
     pretty = TRUE,
     auto_unbox = TRUE,
