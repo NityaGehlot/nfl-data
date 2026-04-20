@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FANTASY-CAPPED + RECENCY STRICT + BALANCED)
+# scripts/generate_nfl_news.R (PRODUCTION FIXED + POSITION FILES)
 # =====================
 
 library(httr)
@@ -13,8 +13,7 @@ library(tibble)
 # =====================
 # CONFIG
 # =====================
-OUTPUT_FILE  <- "data/nfl_news.json"
-MAX_ARTICLES <- 220
+OUTPUT_DIR <- "data"
 
 SEASON_START <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
 NOW_TIME     <- Sys.time()
@@ -22,15 +21,11 @@ NOW_TIME     <- Sys.time()
 REQUEST_DELAY <- 1
 MAX_PER_PLAYER <- 3
 
-# =====================
-# POSITION LIMITS
-# =====================
 POSITION_LIMITS <- list(
   QB  = 25,
-  RB  = 35,
-  WR  = 45,
+  RB  = 40,
+  WR  = 60,
   TE  = 25,
-  K   = 15,
   DEF = 25
 )
 
@@ -42,47 +37,10 @@ POSITION_LIMITS <- list(
 safe_parse_date <- function(x) {
   tryCatch({
     parse_date_time(x,
-      orders = c(
-        "a, d b Y H:M:S z",
-        "ymd HMS",
-        "Y-m-dTH:M:SZ"
-      ),
+      orders = c("a, d b Y H:M:S z","ymd HMS","Y-m-dTH:M:SZ"),
       tz = "UTC"
     )
   }, error = function(e) NA)
-}
-
-# =====================
-# STRICT FANTASY FILTER
-# =====================
-is_fantasy_relevant <- function(text) {
-
-  t <- tolower(text)
-
-  keep <- grepl(
-    paste(
-      "injur|out|ir|pup|questionable|limited|practice",
-      "trade|traded|signed|sign|contract|extension|release|cut|waiver",
-      "depth chart|starter|backup|role|snap|usage|carry|target",
-      "breakout|dominant|career-high|emerging|bounce back",
-      "training camp|ota|minicamp",
-      "fantasy|projection|ranking|sleepers",
-      sep = "|"
-    ),
-    t
-  )
-
-  remove <- grepl(
-    paste(
-      "should they|should the|debate|opinion|what we learned",
-      "game recap|final score|highlights|reaction|watch",
-      "all-time|history of|flashback|top \\d+",
-      sep = "|"
-    ),
-    t
-  )
-
-  keep && !remove
 }
 
 # =====================
@@ -90,10 +48,8 @@ is_fantasy_relevant <- function(text) {
 # =====================
 message("Loading players...")
 
-players_raw <- fromJSON(
-  "https://api.sleeper.app/v1/players/nfl",
-  simplifyDataFrame = FALSE
-)
+players_raw <- fromJSON("https://api.sleeper.app/v1/players/nfl",
+                        simplifyDataFrame = FALSE)
 
 players_raw <- players_raw[!sapply(players_raw, is.null)]
 
@@ -102,18 +58,32 @@ players_df <- bind_rows(lapply(players_raw, function(p) {
     first_name = p$first_name %||% NA,
     last_name  = p$last_name %||% NA,
     status     = p$status %||% NA,
-    position   = p$position %||% NA
+    position   = p$position %||% NA,
+    fantasy_pts = as.numeric(p$fantasy_points_ppr %||% 0)
   )
 }))
 
-active_players <- players_df %>%
-  filter(!is.na(status), status == "Active") %>%
-  filter(position %in% c("QB","RB","WR","TE","K","DEF","DST")) %>%
+# =====================
+# KEEP ONLY RELEVANT POSITIONS
+# =====================
+players_df <- players_df %>%
+  filter(position %in% c("QB","RB","WR","TE","DEF","DST")) %>%
+  filter(!is.na(first_name), !is.na(last_name))
+
+players_df <- players_df %>%
   mutate(
     full_name = tolower(paste(first_name, last_name)),
     display_name = paste(first_name, last_name)
-  ) %>%
-  filter(!is.na(full_name), full_name != "")
+  )
+
+# =====================
+# KEEP ONLY TOP PLAYERS PER POSITION (KEY FIX)
+# =====================
+active_players <- players_df %>%
+  group_by(position) %>%
+  arrange(desc(fantasy_pts)) %>%
+  slice_head(n = 100) %>%   # big pool first
+  ungroup()
 
 # =====================
 # STAR PLAYERS
@@ -125,7 +95,7 @@ star_players <- c(
 )
 
 # =====================
-# POSITION BALANCE
+# BUILD POSITION GROUPS
 # =====================
 players_by_position <- bind_rows(lapply(names(POSITION_LIMITS), function(pos) {
 
@@ -137,20 +107,18 @@ players_by_position <- bind_rows(lapply(names(POSITION_LIMITS), function(pos) {
 
 }))
 
-balanced_players <- unique(players_by_position$display_name)
+# =====================
+# PLAYER LOOKUP
+# =====================
+player_lookup <- setNames(active_players$display_name,
+                          active_players$full_name)
+player_names <- names(player_lookup)
 
 # =====================
-# LOOKUP TABLE
-# =====================
-player_lookup <- setNames(active_players$display_name, active_players$full_name)
-player_names  <- names(player_lookup)
-
-# =====================
-# PLAYER DETECTION
+# DETECT PLAYERS
 # =====================
 detect_players <- function(text) {
   if (is.null(text) || text == "") return(character(0))
-
   text <- tolower(text)
 
   matched <- player_names[sapply(player_names, function(nm) {
@@ -161,21 +129,33 @@ detect_players <- function(text) {
 }
 
 # =====================
-# IMPACT SCORING
+# FANTASY FILTER (RELAXED BUT USEFUL)
+# =====================
+is_fantasy_relevant <- function(text) {
+  t <- tolower(text)
+
+  grepl(
+    "injur|out|ir|trade|signed|contract|depth chart|starter|
+     breakout|practice|role|snap|target|carry|update|news",
+    t, perl = TRUE
+  )
+}
+
+# =====================
+# IMPACT
 # =====================
 get_impact <- function(text) {
   t <- tolower(text)
 
-  if (grepl("injur|out|ir|surgery", t)) return("negative")
-  if (grepl("questionable|limited|practice", t)) return("slightly_negative")
-  if (grepl("signed|trade|contract|released|cut", t)) return("roster_move")
-  if (grepl("breakout|dominant|career-high|starter", t)) return("positive")
+  if (grepl("injur|out|ir", t)) return("negative")
+  if (grepl("trade|signed|contract|release", t)) return("roster_move")
+  if (grepl("breakout|starter|dominant", t)) return("positive")
 
   "neutral"
 }
 
 # =====================
-# GOOGLE NEWS FETCH
+# FETCH GOOGLE NEWS
 # =====================
 fetch_google <- function(query) {
 
@@ -198,21 +178,20 @@ fetch_google <- function(query) {
 
     parsed <- safe_parse_date(pub)
 
-    # 🔥 HARD DATE FILTER (FIXES OLD NEWS ISSUE)
+    # STRICT DATE FILTER FIRST
     if (!is.na(parsed) && parsed < SEASON_START) return(NULL)
 
-    clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
+    clean <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
 
-    if (!is_fantasy_relevant(clean_title)) return(NULL)
+    if (!is_fantasy_relevant(clean)) return(NULL)
 
     list(
-      title = clean_title,
-      summary = str_trunc(clean_title, 160),
+      title = clean,
+      summary = str_trunc(clean, 160),
       link = link,
       published = parsed,
-      impact = get_impact(clean_title),
-      players_mentioned = detect_players(clean_title),
-      raw_date = parsed
+      players = detect_players(clean),
+      impact = get_impact(clean)
     )
   })
 }
@@ -221,16 +200,8 @@ fetch_google <- function(query) {
 # QUERY BUILDER
 # =====================
 build_query <- function(name) {
-  paste(name, "NFL injury OR trade OR fantasy OR depth chart OR update OR news")
+  paste(name, "NFL injury OR trade OR depth chart OR fantasy OR update")
 }
-
-nfl_teams <- c(
-  "Chicago Bears","Kansas City Chiefs","Buffalo Bills",
-  "San Francisco 49ers","Philadelphia Eagles","Dallas Cowboys",
-  "Miami Dolphins","Baltimore Ravens","Detroit Lions"
-)
-
-team_queries <- paste(nfl_teams, "defense NFL news")
 
 # =====================
 # FETCH ALL NEWS
@@ -239,91 +210,73 @@ message("Fetching news...")
 
 queries <- unique(c(
   sapply(star_players, build_query),
-  sapply(balanced_players, build_query),
-  team_queries
+  sapply(players_by_position$display_name, build_query)
 ))
 
 all_news <- list()
 
 for (q in queries) {
-  message("Query: ", q)
+  message("Query:", q)
   Sys.sleep(REQUEST_DELAY)
-
-  res <- fetch_google(q)
-  all_news <- c(all_news, res)
+  all_news <- c(all_news, fetch_google(q))
 }
 
-# =====================
-# CLEAN
-# =====================
 all_news <- Filter(Negate(is.null), all_news)
-
-all_news <- Filter(function(x) !is.null(x$title) && x$title != "", all_news)
-
-# =====================
-# FINAL DATE ENFORCEMENT
-# =====================
-all_news <- Filter(function(x) {
-  if (is.na(x$published)) return(FALSE)
-  x$published >= SEASON_START && x$published <= NOW_TIME
-}, all_news)
 
 # =====================
 # GROUP BY PLAYER
 # =====================
-player_groups <- list()
+grouped <- list()
 
-for (article in all_news) {
+for (a in all_news) {
+  pls <- a$players
 
-  players <- article$players_mentioned
+  if (length(pls) == 0) next
 
-  if (length(players) == 0) next
-
-  for (p in players) {
-    player_groups[[p]] <- c(player_groups[[p]], list(article))
+  for (p in pls) {
+    grouped[[p]] <- c(grouped[[p]], list(a))
   }
 }
 
 # =====================
-# KEEP ONLY TOP 3 PER PLAYER (RECENT + RELEVANT)
+# CAP 3 ARTICLES PER PLAYER (KEEP NEWEST)
 # =====================
-final_news <- list()
+final <- list()
 
-score_article <- function(a) {
-  impact_score <- c(
-    "negative" = 5,
-    "slightly_negative" = 4,
-    "roster_move" = 3,
-    "positive" = 2,
-    "neutral" = 1
-  )[a$impact]
+for (p in names(grouped)) {
 
-  time_score <- as.numeric(a$published)
+  items <- grouped[[p]]
 
-  impact_score * 1000000000 + time_score
-}
+  items <- items[order(sapply(items, function(x) x$published),
+                       decreasing = TRUE)]
 
-for (player in names(player_groups)) {
-
-  items <- player_groups[[player]]
-
-  items <- items[order(sapply(items, score_article), decreasing = TRUE)]
-
-  final_news <- c(final_news, head(items, MAX_PER_PLAYER))
+  final <- c(final, head(items, MAX_PER_PLAYER))
 }
 
 # =====================
-# FINAL SORT
+# SPLIT BY POSITION FILES
 # =====================
-final_news <- final_news[order(sapply(final_news, score_article), decreasing = TRUE)]
+split_by_position <- function(data, pos_list) {
+  Filter(function(x) {
+    any(grepl(paste(pos_list, collapse="|"), x$title, ignore.case=TRUE))
+  }, data)
+}
 
-final_news <- head(final_news, MAX_ARTICLES)
+qb  <- split_by_position(final, c("QB","quarterback"))
+rb  <- split_by_position(final, c("RB","running back","rush"))
+wr  <- split_by_position(final, c("WR","receiver","wide"))
+te  <- split_by_position(final, c("TE","tight end"))
+def <- split_by_position(final, c("defense","defensive","DST"))
 
 # =====================
-# SAVE
+# SAVE FILES
 # =====================
-if (!dir.exists("data")) dir.create("data")
+if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR)
 
-write_json(final_news, OUTPUT_FILE, pretty = TRUE, auto_unbox = TRUE)
+write_json(qb,  file.path(OUTPUT_DIR, "news_qb.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(rb,  file.path(OUTPUT_DIR, "news_rb.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(wr,  file.path(OUTPUT_DIR, "news_wr.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(te,  file.path(OUTPUT_DIR, "news_te.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(def, file.path(OUTPUT_DIR, "news_def.json"), pretty=TRUE, auto_unbox=TRUE)
 
-message("✅ DONE — articles:", length(final_news))
+message("✅ DONE")
