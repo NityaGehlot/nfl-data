@@ -57,11 +57,11 @@ stats <- stats %>%
 # =====================
 # LIMIT PLAYERS
 # =====================
-qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 20)
-rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 30)
-wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 40)
-te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 20)
-k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 15)
+qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 64)
+rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 96)
+wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 160)
+te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 64)
+k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 32)
 
 # =====================
 # HELPERS
@@ -145,40 +145,41 @@ fetch_google <- function(player_name) {
   )]
 
   selected <- list()
-  titles <- c()
+titles <- c()
 
-  # =====================
-  # PRIORITY PASS: TODAY FIRST
-  # =====================
-  for (article in articles) {
+# Sort newest first safely
+articles <- articles[order(
+  sapply(articles, function(x) x$published),
+  decreasing = TRUE
+)]
 
-    if (length(selected) >= MAX_PER_PLAYER) break
+for (article in articles) {
 
-    article_date <- as.Date(article$published)
-    is_today <- !is.na(article_date) && article_date == TODAY
+  if (length(selected) >= MAX_PER_PLAYER) break
 
-    if (!is_today) next
-    if (is_duplicate_topic(article$title, titles)) next
+  article_date <- as.Date(article$published)
 
-    selected <- c(selected, list(article))
-    titles <- c(titles, article$title)
-  }
+  # ONLY enforce season start (NOT TODAY)
+  if (!is.na(article_date) && article_date < SEASON_START) next
 
-  # =====================
-  # FALLBACK: RECENT NEWS
-  # =====================
-  if (length(selected) < MAX_PER_PLAYER) {
+  # skip duplicates
+  if (is_duplicate_topic(article$title, titles)) next
 
-    for (article in articles) {
+  selected <- c(selected, list(article))
+  titles <- c(titles, article$title)
+}
 
-      if (length(selected) >= MAX_PER_PLAYER) break
-
-      if (is_duplicate_topic(article$title, titles)) next
-
-      selected <- c(selected, list(article))
-      titles <- c(titles, article$title)
-    }
-  }
+# fallback safety (IMPORTANT)
+if (length(selected) == 0) {
+  selected <- list(list(
+    title = paste(player_name, "— no recent news found"),
+    summary = "No RSS results available",
+    link = "https://news.google.com",
+    published = Sys.time(),
+    player = player_name,
+    impact = "neutral"
+  ))
+}
 
   selected
 }
