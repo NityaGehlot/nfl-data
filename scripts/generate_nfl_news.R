@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (BALANCED + DEF SUPPORT)
+# scripts/generate_nfl_news.R (FANTASY-FILTERED VERSION)
 # =====================
 
 library(httr)
@@ -20,16 +20,13 @@ NOW_TIME     <- Sys.time()
 
 REQUEST_DELAY <- 1
 
-# =====================
-# 🔥 POSITION LIMITS (EDIT THIS)
-# =====================
 POSITION_LIMITS <- list(
   QB  = 32,
   RB  = 40,
   WR  = 50,
   TE  = 25,
   K   = 32,
-  DEF = 32   # includes DST
+  DEF = 32
 )
 
 # =====================
@@ -48,7 +45,43 @@ safe_parse_date <- function(x) {
 }
 
 # =====================
-# LOAD PLAYERS (SLEEPER)
+# 🧠 FANTASY RELEVANCE FILTER (NEW)
+# =====================
+is_fantasy_relevant <- function(text) {
+
+  t <- tolower(text)
+
+  # ✅ KEEP: important fantasy signals
+  if (grepl(
+    paste(
+      "injur|out|ir|pup|questionable|limited|missed practice",
+      "trade|traded|deal|acquire|sign|signed|contract|extension|release|cut",
+      "depth chart|starter|backup|role|usage|snap|target|carry|workload",
+      "breakout|bounce back|career-high|dominant|impressive|emerging",
+      "training camp|ota|minicamp|practice|camp battle",
+      "fantasy|projection|ranking|sleepers",
+      sep="|"
+    ),
+    t
+  )) return(TRUE)
+
+  # ❌ REMOVE junk content
+  if (grepl(
+    paste(
+      "should they|should the|debate|opinion|takeaway|what we learned",
+      "game recap|final score|highlights|watch|reaction",
+      "top 10|ranking all-time|history of|flashback",
+      sep="|"
+    ),
+    t
+  )) return(FALSE)
+
+  # fallback: reject
+  return(FALSE)
+}
+
+# =====================
+# LOAD PLAYERS
 # =====================
 message("Loading players...")
 
@@ -68,9 +101,6 @@ players_df <- bind_rows(lapply(players_raw, function(p) {
   )
 }))
 
-# =====================
-# FILTER ACTIVE PLAYERS
-# =====================
 active_players <- players_df %>%
   filter(!is.na(status), status == "Active") %>%
   filter(position %in% c("QB","RB","WR","TE","K","DEF","DST")) %>%
@@ -81,36 +111,29 @@ active_players <- players_df %>%
   filter(!is.na(full_name), full_name != "")
 
 # =====================
-# ⭐ STAR PLAYERS
+# STAR PLAYERS
 # =====================
 star_players <- c(
   "caleb williams","joe burrow","patrick mahomes","josh allen",
   "jalen hurts","justin jefferson","ja'marr chase",
-  "christian mccaffrey","bijan robinson","travis kelce",
-  "cee dee lamb","amon-ra st. brown","aj brown"
+  "christian mccaffrey","bijan robinson","travis kelce"
 )
 
 # =====================
-# 🔥 BALANCED POSITION SAMPLING
+# POSITION BALANCE
 # =====================
 players_by_position <- bind_rows(lapply(names(POSITION_LIMITS), function(pos) {
 
   limit <- POSITION_LIMITS[[pos]]
 
   active_players %>%
-    filter(
-      position == pos |
-      (pos == "DEF" & position %in% c("DEF","DST"))
-    ) %>%
+    filter(position == pos | (pos == "DEF" & position %in% c("DEF","DST"))) %>%
     slice_head(n = limit)
 
 }))
 
 balanced_players <- players_by_position$display_name
 
-# =====================
-# PLAYER LOOKUP (FIX)
-# =====================
 player_lookup <- setNames(active_players$display_name, active_players$full_name)
 player_names  <- names(player_lookup)
 
@@ -118,9 +141,7 @@ player_names  <- names(player_lookup)
 # DETECT PLAYERS
 # =====================
 detect_players <- function(text) {
-
   if (is.null(text) || text == "") return(character(0))
-
   text <- tolower(text)
 
   matched <- player_names[sapply(player_names, function(nm) {
@@ -131,7 +152,7 @@ detect_players <- function(text) {
 }
 
 # =====================
-# IMPACT SCORING
+# IMPACT
 # =====================
 get_impact <- function(text) {
   t <- tolower(text)
@@ -139,13 +160,13 @@ get_impact <- function(text) {
   if (grepl("injur|out|ir|surgery", t)) return("negative")
   if (grepl("questionable|limited", t)) return("slightly_negative")
   if (grepl("signed|trade|contract|released", t)) return("roster_move")
-  if (grepl("huge|breakout|dominant|career-high", t)) return("positive")
+  if (grepl("breakout|dominant|career-high", t)) return("positive")
 
   "neutral"
 }
 
 # =====================
-# GOOGLE NEWS FETCH
+# FETCH GOOGLE NEWS
 # =====================
 fetch_google <- function(query) {
 
@@ -168,10 +189,12 @@ fetch_google <- function(query) {
 
     parsed <- safe_parse_date(pub)
 
-    # ✅ SEASON FILTER
     if (!is.na(parsed) && parsed < SEASON_START) return(NULL)
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
+
+    # 🔥 APPLY FANTASY FILTER HERE
+    if (!is_fantasy_relevant(clean_title)) return(NULL)
 
     list(
       title = clean_title,
@@ -189,16 +212,15 @@ fetch_google <- function(query) {
 # QUERY BUILDER
 # =====================
 build_query <- function(name) {
-  paste(name, "NFL injury OR fantasy OR update OR performance OR news")
+  paste(name, "NFL injury OR fantasy OR update OR breakout OR depth chart OR news")
 }
 
 # =====================
-# OPTIONAL TEAM DEFENSE QUERIES
+# TEAM DEFENSE QUERIES
 # =====================
 nfl_teams <- c(
   "Chicago Bears","Kansas City Chiefs","Buffalo Bills",
-  "San Francisco 49ers","Philadelphia Eagles","Dallas Cowboys",
-  "Miami Dolphins","Baltimore Ravens","Detroit Lions"
+  "San Francisco 49ers","Philadelphia Eagles","Dallas Cowboys"
 )
 
 team_queries <- paste(nfl_teams, "defense NFL news")
@@ -225,7 +247,7 @@ for (q in queries) {
 }
 
 # =====================
-# CLEAN
+# CLEAN + FILTER
 # =====================
 all_news <- Filter(Negate(is.null), all_news)
 
@@ -237,28 +259,20 @@ all_news <- Filter(function(x) {
 # DATE FILTER
 # =====================
 all_news <- Filter(function(x) {
-
   parsed <- safe_parse_date(x$published)
   if (is.na(parsed)) return(TRUE)
-
   parsed >= SEASON_START && parsed <= NOW_TIME
-
 }, all_news)
 
 # =====================
-# DEDUPLICATE
+# DEDUP
 # =====================
 seen <- c()
-
 all_news <- Filter(function(x) {
-
   key <- tolower(x$title)
-
   if (key %in% seen) return(FALSE)
-
   seen <<- c(seen, key)
   TRUE
-
 }, all_news)
 
 # =====================
@@ -281,21 +295,6 @@ all_news <- all_news[order(
 # LIMIT
 # =====================
 all_news <- head(all_news, MAX_ARTICLES)
-
-# =====================
-# FALLBACK
-# =====================
-if (length(all_news) == 0) {
-  all_news <- list(list(
-    title = "No recent NFL news found",
-    summary = "Try again later.",
-    link = "https://www.espn.com/nfl/",
-    published = Sys.time(),
-    source = "SYSTEM",
-    players_mentioned = character(0),
-    impact = "neutral"
-  ))
-}
 
 # =====================
 # SAVE
