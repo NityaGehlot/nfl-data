@@ -32,7 +32,8 @@ jobs:
             'stringr',
             'lubridate',
             'xml2',
-            'nflreadr'
+            'nflreadr',
+            'stringdist'
           ))"
 
       - name: Run news generator
