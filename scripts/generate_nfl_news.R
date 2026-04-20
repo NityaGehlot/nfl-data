@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FIXED FINAL VERSION)
+# scripts/generate_nfl_news.R (BALANCED + DEF SUPPORT)
 # =====================
 
 library(httr)
@@ -13,10 +13,24 @@ library(xml2)
 # CONFIG
 # =====================
 OUTPUT_FILE  <- "data/nfl_news.json"
-MAX_ARTICLES <- 150
+MAX_ARTICLES <- 220
 
 SEASON_START <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
 NOW_TIME     <- Sys.time()
+
+REQUEST_DELAY <- 1
+
+# =====================
+# 🔥 POSITION LIMITS (EDIT THIS)
+# =====================
+POSITION_LIMITS <- list(
+  QB  = 32,
+  RB  = 40,
+  WR  = 50,
+  TE  = 25,
+  K   = 32,
+  DEF = 32   # includes DST
+)
 
 # =====================
 # HELPERS
@@ -34,7 +48,7 @@ safe_parse_date <- function(x) {
 }
 
 # =====================
-# LOAD PLAYERS (FIXED)
+# LOAD PLAYERS (SLEEPER)
 # =====================
 message("Loading players...")
 
@@ -46,47 +60,62 @@ players_raw <- fromJSON(
 players_raw <- players_raw[!sapply(players_raw, is.null)]
 
 players_df <- bind_rows(lapply(players_raw, function(p) {
-
   tibble::tibble(
     first_name = p$first_name %||% NA,
     last_name  = p$last_name  %||% NA,
     status     = p$status     %||% NA,
     position   = p$position   %||% NA
   )
-
 }))
 
+# =====================
+# FILTER ACTIVE PLAYERS
+# =====================
 active_players <- players_df %>%
   filter(!is.na(status), status == "Active") %>%
-  filter(position %in% c("QB","RB","WR","TE")) %>%
+  filter(position %in% c("QB","RB","WR","TE","K","DEF","DST")) %>%
   mutate(
     full_name = tolower(paste(first_name, last_name)),
     display_name = paste(first_name, last_name)
   ) %>%
   filter(!is.na(full_name), full_name != "")
 
-# ✅ CRITICAL FIX (this was missing)
+# =====================
+# ⭐ STAR PLAYERS
+# =====================
+star_players <- c(
+  "caleb williams","joe burrow","patrick mahomes","josh allen",
+  "jalen hurts","justin jefferson","ja'marr chase",
+  "christian mccaffrey","bijan robinson","travis kelce",
+  "cee dee lamb","amon-ra st. brown","aj brown"
+)
+
+# =====================
+# 🔥 BALANCED POSITION SAMPLING
+# =====================
+players_by_position <- bind_rows(lapply(names(POSITION_LIMITS), function(pos) {
+
+  limit <- POSITION_LIMITS[[pos]]
+
+  active_players %>%
+    filter(
+      position == pos |
+      (pos == "DEF" & position %in% c("DEF","DST"))
+    ) %>%
+    slice_head(n = limit)
+
+}))
+
+balanced_players <- players_by_position$display_name
+
+# =====================
+# PLAYER LOOKUP (FIX)
+# =====================
 player_lookup <- setNames(active_players$display_name, active_players$full_name)
 player_names  <- names(player_lookup)
 
 # =====================
-# STAR PLAYERS
-# =====================
-star_players <- c(
-  "caleb williams",
-  "joe burrow",
-  "patrick mahomes",
-  "josh allen",
-  "jalen hurts",
-  "justin jefferson",
-  "ja'marr chase",
-  "christian mccaffrey",
-  "bijan robinson",
-  "travis kelce"
-)
-
-# =====================
-# PLAYER DETECTION
+# DETECT PLAYERS
 # =====================
 detect_players <- function(text) {
 
@@ -102,24 +131,21 @@ detect_players <- function(text) {
 }
 
 # =====================
-# IMPACT
+# IMPACT SCORING
 # =====================
 get_impact <- function(text) {
-
-  if (is.null(text)) return("neutral")
-
   t <- tolower(text)
 
   if (grepl("injur|out|ir|surgery", t)) return("negative")
   if (grepl("questionable|limited", t)) return("slightly_negative")
   if (grepl("signed|trade|contract|released", t)) return("roster_move")
-  if (grepl("huge|breakout|dominant", t)) return("positive")
+  if (grepl("huge|breakout|dominant|career-high", t)) return("positive")
 
   "neutral"
 }
 
 # =====================
-# GOOGLE FETCH
+# GOOGLE NEWS FETCH
 # =====================
 fetch_google <- function(query) {
 
@@ -142,6 +168,7 @@ fetch_google <- function(query) {
 
     parsed <- safe_parse_date(pub)
 
+    # ✅ SEASON FILTER
     if (!is.na(parsed) && parsed < SEASON_START) return(NULL)
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
@@ -161,25 +188,37 @@ fetch_google <- function(query) {
 # =====================
 # QUERY BUILDER
 # =====================
-build_player_query <- function(name) {
-  paste(name, "NFL injury OR update OR performance OR news")
+build_query <- function(name) {
+  paste(name, "NFL injury OR fantasy OR update OR performance OR news")
 }
+
+# =====================
+# OPTIONAL TEAM DEFENSE QUERIES
+# =====================
+nfl_teams <- c(
+  "Chicago Bears","Kansas City Chiefs","Buffalo Bills",
+  "San Francisco 49ers","Philadelphia Eagles","Dallas Cowboys",
+  "Miami Dolphins","Baltimore Ravens","Detroit Lions"
+)
+
+team_queries <- paste(nfl_teams, "defense NFL news")
 
 # =====================
 # FETCH NEWS
 # =====================
 message("Fetching player news...")
 
-queries <- c(
-  sapply(star_players, build_player_query),
-  sapply(head(active_players$display_name, 50), build_player_query)
-)
+queries <- unique(c(
+  sapply(star_players, build_query),
+  sapply(balanced_players, build_query),
+  team_queries
+))
 
 all_news <- list()
 
 for (q in queries) {
-  message("Query: ", q)
-  Sys.sleep(1)
+  message("Query:", q)
+  Sys.sleep(REQUEST_DELAY)
 
   res <- fetch_google(q)
   all_news <- c(all_news, res)
@@ -207,7 +246,7 @@ all_news <- Filter(function(x) {
 }, all_news)
 
 # =====================
-# DEDUP
+# DEDUPLICATE
 # =====================
 seen <- c()
 
@@ -242,6 +281,21 @@ all_news <- all_news[order(
 # LIMIT
 # =====================
 all_news <- head(all_news, MAX_ARTICLES)
+
+# =====================
+# FALLBACK
+# =====================
+if (length(all_news) == 0) {
+  all_news <- list(list(
+    title = "No recent NFL news found",
+    summary = "Try again later.",
+    link = "https://www.espn.com/nfl/",
+    published = Sys.time(),
+    source = "SYSTEM",
+    players_mentioned = character(0),
+    impact = "neutral"
+  ))
+}
 
 # =====================
 # SAVE
