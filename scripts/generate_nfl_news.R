@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (POSITION FILES + PLAYER LIMIT)
+# scripts/generate_nfl_news.R (FINAL STABLE VERSION)
 # =====================
 
 library(httr)
@@ -8,6 +8,7 @@ library(dplyr)
 library(stringr)
 library(lubridate)
 library(xml2)
+library(tibble)
 
 # =====================
 # CONFIG
@@ -20,24 +21,37 @@ SEASON_START <- as.POSIXct("2025-09-04", tz = "UTC")
 NOW_TIME <- Sys.time()
 
 # =====================
-# LOAD PLAYER STATS (KEY CHANGE)
+# LOAD PLAYER STATS (FIXED)
 # =====================
 message("Loading player stats...")
 
-stats <- fromJSON("data/player_stats_2025_week17.json")
+raw_stats <- fromJSON("data/player_stats_2025_week17.json", simplifyDataFrame = FALSE)
 
-# Sort by fantasy points (descending)
+# Flatten JSON → dataframe
+stats <- bind_rows(lapply(raw_stats, function(x) {
+  if (length(x) > 0) {
+    df <- as.data.frame(x, stringsAsFactors = FALSE)
+    df$fantasy_points_ppr <- as.numeric(df$fantasy_points_ppr)
+    return(df)
+  }
+}))
+
+# Clean
 stats <- stats %>%
-  arrange(desc(fantasy_points))
+  filter(!is.na(player_name), !is.na(position))
+
+# Sort by best fantasy players
+stats <- stats %>%
+  arrange(desc(fantasy_points_ppr))
 
 # =====================
-# SPLIT BY POSITION
+# LIMIT TO RELEVANT PLAYERS
 # =====================
-qb_players <- stats %>% filter(position == "QB")
-rb_players <- stats %>% filter(position == "RB")
-wr_players <- stats %>% filter(position == "WR")
-te_players <- stats %>% filter(position == "TE")
-k_players  <- stats %>% filter(position == "K")
+qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 20)
+rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 30)
+wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 40)
+te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 20)
+k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 15)
 
 # =====================
 # HELPERS
@@ -55,10 +69,10 @@ safe_parse_date <- function(x) {
 get_impact <- function(text) {
   t <- tolower(text)
 
-  if (grepl("injur|out|ir", t)) return("negative")
+  if (grepl("injur|out|ir|surgery", t)) return("negative")
   if (grepl("questionable|limited", t)) return("slightly_negative")
-  if (grepl("signed|trade|contract|released", t)) return("roster_move")
-  if (grepl("breakout|dominant|career-high", t)) return("positive")
+  if (grepl("signed|trade|contract|released|cut", t)) return("roster_move")
+  if (grepl("breakout|dominant|career-high|huge", t)) return("positive")
 
   "neutral"
 }
@@ -92,7 +106,7 @@ fetch_google <- function(player_name) {
     parsed <- safe_parse_date(pub)
 
     # STRICT DATE FILTER
-    if (!is.na(parsed) && parsed < SEASON_START) next
+    if (!is.na(parsed) && (parsed < SEASON_START || parsed > NOW_TIME)) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
 
@@ -106,18 +120,18 @@ fetch_google <- function(player_name) {
     )))
   }
 
-  # Sort newest first
+  # Sort by newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE
   )]
 
-  # Return top 3
+  # Return top N per player
   head(articles, MAX_PER_PLAYER)
 }
 
 # =====================
-# BUILD POSITION NEWS
+# BUILD NEWS PER POSITION
 # =====================
 build_news <- function(player_df) {
 
@@ -133,7 +147,8 @@ build_news <- function(player_df) {
 
     news <- fetch_google(player_name)
 
-    if (length(news) > 0) {
+    # Only keep players that actually have news
+    if (length(news) >= 1) {
       result <- c(result, news)
     }
   }
@@ -142,7 +157,7 @@ build_news <- function(player_df) {
 }
 
 # =====================
-# GENERATE ALL FILES
+# GENERATE FILES
 # =====================
 message("Generating QB news...")
 qb_news <- build_news(qb_players)
