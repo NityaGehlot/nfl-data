@@ -16,9 +16,7 @@ OUTPUT_FILE   <- "data/nfl_news.json"
 MAX_ARTICLES  <- 300
 REQUEST_DELAY <- 0.3
 
-# Accept everything from Sep 4 2025 onward
 HARD_FLOOR <- as.POSIXct("2025-09-04 00:00:00", tz = "UTC")
-
 message(paste("Window:", format(HARD_FLOOR, "%Y-%m-%d"), "to", format(Sys.time(), "%Y-%m-%d")))
 
 # =====================
@@ -43,6 +41,17 @@ is_recent_enough <- function(pub) {
   ts <- safe_parse_date(pub)
   if (is.na(ts)) return(FALSE)
   ts >= as.numeric(HARD_FLOOR)
+}
+
+# Hard exclusions only — things that are never fantasy-relevant
+is_excluded <- function(title) {
+  t <- tolower(title)
+  # Exclude pure college/draft prospect profiles for non-NFL players
+  if (grepl("^[a-z ']+'s nfl draft profile$", t))        return(TRUE)
+  if (grepl("nfl draft profile$", t))                     return(TRUE)
+  if (grepl("top \\d+ prospects|mock draft ranking", t))  return(TRUE)
+  if (grepl("college prospect|high school|ncaa recruit",  t)) return(TRUE)
+  FALSE
 }
 
 # =====================
@@ -99,22 +108,23 @@ get_impact <- function(text) {
   t <- tolower(text)
   if (grepl("injur|placed on ir|season-ending|surgery|torn|fracture|concussion|doubtful|ruled out|pup list|non-football injury", t)) return("negative")
   if (grepl("questionable|limited|day-to-day|sore|monitor|missed practice|did not practice|dnp", t))                                 return("slightly_negative")
-  if (grepl("signs|signed|trade|traded|free agent|deal|contract|extension|acquires|claims|waiver|cut |released|restructure|agrees|joining", t)) return("roster_move")
+  if (grepl("signs|signed|trade|traded|free agent|deal|contract|extension|acquires|claims|waiver|cut |released|restructure|agrees|joining|fifth-year option|franchise tag", t)) return("roster_move")
   if (grepl("breakout|career-high|record|mvp|pro bowl|comeback|activated|off ir|re-signs|named starter", t))                         return("positive")
   "neutral"
 }
 
 # =====================
-# BUILD ARTICLE
+# BUILD ARTICLE — no relevance gate, just date + exclusion
 # =====================
 make_article <- function(title, desc, link, published, source) {
   if (is.null(title) || is.na(title) || trimws(title) == "") return(NULL)
   if (is.null(link)  || is.na(link)  || trimws(link)  == "") return(NULL)
-  if (!is_recent_enough(published)) return(NULL)
+  if (!is_recent_enough(published))  return(NULL)
+  if (is_excluded(title))            return(NULL)
   full_text <- paste(title, desc)
   list(
     title             = trimws(title),
-    summary           = str_trunc(ifelse(!is.na(desc) & nchar(trimws(desc)) > 10, desc, title), 250),
+    summary           = str_trunc(ifelse(!is.na(desc) & nchar(trimws(desc)) > 10, trimws(desc), trimws(title)), 250),
     link              = trimws(link),
     published         = published,
     source            = source,
@@ -129,25 +139,23 @@ make_article <- function(title, desc, link, published, source) {
 fetch_espn_general <- function() {
   message("\n[ESPN General]")
   tryCatch({
-    res <- GET("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100",
-               timeout(30))
+    res  <- GET("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100",
+                timeout(30))
     message("  Status: ", res$status_code)
     if (res$status_code != 200) return(list())
     data <- fromJSON(content(res, "text", encoding = "UTF-8"), flatten = TRUE)
     arts <- data$articles
     if (is.null(arts) || nrow(arts) == 0) { message("  0 articles"); return(list()) }
-    message("  Raw articles: ", nrow(arts))
+    message("  Raw: ", nrow(arts))
     if (is.data.frame(arts)) arts <- split(arts, seq(nrow(arts)))
+
     results <- lapply(arts, function(a) {
       tryCatch({
         title <- a$headline %||% ""
         desc  <- a$description %||% ""
         link  <- tryCatch(a$links$web$href %||% "", error = function(e) "")
         pub   <- a$published %||% ""
-        art   <- make_article(title, desc, link, pub, "ESPN")
-        if (!is.null(art)) message("  KEPT: ", str_trunc(title, 70))
-        else                message("  skip: ", str_trunc(title, 50), " [", pub, "]")
-        art
+        make_article(title, desc, link, pub, "ESPN")
       }, error = function(e) NULL)
     })
     kept <- Filter(Negate(is.null), results)
@@ -170,14 +178,14 @@ fetch_espn_teams <- function() {
     "atl","car","no","tb",
     "ari","lar","sf","sea"
   )
-  message("\n[ESPN Team Feeds — ", length(teams), " teams]")
+  message("\n[ESPN Team Feeds]")
   results <- list()
 
   for (team in teams) {
     Sys.sleep(REQUEST_DELAY)
     tryCatch({
-      url <- paste0("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team=",
-                    team, "&limit=20")
+      url  <- paste0("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team=",
+                     team, "&limit=20")
       res  <- GET(url, timeout(15))
       if (res$status_code != 200) next
       data <- fromJSON(content(res, "text", encoding = "UTF-8"), flatten = TRUE)
@@ -185,7 +193,7 @@ fetch_espn_teams <- function() {
       if (is.null(arts) || nrow(arts) == 0) next
       if (is.data.frame(arts)) arts <- split(arts, seq(nrow(arts)))
 
-      team_kept <- 0
+      n_kept <- 0
       for (a in arts) {
         tryCatch({
           title <- a$headline %||% ""
@@ -193,155 +201,142 @@ fetch_espn_teams <- function() {
           link  <- tryCatch(a$links$web$href %||% "", error = function(e) "")
           pub   <- a$published %||% ""
           art   <- make_article(title, desc, link, pub, "ESPN")
-          if (!is.null(art)) { results <- c(results, list(art)); team_kept <- team_kept + 1 }
+          if (!is.null(art)) { results <- c(results, list(art)); n_kept <- n_kept + 1 }
         }, error = function(e) NULL)
       }
-      message("  [", toupper(team), "] kept ", team_kept, " / ", length(arts))
+      message("  [", toupper(team), "] kept ", n_kept, "/", length(arts))
     }, error = function(e) NULL)
   }
-  message("  Team total kept: ", length(results))
+  message("  Team total: ", length(results))
   results
 }
 
 # =====================
-# SOURCE 3: ProFootballTalk (best for transactions + injuries)
+# SOURCE 3: ProFootballTalk — use read_html to handle malformed XML
 # =====================
 fetch_pft <- function() {
   message("\n[ProFootballTalk]")
-  feeds <- c(
+  urls <- c(
     "https://profootballtalk.nbcsports.com/feed/",
-    "https://profootballtalk.nbcsports.com/category/news/feed/",
     "https://profootballtalk.nbcsports.com/category/transactions/feed/",
     "https://profootballtalk.nbcsports.com/category/injuries/feed/"
   )
   results <- list()
-  for (url in feeds) {
+  for (url in urls) {
     Sys.sleep(REQUEST_DELAY)
     tryCatch({
-      res <- GET(url, timeout(15),
-                 add_headers("User-Agent" = "Mozilla/5.0 (compatible; bot/1.0)"))
-      message("  ", basename(dirname(url)), " status: ", res$status_code)
+      res <- GET(url, timeout(20),
+                 add_headers("User-Agent" = "Mozilla/5.0 (X11; Linux x86_64)"))
+      message("  status: ", res$status_code)
       if (res$status_code != 200) next
-      xml   <- read_xml(content(res, "text", encoding = "UTF-8"))
-      items <- xml_find_all(xml, "//item")
+      raw <- content(res, "text", encoding = "UTF-8")
+
+      # PFT feeds have malformed HTML attributes — parse as HTML then find items
+      doc   <- read_html(raw)
+      items <- xml_find_all(doc, "//item")
       message("  items: ", length(items))
+
       for (item in items) {
         tryCatch({
-          title <- xml_text(xml_find_first(item, "title"))
-          link  <- xml_text(xml_find_first(item, "link"))
-          pub   <- xml_text(xml_find_first(item, "pubDate"))
-          desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
-          clean <- str_trim(str_replace(title, "\\s*[-|]\\s*[^-|]{1,40}$", ""))
-          art   <- make_article(clean, desc, link, pub, "ProFootballTalk")
+          title <- xml_text(xml_find_first(item, ".//title"))
+          link  <- xml_text(xml_find_first(item, ".//link"))
+          pub   <- xml_text(xml_find_first(item, ".//pubdate"))
+          if (is.na(pub) || pub == "") pub <- xml_text(xml_find_first(item, ".//pubDate"))
+          desc  <- tryCatch(xml_text(xml_find_first(item, ".//description")), error = function(e) "")
+          # Strip HTML tags from description
+          desc  <- gsub("<[^>]+>", " ", desc)
+          desc  <- str_squish(desc)
+          art   <- make_article(title, desc, link, pub, "ProFootballTalk")
           if (!is.null(art)) results <- c(results, list(art))
         }, error = function(e) NULL)
       }
     }, error = function(e) message("  ERROR: ", e$message))
   }
-  message("  PFT total kept: ", length(results))
+  message("  PFT kept: ", length(results))
   results
 }
 
 # =====================
-# SOURCE 4: CBS Sports NFL RSS
+# SOURCE 4: CBS Sports — parse as HTML to handle malformed feeds
 # =====================
 fetch_cbs <- function() {
   message("\n[CBS Sports]")
-  feeds <- c(
+  urls <- c(
     "https://www.cbssports.com/rss/headlines/nfl/",
     "https://www.cbssports.com/rss/headlines/fantasy/nfl/"
   )
   results <- list()
-  for (url in feeds) {
+  for (url in urls) {
     Sys.sleep(REQUEST_DELAY)
     tryCatch({
       res <- GET(url, timeout(15),
-                 add_headers("User-Agent" = "Mozilla/5.0 (compatible; bot/1.0)"))
+                 add_headers("User-Agent" = "Mozilla/5.0 (X11; Linux x86_64)"))
       message("  status: ", res$status_code)
       if (res$status_code != 200) next
-      xml   <- read_xml(content(res, "text", encoding = "UTF-8"))
-      items <- xml_find_all(xml, "//item")
+      raw   <- content(res, "text", encoding = "UTF-8")
+      doc   <- read_html(raw)
+      items <- xml_find_all(doc, "//item")
       message("  items: ", length(items))
+
       for (item in items) {
         tryCatch({
-          title <- xml_text(xml_find_first(item, "title"))
-          link  <- xml_text(xml_find_first(item, "link"))
-          pub   <- xml_text(xml_find_first(item, "pubDate"))
-          desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
-          clean <- str_trim(str_replace(title, "\\s*[-|]\\s*[^-|]{1,40}$", ""))
+          title <- xml_text(xml_find_first(item, ".//title"))
+          link  <- xml_text(xml_find_first(item, ".//link"))
+          pub   <- xml_text(xml_find_first(item, ".//pubdate"))
+          if (is.na(pub) || pub == "") pub <- xml_text(xml_find_first(item, ".//pubDate"))
+          desc  <- tryCatch(xml_text(xml_find_first(item, ".//description")), error = function(e) "")
+          desc  <- gsub("<[^>]+>", " ", desc)
+          desc  <- str_squish(desc)
+          clean <- str_trim(str_replace(title, "\\s*[-|]\\s*(CBS Sports|NFL).*$", ""))
           art   <- make_article(clean, desc, link, pub, "CBSSports")
           if (!is.null(art)) results <- c(results, list(art))
         }, error = function(e) NULL)
       }
     }, error = function(e) message("  ERROR: ", e$message))
   }
-  message("  CBS total kept: ", length(results))
+  message("  CBS kept: ", length(results))
   results
 }
 
 # =====================
-# SOURCE 5: NFL.com RSS
+# SOURCE 5: NFL.com — parse as HTML
 # =====================
 fetch_nfl_com <- function() {
   message("\n[NFL.com RSS]")
-  feeds <- c(
+  urls <- c(
     "https://www.nfl.com/rss/rsslanding?searchString=news",
     "https://www.nfl.com/rss/rsslanding?searchString=injuries",
     "https://www.nfl.com/rss/rsslanding?searchString=transactions"
   )
   results <- list()
-  for (url in feeds) {
+  for (url in urls) {
     Sys.sleep(REQUEST_DELAY)
     tryCatch({
       res <- GET(url, timeout(15),
-                 add_headers("User-Agent" = "Mozilla/5.0 (compatible; bot/1.0)"))
+                 add_headers("User-Agent" = "Mozilla/5.0 (X11; Linux x86_64)"))
       message("  status: ", res$status_code)
       if (res$status_code != 200) next
-      xml   <- read_xml(content(res, "text", encoding = "UTF-8"))
-      items <- xml_find_all(xml, "//item")
+      raw   <- content(res, "text", encoding = "UTF-8")
+      doc   <- read_html(raw)
+      items <- xml_find_all(doc, "//item")
       message("  items: ", length(items))
+
       for (item in items) {
         tryCatch({
-          title <- xml_text(xml_find_first(item, "title"))
-          link  <- xml_text(xml_find_first(item, "link"))
-          pub   <- xml_text(xml_find_first(item, "pubDate"))
-          desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
+          title <- xml_text(xml_find_first(item, ".//title"))
+          link  <- xml_text(xml_find_first(item, ".//link"))
+          pub   <- xml_text(xml_find_first(item, ".//pubdate"))
+          if (is.na(pub) || pub == "") pub <- xml_text(xml_find_first(item, ".//pubDate"))
+          desc  <- tryCatch(xml_text(xml_find_first(item, ".//description")), error = function(e) "")
+          desc  <- gsub("<[^>]+>", " ", desc)
+          desc  <- str_squish(desc)
           art   <- make_article(title, desc, link, pub, "NFL.com")
           if (!is.null(art)) results <- c(results, list(art))
         }, error = function(e) NULL)
       }
     }, error = function(e) message("  ERROR: ", e$message))
   }
-  message("  NFL.com total kept: ", length(results))
-  results
-}
-
-# =====================
-# SOURCE 6: Bleacher Report NFL RSS
-# =====================
-fetch_bleacher <- function() {
-  message("\n[Bleacher Report]")
-  results <- list()
-  tryCatch({
-    res <- GET("https://bleacherreport.com/articles/feed?tag_id=16", timeout(15),
-               add_headers("User-Agent" = "Mozilla/5.0 (compatible; bot/1.0)"))
-    message("  status: ", res$status_code)
-    if (res$status_code != 200) return(list())
-    xml   <- read_xml(content(res, "text", encoding = "UTF-8"))
-    items <- xml_find_all(xml, "//item")
-    message("  items: ", length(items))
-    for (item in items) {
-      tryCatch({
-        title <- xml_text(xml_find_first(item, "title"))
-        link  <- xml_text(xml_find_first(item, "link"))
-        pub   <- xml_text(xml_find_first(item, "pubDate"))
-        desc  <- tryCatch(xml_text(xml_find_first(item, "description")), error = function(e) "")
-        art   <- make_article(title, desc, link, pub, "BleacherReport")
-        if (!is.null(art)) results <- c(results, list(art))
-      }, error = function(e) NULL)
-    }
-  }, error = function(e) message("  ERROR: ", e$message))
-  message("  BR kept: ", length(results))
+  message("  NFL.com kept: ", length(results))
   results
 }
 
@@ -355,25 +350,19 @@ all_news <- c(
   fetch_espn_teams(),
   fetch_pft(),
   fetch_cbs(),
-  fetch_nfl_com(),
-  fetch_bleacher()
+  fetch_nfl_com()
 )
 
 all_news <- Filter(Negate(is.null), all_news)
 message("\n========== RESULTS ==========")
-message("Total before dedup: ", length(all_news))
+message("Total raw: ", length(all_news))
 
-# =====================
-# FINAL DATE CHECK
-# =====================
+# Final date pass
 before   <- length(all_news)
 all_news <- Filter(function(x) is_recent_enough(x$published), all_news)
-message("Dropped by date: ", before - length(all_news))
-message("After date filter: ", length(all_news))
+message("Dropped by date: ", before - length(all_news), " | After: ", length(all_news))
 
-# =====================
-# DEDUPLICATE
-# =====================
+# Dedup by title
 seen <- character(0)
 all_news <- Filter(function(x) {
   key <- tolower(trimws(x$title))
@@ -383,9 +372,7 @@ all_news <- Filter(function(x) {
 }, all_news)
 message("After dedup: ", length(all_news))
 
-# =====================
-# SORT — impact tier first, then newest within tier
-# =====================
+# Sort: impact tier first, then newest within tier
 impact_rank <- c(negative=5, slightly_negative=4, roster_move=3, positive=2, neutral=1)
 pub_ts      <- sapply(all_news, function(x) safe_parse_date(x$published) %||% 0)
 all_news    <- all_news[order(
@@ -394,16 +381,13 @@ all_news    <- all_news[order(
   decreasing = TRUE
 )]
 
-# =====================
-# LIMIT
-# =====================
 all_news <- head(all_news, MAX_ARTICLES)
 
 # =====================
 # FALLBACK
 # =====================
 if (length(all_news) == 0) {
-  message("WARNING: 0 articles after all filtering — check source logs above")
+  message("WARNING: 0 articles — all sources failed or were filtered out")
   all_news <- list(list(
     title             = "No recent NFL news available",
     summary           = "Check back soon for the latest player updates.",
@@ -420,5 +404,5 @@ if (length(all_news) == 0) {
 # =====================
 if (!dir.exists("data")) dir.create("data")
 write_json(all_news, OUTPUT_FILE, pretty = TRUE, auto_unbox = TRUE)
-message("\n✅ Saved ", length(all_news), " articles | Run: ",
+message("\n✅ Saved ", length(all_news), " articles | ",
         format(Sys.time(), "%Y-%m-%d %H:%M UTC"))
