@@ -21,26 +21,41 @@ SEASON_START <- as.POSIXct("2025-09-04", tz = "UTC")
 NOW_TIME <- Sys.time()
 
 # =====================
-# LOAD PLAYER STATS (FIXED)
+# LOAD PLAYER STATS (ROBUST FIX)
 # =====================
 message("Loading player stats...")
 
 raw_stats <- fromJSON("data/player_stats_2025_week17.json", simplifyDataFrame = FALSE)
 
-# Flatten JSON → dataframe
-stats <- bind_rows(lapply(raw_stats, function(x) {
-  if (length(x) > 0) {
-    df <- as.data.frame(x, stringsAsFactors = FALSE)
-    df$fantasy_points_ppr <- as.numeric(df$fantasy_points_ppr)
-    return(df)
-  }
-}))
+rows_list <- list()
 
-# Clean
+for (entry in raw_stats) {
+
+  # Skip empty entries
+  if (length(entry) == 0) next
+
+  player <- entry[[1]]
+
+  # Skip malformed rows
+  if (is.null(player$player_name) || is.null(player$position)) next
+
+  # Convert safely to dataframe row
+  df <- as.data.frame(player, stringsAsFactors = FALSE)
+
+  # Convert fantasy points safely
+  df$fantasy_points_ppr <- suppressWarnings(as.numeric(df$fantasy_points_ppr))
+
+  rows_list[[length(rows_list) + 1]] <- df
+}
+
+# Combine all rows
+stats <- bind_rows(rows_list)
+
+# Final clean
 stats <- stats %>%
   filter(!is.na(player_name), !is.na(position))
 
-# Sort by best fantasy players
+# Sort by fantasy performance
 stats <- stats %>%
   arrange(desc(fantasy_points_ppr))
 
