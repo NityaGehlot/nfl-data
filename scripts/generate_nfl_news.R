@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (RECENCY-PRIORITIZED VERSION)
+# scripts/generate_nfl_news.R (FIXED + STABLE + RECENCY PRIORITY)
 # =====================
 
 library(httr)
@@ -17,14 +17,17 @@ MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 1
 
 SEASON_START <- as.Date("2025-09-04")
-TODAY <- Sys.Date()
+TODAY <- as.Date(Sys.Date())
 
 # =====================
 # LOAD PLAYER STATS
 # =====================
 message("Loading player stats...")
 
-raw_stats <- fromJSON("data/player_stats_2025_week17.json", simplifyDataFrame = FALSE)
+raw_stats <- fromJSON(
+  "data/player_stats_2025_week17.json",
+  simplifyDataFrame = FALSE
+)
 
 clean_rows <- lapply(raw_stats, function(entry) {
 
@@ -34,7 +37,9 @@ clean_rows <- lapply(raw_stats, function(entry) {
 
   if (is.null(player$player_name) || is.null(player$position)) return(NULL)
 
-  player$fantasy_points_ppr <- suppressWarnings(as.numeric(player$fantasy_points_ppr))
+  player$fantasy_points_ppr <- suppressWarnings(
+    as.numeric(player$fantasy_points_ppr)
+  )
 
   return(player)
 })
@@ -42,30 +47,31 @@ clean_rows <- lapply(raw_stats, function(entry) {
 clean_rows <- Filter(Negate(is.null), clean_rows)
 stats <- bind_rows(clean_rows)
 
-if (nrow(stats) == 0) stop("❌ No valid player data")
+if (nrow(stats) == 0) stop("❌ No valid player data loaded")
 
-# =====================
-# CLEAN + EXPAND COVERAGE
-# =====================
 stats <- stats %>%
   filter(!is.na(player_name), !is.na(position)) %>%
   filter(fantasy_points_ppr > 0) %>%
   arrange(desc(fantasy_points_ppr))
 
-# 🔥 Increase coverage (more players)
-qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 32)
-rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 50)
-wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 60)
-te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 30)
-k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 20)
+# =====================
+# LIMIT PLAYERS
+# =====================
+qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 20)
+rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 30)
+wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 40)
+te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 20)
+k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 15)
 
 # =====================
 # HELPERS
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
-    as.Date(parse_date_time(x,
-      orders = c("a, d b Y H:M:S z", "ymd HMS", "Y-m-dTH:M:SZ")
+    as.Date(parse_date_time(
+      x,
+      orders = c("a, d b Y H:M:S z", "ymd HMS", "Y-m-dTH:M:SZ"),
+      tz = "UTC"
     ))
   }, error = function(e) NA)
 }
@@ -81,7 +87,6 @@ get_impact <- function(text) {
   "neutral"
 }
 
-# 🔥 Topic dedup (prevents same headline idea twice)
 is_duplicate_topic <- function(title, existing_titles) {
   any(sapply(existing_titles, function(t) {
     stringdist::stringdist(tolower(title), tolower(t), method = "jw") < 0.15
@@ -89,7 +94,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# FETCH GOOGLE NEWS (RECENCY PRIORITY)
+# FETCH GOOGLE NEWS (FIXED LOGIC)
 # =====================
 fetch_google <- function(player_name) {
 
@@ -114,9 +119,10 @@ fetch_google <- function(player_name) {
     link  <- xml_text(xml_find_first(item, "link"))
     pub   <- xml_text(xml_find_first(item, "pubDate"))
 
-    parsed <- safe_parse_date(pub)
+    parsed_date <- safe_parse_date(pub)
 
-    if (is.na(parsed) || parsed < SEASON_START) next
+    # allow only season-safe articles
+    if (is.na(parsed_date) || parsed_date < SEASON_START) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
 
@@ -124,7 +130,7 @@ fetch_google <- function(player_name) {
       title = clean_title,
       summary = str_trunc(clean_title, 160),
       link = link,
-      published = parsed,
+      published = parsed_date,
       player = player_name,
       impact = get_impact(clean_title)
     )))
@@ -132,7 +138,7 @@ fetch_google <- function(player_name) {
 
   if (length(articles) == 0) return(list())
 
-  # 🔥 Sort newest first
+  # newest first
   articles <- articles[order(
     sapply(articles, function(x) x$published),
     decreasing = TRUE
@@ -141,26 +147,32 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  # 🔥 PRIORITY LOGIC: today → fallback older
+  # =====================
+  # PRIORITY PASS: TODAY FIRST
+  # =====================
   for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
 
-    # Prefer today first
-    if (length(selected) == 0 && article$published != TODAY) next
+    article_date <- as.Date(article$published)
+    is_today <- !is.na(article_date) && article_date == TODAY
 
-    # Avoid duplicate topics
+    if (!is_today) next
     if (is_duplicate_topic(article$title, titles)) next
 
     selected <- c(selected, list(article))
     titles <- c(titles, article$title)
   }
 
-  # 🔁 If still empty → allow fallback older
-  if (length(selected) == 0) {
+  # =====================
+  # FALLBACK: RECENT NEWS
+  # =====================
+  if (length(selected) < MAX_PER_PLAYER) {
+
     for (article in articles) {
 
       if (length(selected) >= MAX_PER_PLAYER) break
+
       if (is_duplicate_topic(article$title, titles)) next
 
       selected <- c(selected, list(article))
@@ -215,14 +227,14 @@ message("Generating K news...")
 k_news <- build_news(k_players)
 
 # =====================
-# SAVE
+# SAVE OUTPUT
 # =====================
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR)
 
-write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty=TRUE, auto_unbox=TRUE)
+write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty = TRUE, auto_unbox = TRUE)
+write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty = TRUE, auto_unbox = TRUE)
 
-message("✅ DONE — Fresh, prioritized news generated")
+message("✅ DONE — All position news generated successfully")
