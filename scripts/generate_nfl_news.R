@@ -35,7 +35,7 @@ safe_parse_date <- function(x) {
 }
 
 # =====================
-# LOAD ACTIVE PLAYERS (SLEEPER)
+# LOAD ACTIVE PLAYERS (SLEEPER) — FIXED
 # =====================
 message("Loading players...")
 
@@ -44,23 +44,32 @@ players_raw <- fromJSON(
   simplifyDataFrame = FALSE
 )
 
+# Remove null entries
 players_raw <- players_raw[!sapply(players_raw, is.null)]
 
+# 🔥 SAFE FLATTEN (guarantees columns exist)
 players_df <- bind_rows(lapply(players_raw, function(p) {
-  tryCatch(as.data.frame(p, stringsAsFactors = FALSE), error = function(e) NULL)
+
+  tibble::tibble(
+    first_name = p$first_name %||% NA,
+    last_name  = p$last_name  %||% NA,
+    status     = p$status     %||% NA,
+    position   = p$position   %||% NA
+  )
+
 }))
 
+# =====================
+# FILTER ACTIVE FANTASY PLAYERS
+# =====================
 active_players <- players_df %>%
-  filter(status == "Active") %>%
+  filter(!is.na(status), status == "Active") %>%
   filter(position %in% c("QB","RB","WR","TE")) %>%
   mutate(
     full_name = tolower(paste(first_name, last_name)),
     display_name = paste(first_name, last_name)
   ) %>%
-  filter(!is.na(full_name) & full_name != "")
-
-player_lookup <- setNames(active_players$display_name, active_players$full_name)
-player_names  <- names(player_lookup)
+  filter(!is.na(full_name), full_name != "")
 
 # =====================
 # ⭐ FORCE STAR PLAYERS
