@@ -1,5 +1,10 @@
 name: Update NFL News
 
+# 🔥 Prevent overlapping runs (VERY important)
+concurrency:
+  group: nfl-news
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
   schedule:
@@ -12,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 🔥 required for pull --rebase
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
@@ -48,9 +55,12 @@ jobs:
         run: |
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
-      
-          # Add ALL generated JSON files
+
           git add data/*.json
-      
+
           git commit -m "Update NFL news + player data" || echo "No changes"
+
+          # 🔥 CRITICAL FIX: sync before pushing
+          git pull --rebase origin main
+
           git push
