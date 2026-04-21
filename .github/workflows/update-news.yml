@@ -36,6 +36,10 @@ jobs:
             'stringdist'
           ))"
 
+      - name: Update Sleeper players
+        run: |
+          Rscript scripts/update_players.R
+
       - name: Run news generator
         run: |
           Rscript scripts/generate_nfl_news.R
@@ -48,5 +52,5 @@ jobs:
           # Add ALL generated JSON files
           git add data/*.json
       
-          git commit -m "Update NFL news files" || echo "No changes"
+          git commit -m "Update NFL news + player data" || echo "No changes"
           git push
