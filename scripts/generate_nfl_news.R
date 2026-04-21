@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (SLEEPER-BASED FINAL FIXED)
+# scripts/generate_nfl_news.R (FINAL WORKING VERSION)
 # =====================
 
 library(httr)
@@ -11,7 +11,7 @@ library(xml2)
 library(stringdist)
 
 # =====================
-# HELPER (NULL COALESCE)
+# HELPER
 # =====================
 `%||%` <- function(a, b) {
   if (!is.null(a)) a else b
@@ -22,20 +22,19 @@ library(stringdist)
 # =====================
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
-REQUEST_DELAY <- 0.5
+REQUEST_DELAY <- 0.3   # faster
 
-SEASON_START <- as.Date("2025-09-04")
-TODAY <- Sys.Date()
+SEASON_START <- Sys.Date() - 7   # 🔥 last 7 days instead of season start
 
 # =====================
-# CHECK FILE EXISTS
+# CHECK FILE
 # =====================
 if (!file.exists("data/sleeper_players.json")) {
   stop("❌ sleeper_players.json not found. Run update_players.R first.")
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS (FIXED)
+# LOAD PLAYERS
 # =====================
 message("Loading Sleeper players...")
 
@@ -46,15 +45,7 @@ players_raw <- fromJSON(
 
 players_list <- lapply(players_raw, function(p) {
 
-  # Skip invalid players
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
-
-  # ✅ FORCE single values (length = 1 always)
-  first_name <- p$first_name %||% NA
-  last_name  <- p$last_name %||% NA
-  position   <- p$position %||% NA
-  team       <- p$team %||% NA
-  status     <- p$status %||% NA
 
   depth <- p$depth_chart_position
   if (is.null(depth) || length(depth) == 0) depth <- NA
@@ -62,27 +53,26 @@ players_list <- lapply(players_raw, function(p) {
   depth <- suppressWarnings(as.numeric(depth))
 
   data.frame(
-    player_name = paste(first_name, last_name),
-    position = position,
-    team = team,
-    status = status,
+    player_name = paste(p$first_name, p$last_name),
+    position = p$position %||% NA,
+    status = p$status %||% NA,
     depth_chart_position = depth,
     stringsAsFactors = FALSE
   )
 })
 
-# Remove NULLs
 players_list <- Filter(Negate(is.null), players_list)
-
-# Combine into dataframe
 players <- bind_rows(players_list)
 
 message("Total players loaded: ", nrow(players))
 
+# =====================
+# FIX DEPTH NAs
+# =====================
 players$depth_chart_position[is.na(players$depth_chart_position)] <- 99
 
 # =====================
-# CLEAN PLAYER DATA
+# CLEAN
 # =====================
 players <- players %>%
   filter(
@@ -92,21 +82,21 @@ players <- players %>%
   )
 
 # =====================
-# 🔥 DEPTH CHART FILTERING
+# 🔥 LESS STRICT FILTER (IMPORTANT)
 # =====================
 players <- players %>%
   filter(
-    (position == "QB" & depth_chart_position <= 2) |
-    (position == "RB" & depth_chart_position <= 3) |
-    (position == "WR" & depth_chart_position <= 4) |
-    (position == "TE" & depth_chart_position <= 2) |
+    (position == "QB" & depth_chart_position <= 3) |
+    (position == "RB" & depth_chart_position <= 4) |
+    (position == "WR" & depth_chart_position <= 5) |
+    (position == "TE" & depth_chart_position <= 3) |
     (position == "K"  & depth_chart_position <= 1)
   )
 
 message("Players after depth filter: ", nrow(players))
 
 # =====================
-# SPLIT BY POSITION
+# SPLIT
 # =====================
 qb_players <- players %>% filter(position == "QB")
 rb_players <- players %>% filter(position == "RB")
@@ -145,7 +135,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# FETCH GOOGLE NEWS
+# 🔥 FETCH NEWS (FIXED)
 # =====================
 fetch_google <- function(player_name) {
 
@@ -172,6 +162,7 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub)
 
+    # 🔥 ONLY last 7 days
     if (!is.na(parsed) && parsed < SEASON_START) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
@@ -198,30 +189,14 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  # PRIORITIZE TODAY
+  # 🔥 TAKE FIRST UNIQUE ARTICLES (NO "TODAY ONLY")
   for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
-
-    pub_date <- safe_parse_date(article$published)
-
-    if (!is.na(pub_date) && pub_date != TODAY) next
     if (is_duplicate_topic(article$title, titles)) next
 
     selected <- c(selected, list(article))
     titles <- c(titles, article$title)
-  }
-
-  # FALLBACK
-  if (length(selected) < MAX_PER_PLAYER) {
-    for (article in articles) {
-
-      if (length(selected) >= MAX_PER_PLAYER) break
-      if (is_duplicate_topic(article$title, titles)) next
-
-      selected <- c(selected, list(article))
-      titles <- c(titles, article$title)
-    }
   }
 
   selected
@@ -253,25 +228,16 @@ build_news <- function(player_df) {
 }
 
 # =====================
-# GENERATE FILES
+# GENERATE
 # =====================
-message("Generating QB news...")
 qb_news <- build_news(qb_players)
-
-message("Generating RB news...")
 rb_news <- build_news(rb_players)
-
-message("Generating WR news...")
 wr_news <- build_news(wr_players)
-
-message("Generating TE news...")
 te_news <- build_news(te_players)
-
-message("Generating K news...")
-k_news <- build_news(k_players)
+k_news  <- build_news(k_players)
 
 # =====================
-# SAVE FILES
+# SAVE
 # =====================
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR)
 
@@ -281,4 +247,4 @@ write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty=TRUE, auto_unb
 write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty=TRUE, auto_unbox=TRUE)
 write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty=TRUE, auto_unbox=TRUE)
 
-message("✅ DONE — Sleeper-based news generated")
+message("✅ DONE — News generated successfully")
