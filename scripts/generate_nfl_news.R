@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (SLEEPER-BASED FINAL)
+# scripts/generate_nfl_news.R (SLEEPER-BASED FINAL FIXED)
 # =====================
 
 library(httr)
@@ -9,6 +9,13 @@ library(stringr)
 library(lubridate)
 library(xml2)
 library(stringdist)
+
+# =====================
+# HELPER (NULL COALESCE)
+# =====================
+`%||%` <- function(a, b) {
+  if (!is.null(a)) a else b
+}
 
 # =====================
 # CONFIG
@@ -21,34 +28,58 @@ SEASON_START <- as.Date("2025-09-04")
 TODAY <- Sys.Date()
 
 # =====================
-# LOAD SLEEPER PLAYERS
+# CHECK FILE EXISTS
+# =====================
+if (!file.exists("data/sleeper_players.json")) {
+  stop("❌ sleeper_players.json not found. Run update_players.R first.")
+}
+
+# =====================
+# LOAD SLEEPER PLAYERS (FIXED)
 # =====================
 message("Loading Sleeper players...")
 
-players_raw <- fromJSON("data/sleeper_players.json")
+players_raw <- fromJSON(
+  "data/sleeper_players.json",
+  simplifyVector = FALSE
+)
 
-# Convert from named list → dataframe
-players <- bind_rows(players_raw)
+# Convert safely → normalize each player
+players_list <- lapply(players_raw, function(p) {
+
+  if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
+
+  data.frame(
+    player_name = paste(p$first_name, p$last_name),
+    position = p$position %||% NA,
+    team = p$team %||% NA,
+    status = p$status %||% NA,
+    depth_chart_position = suppressWarnings(as.numeric(p$depth_chart_position)),
+    stringsAsFactors = FALSE
+  )
+})
+
+# Remove NULLs
+players_list <- Filter(Negate(is.null), players_list)
+
+# Combine into dataframe
+players <- bind_rows(players_list)
+
+message("Total players loaded: ", nrow(players))
 
 # =====================
 # CLEAN PLAYER DATA
 # =====================
 players <- players %>%
   filter(
-    sport == "nfl",
     status == "Active",
     !is.na(position),
-    !is.na(first_name),
-    !is.na(last_name)
-  ) %>%
-  mutate(
-    player_name = paste(first_name, last_name)
+    !is.na(player_name)
   )
 
 # =====================
 # 🔥 DEPTH CHART FILTERING
 # =====================
-# Keep meaningful players only
 players <- players %>%
   filter(
     (position == "QB" & depth_chart_position <= 2) |
@@ -57,6 +88,8 @@ players <- players %>%
     (position == "TE" & depth_chart_position <= 2) |
     (position == "K"  & depth_chart_position <= 1)
   )
+
+message("Players after depth filter: ", nrow(players))
 
 # =====================
 # SPLIT BY POSITION
@@ -151,7 +184,7 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  # 1. PRIORITIZE TODAY
+  # PRIORITIZE TODAY
   for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
@@ -165,7 +198,7 @@ fetch_google <- function(player_name) {
     titles <- c(titles, article$title)
   }
 
-  # 2. FALLBACK → ANY RECENT
+  # FALLBACK
   if (length(selected) < MAX_PER_PLAYER) {
     for (article in articles) {
 
