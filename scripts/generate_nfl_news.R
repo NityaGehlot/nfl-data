@@ -44,17 +44,29 @@ players_raw <- fromJSON(
   simplifyVector = FALSE
 )
 
-# Convert safely → normalize each player
 players_list <- lapply(players_raw, function(p) {
 
+  # Skip invalid players
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
+  # ✅ FORCE single values (length = 1 always)
+  first_name <- p$first_name %||% NA
+  last_name  <- p$last_name %||% NA
+  position   <- p$position %||% NA
+  team       <- p$team %||% NA
+  status     <- p$status %||% NA
+
+  depth <- p$depth_chart_position
+  if (is.null(depth) || length(depth) == 0) depth <- NA
+
+  depth <- suppressWarnings(as.numeric(depth))
+
   data.frame(
-    player_name = paste(p$first_name, p$last_name),
-    position = p$position %||% NA,
-    team = p$team %||% NA,
-    status = p$status %||% NA,
-    depth_chart_position = suppressWarnings(as.numeric(p$depth_chart_position)),
+    player_name = paste(first_name, last_name),
+    position = position,
+    team = team,
+    status = status,
+    depth_chart_position = depth,
     stringsAsFactors = FALSE
   )
 })
@@ -66,6 +78,8 @@ players_list <- Filter(Negate(is.null), players_list)
 players <- bind_rows(players_list)
 
 message("Total players loaded: ", nrow(players))
+
+players$depth_chart_position[is.na(players$depth_chart_position)] <- 99
 
 # =====================
 # CLEAN PLAYER DATA
