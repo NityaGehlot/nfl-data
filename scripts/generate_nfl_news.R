@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (WORKING FINAL VERSION)
+# scripts/generate_nfl_news.R (SLEEPER-BASED FINAL)
 # =====================
 
 library(httr)
@@ -21,54 +21,51 @@ SEASON_START <- as.Date("2025-09-04")
 TODAY <- Sys.Date()
 
 # =====================
-# LOAD PLAYER STATS
+# LOAD SLEEPER PLAYERS
 # =====================
-message("Loading player stats...")
+message("Loading Sleeper players...")
 
-raw_stats <- fromJSON(
-  "data/player_stats_2025_week17.json",
-  simplifyDataFrame = FALSE
-)
+players_raw <- fromJSON("data/sleeper_players.json")
 
-clean_rows <- lapply(raw_stats, function(entry) {
+# Convert from named list → dataframe
+players <- bind_rows(players_raw)
 
-  if (length(entry) == 0) return(NULL)
-
-  player <- entry[[1]]
-
-  if (is.null(player$player_name) || is.null(player$position)) return(NULL)
-
-  player$fantasy_points_ppr <- suppressWarnings(
-    as.numeric(player$fantasy_points_ppr)
+# =====================
+# CLEAN PLAYER DATA
+# =====================
+players <- players %>%
+  filter(
+    sport == "nfl",
+    status == "Active",
+    !is.na(position),
+    !is.na(first_name),
+    !is.na(last_name)
+  ) %>%
+  mutate(
+    player_name = paste(first_name, last_name)
   )
 
-  return(player)
-})
-
-clean_rows <- Filter(Negate(is.null), clean_rows)
-stats <- bind_rows(clean_rows)
-
-if (nrow(stats) == 0) {
-  stop("❌ No valid player data loaded")
-}
-
 # =====================
-# CLEAN + FILTER
+# 🔥 DEPTH CHART FILTERING
 # =====================
-stats <- stats %>%
-  filter(!is.na(player_name), !is.na(position)) %>%
-  filter(fantasy_points_ppr > 0) %>%
-  distinct(player_name, .keep_all = TRUE) %>%
-  arrange(desc(fantasy_points_ppr))
+# Keep meaningful players only
+players <- players %>%
+  filter(
+    (position == "QB" & depth_chart_position <= 2) |
+    (position == "RB" & depth_chart_position <= 3) |
+    (position == "WR" & depth_chart_position <= 4) |
+    (position == "TE" & depth_chart_position <= 2) |
+    (position == "K"  & depth_chart_position <= 1)
+  )
 
 # =====================
-# 🔥 EXPANDED COVERAGE
+# SPLIT BY POSITION
 # =====================
-qb_players <- stats %>% filter(position == "QB") %>% slice_head(n = 64)
-rb_players <- stats %>% filter(position == "RB") %>% slice_head(n = 80)
-wr_players <- stats %>% filter(position == "WR") %>% slice_head(n = 140)
-te_players <- stats %>% filter(position == "TE") %>% slice_head(n = 64)
-k_players  <- stats %>% filter(position == "K")  %>% slice_head(n = 32)
+qb_players <- players %>% filter(position == "QB")
+rb_players <- players %>% filter(position == "RB")
+wr_players <- players %>% filter(position == "WR")
+te_players <- players %>% filter(position == "TE")
+k_players  <- players %>% filter(position == "K")
 
 # =====================
 # HELPERS
@@ -94,7 +91,6 @@ get_impact <- function(text) {
   "neutral"
 }
 
-# 🔥 Prevent duplicate topics
 is_duplicate_topic <- function(title, existing_titles) {
   any(sapply(existing_titles, function(t) {
     stringdist(tolower(title), tolower(t), method = "jw") < 0.2
@@ -102,7 +98,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# 🔥 FETCH NEWS (FIXED CORE)
+# FETCH GOOGLE NEWS
 # =====================
 fetch_google <- function(player_name) {
 
@@ -129,8 +125,6 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub)
 
-    # ❗ CRITICAL FIX:
-    # Don't drop if NA (Google sometimes fails parsing)
     if (!is.na(parsed) && parsed < SEASON_START) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
@@ -147,7 +141,7 @@ fetch_google <- function(player_name) {
 
   if (length(articles) == 0) return(list())
 
-  # Sort newest first (NA goes last automatically)
+  # Sort newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE,
@@ -157,11 +151,7 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  # =====================
-  # 🔥 PRIORITY SYSTEM
-  # =====================
-
-  # 1. Try TODAY first
+  # 1. PRIORITIZE TODAY
   for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
@@ -175,7 +165,7 @@ fetch_google <- function(player_name) {
     titles <- c(titles, article$title)
   }
 
-  # 2. Fallback → ANY recent
+  # 2. FALLBACK → ANY RECENT
   if (length(selected) < MAX_PER_PLAYER) {
     for (article in articles) {
 
@@ -244,4 +234,4 @@ write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty=TRUE, auto_unb
 write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty=TRUE, auto_unbox=TRUE)
 write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty=TRUE, auto_unbox=TRUE)
 
-message("✅ DONE — News generated with real coverage")
+message("✅ DONE — Sleeper-based news generated")
