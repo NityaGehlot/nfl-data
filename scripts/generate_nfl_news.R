@@ -17,11 +17,6 @@ library(stringdist)
   if (!is.null(a)) a else b
 }
 
-scalar_or_na <- function(x) {
-  if (is.null(x) || length(x) == 0) return(NA)
-  x[[1]]
-}
-
 # =====================
 # CONFIG
 # =====================
@@ -55,12 +50,12 @@ players_list <- lapply(players_raw, function(p) {
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
   data.frame(
-    player_name          = paste(p$first_name, p$last_name),
-    position             = scalar_or_na(p$position),
-    team                 = scalar_or_na(p$team),
-    status               = scalar_or_na(p$status),
-    depth_chart_position = suppressWarnings(as.numeric(scalar_or_na(p$depth_chart_position))),
-    stringsAsFactors     = FALSE
+    player_name = paste(p$first_name, p$last_name),
+    position = p$position %||% NA,
+    team = p$team %||% NA,
+    status = p$status %||% NA,
+    depth_chart_position = suppressWarnings(as.numeric(p$depth_chart_position)),
+    stringsAsFactors = FALSE
   )
 })
 
