@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL WORKING VERSION)
+# scripts/generate_nfl_news.R (FINAL FIXED DATE VERSION)
 # =====================
 
 library(httr)
@@ -49,7 +49,6 @@ players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  # Use correct depth field
   depth_raw <- p$depth_chart_order
 
   depth <- tryCatch({
@@ -82,7 +81,7 @@ players <- players %>%
   filter(
     !is.na(position),
     !is.na(player_name),
-    !is.na(team)   # ✅ only real team players
+    !is.na(team)
   )
 
 players <- players %>%
@@ -91,7 +90,7 @@ players <- players %>%
 message("After cleaning: ", nrow(players))
 
 # =====================
-# DEPTH FILTER (reasonable)
+# DEPTH FILTER
 # =====================
 players <- players %>%
   filter(
@@ -118,11 +117,13 @@ k_players  <- players %>% filter(position == "K")
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
-    as.Date(parse_date_time(
+    parsed <- parse_date_time(
       x,
-      orders = c("a, d b Y H:M:S z", "ymd HMS", "Y-m-dTH:M:SZ"),
+      orders = c("a, d b Y H:M:S z", "a, d b Y H:M:S", "ymd HMS", "Y-m-d"),
       tz = "UTC"
-    ))
+    )
+    if (is.na(parsed)) return(NA)
+    as.Date(parsed)
   }, error = function(e) NA)
 }
 
@@ -144,7 +145,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# FETCH NEWS
+# FETCH NEWS (FIXED DATES)
 # =====================
 fetch_google <- function(player_name) {
 
@@ -167,43 +168,49 @@ fetch_google <- function(player_name) {
     title <- xml_text(xml_find_first(item, "title"))
     link  <- xml_text(xml_find_first(item, "link"))
 
+    # =====================
+    # 🔥 FIXED DATE LOGIC
+    # =====================
     pub_raw <- xml_text(xml_find_first(item, "pubDate"))
-desc    <- xml_text(xml_find_first(item, "description"))
-title   <- xml_text(xml_find_first(item, "title"))
 
-parsed <- safe_parse_date(pub_raw)
+    # ✅ TRUST pubDate FIRST
+    parsed <- tryCatch({
+      as.Date(parse_date_time(pub_raw, orders = "a, d b Y H:M:S z", tz = "UTC"))
+    }, error = function(e) NA)
 
-# 🔥 Try description (common fallback)
-if (is.na(parsed) && !is.null(desc)) {
-  possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-  parsed <- safe_parse_date(possible_date)
-}
+    # 🔥 fallback: description
+    if (is.na(parsed)) {
+      desc <- xml_text(xml_find_first(item, "description"))
+      if (!is.null(desc)) {
+        possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+        parsed <- safe_parse_date(possible_date)
+      }
+    }
 
-# 🔥 Try ISO / numeric timestamps
-if (is.na(parsed) && !is.null(desc)) {
-  possible_date <- str_extract(desc, "\\d{4}-\\d{2}-\\d{2}")
-  parsed <- safe_parse_date(possible_date)
-}
+    # 🔥 fallback: ISO date
+    if (is.na(parsed)) {
+      desc <- xml_text(xml_find_first(item, "description"))
+      if (!is.null(desc)) {
+        possible_date <- str_extract(desc, "\\d{4}-\\d{2}-\\d{2}")
+        parsed <- safe_parse_date(possible_date)
+      }
+    }
 
-# 🔥 Try title (some sources embed date there)
-if (is.na(parsed) && !is.null(title)) {
-  possible_date <- str_extract(title, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-  parsed <- safe_parse_date(possible_date)
-}
+    # ❗ FINAL fallback
+    if (is.na(parsed)) {
+      parsed <- Sys.Date()
+    }
 
-# ❗ FINAL fallback (only if everything fails)
-if (is.na(parsed)) {
-  parsed <- Sys.Date()
-}
-
-    # only filter: after Sept 4, 2025
+    # =====================
+    # FILTER BY DATE
+    # =====================
     if (parsed < SEASON_START) next
 
     articles <- c(articles, list(list(
       title = title,
       summary = str_trunc(title, 160),
       link = link,
-      published = as.character(parsed),
+      published = format(parsed, "%Y-%m-%d"),
       player = player_name,
       impact = get_impact(title)
     )))
