@@ -50,7 +50,7 @@ players_list <- lapply(players_raw, function(p) {
   # =====================
   # SAFE depth handling (FIXED CRASH)
   # =====================
-  depth_raw <- p$depth_chart_position
+  depth_raw <- p$depth_chart_order
 
   depth <- tryCatch({
     as.numeric(depth_raw)
@@ -65,7 +65,7 @@ players_list <- lapply(players_raw, function(p) {
     position = p$position %||% NA,
     team = p$team %||% NA,
     status = p$status %||% NA,
-    depth_chart_position = depth,
+    depth_chart_order = depth,
     stringsAsFactors = FALSE
   )
 })
@@ -91,11 +91,11 @@ message("After status filter: ", nrow(players))
 # =====================
 players <- players %>%
   filter(
-    (position == "QB" & depth_chart_position <= 4) |
-    (position == "RB" & depth_chart_position <= 6) |
-    (position == "WR" & depth_chart_position <= 8) |
-    (position == "TE" & depth_chart_position <= 4) |
-    (position == "K")
+    (position == "QB" & depth_chart_order <= 2) |
+    (position == "RB" & depth_chart_order <= 3) |
+    (position == "WR" & depth_chart_order <= 6) |
+    (position == "TE" & depth_chart_order <= 3) |
+    (position == "K" & depth_chart_order == 1)
   )
 
 message("After depth filter: ", nrow(players))
