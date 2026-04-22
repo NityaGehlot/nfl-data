@@ -168,20 +168,33 @@ fetch_google <- function(player_name) {
     link  <- xml_text(xml_find_first(item, "link"))
 
     pub_raw <- xml_text(xml_find_first(item, "pubDate"))
-    desc    <- xml_text(xml_find_first(item, "description"))
+desc    <- xml_text(xml_find_first(item, "description"))
+title   <- xml_text(xml_find_first(item, "title"))
 
-    parsed <- safe_parse_date(pub_raw)
+parsed <- safe_parse_date(pub_raw)
 
-    # fallback: extract from description
-    if (is.na(parsed) && !is.null(desc)) {
-      possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-      parsed <- safe_parse_date(possible_date)
-    }
+# 🔥 Try description (common fallback)
+if (is.na(parsed) && !is.null(desc)) {
+  possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+  parsed <- safe_parse_date(possible_date)
+}
 
-    # final fallback
-    if (is.na(parsed)) {
-      parsed <- Sys.Date()
-    }
+# 🔥 Try ISO / numeric timestamps
+if (is.na(parsed) && !is.null(desc)) {
+  possible_date <- str_extract(desc, "\\d{4}-\\d{2}-\\d{2}")
+  parsed <- safe_parse_date(possible_date)
+}
+
+# 🔥 Try title (some sources embed date there)
+if (is.na(parsed) && !is.null(title)) {
+  possible_date <- str_extract(title, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+  parsed <- safe_parse_date(possible_date)
+}
+
+# ❗ FINAL fallback (only if everything fails)
+if (is.na(parsed)) {
+  parsed <- Sys.Date()
+}
 
     # only filter: after Sept 4, 2025
     if (parsed < SEASON_START) next
