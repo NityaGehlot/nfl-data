@@ -160,25 +160,38 @@ fetch_google <- function(player_name) {
 
   for (item in items) {
 
-    title <- xml_text(xml_find_first(item, "title"))
-    link  <- xml_text(xml_find_first(item, "link"))
-    pub   <- xml_text(xml_find_first(item, "pubDate"))
+  title <- xml_text(xml_find_first(item, "title"))
+  link  <- xml_text(xml_find_first(item, "link"))
 
-    parsed <- safe_parse_date(pub)
+  # Try multiple date sources
+  pub_raw <- xml_text(xml_find_first(item, "pubDate"))
+  desc    <- xml_text(xml_find_first(item, "description"))
 
-    if (!is.na(parsed) && parsed < SEASON_START) next
+  parsed <- safe_parse_date(pub_raw)
 
-    clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
-
-    articles <- c(articles, list(list(
-      title = clean_title,
-      summary = str_trunc(clean_title, 160),
-      link = link,
-      published = as.character(parsed),
-      player = player_name,
-      impact = get_impact(clean_title)
-    )))
+  # 🔥 FALLBACK: extract date from description if pubDate fails
+  if (is.na(parsed) && !is.null(desc)) {
+    # Google often embeds date like: "Mon, 21 Apr 2026 ..."
+    possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+    parsed <- safe_parse_date(possible_date)
   }
+
+  # 🔥 FINAL fallback: use today (so it's not null)
+  if (is.na(parsed)) {
+    parsed <- Sys.Date()
+  }
+
+  if (parsed < SEASON_START) next
+
+  articles <- c(articles, list(list(
+    title = title,
+    summary = str_trunc(title, 160),
+    link = link,
+    published = as.character(parsed),
+    player = player_name,
+    impact = get_impact(clean_title)
+  )))
+}
 
   if (length(articles) == 0) return(list())
 
@@ -191,7 +204,7 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  for (article in articles) {
+   (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
     if (is_duplicate_topic(article$title, titles)) next
@@ -210,7 +223,7 @@ build_news <- function(player_df) {
 
   result <- list()
 
-  for (i in seq_len(nrow(player_df))) {
+   (i in seq_len(nrow(player_df))) {
 
     player_name <- player_df$player_name[i]
 
