@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL FIXED DATE VERSION)
+# scripts/generate_nfl_news.R (FINAL TRUE DATE VERSION)
 # =====================
 
 library(httr)
@@ -23,6 +23,7 @@ library(stringdist)
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 0.3
+SCRAPE_DELAY <- 0.5
 SEASON_START <- as.Date("2025-09-04")
 
 # =====================
@@ -145,7 +146,36 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# FETCH NEWS (FIXED DATES)
+# 🔥 NEW: SCRAPE TRUE ARTICLE DATE
+# =====================
+extract_article_date <- function(url) {
+
+  page <- tryCatch(GET(url, timeout(5)), error = function(e) NULL)
+  if (is.null(page)) return(NA)
+
+  html <- tryCatch(read_html(page), error = function(e) NULL)
+  if (is.null(html)) return(NA)
+
+  candidates <- c(
+    xml_attr(xml_find_first(html, "//meta[@property='article:published_time']"), "content"),
+    xml_attr(xml_find_first(html, "//meta[@name='pubdate']"), "content"),
+    xml_attr(xml_find_first(html, "//meta[@name='date']"), "content"),
+    xml_attr(xml_find_first(html, "//meta[@name='DC.date']"), "content"),
+    xml_text(xml_find_first(html, "//time"))
+  )
+
+  for (cand in candidates) {
+    if (!is.null(cand) && !is.na(cand) && nchar(cand) > 5) {
+      parsed <- safe_parse_date(cand)
+      if (!is.na(parsed)) return(parsed)
+    }
+  }
+
+  NA
+}
+
+# =====================
+# FETCH NEWS
 # =====================
 fetch_google <- function(player_name) {
 
@@ -169,40 +199,29 @@ fetch_google <- function(player_name) {
     link  <- xml_text(xml_find_first(item, "link"))
 
     # =====================
-    # 🔥 FIXED DATE LOGIC
+    # DATE LOGIC
     # =====================
     pub_raw <- xml_text(xml_find_first(item, "pubDate"))
 
-    # ✅ TRUST pubDate FIRST
+    # Step 1: RSS date
     parsed <- tryCatch({
       as.Date(parse_date_time(pub_raw, orders = "a, d b Y H:M:S z", tz = "UTC"))
     }, error = function(e) NA)
 
-    # 🔥 fallback: description
+    # Step 2: scrape actual article if needed
     if (is.na(parsed)) {
-      desc <- xml_text(xml_find_first(item, "description"))
-      if (!is.null(desc)) {
-        possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-        parsed <- safe_parse_date(possible_date)
-      }
+      message("Scraping date from article...")
+      Sys.sleep(SCRAPE_DELAY)
+      parsed <- extract_article_date(link)
     }
 
-    # 🔥 fallback: ISO date
-    if (is.na(parsed)) {
-      desc <- xml_text(xml_find_first(item, "description"))
-      if (!is.null(desc)) {
-        possible_date <- str_extract(desc, "\\d{4}-\\d{2}-\\d{2}")
-        parsed <- safe_parse_date(possible_date)
-      }
-    }
-
-    # ❗ FINAL fallback
+    # Step 3: fallback
     if (is.na(parsed)) {
       parsed <- Sys.Date()
     }
 
     # =====================
-    # FILTER BY DATE
+    # FILTER
     # =====================
     if (parsed < SEASON_START) next
 
@@ -218,7 +237,6 @@ fetch_google <- function(player_name) {
 
   if (length(articles) == 0) return(list())
 
-  # sort newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE,
