@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL WORKING VERSION)
+# scripts/generate_nfl_news.R (FINAL FIXED VERSION)
 # =====================
 
 library(httr)
@@ -22,9 +22,9 @@ library(stringdist)
 # =====================
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
-REQUEST_DELAY <- 0.3   # faster
+REQUEST_DELAY <- 0.3
 
-SEASON_START <- Sys.Date() - 7   # 🔥 last 7 days instead of season start
+SEASON_START <- Sys.Date() - 7  # last 7 days
 
 # =====================
 # CHECK FILE
@@ -34,28 +34,37 @@ if (!file.exists("data/sleeper_players.json")) {
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS (ROBUST FIX)
+# LOAD SLEEPER PLAYERS (FIXED)
 # =====================
 message("Loading Sleeper players...")
 
-pretty <- fromJSON("data/sleeper_players.json", simplifyVector = FALSE)
+players_raw <- fromJSON(
+  "data/sleeper_players.json",
+  simplifyVector = FALSE
+)
 
-write_json(pretty,
+# optional debug export
+write_json(players_raw,
            "data/sleeper_players_pretty.json",
            pretty = TRUE,
            auto_unbox = TRUE)
 
-# Convert named list → proper dataframe safely
+# =====================
+# SAFE CONVERSION
+# =====================
 players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
+
+  depth <- suppressWarnings(as.numeric(p$depth_chart_position))
+  if (is.na(depth)) depth <- 99
 
   data.frame(
     player_name = paste(p$first_name, p$last_name),
     position = p$position %||% NA,
     team = p$team %||% NA,
     status = p$status %||% NA,
-    depth_chart_position = suppressWarnings(as.numeric(p$depth_chart_position)),
+    depth_chart_position = depth,
     stringsAsFactors = FALSE
   )
 })
@@ -66,20 +75,22 @@ players <- bind_rows(players_list)
 message("Total players loaded: ", nrow(players))
 
 # =====================
-# 🔥 FIX: DO NOT DROP EVERYTHING TOO EARLY
+# CLEAN DATA
 # =====================
-
 players <- players %>%
-  filter(!is.na(position)) %>%
+  filter(
+    !is.na(position),
+    !is.na(player_name)
+  )
+
+# keep Active + missing status (Sleeper inconsistency fix)
+players <- players %>%
   filter(status == "Active" | is.na(status))
 
-# Replace missing depth with fallback
-players$depth_chart_position[is.na(players$depth_chart_position)] <- 99
-
-message("After basic filtering: ", nrow(players))
+message("After status filter: ", nrow(players))
 
 # =====================
-# 🔥 LIGHT DEPTH FILTER (LESS AGGRESSIVE)
+# LIGHT DEPTH FILTER (IMPORTANT FIX)
 # =====================
 players <- players %>%
   filter(
@@ -87,7 +98,7 @@ players <- players %>%
     (position == "RB" & depth_chart_position <= 6) |
     (position == "WR" & depth_chart_position <= 8) |
     (position == "TE" & depth_chart_position <= 4) |
-    (position == "K")   # don't filter kickers much
+    (position == "K")  # no restriction
   )
 
 message("After depth filter: ", nrow(players))
@@ -132,7 +143,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# 🔥 FETCH NEWS (FIXED)
+# FETCH NEWS
 # =====================
 fetch_google <- function(player_name) {
 
@@ -159,7 +170,7 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub)
 
-    # 🔥 ONLY last 7 days
+    # only last 7 days
     if (!is.na(parsed) && parsed < SEASON_START) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
@@ -176,7 +187,6 @@ fetch_google <- function(player_name) {
 
   if (length(articles) == 0) return(list())
 
-  # Sort newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE,
@@ -186,7 +196,6 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-  # 🔥 TAKE FIRST UNIQUE ARTICLES (NO "TODAY ONLY")
   for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
