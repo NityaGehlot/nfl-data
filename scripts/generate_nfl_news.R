@@ -34,29 +34,28 @@ if (!file.exists("data/sleeper_players.json")) {
 }
 
 # =====================
-# LOAD PLAYERS
+# LOAD SLEEPER PLAYERS (ROBUST FIX)
 # =====================
 message("Loading Sleeper players...")
 
-players_raw <- fromJSON(
-  "data/sleeper_players.json",
-  simplifyVector = FALSE
-)
+pretty <- fromJSON("data/sleeper_players.json", simplifyVector = FALSE)
 
+write_json(pretty,
+           "data/sleeper_players_pretty.json",
+           pretty = TRUE,
+           auto_unbox = TRUE)
+
+# Convert named list → proper dataframe safely
 players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  depth <- p$depth_chart_position
-  if (is.null(depth) || length(depth) == 0) depth <- NA
-
-  depth <- suppressWarnings(as.numeric(depth))
-
   data.frame(
     player_name = paste(p$first_name, p$last_name),
     position = p$position %||% NA,
+    team = p$team %||% NA,
     status = p$status %||% NA,
-    depth_chart_position = depth,
+    depth_chart_position = suppressWarnings(as.numeric(p$depth_chart_position)),
     stringsAsFactors = FALSE
   )
 })
@@ -67,33 +66,31 @@ players <- bind_rows(players_list)
 message("Total players loaded: ", nrow(players))
 
 # =====================
-# FIX DEPTH NAs
+# 🔥 FIX: DO NOT DROP EVERYTHING TOO EARLY
 # =====================
+
+players <- players %>%
+  filter(!is.na(position)) %>%
+  filter(status == "Active" | is.na(status))
+
+# Replace missing depth with fallback
 players$depth_chart_position[is.na(players$depth_chart_position)] <- 99
 
+message("After basic filtering: ", nrow(players))
+
 # =====================
-# CLEAN
+# 🔥 LIGHT DEPTH FILTER (LESS AGGRESSIVE)
 # =====================
 players <- players %>%
   filter(
-    status == "Active",
-    !is.na(position),
-    !is.na(player_name)
+    (position == "QB" & depth_chart_position <= 4) |
+    (position == "RB" & depth_chart_position <= 6) |
+    (position == "WR" & depth_chart_position <= 8) |
+    (position == "TE" & depth_chart_position <= 4) |
+    (position == "K")   # don't filter kickers much
   )
 
-# =====================
-# 🔥 LESS STRICT FILTER (IMPORTANT)
-# =====================
-players <- players %>%
-  filter(
-    (position == "QB" & depth_chart_position <= 3) |
-    (position == "RB" & depth_chart_position <= 4) |
-    (position == "WR" & depth_chart_position <= 5) |
-    (position == "TE" & depth_chart_position <= 3) |
-    (position == "K"  & depth_chart_position <= 1)
-  )
-
-message("Players after depth filter: ", nrow(players))
+message("After depth filter: ", nrow(players))
 
 # =====================
 # SPLIT
