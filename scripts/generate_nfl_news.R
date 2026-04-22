@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (STABLE SLEEPER VERSION)
+# scripts/generate_nfl_news.R (FINAL WORKING VERSION)
 # =====================
 
 library(httr)
@@ -23,7 +23,7 @@ library(stringdist)
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 0.3
-SEASON_START <- Sys.Date() - 7
+SEASON_START <- as.Date("2025-09-04")
 
 # =====================
 # CHECK FILE
@@ -33,7 +33,7 @@ if (!file.exists("data/sleeper_players.json")) {
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS (SAFE FLATTEN)
+# LOAD SLEEPER PLAYERS
 # =====================
 message("Loading Sleeper players...")
 
@@ -42,14 +42,14 @@ players_raw <- fromJSON(
   simplifyVector = FALSE
 )
 
-# Convert named list → safe dataframe rows
+# =====================
+# SAFE CONVERSION
+# =====================
 players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  # =====================
-  # SAFE depth handling (FIXED CRASH)
-  # =====================
+  # Use correct depth field
   depth_raw <- p$depth_chart_order
 
   depth <- tryCatch({
@@ -79,15 +79,19 @@ message("Total players loaded: ", nrow(players))
 # CLEAN DATA
 # =====================
 players <- players %>%
-  filter(!is.na(position), !is.na(player_name))
+  filter(
+    !is.na(position),
+    !is.na(player_name),
+    !is.na(team)   # ✅ only real team players
+  )
 
 players <- players %>%
   filter(status == "Active" | is.na(status))
 
-message("After status filter: ", nrow(players))
+message("After cleaning: ", nrow(players))
 
 # =====================
-# DEPTH FILTER (SAFE)
+# DEPTH FILTER (reasonable)
 # =====================
 players <- players %>%
   filter(
@@ -160,41 +164,41 @@ fetch_google <- function(player_name) {
 
   for (item in items) {
 
-  title <- xml_text(xml_find_first(item, "title"))
-  link  <- xml_text(xml_find_first(item, "link"))
+    title <- xml_text(xml_find_first(item, "title"))
+    link  <- xml_text(xml_find_first(item, "link"))
 
-  # Try multiple date sources
-  pub_raw <- xml_text(xml_find_first(item, "pubDate"))
-  desc    <- xml_text(xml_find_first(item, "description"))
+    pub_raw <- xml_text(xml_find_first(item, "pubDate"))
+    desc    <- xml_text(xml_find_first(item, "description"))
 
-  parsed <- safe_parse_date(pub_raw)
+    parsed <- safe_parse_date(pub_raw)
 
-  # 🔥 FALLBACK: extract date from description if pubDate fails
-  if (is.na(parsed) && !is.null(desc)) {
-    # Google often embeds date like: "Mon, 21 Apr 2026 ..."
-    possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-    parsed <- safe_parse_date(possible_date)
+    # fallback: extract from description
+    if (is.na(parsed) && !is.null(desc)) {
+      possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+      parsed <- safe_parse_date(possible_date)
+    }
+
+    # final fallback
+    if (is.na(parsed)) {
+      parsed <- Sys.Date()
+    }
+
+    # only filter: after Sept 4, 2025
+    if (parsed < SEASON_START) next
+
+    articles <- c(articles, list(list(
+      title = title,
+      summary = str_trunc(title, 160),
+      link = link,
+      published = as.character(parsed),
+      player = player_name,
+      impact = get_impact(title)
+    )))
   }
-
-  # 🔥 FINAL fallback: use today (so it's not null)
-  if (is.na(parsed)) {
-    parsed <- Sys.Date()
-  }
-
-  if (parsed < SEASON_START) next
-
-  articles <- c(articles, list(list(
-    title = title,
-    summary = str_trunc(title, 160),
-    link = link,
-    published = as.character(parsed),
-    player = player_name,
-    impact = get_impact(clean_title)
-  )))
-}
 
   if (length(articles) == 0) return(list())
 
+  # sort newest first
   articles <- articles[order(
     sapply(articles, function(x) safe_parse_date(x$published)),
     decreasing = TRUE,
@@ -204,7 +208,7 @@ fetch_google <- function(player_name) {
   selected <- list()
   titles <- c()
 
-   (article in articles) {
+  for (article in articles) {
 
     if (length(selected) >= MAX_PER_PLAYER) break
     if (is_duplicate_topic(article$title, titles)) next
@@ -223,7 +227,7 @@ build_news <- function(player_df) {
 
   result <- list()
 
-   (i in seq_len(nrow(player_df))) {
+  for (i in seq_len(nrow(player_df))) {
 
     player_name <- player_df$player_name[i]
 
