@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL FIXED VERSION)
+# scripts/generate_nfl_news.R (STABLE SLEEPER VERSION)
 # =====================
 
 library(httr)
@@ -23,8 +23,7 @@ library(stringdist)
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 0.3
-
-SEASON_START <- Sys.Date() - 7  # last 7 days
+SEASON_START <- Sys.Date() - 7
 
 # =====================
 # CHECK FILE
@@ -34,7 +33,7 @@ if (!file.exists("data/sleeper_players.json")) {
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS (FIXED)
+# LOAD SLEEPER PLAYERS (SAFE FLATTEN)
 # =====================
 message("Loading Sleeper players...")
 
@@ -43,21 +42,23 @@ players_raw <- fromJSON(
   simplifyVector = FALSE
 )
 
-# optional debug export
-write_json(players_raw,
-           "data/sleeper_players_pretty.json",
-           pretty = TRUE,
-           auto_unbox = TRUE)
-
-# =====================
-# SAFE CONVERSION
-# =====================
+# Convert named list → safe dataframe rows
 players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  depth <- suppressWarnings(as.numeric(p$depth_chart_position))
-  if (is.na(depth)) depth <- 99
+  # =====================
+  # SAFE depth handling (FIXED CRASH)
+  # =====================
+  depth_raw <- p$depth_chart_position
+
+  depth <- tryCatch({
+    as.numeric(depth_raw)
+  }, error = function(e) NA_real_)
+
+  if (length(depth) == 0 || is.na(depth)) {
+    depth <- 99
+  }
 
   data.frame(
     player_name = paste(p$first_name, p$last_name),
@@ -78,19 +79,15 @@ message("Total players loaded: ", nrow(players))
 # CLEAN DATA
 # =====================
 players <- players %>%
-  filter(
-    !is.na(position),
-    !is.na(player_name)
-  )
+  filter(!is.na(position), !is.na(player_name))
 
-# keep Active + missing status (Sleeper inconsistency fix)
 players <- players %>%
   filter(status == "Active" | is.na(status))
 
 message("After status filter: ", nrow(players))
 
 # =====================
-# LIGHT DEPTH FILTER (IMPORTANT FIX)
+# DEPTH FILTER (SAFE)
 # =====================
 players <- players %>%
   filter(
@@ -98,7 +95,7 @@ players <- players %>%
     (position == "RB" & depth_chart_position <= 6) |
     (position == "WR" & depth_chart_position <= 8) |
     (position == "TE" & depth_chart_position <= 4) |
-    (position == "K")  # no restriction
+    (position == "K")
   )
 
 message("After depth filter: ", nrow(players))
@@ -159,7 +156,6 @@ fetch_google <- function(player_name) {
   if (is.null(xml)) return(list())
 
   items <- xml_find_all(xml, "//item")
-
   articles <- list()
 
   for (item in items) {
@@ -170,7 +166,6 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub)
 
-    # only last 7 days
     if (!is.na(parsed) && parsed < SEASON_START) next
 
     clean_title <- str_trim(str_replace(title, "\\s*-\\s*[^-]+$", ""))
