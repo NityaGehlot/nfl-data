@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FINAL TRUE DATE VERSION)
+# scripts/generate_nfl_news.R (FAST TRUE DATE VERSION - NO SCRAPING)
 # =====================
 
 library(httr)
@@ -23,7 +23,6 @@ library(stringdist)
 OUTPUT_DIR <- "data"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 0.3
-SCRAPE_DELAY <- 0.5
 SEASON_START <- as.Date("2025-09-04")
 
 # =====================
@@ -52,13 +51,8 @@ players_list <- lapply(players_raw, function(p) {
 
   depth_raw <- p$depth_chart_order
 
-  depth <- tryCatch({
-    as.numeric(depth_raw)
-  }, error = function(e) NA_real_)
-
-  if (length(depth) == 0 || is.na(depth)) {
-    depth <- 99
-  }
+  depth <- tryCatch(as.numeric(depth_raw), error = function(e) NA_real_)
+  if (length(depth) == 0 || is.na(depth)) depth <- 99
 
   data.frame(
     player_name = paste(p$first_name, p$last_name),
@@ -79,13 +73,7 @@ message("Total players loaded: ", nrow(players))
 # CLEAN DATA
 # =====================
 players <- players %>%
-  filter(
-    !is.na(position),
-    !is.na(player_name),
-    !is.na(team)
-  )
-
-players <- players %>%
+  filter(!is.na(position), !is.na(player_name), !is.na(team)) %>%
   filter(status == "Active" | is.na(status))
 
 message("After cleaning: ", nrow(players))
@@ -114,20 +102,32 @@ te_players <- players %>% filter(position == "TE")
 k_players  <- players %>% filter(position == "K")
 
 # =====================
-# HELPERS
+# DATE PARSER (IMPROVED RSS ONLY)
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
     parsed <- parse_date_time(
       x,
-      orders = c("a, d b Y H:M:S z", "a, d b Y H:M:S", "ymd HMS", "Y-m-d"),
+      orders = c(
+        "a, d b Y H:M:S z",
+        "a, d b Y H:M:S",
+        "ymd HMS",
+        "ymd HM",
+        "Y-m-dTH:M:SZ",
+        "Y-m-dTH:M:S",
+        "Y-m-d"
+      ),
       tz = "UTC"
     )
-    if (is.na(parsed)) return(NA)
-    as.Date(parsed)
+
+    if (length(parsed) == 0 || all(is.na(parsed))) return(NA)
+    as.Date(parsed[[1]])
   }, error = function(e) NA)
 }
 
+# =====================
+# IMPACT SCORING
+# =====================
 get_impact <- function(text) {
   t <- tolower(text)
 
@@ -139,6 +139,9 @@ get_impact <- function(text) {
   "neutral"
 }
 
+# =====================
+# DUPLICATE CHECK
+# =====================
 is_duplicate_topic <- function(title, existing_titles) {
   any(sapply(existing_titles, function(t) {
     stringdist(tolower(title), tolower(t), method = "jw") < 0.2
@@ -146,36 +149,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# 🔥 NEW: SCRAPE TRUE ARTICLE DATE
-# =====================
-extract_article_date <- function(url) {
-
-  page <- tryCatch(GET(url, timeout(5)), error = function(e) NULL)
-  if (is.null(page)) return(NA)
-
-  html <- tryCatch(read_html(page), error = function(e) NULL)
-  if (is.null(html)) return(NA)
-
-  candidates <- c(
-    xml_attr(xml_find_first(html, "//meta[@property='article:published_time']"), "content"),
-    xml_attr(xml_find_first(html, "//meta[@name='pubdate']"), "content"),
-    xml_attr(xml_find_first(html, "//meta[@name='date']"), "content"),
-    xml_attr(xml_find_first(html, "//meta[@name='DC.date']"), "content"),
-    xml_text(xml_find_first(html, "//time"))
-  )
-
-  for (cand in candidates) {
-    if (!is.null(cand) && !is.na(cand) && nchar(cand) > 5) {
-      parsed <- safe_parse_date(cand)
-      if (!is.na(parsed)) return(parsed)
-    }
-  }
-
-  NA
-}
-
-# =====================
-# FETCH NEWS
+# FETCH GOOGLE NEWS (FAST - NO SCRAPING)
 # =====================
 fetch_google <- function(player_name) {
 
@@ -197,39 +171,26 @@ fetch_google <- function(player_name) {
 
     title <- xml_text(xml_find_first(item, "title"))
     link  <- xml_text(xml_find_first(item, "link"))
-
-    # =====================
-    # DATE LOGIC
-    # =====================
     pub_raw <- xml_text(xml_find_first(item, "pubDate"))
+    desc <- xml_text(xml_find_first(item, "description"))
 
-    # Step 1: RSS date
-    parsed <- tryCatch({
-      as.Date(parse_date_time(pub_raw, orders = "a, d b Y H:M:S z", tz = "UTC"))
-    }, error = function(e) NA)
+    parsed <- safe_parse_date(pub_raw)
 
-    # Step 2: scrape actual article if needed
+    # fallback (still RSS only, NO scraping)
     if (is.na(parsed)) {
-      message("Scraping date from article...")
-      Sys.sleep(SCRAPE_DELAY)
-      parsed <- extract_article_date(link)
+      possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
+      parsed <- safe_parse_date(possible_date)
     }
 
-    # Step 3: fallback
-    if (is.na(parsed)) {
-      parsed <- Sys.Date()
-    }
+    if (is.na(parsed)) parsed <- Sys.Date()
 
-    # =====================
-    # FILTER
-    # =====================
     if (parsed < SEASON_START) next
 
     articles <- c(articles, list(list(
       title = title,
       summary = str_trunc(title, 160),
       link = link,
-      published = format(parsed, "%Y-%m-%d"),
+      published = as.character(parsed),
       player = player_name,
       impact = get_impact(title)
     )))
