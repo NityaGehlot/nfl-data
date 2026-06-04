@@ -278,30 +278,143 @@ team_def <- team_weekly %>%
 combined_df <- bind_rows(player_list_df, team_def)
 
 # =====================
+# REMOVE IRRELEVANT FIELDS
+# =====================
+clean_position_row <- function(row){
+
+  pos <- row$position
+
+  base <- c(
+    "season","week","player_id","player_name",
+    "position","team","opponent_team",
+    "headshot_url","fantasy_points_ppr",
+    "injury_status","practice_status",
+    "primary_injury","secondary_injury",
+    "practice_primary_injury","practice_secondary_injury"
+  )
+
+  keep <- switch(
+    pos,
+
+    "QB" = c(
+      base,
+      "completions","attempts","passing_yards",
+      "passing_tds","passing_interceptions",
+      "carries","rushing_yards","rushing_tds",
+      "fumbles"
+    ),
+
+    "RB" = c(
+      base,
+      "carries","rushing_yards","rushing_tds",
+      "targets","receptions",
+      "receiving_yards","receiving_tds",
+      "fumbles"
+    ),
+
+    "WR" = c(
+      base,
+      "targets","receptions",
+      "receiving_yards","receiving_tds",
+      "carries","rushing_yards","rushing_tds",
+      "fumbles"
+    ),
+
+    "TE" = c(
+      base,
+      "targets","receptions",
+      "receiving_yards","receiving_tds",
+      "carries","rushing_yards","rushing_tds",
+      "fumbles"
+    ),
+
+    "K" = c(
+      base,
+      "fg_made","fg_att","fg_missed","fg_pct",
+      "fg_made_0_19","fg_made_20_29",
+      "fg_made_30_39","fg_made_40_49",
+      "fg_made_50_59","fg_made_60_",
+      "pat_made","pat_att","pat_missed","pat_pct"
+    ),
+
+    "DEF" = c(
+      "season","week","player_id","player_name",
+      "position","team","opponent_team",
+      "fantasy_points_ppr",
+
+      "def_fumbles_forced",
+      "def_sacks",
+      "def_interceptions",
+      "def_tds",
+      "def_safeties",
+      "fumble_recovery_opp",
+
+      "passing_yards_allowed",
+      "passing_tds_allowed",
+      "rushing_yards_allowed",
+      "rushing_tds_allowed",
+
+      "injury_status",
+      "practice_status",
+      "primary_injury",
+      "secondary_injury",
+      "practice_primary_injury",
+      "practice_secondary_injury"
+    ),
+
+    names(row)
+  )
+
+  row[intersect(names(row), keep)]
+}
+
+# =====================
 # EXPORT BY WEEK
 # =====================
-if (!dir.exists("data")) dir.create("data")
+all_players <- c(player_list, def_list)
+combined_df <- bind_rows(lapply(all_players, as.data.frame))
+
+if(!dir.exists("data")) {
+  dir.create("data")
+}
+
+stats_dir <- file.path("data", "2025 stats")
+
+if(!dir.exists(stats_dir)) {
+  dir.create(stats_dir)
+}
 
 weeks <- sort(unique(combined_df$week))
 
-for (w in weeks) {
-  week_data <- combined_df %>% filter(week == w)
-  week_num  <- as.integer(trimws(as.character(w)))
+for(w in weeks){
 
-  file_name <- paste0(
-    "data/player_stats_",
+  week_data <- combined_df %>%
+    filter(week == w)
+
+  week_num <- as.integer(trimws(as.character(w)))
+
+  file_name <- file.path(
+  stats_dir,
+  paste0(
+    "player_stats_",
     season,
     "_week",
     sprintf("%02d", week_num),
     ".json"
   )
+)
+
+  json_rows <- lapply(
+    split(week_data, seq_len(nrow(week_data))),
+    clean_position_row
+  )
 
   write_json(
-    week_data,
+    json_rows,
     file_name,
-    pretty      = TRUE,
-    auto_unbox  = TRUE,
-    na          = "null"
+    pretty = TRUE,
+    auto_unbox = TRUE,
+    na = "null"
   )
 
   message("Exported: ", file_name)
