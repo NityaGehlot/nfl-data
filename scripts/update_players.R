@@ -43,7 +43,8 @@ players <- content(res, as = "text", encoding = "UTF-8")
 # =====================
 # 💾 SAVE FILE
 # =====================
-if (!dir.exists("data")) dir.create("data")
+output_dir <- dirname(OUTPUT_FILE)
+if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 writeLines(players, OUTPUT_FILE)
 
