@@ -88,7 +88,7 @@ stat_cols <- c(
   "targets","receptions","receiving_yards","receiving_tds",
   "fumbles",
   "fg_made","fg_att","fg_missed","fg_pct",
-  "fg_made_0_19","fgm_made_20_29","fg_made_30_39","fg_made_40_49","fg_made_50_59","fg_made_60_",
+  "fg_made_0_19","fg_made_20_29","fg_made_30_39","fg_made_40_49","fg_made_50_59","fg_made_60_",
   "pat_made","pat_att","pat_missed","pat_pct"
 )
 
@@ -147,7 +147,7 @@ weekly_full <- weekly_full %>%
   mutate(
     player_name = coalesce(player_name.x, player_name.y),
     position = coalesce(position.x, position.y),
-    # ✅ Fill team from the most recent week they had a non-null team
+    # Fill team from the most recent week they had a non-null team
     team = if(all(is.na(team))) NA_character_ else last(na.omit(team))
   ) %>%
   ungroup()
@@ -200,8 +200,26 @@ position_cols <- list(
         "pat_made","pat_att","pat_missed","pat_pct")
 )
 
-player_list <- apply(weekly_df, 1, function(row) {
+def_cols <- c(
+  "def_fumbles_forced",
+  "def_sacks",
+  "def_interceptions",
+  "def_tds",
+  "def_safeties",
+  "fumble_recovery_opp",
+  "passing_yards_allowed",
+  "passing_tds_allowed",
+  "rushing_yards_allowed",
+  "rushing_tds_allowed"
+)
 
+build_position_record <- function(row, keep_cols) {
+  values <- row[keep_cols]
+  names(values) <- keep_cols
+  as.list(values)
+}
+
+player_list <- apply(weekly_df, 1, function(row) {
   pos <- row[["position"]]
 
   if(!(pos %in% names(position_cols))) return(NULL)
@@ -211,7 +229,7 @@ player_list <- apply(weekly_df, 1, function(row) {
     names(row)
   )
 
-  as.list(row[keep_cols])
+  build_position_record(row, keep_cols)
 })
 
 player_list <- Filter(Negate(is.null), player_list)
@@ -271,14 +289,14 @@ team_def <- team_weekly %>%
   left_join(def_teams, by = c("season", "week", "team")) %>%
   left_join(opponent_stats, by = c("season", "week", "opponent_team")) %>%
   mutate(
-    # Fantasy scoring
     fantasy_points_ppr =
       (def_sacks * 1) +
       (def_interceptions * 2) +
       (def_fumbles_forced * 1) +
       (fumble_recovery_opp * 2) +
       (def_tds * 6) +
-      (def_safeties * 2)
+      (def_safeties * 2),
+    headshot_url = ""
   ) %>%
   transmute(
     season,
@@ -288,23 +306,18 @@ team_def <- team_weekly %>%
     position    = "DEF",
     team,
     opponent_team,
+    headshot_url,
     fantasy_points_ppr,
-
-    # ✅ Defensive stats
     def_fumbles_forced,
     def_sacks,
     def_interceptions,
     def_tds,
     def_safeties,
     fumble_recovery_opp,
-
-    # ✅ YARDS ALLOWED (NEW)
     passing_yards_allowed,
     passing_tds_allowed,
     rushing_yards_allowed,
     rushing_tds_allowed,
-
-    # Injury placeholders
     injury_status        = "N/A",
     practice_status      = "",
     primary_injury       = "",
@@ -313,22 +326,26 @@ team_def <- team_weekly %>%
     practice_secondary_injury = ""
   )
 
-def_list <- apply(as.data.frame(team_def), 1, function(row) as.list(row))
+def_base_cols <- c(base_cols, def_cols)
+def_list <- apply(as.data.frame(team_def), 1, function(row) {
+  keep_cols <- intersect(def_base_cols, names(row))
+  build_position_record(row, keep_cols)
+})
 
 # =====================
 # EXPORT BY WEEK
 # =====================
 all_players <- c(player_list, def_list)
-combined_df <- bind_rows(lapply(all_players, as.data.frame))
 
 if(!dir.exists("data")) dir.create("data")
 
-weeks <- sort(unique(combined_df$week))
+weeks <- sort(unique(c(
+  vapply(player_list, function(x) x$week, FUN.VALUE = numeric(1)),
+  vapply(def_list, function(x) x$week, FUN.VALUE = numeric(1))
+)))
 
 for(w in weeks){
-
-  week_data <- combined_df %>%
-    filter(week == w)
+  week_data <- Filter(function(x) identical(x$week, w), all_players)
 
   week_num <- as.integer(trimws(as.character(w)))
 
