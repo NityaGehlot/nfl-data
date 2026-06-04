@@ -28,7 +28,7 @@ SEASON_START <- as.Date("2025-09-04")
 # =====================
 # CHECK FILE
 # =====================
-if (!file.exists("data/sleeper_players.json")) {
+if (!file.exists("data/sleeperAPI/sleeper_players.json")) {
   stop("❌ sleeper_players.json not found. Run update_players.R first.")
 }
 
@@ -38,7 +38,7 @@ if (!file.exists("data/sleeper_players.json")) {
 message("Loading Sleeper players...")
 
 players_raw <- fromJSON(
-  "data/sleeper_players.json",
+  "data/sleeperAPI/sleeper_players.json",
   simplifyVector = FALSE
 )
 
