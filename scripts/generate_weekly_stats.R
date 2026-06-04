@@ -21,15 +21,14 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading player metadata")
 players <- nflreadr::load_players()
 
-# Ensure columns exist
-if(!"display_name" %in% names(players)) players$display_name <- ""
-if(!"position" %in% names(players)) players$position <- ""
-if(!"headshot_url" %in% names(players)) players$headshot_url <- ""
+if (!"display_name" %in% names(players)) players$display_name <- ""
+if (!"position"     %in% names(players)) players$position     <- ""
+if (!"headshot_url" %in% names(players)) players$headshot_url <- ""
 
 players <- players %>%
   transmute(
-    player_id = gsis_id,
-    player_name = display_name,
+    player_id    = gsis_id,
+    player_name  = display_name,
     position,
     headshot_url
   )
@@ -38,12 +37,10 @@ players <- players %>%
 # LOAD INJURY DATA
 # =====================
 message("Loading injury data")
-
 injuries <- nflreadr::load_injuries(seasons = season)
 
-# Ensure columns exist safely
-safe_col <- function(df, col){
-  if(!col %in% names(df)) df[[col]] <- ""
+safe_col <- function(df, col) {
+  if (!col %in% names(df)) df[[col]] <- ""
   df
 }
 
@@ -58,12 +55,12 @@ injuries <- safe_col(injuries, "practice_secondary_injury")
 
 injuries <- injuries %>%
   transmute(
-    player_id = gsis_id,
+    player_id               = gsis_id,
     week,
-    injury_status = report_status,
-    practice_status = practice_status,
-    primary_injury = report_primary_injury,
-    secondary_injury = report_secondary_injury,
+    injury_status           = report_status,
+    practice_status,
+    primary_injury          = report_primary_injury,
+    secondary_injury        = report_secondary_injury,
     practice_primary_injury,
     practice_secondary_injury
   )
@@ -71,31 +68,26 @@ injuries <- injuries %>%
 # =====================
 # KEEP ONLY FANTASY POSITIONS
 # =====================
-fantasy_positions <- c("QB","RB","WR","TE","K")
+fantasy_positions <- c("QB", "RB", "WR", "TE", "K")
 
-players <- players %>%
-  filter(position %in% fantasy_positions)
-
-weekly <- weekly %>%
-  filter(position %in% fantasy_positions)
+players <- players %>% filter(position %in% fantasy_positions)
+weekly  <- weekly  %>% filter(position %in% fantasy_positions)
 
 # =====================
-# ENSURE STAT COLUMNS
+# ENSURE STAT COLUMNS EXIST
 # =====================
 stat_cols <- c(
-  "completions","attempts","passing_yards","passing_tds","passing_interceptions",
-  "carries","rushing_yards","rushing_tds",
-  "targets","receptions","receiving_yards","receiving_tds",
+  "completions", "attempts", "passing_yards", "passing_tds", "passing_interceptions",
+  "carries", "rushing_yards", "rushing_tds",
+  "targets", "receptions", "receiving_yards", "receiving_tds",
   "fumbles",
-  "fg_made","fg_att","fg_missed","fg_pct",
-  "fg_made_0_19","fg_made_20_29","fg_made_30_39","fg_made_40_49","fg_made_50_59","fg_made_60_",
-  "pat_made","pat_att","pat_missed","pat_pct"
+  "fg_made", "fg_att", "fg_missed", "fg_pct",
+  "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49", "fg_made_50_59", "fg_made_60_",
+  "pat_made", "pat_att", "pat_missed", "pat_pct"
 )
 
-for(col in stat_cols){
-  if(!col %in% names(weekly)){
-    weekly[[col]] <- 0
-  }
+for (col in stat_cols) {
+  if (!col %in% names(weekly)) weekly[[col]] <- 0
 }
 
 # =====================
@@ -105,15 +97,15 @@ weekly <- weekly %>%
   mutate(
     fantasy_points_ppr = ifelse(
       position == "K",
-      (fg_made_0_19 * 3) +
+      (fg_made_0_19  * 3) +
       (fg_made_20_29 * 3) +
       (fg_made_30_39 * 3) +
       (fg_made_40_49 * 4) +
       (fg_made_50_59 * 5) +
-      (fg_made_60_ * 5) +
-      (pat_made * 1) -
-      (fg_missed * 1) -
-      (pat_missed * 1),
+      (fg_made_60_   * 5) +
+      (pat_made      * 1) -
+      (fg_missed     * 1) -
+      (pat_missed    * 1),
       fantasy_points_ppr
     )
   )
@@ -125,19 +117,22 @@ all_weeks <- sort(unique(weekly$week))
 
 full_grid <- expand.grid(
   player_id = players$player_id,
-  week = all_weeks,
+  week      = all_weeks,
   stringsAsFactors = FALSE
 )
 
 weekly_full <- full_grid %>%
-  left_join(players, by="player_id") %>%
-  left_join(weekly, by=c("player_id","week"))
+  left_join(players, by = "player_id") %>%
+  left_join(
+    weekly %>% select(-any_of(c("player_name", "position", "headshot_url"))),
+    by = c("player_id", "week")
+  )
 
 # =====================
 # JOIN INJURY DATA
 # =====================
 weekly_full <- weekly_full %>%
-  left_join(injuries, by=c("player_id","week"))
+  left_join(injuries, by = c("player_id", "week"))
 
 # =====================
 # FILL PLAYER METADATA
@@ -145,10 +140,7 @@ weekly_full <- weekly_full %>%
 weekly_full <- weekly_full %>%
   group_by(player_id) %>%
   mutate(
-    player_name = coalesce(player_name.x, player_name.y),
-    position = coalesce(position.x, position.y),
-    # Fill team from the most recent week they had a non-null team
-    team = if(all(is.na(team))) NA_character_ else last(na.omit(team))
+    team = if (all(is.na(team))) NA_character_ else last(na.omit(team))
   ) %>%
   ungroup()
 
@@ -156,83 +148,52 @@ weekly_full <- weekly_full %>%
 # CLEAN VALUES
 # =====================
 weekly_full <- weekly_full %>%
-  mutate(across(all_of(stat_cols), ~coalesce(.x,0))) %>%
+  mutate(across(all_of(stat_cols), ~ coalesce(.x, 0))) %>%
   mutate(
-    fantasy_points_ppr = coalesce(fantasy_points_ppr,0),
-    opponent_team = coalesce(opponent_team,""),
-    injury_status = coalesce(injury_status,"ACTIVE"),
-    practice_status = coalesce(practice_status,""),
-    primary_injury = coalesce(primary_injury,""),
-    secondary_injury = coalesce(secondary_injury,""),
-    practice_primary_injury = coalesce(practice_primary_injury,""),
-    practice_secondary_injury = coalesce(practice_secondary_injury,"")
+    fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
+    opponent_team             = coalesce(opponent_team, ""),
+    injury_status             = coalesce(injury_status, "ACTIVE"),
+    practice_status           = coalesce(practice_status, ""),
+    primary_injury            = coalesce(primary_injury, ""),
+    secondary_injury          = coalesce(secondary_injury, ""),
+    practice_primary_injury   = coalesce(practice_primary_injury, ""),
+    practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
 # =====================
-# BASE PLAYER COLUMNS
+# BASE + POSITION-SPECIFIC COLUMNS
 # =====================
 base_cols <- c(
-  "season","week","player_id","player_name",
-  "position","team","opponent_team",
-  "headshot_url","fantasy_points_ppr",
-  "injury_status","practice_status",
-  "primary_injury","secondary_injury",
-  "practice_primary_injury","practice_secondary_injury"
+  "season", "week", "player_id", "player_name",
+  "position", "team", "opponent_team",
+  "headshot_url", "fantasy_points_ppr",
+  "injury_status", "practice_status",
+  "primary_injury", "secondary_injury",
+  "practice_primary_injury", "practice_secondary_injury"
 )
 
-weekly_df <- weekly_full %>%
-  select(any_of(c(base_cols, stat_cols)))
-
-# =====================
-# POSITION FILTERING
-# =====================
-position_cols <- list(
-  QB = c("completions","attempts","passing_yards","passing_tds",
-         "passing_interceptions","carries","rushing_yards","rushing_tds","fumbles"),
-  RB = c("carries","rushing_yards","rushing_tds",
-         "receptions","targets","receiving_yards","receiving_tds","fumbles"),
-  WR = c("receptions","targets","receiving_yards","receiving_tds",
-         "carries","rushing_yards","rushing_tds","fumbles"),
-  TE = c("receptions","targets","receiving_yards","receiving_tds",
-         "carries","rushing_yards","rushing_tds","fumbles"),
-  K = c("fg_made","fg_att","fg_missed","fg_pct",
-        "fg_made_0_19","fg_made_20_29","fg_made_30_39","fg_made_40_49","fg_made_50_59","fg_made_60_",
-        "pat_made","pat_att","pat_missed","pat_pct")
+position_stat_cols <- list(
+  QB = c("completions", "attempts", "passing_yards", "passing_tds",
+         "passing_interceptions", "carries", "rushing_yards", "rushing_tds", "fumbles"),
+  RB = c("carries", "rushing_yards", "rushing_tds",
+         "receptions", "targets", "receiving_yards", "receiving_tds", "fumbles"),
+  WR = c("receptions", "targets", "receiving_yards", "receiving_tds",
+         "carries", "rushing_yards", "rushing_tds", "fumbles"),
+  TE = c("receptions", "targets", "receiving_yards", "receiving_tds",
+         "carries", "rushing_yards", "rushing_tds", "fumbles"),
+  K  = c("fg_made", "fg_att", "fg_missed", "fg_pct",
+         "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49",
+         "fg_made_50_59", "fg_made_60_",
+         "pat_made", "pat_att", "pat_missed", "pat_pct")
 )
 
-def_cols <- c(
-  "def_fumbles_forced",
-  "def_sacks",
-  "def_interceptions",
-  "def_tds",
-  "def_safeties",
-  "fumble_recovery_opp",
-  "passing_yards_allowed",
-  "passing_tds_allowed",
-  "rushing_yards_allowed",
-  "rushing_tds_allowed"
-)
-
-build_position_record <- function(row, keep_cols) {
-  values <- row[keep_cols]
-  names(values) <- keep_cols
-  as.list(values)
-}
-
-player_list <- apply(weekly_df, 1, function(row) {
-  pos <- row[["position"]]
-
-  if(!(pos %in% names(position_cols))) return(NULL)
-
-  keep_cols <- intersect(
-    c(base_cols, position_cols[[pos]]),
-    names(row)
-  )
-
-  build_position_record(row, keep_cols)
-})
-
-player_list <- Filter(Negate(is.null), player_list)
+# Build one clean data frame per position, then combine
+player_list_df <- bind_rows(lapply(names(position_stat_cols), function(pos) {
+  pos_df <- weekly_full %>%
+    filter(position == pos) %>%
+    select(any_of(c(base_cols, position_stat_cols[[pos]])))
+  pos_df
+}))
 
 # =====================
 # DEFENSE SCORING + OPPONENT YARDS
@@ -252,30 +213,16 @@ def_teams <- bind_rows(home_def, away_def)
 message("Loading team stats")
 team_weekly <- nflreadr::load_team_stats(seasons = season)
 
-# =====================
-# OPPONENT OFFENSE (FOR YARDS ALLOWED)
-# =====================
 opponent_stats <- team_weekly %>%
-  select(
-    season,
-    week,
-    team,
-    passing_yards,
-    passing_tds,
-    rushing_yards,
-    rushing_tds
-  ) %>%
+  select(season, week, team, passing_yards, passing_tds, rushing_yards, rushing_tds) %>%
   rename(
-    opponent_team = team,
+    opponent_team         = team,
     passing_yards_allowed = passing_yards,
-    passing_tds_allowed = passing_tds,
+    passing_tds_allowed   = passing_tds,
     rushing_yards_allowed = rushing_yards,
-    rushing_tds_allowed = rushing_tds
+    rushing_tds_allowed   = rushing_tds
   )
 
-# =====================
-# DEFENSE BUILD
-# =====================
 team_def <- team_weekly %>%
   select(
     season, week, team,
@@ -286,27 +233,25 @@ team_def <- team_weekly %>%
     def_safeties,
     fumble_recovery_opp
   ) %>%
-  left_join(def_teams, by = c("season", "week", "team")) %>%
-  left_join(opponent_stats, by = c("season", "week", "opponent_team")) %>%
+  left_join(def_teams,       by = c("season", "week", "team")) %>%
+  left_join(opponent_stats,  by = c("season", "week", "opponent_team")) %>%
   mutate(
     fantasy_points_ppr =
-      (def_sacks * 1) +
-      (def_interceptions * 2) +
+      (def_sacks          * 1) +
+      (def_interceptions  * 2) +
       (def_fumbles_forced * 1) +
       (fumble_recovery_opp * 2) +
-      (def_tds * 6) +
-      (def_safeties * 2),
-    headshot_url = ""
+      (def_tds            * 6) +
+      (def_safeties       * 2)
   ) %>%
   transmute(
     season,
     week,
-    player_id   = paste0("DEF_", team),
-    player_name = paste(team, "DEF"),
-    position    = "DEF",
+    player_id                 = paste0("DEF_", team),
+    player_name               = paste(team, "DEF"),
+    position                  = "DEF",
     team,
     opponent_team,
-    headshot_url,
     fantasy_points_ppr,
     def_fumbles_forced,
     def_sacks,
@@ -318,36 +263,30 @@ team_def <- team_weekly %>%
     passing_tds_allowed,
     rushing_yards_allowed,
     rushing_tds_allowed,
-    injury_status        = "N/A",
-    practice_status      = "",
-    primary_injury       = "",
-    secondary_injury     = "",
+    headshot_url              = "",
+    injury_status             = "N/A",
+    practice_status           = "",
+    primary_injury            = "",
+    secondary_injury          = "",
     practice_primary_injury   = "",
     practice_secondary_injury = ""
   )
 
-def_base_cols <- c(base_cols, def_cols)
-def_list <- apply(as.data.frame(team_def), 1, function(row) {
-  keep_cols <- intersect(def_base_cols, names(row))
-  build_position_record(row, keep_cols)
-})
+# =====================
+# COMBINE PLAYERS + DEFENSE
+# =====================
+combined_df <- bind_rows(player_list_df, team_def)
 
 # =====================
 # EXPORT BY WEEK
 # =====================
-all_players <- c(player_list, def_list)
+if (!dir.exists("data")) dir.create("data")
 
-if(!dir.exists("data")) dir.create("data")
+weeks <- sort(unique(combined_df$week))
 
-weeks <- sort(unique(c(
-  vapply(player_list, function(x) x$week, FUN.VALUE = numeric(1)),
-  vapply(def_list, function(x) x$week, FUN.VALUE = numeric(1))
-)))
-
-for(w in weeks){
-  week_data <- Filter(function(x) identical(x$week, w), all_players)
-
-  week_num <- as.integer(trimws(as.character(w)))
+for (w in weeks) {
+  week_data <- combined_df %>% filter(week == w)
+  week_num  <- as.integer(trimws(as.character(w)))
 
   file_name <- paste0(
     "data/player_stats_",
@@ -360,9 +299,9 @@ for(w in weeks){
   write_json(
     week_data,
     file_name,
-    pretty = TRUE,
-    auto_unbox = TRUE,
-    na = "null"
+    pretty      = TRUE,
+    auto_unbox  = TRUE,
+    na          = "null"
   )
 
   message("Exported: ", file_name)
