@@ -5,7 +5,7 @@
 library(httr)
 library(jsonlite)
 
-OUTPUT_FILE <- "data/sleeper_players.json"
+OUTPUT_FILE <- "data/sleeperAPI/sleeper_players.json"
 
 # =====================
 # ⏱️ SKIP IF UPDATED < 24 HOURS AGO
@@ -47,4 +47,4 @@ if (!dir.exists("data")) dir.create("data")
 
 writeLines(players, OUTPUT_FILE)
 
-message("✅ Sleeper players saved to data/sleeper_players.json")
+message("✅ Sleeper players saved to data/sleeperAPI/sleeper_players.json")
