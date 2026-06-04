@@ -371,8 +371,6 @@ clean_position_row <- function(row){
 # =====================
 # EXPORT BY WEEK
 # =====================
-all_players <- c(player_list, def_list)
-combined_df <- bind_rows(lapply(all_players, as.data.frame))
 
 if(!dir.exists("data")) {
   dir.create("data")
