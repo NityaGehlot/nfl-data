@@ -1,9 +1,10 @@
 # =====================
-# scripts/update_players.R (CLEAN PLAYER INDEX VERSION)
+# scripts/update_players.R (CLEAN + STABLE + NORMALIZED)
 # =====================
 
 library(httr)
 library(jsonlite)
+library(dplyr)
 
 # =====================
 # CONFIG
@@ -44,24 +45,24 @@ normalize_position <- function(pos) {
 
   pos <- toupper(pos %||% "")
 
-  # Defensive Line grouping
+  # Defensive line grouping
   if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
 
   # Linebacker
   if (pos == "LB") return("LB")
 
-  # Defensive Back split
+  # Defensive backs
   if (pos == "CB") return("CB")
   if (pos == "S") return("S")
 
-  # ambiguous DB → keep but resolve later in downstream logic
+  # ambiguous defensive back
   if (pos == "DB") return("DB")
 
   return(pos)
 }
 
 # =====================
-# DOWNLOAD PLAYER DATABASE
+# DOWNLOAD RAW PLAYER DATA
 # =====================
 
 message("Downloading Sleeper player database...")
@@ -75,7 +76,7 @@ writeLines(players_json, PLAYERS_FILE)
 message("Saved raw sleeper_players.json")
 
 # =====================
-# PARSE + REDUCE PLAYERS
+# PARSE RAW DATA
 # =====================
 
 players_raw <- fromJSON(
@@ -83,15 +84,18 @@ players_raw <- fromJSON(
   simplifyVector = FALSE
 )
 
+# =====================
+# BUILD CLEAN PLAYER LIST
+# =====================
+
 players_clean <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  pos <- normalize_position(p$position)
-
-  # only keep active or relevant players
   status <- p$status %||% "Active"
   if (!is.na(status) && status != "Active") return(NULL)
+
+  pos <- normalize_position(p$position)
 
   list(
     player_id = p$player_id %||% NA,
@@ -114,15 +118,15 @@ players_clean <- lapply(players_raw, function(p) {
 players_clean <- Filter(Negate(is.null), players_clean)
 
 # =====================
-# FINAL CLEAN DATAFRAME
+# FINAL DATAFRAME (FIXED)
 # =====================
 
-players_df <- do.call(rbind, lapply(players_clean, as.data.frame))
+players_df <- bind_rows(players_clean)
 
 message("Clean players loaded: ", nrow(players_df))
 
 # =====================
-# SAVE CLEAN PLAYER FILE
+# SAVE CLEAN FILE (FOR SEARCH + NEWS SYSTEM)
 # =====================
 
 write_json(
@@ -136,13 +140,14 @@ write_json(
 message("✅ Clean player index saved")
 
 # =====================
-# TRENDING SECTION (UNCHANGED LOGIC, LIGHTLY CLEANED)
+# LOOKUP TABLE (FIXED)
 # =====================
 
-players_lookup <- setNames(
-  split(players_df, players_df$player_id),
-  players_df$player_id
-)
+players_lookup <- split(players_df, players_df$player_id)
+
+# =====================
+# TRENDING ENRICHMENT
+# =====================
 
 enrich_trending <- function(json_text) {
 
@@ -174,6 +179,10 @@ enrich_trending <- function(json_text) {
 
   output
 }
+
+# =====================
+# DOWNLOAD TRENDING
+# =====================
 
 download_trending <- function(type, output_file) {
 
