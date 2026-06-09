@@ -1,2202 +1,1302 @@
 [
   {
     "player_id": "2505",
-    "count": 5004,
+    "count": 5040,
+    "full_name": "Darren Waller",
     "first_name": "Darren",
     "last_name": "Waller",
-    "full_name": "Darren Waller",
     "team": {},
     "position": "TE",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 33,
-    "years_exp": 11,
-    "college": "Georgia Tech",
-    "number": 83,
-    "height": "78",
-    "weight": "238",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
     "player_id": "12455",
-    "count": 4081,
+    "count": 4172,
+    "full_name": "Brashard Smith",
     "first_name": "Brashard",
     "last_name": "Smith",
-    "full_name": "Brashard Smith",
     "team": "KC",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "SMU",
-    "number": 24,
-    "height": "70",
-    "weight": "196",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "1339",
-    "count": 3627,
+    "count": 3708,
+    "full_name": "Zach Ertz",
     "first_name": "Zach",
     "last_name": "Ertz",
-    "full_name": "Zach Ertz",
     "team": {},
     "position": "TE",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 35,
-    "years_exp": 13,
-    "college": "Stanford",
-    "number": 86,
-    "height": "77",
-    "weight": "250",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
     "player_id": "4144",
-    "count": 3304,
+    "count": 3325,
+    "full_name": "Jonnu Smith",
     "first_name": "Jonnu",
     "last_name": "Smith",
-    "full_name": "Jonnu Smith",
     "team": {},
     "position": "TE",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 30,
-    "years_exp": 9,
-    "college": "Florida International",
-    "number": 81,
-    "height": "75",
-    "weight": "248",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
     "player_id": "6130",
     "count": 3249,
+    "full_name": "Devin Singletary",
     "first_name": "Devin",
     "last_name": "Singletary",
-    "full_name": "Devin Singletary",
     "team": "NYG",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 28,
-    "years_exp": 7,
-    "college": "Florida Atlantic",
-    "number": 26,
-    "height": "67",
-    "weight": "203",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "8125",
-    "count": 3069,
+    "count": 3078,
+    "full_name": "Calvin Austin",
     "first_name": "Calvin",
     "last_name": "Austin",
-    "full_name": "Calvin Austin",
     "team": "NYG",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 27,
-    "years_exp": 4,
-    "college": "Memphis",
-    "number": 82,
-    "height": "69",
-    "weight": "162",
-    "depth_chart_order": 3,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "12500",
-    "count": 2664,
+    "count": 2718,
+    "full_name": "Quinn Ewers",
     "first_name": "Quinn",
     "last_name": "Ewers",
-    "full_name": "Quinn Ewers",
     "team": "MIA",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Texas",
-    "number": 14,
-    "height": "74",
-    "weight": "209",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
+    ]
   },
   {
     "player_id": "12670",
-    "count": 2637,
+    "count": 2709,
+    "full_name": "KeAndre Lambert-Smith",
     "first_name": "KeAndre",
     "last_name": "Lambert-Smith",
-    "full_name": "KeAndre Lambert-Smith",
     "team": "LAC",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Auburn",
-    "number": 84,
-    "height": "73",
-    "weight": "182",
-    "depth_chart_order": 4,
-    "depth_chart_position": "LWR"
+    ]
+  },
+  {
+    "player_id": "4098",
+    "count": 2504,
+    "full_name": "Kareem Hunt",
+    "first_name": "Kareem",
+    "last_name": "Hunt",
+    "team": {},
+    "position": "RB",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "9494",
+    "count": 2493,
+    "full_name": "Marvin Mims",
+    "first_name": "Marvin",
+    "last_name": "Mims",
+    "team": "DEN",
+    "position": "WR",
+    "depth_chart_order": 3,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "11630",
     "count": 2457,
+    "full_name": "Roman Wilson",
     "first_name": "Roman",
     "last_name": "Wilson",
-    "full_name": "Roman Wilson",
     "team": "PIT",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 24,
-    "years_exp": 2,
-    "college": "Michigan",
-    "number": 14,
-    "height": "70",
-    "weight": "186",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RWR"
-  },
-  {
-    "player_id": "4098",
-    "count": 2448,
-    "first_name": "Kareem",
-    "last_name": "Hunt",
-    "full_name": "Kareem Hunt",
-    "team": {},
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 30,
-    "years_exp": 9,
-    "college": "Toledo",
-    "number": 29,
-    "height": "71",
-    "weight": "216",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "9494",
-    "count": 2421,
-    "first_name": "Marvin",
-    "last_name": "Mims",
-    "full_name": "Marvin Mims",
-    "team": "DEN",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 24,
-    "years_exp": 3,
-    "college": "Oklahoma",
-    "number": 19,
-    "height": "71",
-    "weight": "182",
-    "depth_chart_order": 3,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "11623",
-    "count": 2304,
+    "count": 2358,
+    "full_name": "Jordan Whittington",
     "first_name": "Jordan",
     "last_name": "Whittington",
-    "full_name": "Jordan Whittington",
     "team": "LAR",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 25,
-    "years_exp": 2,
-    "college": "Texas",
-    "number": 88,
-    "height": "73",
-    "weight": "202",
-    "depth_chart_order": 3,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "1234",
-    "count": 2265,
+    "count": 2320,
+    "full_name": "Russell Wilson",
     "first_name": "Russell",
     "last_name": "Wilson",
-    "full_name": "Russell Wilson",
     "team": {},
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 37,
-    "years_exp": 14,
-    "college": "Wisconsin",
-    "number": 3,
-    "height": "71",
-    "weight": "206",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
     "player_id": "11619",
-    "count": 2214,
+    "count": 2250,
+    "full_name": "Ja'Lynn Polk",
     "first_name": "Ja'Lynn",
     "last_name": "Polk",
-    "full_name": "Ja'Lynn Polk",
     "team": "NO",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 5,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 24,
-    "years_exp": 2,
-    "college": "Washington",
-    "number": 13,
-    "height": "73",
-    "weight": "203",
-    "depth_chart_order": 5,
-    "depth_chart_position": "RWR"
+    ]
   },
   {
     "player_id": "11834",
-    "count": 2184,
+    "count": 2226,
+    "full_name": "Devaughn Vele",
     "first_name": "Devaughn",
     "last_name": "Vele",
-    "full_name": "Devaughn Vele",
     "team": "NO",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 28,
-    "years_exp": 2,
-    "college": "Utah",
-    "number": 14,
-    "height": "77",
-    "weight": "210",
-    "depth_chart_order": 2,
-    "depth_chart_position": "SWR"
-  },
-  {
-    "player_id": "12486",
-    "count": 2149,
-    "first_name": "Dillon",
-    "last_name": "Gabriel",
-    "full_name": "Dillon Gabriel",
-    "team": "CLE",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 25,
-    "years_exp": 1,
-    "college": "Oregon",
-    "number": 8,
-    "height": "71",
-    "weight": "205",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
+    ]
   },
   {
     "player_id": "11650",
-    "count": 2058,
+    "count": 2128,
+    "full_name": "Luke McCaffrey",
     "first_name": "Luke",
     "last_name": "McCaffrey",
-    "full_name": "Luke McCaffrey",
     "team": "WAS",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 5,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 25,
-    "years_exp": 2,
-    "college": "Rice",
-    "number": 11,
-    "height": "74",
-    "weight": "195",
-    "depth_chart_order": 5,
-    "depth_chart_position": "SWR"
+    ]
+  },
+  {
+    "player_id": "12486",
+    "count": 2100,
+    "full_name": "Dillon Gabriel",
+    "first_name": "Dillon",
+    "last_name": "Gabriel",
+    "team": "CLE",
+    "position": "QB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "11571",
+    "count": 2043,
+    "full_name": "Isaiah Davis",
+    "first_name": "Isaiah",
+    "last_name": "Davis",
+    "team": "NYJ",
+    "position": "RB",
+    "depth_chart_order": 3,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "4381",
+    "count": 2002,
+    "full_name": "Taysom Hill",
+    "first_name": "Taysom",
+    "last_name": "Hill",
+    "team": {},
+    "position": "TE",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "8147",
+    "count": 2002,
+    "full_name": "John Metchie",
+    "first_name": "John",
+    "last_name": "Metchie",
+    "team": "CAR",
+    "position": "WR",
+    "depth_chart_order": 6,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "1479",
-    "count": 2016,
+    "count": 2000,
+    "full_name": "Keenan Allen",
     "first_name": "Keenan",
     "last_name": "Allen",
-    "full_name": "Keenan Allen",
     "team": {},
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 33,
-    "years_exp": 13,
-    "college": "California",
-    "number": 13,
-    "height": "74",
-    "weight": "211",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "12503",
-    "count": 2015,
-    "first_name": "Isaiah",
-    "last_name": "Bond",
-    "full_name": "Isaiah Bond",
-    "team": "CLE",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 22,
-    "years_exp": 1,
-    "college": "Texas",
-    "number": 0,
-    "height": "71",
-    "weight": "180",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "12523",
     "count": 1995,
+    "full_name": "Jimmy Horn",
     "first_name": "Jimmy",
     "last_name": "Horn",
-    "full_name": "Jimmy Horn",
     "team": "CAR",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 5,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Colorado",
-    "number": 15,
-    "height": "68",
-    "weight": "174",
-    "depth_chart_order": 5,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "7528",
-    "count": 1960,
+    "count": 1980,
+    "full_name": "Najee Harris",
     "first_name": "Najee",
     "last_name": "Harris",
-    "full_name": "Najee Harris",
     "team": {},
     "position": "RB",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 27,
-    "years_exp": 5,
-    "college": "Alabama",
-    "number": 22,
-    "height": "73",
-    "weight": "242",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
-    "player_id": "4381",
-    "count": 1960,
-    "first_name": "Taysom",
-    "last_name": "Hill",
-    "full_name": "Taysom Hill",
-    "team": {},
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 35,
-    "years_exp": 9,
-    "college": "BYU",
-    "number": 7,
-    "height": "74",
-    "weight": "221",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "11571",
-    "count": 1953,
+    "player_id": "12503",
+    "count": 1975,
+    "full_name": "Isaiah Bond",
     "first_name": "Isaiah",
-    "last_name": "Davis",
-    "full_name": "Isaiah Davis",
-    "team": "NYJ",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "last_name": "Bond",
+    "team": "CLE",
+    "position": "WR",
+    "depth_chart_order": 4,
     "fantasy_positions": [
-      "RB"
-    ],
-    "age": 24,
-    "years_exp": 2,
-    "college": "South Dakota State",
-    "number": 32,
-    "height": "73",
-    "weight": "220",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
+      "WR"
+    ]
   },
   {
     "player_id": "12472",
-    "count": 1936,
+    "count": 1960,
+    "full_name": "Raheim Sanders",
     "first_name": "Raheim",
     "last_name": "Sanders",
-    "full_name": "Raheim Sanders",
     "team": "CLE",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "South Carolina",
-    "number": 35,
-    "height": "72",
-    "weight": "230",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "8147",
-    "count": 1918,
-    "first_name": "John",
-    "last_name": "Metchie",
-    "full_name": "John Metchie",
-    "team": "CAR",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 25,
-    "years_exp": 4,
-    "college": "Alabama",
-    "number": 13,
-    "height": "71",
-    "weight": "187",
-    "depth_chart_order": 6,
-    "depth_chart_position": "LWR"
+    ]
   },
   {
     "player_id": "12540",
-    "count": 1881,
+    "count": 1908,
+    "full_name": "Chimere Dike",
     "first_name": "Chimere",
     "last_name": "Dike",
-    "full_name": "Chimere Dike",
     "team": "TEN",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Florida",
-    "number": 17,
-    "height": "73",
-    "weight": "196",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "6865",
-    "count": 1860,
+    "count": 1824,
+    "full_name": "Colby Parkinson",
     "first_name": "Colby",
     "last_name": "Parkinson",
-    "full_name": "Colby Parkinson",
     "team": "LAR",
     "position": "TE",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 27,
-    "years_exp": 6,
-    "college": "Stanford",
-    "number": 84,
-    "height": "79",
-    "weight": "266",
-    "depth_chart_order": 3,
-    "depth_chart_position": "TE"
-  },
-  {
-    "player_id": "7090",
-    "count": 1755,
-    "first_name": "Darnell",
-    "last_name": "Mooney",
-    "full_name": "Darnell Mooney",
-    "team": "NYG",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 28,
-    "years_exp": 6,
-    "college": "Tulane",
-    "number": 17,
-    "height": "71",
-    "weight": "177",
-    "depth_chart_order": 2,
-    "depth_chart_position": "SWR"
-  },
-  {
-    "player_id": "5995",
-    "count": 1737,
-    "first_name": "Justice",
-    "last_name": "Hill",
-    "full_name": "Justice Hill",
-    "team": "BAL",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 28,
-    "years_exp": 7,
-    "college": "Oklahoma State",
-    "number": 43,
-    "height": "70",
-    "weight": "205",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "4066",
-    "count": 1736,
+    "count": 1800,
+    "full_name": "Evan Engram",
     "first_name": "Evan",
     "last_name": "Engram",
-    "full_name": "Evan Engram",
     "team": "DEN",
     "position": "TE",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 1,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 31,
-    "years_exp": 9,
-    "college": "Ole Miss",
-    "number": 1,
-    "height": "75",
-    "weight": "240",
-    "depth_chart_order": 1,
-    "depth_chart_position": "TE"
+    ]
   },
   {
-    "player_id": "12641",
-    "count": 1736,
-    "first_name": "Jaylin",
-    "last_name": "Lane",
-    "full_name": "Jaylin Lane",
-    "team": "WAS",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Virginia Tech",
-    "number": 83,
-    "height": "70",
-    "weight": "196",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
-  },
-  {
-    "player_id": "6151",
-    "count": 1728,
-    "first_name": "Miles",
-    "last_name": "Sanders",
-    "full_name": "Miles Sanders",
-    "team": {},
+    "player_id": "5995",
+    "count": 1791,
+    "full_name": "Justice Hill",
+    "first_name": "Justice",
+    "last_name": "Hill",
+    "team": "BAL",
     "position": "RB",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 28,
-    "years_exp": 7,
-    "college": "Penn State",
-    "number": 24,
-    "height": "71",
-    "weight": "211",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "11562",
-    "count": 1720,
-    "first_name": "Spencer",
-    "last_name": "Rattler",
-    "full_name": "Spencer Rattler",
-    "team": "NO",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 25,
-    "years_exp": 2,
-    "college": "South Carolina",
-    "number": 2,
-    "height": "72",
-    "weight": "211",
-    "depth_chart_order": 1,
-    "depth_chart_position": "QB"
+    ]
   },
   {
     "player_id": "6149",
-    "count": 1716,
+    "count": 1758,
+    "full_name": "Darius Slayton",
     "first_name": "Darius",
     "last_name": "Slayton",
-    "full_name": "Darius Slayton",
     "team": "NYG",
     "position": "WR",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 29,
-    "years_exp": 7,
-    "college": "Auburn",
-    "number": 18,
-    "height": "73",
-    "weight": "198",
-    "depth_chart_order": 4,
-    "depth_chart_position": "RWR"
+    ]
   },
   {
-    "player_id": "12718",
-    "count": 1692,
-    "first_name": "Konata",
-    "last_name": "Mumpfield",
-    "full_name": "Konata Mumpfield",
-    "team": "LAR",
+    "player_id": "12641",
+    "count": 1752,
+    "full_name": "Jaylin Lane",
+    "first_name": "Jaylin",
+    "last_name": "Lane",
+    "team": "WAS",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Pittsburgh",
-    "number": 4,
-    "height": "73",
-    "weight": "188",
-    "depth_chart_order": 4,
-    "depth_chart_position": "LWR"
+    ]
+  },
+  {
+    "player_id": "7090",
+    "count": 1710,
+    "full_name": "Darnell Mooney",
+    "first_name": "Darnell",
+    "last_name": "Mooney",
+    "team": "NYG",
+    "position": "WR",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "19",
-    "count": 1656,
+    "count": 1710,
+    "full_name": "Joe Flacco",
     "first_name": "Joe",
     "last_name": "Flacco",
-    "full_name": "Joe Flacco",
     "team": "CIN",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 41,
-    "years_exp": 18,
-    "college": "Delaware",
-    "number": 16,
-    "height": "78",
-    "weight": "245",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "7607",
-    "count": 1652,
-    "first_name": "Michael",
-    "last_name": "Carter",
-    "full_name": "Michael Carter",
-    "team": "TEN",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 27,
-    "years_exp": 5,
-    "college": "North Carolina",
-    "number": 35,
-    "height": "68",
-    "weight": "201",
-    "depth_chart_order": 5,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "12457",
-    "count": 1640,
-    "first_name": "Jaydon",
-    "last_name": "Blue",
-    "full_name": "Jaydon Blue",
-    "team": "DAL",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 22,
-    "years_exp": 1,
-    "college": "Texas",
-    "number": 23,
-    "height": "69",
-    "weight": "198",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "8135",
-    "count": 1631,
+    "count": 1694,
+    "full_name": "Treylon Burks",
     "first_name": "Treylon",
     "last_name": "Burks",
-    "full_name": "Treylon Burks",
     "team": "WAS",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 7,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 26,
-    "years_exp": 4,
-    "college": "Arkansas",
-    "number": 13,
-    "height": "74",
-    "weight": "225",
-    "depth_chart_order": 7,
-    "depth_chart_position": "RWR"
+    ]
+  },
+  {
+    "player_id": "6151",
+    "count": 1683,
+    "full_name": "Miles Sanders",
+    "first_name": "Miles",
+    "last_name": "Sanders",
+    "team": {},
+    "position": "RB",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12718",
+    "count": 1683,
+    "full_name": "Konata Mumpfield",
+    "first_name": "Konata",
+    "last_name": "Mumpfield",
+    "team": "LAR",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11562",
+    "count": 1680,
+    "full_name": "Spencer Rattler",
+    "first_name": "Spencer",
+    "last_name": "Rattler",
+    "team": "NO",
+    "position": "QB",
+    "depth_chart_order": 1,
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "12457",
+    "count": 1656,
+    "full_name": "Jaydon Blue",
+    "first_name": "Jaydon",
+    "last_name": "Blue",
+    "team": "DAL",
+    "position": "RB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "7607",
+    "count": 1644,
+    "full_name": "Michael Carter",
+    "first_name": "Michael",
+    "last_name": "Carter",
+    "team": "TEN",
+    "position": "RB",
+    "depth_chart_order": 5,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "2078",
+    "count": 1617,
+    "full_name": "Odell Beckham",
+    "first_name": "Odell",
+    "last_name": "Beckham",
+    "team": "NYG",
+    "position": "WR",
+    "depth_chart_order": 5,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "9999",
-    "count": 1584,
+    "count": 1608,
+    "full_name": "Will Levis",
     "first_name": "Will",
     "last_name": "Levis",
-    "full_name": "Will Levis",
     "team": "TEN",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 26,
-    "years_exp": 3,
-    "college": "Kentucky",
-    "number": 8,
-    "height": "76",
-    "weight": "229",
-    "depth_chart_order": 4,
-    "depth_chart_position": "QB"
+    ]
+  },
+  {
+    "player_id": "11589",
+    "count": 1566,
+    "full_name": "Trey Benson",
+    "first_name": "Trey",
+    "last_name": "Benson",
+    "team": "ARI",
+    "position": "RB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "RB"
+    ]
   },
   {
     "player_id": "12516",
     "count": 1561,
+    "full_name": "Kalel Mullings",
     "first_name": "Kalel",
     "last_name": "Mullings",
-    "full_name": "Kalel Mullings",
     "team": "TEN",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Michigan",
-    "number": 31,
-    "height": "74",
-    "weight": "226",
     "depth_chart_order": 4,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "11589",
-    "count": 1542,
-    "first_name": "Trey",
-    "last_name": "Benson",
-    "full_name": "Trey Benson",
-    "team": "ARI",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": "Questionable",
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 23,
-    "years_exp": 2,
-    "college": "Florida State",
-    "number": 33,
-    "height": "72",
-    "weight": "220",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "2078",
-    "count": 1533,
-    "first_name": "Odell",
-    "last_name": "Beckham",
-    "full_name": "Odell Beckham",
-    "team": "NYG",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 33,
-    "years_exp": 12,
-    "college": "LSU",
-    "number": 3,
-    "height": "71",
-    "weight": "198",
-    "depth_chart_order": 5,
-    "depth_chart_position": "LWR"
-  },
-  {
-    "player_id": "12511",
-    "count": 1510,
-    "first_name": "Will",
-    "last_name": "Howard",
-    "full_name": "Will Howard",
-    "team": "PIT",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Ohio State",
-    "number": 18,
-    "height": "76",
-    "weight": "236",
-    "depth_chart_order": 3,
-    "depth_chart_position": "QB"
+    ]
   },
   {
     "player_id": "10235",
-    "count": 1496,
+    "count": 1544,
+    "full_name": "Roschon Johnson",
     "first_name": "Roschon",
     "last_name": "Johnson",
-    "full_name": "Roschon Johnson",
     "team": "CHI",
     "position": "RB",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 25,
-    "years_exp": 3,
-    "college": "Texas",
-    "number": 23,
-    "height": "72",
-    "weight": "227",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
+    ]
+  },
+  {
+    "player_id": "12511",
+    "count": 1525,
+    "full_name": "Will Howard",
+    "first_name": "Will",
+    "last_name": "Howard",
+    "team": "PIT",
+    "position": "QB",
+    "depth_chart_order": 3,
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "3271",
+    "count": 1467,
+    "full_name": "Tyler Higbee",
+    "first_name": "Tyler",
+    "last_name": "Higbee",
+    "team": "LAR",
+    "position": "TE",
+    "depth_chart_order": 1,
+    "fantasy_positions": [
+      "TE"
+    ]
   },
   {
     "player_id": "11581",
     "count": 1458,
+    "full_name": "MarShawn Lloyd",
     "first_name": "MarShawn",
     "last_name": "Lloyd",
-    "full_name": "MarShawn Lloyd",
     "team": "GB",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 25,
-    "years_exp": 2,
-    "college": "USC",
-    "number": 32,
-    "height": "69",
-    "weight": "220",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
+    ]
+  },
+  {
+    "player_id": "12547",
+    "count": 1450,
+    "full_name": "Kyle Williams",
+    "first_name": "Kyle",
+    "last_name": "Williams",
+    "team": "NE",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "11435",
-    "count": 1449,
+    "count": 1440,
+    "full_name": "Emanuel Wilson",
     "first_name": "Emanuel",
     "last_name": "Wilson",
-    "full_name": "Emanuel Wilson",
     "team": "SEA",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 27,
-    "years_exp": 3,
-    "college": "Fort Valley State",
-    "number": 27,
-    "height": "70",
-    "weight": "226",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
+    ]
   },
   {
-    "player_id": "1166",
-    "count": 1440,
-    "first_name": "Kirk",
-    "last_name": "Cousins",
-    "full_name": "Kirk Cousins",
-    "team": "LV",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "player_id": "12462",
+    "count": 1425,
+    "full_name": "Damien Martinez",
+    "first_name": "Damien",
+    "last_name": "Martinez",
+    "team": "GB",
+    "position": "RB",
+    "depth_chart_order": 4,
     "fantasy_positions": [
-      "QB"
-    ],
-    "age": 37,
-    "years_exp": 14,
-    "college": "Michigan State",
-    "number": 8,
-    "height": "75",
-    "weight": "209",
-    "depth_chart_order": 1,
-    "depth_chart_position": "QB"
+      "RB"
+    ]
   },
   {
     "player_id": "8117",
     "count": 1424,
+    "full_name": "Jalen Tolbert",
     "first_name": "Jalen",
     "last_name": "Tolbert",
-    "full_name": "Jalen Tolbert",
     "team": "MIA",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 27,
-    "years_exp": 4,
-    "college": "South Alabama",
-    "number": 1,
-    "height": "73",
-    "weight": "195",
     "depth_chart_order": 1,
-    "depth_chart_position": "LWR"
-  },
-  {
-    "player_id": "13300",
-    "count": 1422,
-    "first_name": "Le'Veon",
-    "last_name": "Moss",
-    "full_name": "Le'Veon Moss",
-    "team": {},
-    "position": "RB",
-    "status": "Active",
-    "injury_status": "NA",
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": {},
-    "years_exp": 0,
-    "college": {},
-    "number": 37,
-    "height": "71",
-    "weight": "210",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "3271",
-    "count": 1422,
-    "first_name": "Tyler",
-    "last_name": "Higbee",
-    "full_name": "Tyler Higbee",
-    "team": "LAR",
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 33,
-    "years_exp": 10,
-    "college": "Western Kentucky",
-    "number": 89,
-    "height": "78",
-    "weight": "253",
-    "depth_chart_order": 1,
-    "depth_chart_position": "TE"
-  },
-  {
-    "player_id": "12547",
-    "count": 1420,
-    "first_name": "Kyle",
-    "last_name": "Williams",
-    "full_name": "Kyle Williams",
-    "team": "NE",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Washington State",
-    "number": 8,
-    "height": "71",
-    "weight": "190",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
-    "player_id": "12496",
-    "count": 1416,
-    "first_name": "Tai",
-    "last_name": "Felton",
-    "full_name": "Tai Felton",
-    "team": "MIN",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Maryland",
-    "number": 13,
-    "height": "73",
-    "weight": "186",
-    "depth_chart_order": 4,
-    "depth_chart_position": "LWR"
-  },
-  {
-    "player_id": "12482",
-    "count": 1351,
-    "first_name": "Savion",
-    "last_name": "Williams",
-    "full_name": "Savion Williams",
-    "team": "GB",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "TCU",
-    "number": 83,
-    "height": "76",
-    "weight": "222",
-    "depth_chart_order": 5,
-    "depth_chart_position": "LWR"
-  },
-  {
-    "player_id": "11640",
-    "count": 1328,
-    "first_name": "Jermaine",
-    "last_name": "Burton",
-    "full_name": "Jermaine Burton",
-    "team": {},
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Alabama",
-    "number": 81,
-    "height": "72",
-    "weight": "204",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "827",
-    "count": 1326,
-    "first_name": "Tyrod",
-    "last_name": "Taylor",
-    "full_name": "Tyrod Taylor",
-    "team": "GB",
+    "player_id": "1166",
+    "count": 1424,
+    "full_name": "Kirk Cousins",
+    "first_name": "Kirk",
+    "last_name": "Cousins",
+    "team": "LV",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 1,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 36,
-    "years_exp": 15,
-    "college": "Virginia Tech",
-    "number": 6,
-    "height": "73",
-    "weight": "217",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "12462",
-    "count": 1320,
-    "first_name": "Damien",
-    "last_name": "Martinez",
-    "full_name": "Damien Martinez",
-    "team": "GB",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 22,
-    "years_exp": 1,
-    "college": "Miami (FL)",
-    "number": 26,
-    "height": "72",
-    "weight": "217",
-    "depth_chart_order": 4,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "3200",
-    "count": 1316,
+    "count": 1407,
+    "full_name": "Sterling Shepard",
     "first_name": "Sterling",
     "last_name": "Shepard",
-    "full_name": "Sterling Shepard",
     "team": {},
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 33,
-    "years_exp": 10,
-    "college": "Oklahoma",
-    "number": 17,
-    "height": "70",
-    "weight": "194",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
+  },
+  {
+    "player_id": "12496",
+    "count": 1404,
+    "full_name": "Tai Felton",
+    "first_name": "Tai",
+    "last_name": "Felton",
+    "team": "MIN",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "13300",
+    "count": 1392,
+    "full_name": "Le'Veon Moss",
+    "first_name": "Le'Veon",
+    "last_name": "Moss",
+    "team": {},
+    "position": "RB",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12482",
+    "count": 1379,
+    "full_name": "Savion Williams",
+    "first_name": "Savion",
+    "last_name": "Williams",
+    "team": "GB",
+    "position": "WR",
+    "depth_chart_order": 5,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11640",
+    "count": 1360,
+    "full_name": "Jermaine Burton",
+    "first_name": "Jermaine",
+    "last_name": "Burton",
+    "team": {},
+    "position": "WR",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "827",
+    "count": 1320,
+    "full_name": "Tyrod Taylor",
+    "first_name": "Tyrod",
+    "last_name": "Taylor",
+    "team": "GB",
+    "position": "QB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "QB"
+    ]
   },
   {
     "player_id": "10226",
-    "count": 1305,
+    "count": 1314,
+    "full_name": "Andrei Iosivas",
     "first_name": "Andrei",
     "last_name": "Iosivas",
-    "full_name": "Andrei Iosivas",
     "team": "CIN",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 26,
-    "years_exp": 3,
-    "college": "Princeton",
-    "number": 80,
-    "height": "75",
-    "weight": "210",
-    "depth_chart_order": 3,
-    "depth_chart_position": "SWR"
-  },
-  {
-    "player_id": "9506",
-    "count": 1260,
-    "first_name": "Sean",
-    "last_name": "Tucker",
-    "full_name": "Sean Tucker",
-    "team": "TB",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 24,
-    "years_exp": 3,
-    "college": "Syracuse",
-    "number": 44,
-    "height": "70",
-    "weight": "205",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "11625",
-    "count": 1256,
+    "count": 1312,
+    "full_name": "Adonai Mitchell",
     "first_name": "Adonai",
     "last_name": "Mitchell",
-    "full_name": "Adonai Mitchell",
     "team": "NYJ",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 2,
-    "college": "Texas",
-    "number": 15,
-    "height": "74",
-    "weight": "205",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RWR"
+    ]
   },
   {
-    "player_id": "8129",
-    "count": 1240,
-    "first_name": "Dameon",
-    "last_name": "Pierce",
-    "full_name": "Dameon Pierce",
-    "team": "PHI",
+    "player_id": "9506",
+    "count": 1287,
+    "full_name": "Sean Tucker",
+    "first_name": "Sean",
+    "last_name": "Tucker",
+    "team": "TB",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 26,
-    "years_exp": 4,
-    "college": "Florida",
-    "number": 39,
-    "height": "70",
-    "weight": "218",
-    "depth_chart_order": 4,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "6826",
-    "count": 1233,
-    "first_name": "Cole",
-    "last_name": "Kmet",
-    "full_name": "Cole Kmet",
-    "team": "CHI",
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 27,
-    "years_exp": 6,
-    "college": "Notre Dame",
-    "number": 85,
-    "height": "78",
-    "weight": "257",
-    "depth_chart_order": 2,
-    "depth_chart_position": "TE"
-  },
-  {
-    "player_id": "10218",
-    "count": 1232,
-    "first_name": "Xavier",
-    "last_name": "Hutchinson",
-    "full_name": "Xavier Hutchinson",
-    "team": "HOU",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 26,
-    "years_exp": 3,
-    "college": "Iowa State",
-    "number": 19,
-    "height": "75",
-    "weight": "210",
-    "depth_chart_order": 4,
-    "depth_chart_position": "LWR"
+    ]
   },
   {
     "player_id": "11647",
-    "count": 1225,
+    "count": 1270,
+    "full_name": "Kimani Vidal",
     "first_name": "Kimani",
     "last_name": "Vidal",
-    "full_name": "Kimani Vidal",
     "team": "LAC",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 24,
-    "years_exp": 2,
-    "college": "Troy",
-    "number": 28,
-    "height": "68",
-    "weight": "215",
-    "depth_chart_order": 4,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "10444",
-    "count": 1209,
+    "count": 1236,
+    "full_name": "Cedric Tillman",
     "first_name": "Cedric",
     "last_name": "Tillman",
-    "full_name": "Cedric Tillman",
     "team": "CLE",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 26,
-    "years_exp": 3,
-    "college": "Tennessee",
-    "number": 19,
-    "height": "75",
-    "weight": "215",
+    ]
+  },
+  {
+    "player_id": "6826",
+    "count": 1215,
+    "full_name": "Cole Kmet",
+    "first_name": "Cole",
+    "last_name": "Kmet",
+    "team": "CHI",
+    "position": "TE",
     "depth_chart_order": 2,
-    "depth_chart_position": "LWR"
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "8129",
+    "count": 1200,
+    "full_name": "Dameon Pierce",
+    "first_name": "Dameon",
+    "last_name": "Pierce",
+    "team": "PHI",
+    "position": "RB",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "RB"
+    ]
   },
   {
     "player_id": "4663",
-    "count": 1204,
+    "count": 1196,
+    "full_name": "Austin Ekeler",
     "first_name": "Austin",
     "last_name": "Ekeler",
-    "full_name": "Austin Ekeler",
     "team": {},
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 30,
-    "years_exp": 9,
-    "college": "Western Colorado",
-    "number": 30,
-    "height": "70",
-    "weight": "200",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
+  },
+  {
+    "player_id": "8800",
+    "count": 1179,
+    "full_name": "Malik Davis",
+    "first_name": "Malik",
+    "last_name": "Davis",
+    "team": "DAL",
+    "position": "RB",
+    "depth_chart_order": 5,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "10218",
+    "count": 1162,
+    "full_name": "Xavier Hutchinson",
+    "first_name": "Xavier",
+    "last_name": "Hutchinson",
+    "team": "HOU",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "5970",
-    "count": 1158,
+    "count": 1146,
+    "full_name": "Greg Dortch",
     "first_name": "Greg",
     "last_name": "Dortch",
-    "full_name": "Greg Dortch",
     "team": "DET",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 28,
-    "years_exp": 7,
-    "college": "Wake Forest",
-    "number": 8,
-    "height": "67",
-    "weight": "180",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "12470",
-    "count": 1146,
+    "count": 1110,
+    "full_name": "Riley Leonard",
     "first_name": "Riley",
     "last_name": "Leonard",
-    "full_name": "Riley Leonard",
     "team": "IND",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 4,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Notre Dame",
-    "number": 15,
-    "height": "76",
-    "weight": "213",
-    "depth_chart_order": 4,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "12495",
-    "count": 1106,
-    "first_name": "Ollie",
-    "last_name": "Gordon",
-    "full_name": "Ollie Gordon",
-    "team": "MIA",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 22,
-    "years_exp": 1,
-    "college": "Oklahoma State",
-    "number": 0,
-    "height": "74",
-    "weight": "225",
-    "depth_chart_order": 2,
-    "depth_chart_position": "RB"
+    ]
   },
   {
     "player_id": "3321",
     "count": 1104,
+    "full_name": "Tyreek Hill",
     "first_name": "Tyreek",
     "last_name": "Hill",
-    "full_name": "Tyreek Hill",
     "team": {},
     "position": "WR",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 31,
-    "years_exp": 10,
-    "college": "West Alabama",
-    "number": 10,
-    "height": "70",
-    "weight": "191",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
-  },
-  {
-    "player_id": "2307",
-    "count": 1088,
-    "first_name": "Marcus",
-    "last_name": "Mariota",
-    "full_name": "Marcus Mariota",
-    "team": "WAS",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 32,
-    "years_exp": 11,
-    "college": "Oregon",
-    "number": 8,
-    "height": "76",
-    "weight": "222",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "8800",
-    "count": 1080,
-    "first_name": "Malik",
-    "last_name": "Davis",
-    "full_name": "Malik Davis",
-    "team": "DAL",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 27,
-    "years_exp": 4,
-    "college": "Florida",
-    "number": 20,
-    "height": "70",
-    "weight": "205",
-    "depth_chart_order": 5,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "11439",
-    "count": 1070,
-    "first_name": "Jaleel",
-    "last_name": "McLaughlin",
-    "full_name": "Jaleel McLaughlin",
-    "team": "DEN",
-    "position": "RB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "RB"
-    ],
-    "age": 25,
-    "years_exp": 3,
-    "college": "Youngstown State",
-    "number": 38,
-    "height": "67",
-    "weight": "187",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "12542",
-    "count": 1068,
-    "first_name": "Efton",
-    "last_name": "Chism",
-    "full_name": "Efton Chism",
-    "team": "NE",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 24,
-    "years_exp": 1,
-    "college": "Eastern Washington",
-    "number": 86,
-    "height": "70",
-    "weight": "198",
-    "depth_chart_order": 7,
-    "depth_chart_position": "RWR"
-  },
-  {
-    "player_id": "11783",
-    "count": 1064,
-    "first_name": "Ryan",
-    "last_name": "Flournoy",
-    "full_name": "Ryan Flournoy",
-    "team": "DAL",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 26,
-    "years_exp": 2,
-    "college": "Southeast Missouri State",
-    "number": 19,
-    "height": "73",
-    "weight": "205",
-    "depth_chart_order": 5,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "11596",
-    "count": 1062,
+    "count": 1098,
+    "full_name": "Ben Sinnott",
     "first_name": "Ben",
     "last_name": "Sinnott",
-    "full_name": "Ben Sinnott",
     "team": "WAS",
     "position": "TE",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 23,
-    "years_exp": 2,
-    "college": "Kansas State",
-    "number": 82,
-    "height": "76",
-    "weight": "245",
-    "depth_chart_order": 2,
-    "depth_chart_position": "TE"
+    ]
   },
   {
-    "player_id": "12510",
-    "count": 1056,
-    "first_name": "Jalen",
-    "last_name": "Milroe",
-    "full_name": "Jalen Milroe",
-    "team": "SEA",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Alabama",
-    "number": 6,
-    "height": "74",
-    "weight": "216",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "12487",
-    "count": 1032,
-    "first_name": "Terrance",
-    "last_name": "Ferguson",
-    "full_name": "Terrance Ferguson",
-    "team": "LAR",
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Oregon",
-    "number": 18,
-    "height": "77",
-    "weight": "252",
-    "depth_chart_order": 2,
-    "depth_chart_position": "TE"
-  },
-  {
-    "player_id": "11579",
-    "count": 1029,
-    "first_name": "Audric",
-    "last_name": "Estime",
-    "full_name": "Audric Estime",
-    "team": "NO",
+    "player_id": "11439",
+    "count": 1095,
+    "full_name": "Jaleel McLaughlin",
+    "first_name": "Jaleel",
+    "last_name": "McLaughlin",
+    "team": "DEN",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 22,
-    "years_exp": 2,
-    "college": "Notre Dame",
-    "number": 30,
-    "height": "71",
-    "weight": "227",
-    "depth_chart_order": 6,
-    "depth_chart_position": "RB"
+    ]
   },
   {
-    "player_id": "9482",
-    "count": 1026,
-    "first_name": "Michael",
-    "last_name": "Mayer",
-    "full_name": "Michael Mayer",
-    "team": "LV",
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 24,
-    "years_exp": 3,
-    "college": "Notre Dame",
-    "number": 87,
-    "height": "76",
-    "weight": "256",
+    "player_id": "12495",
+    "count": 1092,
+    "full_name": "Ollie Gordon",
+    "first_name": "Ollie",
+    "last_name": "Gordon",
+    "team": "MIA",
+    "position": "RB",
     "depth_chart_order": 2,
-    "depth_chart_position": "TE"
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12542",
+    "count": 1076,
+    "full_name": "Efton Chism",
+    "first_name": "Efton",
+    "last_name": "Chism",
+    "team": "NE",
+    "position": "WR",
+    "depth_chart_order": 7,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "2307",
+    "count": 1064,
+    "full_name": "Marcus Mariota",
+    "first_name": "Marcus",
+    "last_name": "Mariota",
+    "team": "WAS",
+    "position": "QB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "11783",
+    "count": 1056,
+    "full_name": "Ryan Flournoy",
+    "first_name": "Ryan",
+    "last_name": "Flournoy",
+    "team": "DAL",
+    "position": "WR",
+    "depth_chart_order": 5,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "6039",
-    "count": 1026,
+    "count": 1050,
+    "full_name": "Ty Johnson",
     "first_name": "Ty",
     "last_name": "Johnson",
-    "full_name": "Ty Johnson",
     "team": "BUF",
     "position": "RB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 28,
-    "years_exp": 7,
-    "college": "Maryland",
-    "number": 26,
-    "height": "70",
-    "weight": "210",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "13401",
-    "count": 1017,
-    "first_name": "Michael",
-    "last_name": "Trigg",
-    "full_name": "Michael Trigg",
-    "team": "DAL",
-    "position": "TE",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "TE"
-    ],
-    "age": 23,
-    "years_exp": 0,
-    "college": "Baylor",
-    "number": 46,
-    "height": "76",
-    "weight": "240",
-    "depth_chart_order": {},
-    "depth_chart_position": "TE"
-  },
-  {
-    "player_id": "9230",
-    "count": 1008,
-    "first_name": "Tanner",
-    "last_name": "McKee",
-    "full_name": "Tanner McKee",
-    "team": "PHI",
-    "position": "QB",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "QB"
-    ],
-    "age": 26,
-    "years_exp": 3,
-    "college": "Stanford",
-    "number": 16,
-    "height": "78",
-    "weight": "231",
-    "depth_chart_order": 2,
-    "depth_chart_position": "QB"
-  },
-  {
-    "player_id": "8188",
-    "count": 1001,
-    "first_name": "Tyquan",
-    "last_name": "Thornton",
-    "full_name": "Tyquan Thornton",
-    "team": "KC",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 25,
-    "years_exp": 4,
-    "college": "Baylor",
-    "number": 2,
-    "height": "74",
-    "weight": "185",
-    "depth_chart_order": 4,
-    "depth_chart_position": "LWR"
-  },
-  {
-    "player_id": "12492",
-    "count": 1000,
-    "first_name": "Pat",
-    "last_name": "Bryant",
-    "full_name": "Pat Bryant",
-    "team": "DEN",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 23,
-    "years_exp": 1,
-    "college": "Illinois",
-    "number": 13,
-    "height": "74",
-    "weight": "204",
-    "depth_chart_order": 4,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "9497",
-    "count": 999,
+    "count": 1035,
+    "full_name": "Jalin Hyatt",
     "first_name": "Jalin",
     "last_name": "Hyatt",
-    "full_name": "Jalin Hyatt",
     "team": "NYG",
     "position": "WR",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 7,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 24,
-    "years_exp": 3,
-    "college": "Tennessee",
-    "number": 13,
-    "height": "72",
-    "weight": "185",
-    "depth_chart_order": 7,
-    "depth_chart_position": "RWR"
+    ]
   },
   {
-    "player_id": "7591",
-    "count": 996,
-    "first_name": "Justin",
-    "last_name": "Fields",
-    "full_name": "Justin Fields",
-    "team": "KC",
+    "player_id": "11579",
+    "count": 1032,
+    "full_name": "Audric Estime",
+    "first_name": "Audric",
+    "last_name": "Estime",
+    "team": "NO",
+    "position": "RB",
+    "depth_chart_order": 6,
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12510",
+    "count": 1026,
+    "full_name": "Jalen Milroe",
+    "first_name": "Jalen",
+    "last_name": "Milroe",
+    "team": "SEA",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 27,
-    "years_exp": 5,
-    "college": "Ohio State",
-    "number": 6,
-    "height": "75",
-    "weight": "227",
+    ]
+  },
+  {
+    "player_id": "12487",
+    "count": 1024,
+    "full_name": "Terrance Ferguson",
+    "first_name": "Terrance",
+    "last_name": "Ferguson",
+    "team": "LAR",
+    "position": "TE",
     "depth_chart_order": 2,
-    "depth_chart_position": "QB"
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "8188",
+    "count": 1022,
+    "full_name": "Tyquan Thornton",
+    "first_name": "Tyquan",
+    "last_name": "Thornton",
+    "team": "KC",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "13392",
-    "count": 963,
+    "count": 1017,
+    "full_name": "Jeff Caldwell",
     "first_name": "Jeff",
     "last_name": "Caldwell",
-    "full_name": "Jeff Caldwell",
     "team": "KC",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 0,
-    "college": "Cincinnati",
-    "number": 8,
-    "height": "77",
-    "weight": "215",
-    "depth_chart_order": {},
-    "depth_chart_position": "SWR"
+    ]
   },
   {
-    "player_id": "12498",
-    "count": 940,
-    "first_name": "Mason",
-    "last_name": "Taylor",
-    "full_name": "Mason Taylor",
-    "team": "NYJ",
+    "player_id": "12492",
+    "count": 1008,
+    "full_name": "Pat Bryant",
+    "first_name": "Pat",
+    "last_name": "Bryant",
+    "team": "DEN",
+    "position": "WR",
+    "depth_chart_order": 4,
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "9230",
+    "count": 1000,
+    "full_name": "Tanner McKee",
+    "first_name": "Tanner",
+    "last_name": "McKee",
+    "team": "PHI",
+    "position": "QB",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "9482",
+    "count": 990,
+    "full_name": "Michael Mayer",
+    "first_name": "Michael",
+    "last_name": "Mayer",
+    "team": "LV",
     "position": "TE",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 22,
-    "years_exp": 1,
-    "college": "LSU",
-    "number": 85,
-    "height": "77",
-    "weight": "251",
-    "depth_chart_order": 1,
-    "depth_chart_position": "TE"
+    ]
   },
   {
-    "player_id": "2374",
-    "count": 940,
-    "first_name": "Tyler",
-    "last_name": "Lockett",
-    "full_name": "Tyler Lockett",
-    "team": {},
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "player_id": "13401",
+    "count": 981,
+    "full_name": "Michael Trigg",
+    "first_name": "Michael",
+    "last_name": "Trigg",
+    "team": "DAL",
+    "position": "TE",
+    "depth_chart_order": 99,
     "fantasy_positions": [
-      "WR"
-    ],
-    "age": 33,
-    "years_exp": 11,
-    "college": "Kansas State",
-    "number": 17,
-    "height": "70",
-    "weight": "182",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+      "TE"
+    ]
   },
   {
-    "player_id": "7562",
-    "count": 931,
-    "first_name": "Tutu",
-    "last_name": "Atwell",
-    "full_name": "Tutu Atwell",
-    "team": "MIA",
-    "position": "WR",
-    "status": "Active",
-    "injury_status": {},
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 26,
-    "years_exp": 5,
-    "college": "Louisville",
-    "number": 4,
-    "height": "69",
-    "weight": "165",
+    "player_id": "7591",
+    "count": 972,
+    "full_name": "Justin Fields",
+    "first_name": "Justin",
+    "last_name": "Fields",
+    "team": "KC",
+    "position": "QB",
     "depth_chart_order": 2,
-    "depth_chart_position": "RWR"
+    "fantasy_positions": [
+      "QB"
+    ]
   },
   {
-    "player_id": "4039",
-    "count": 918,
-    "first_name": "Cooper",
-    "last_name": "Kupp",
-    "full_name": "Cooper Kupp",
-    "team": "SEA",
+    "player_id": "7049",
+    "count": 924,
+    "full_name": "Jauan Jennings",
+    "first_name": "Jauan",
+    "last_name": "Jennings",
+    "team": "MIN",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 32,
-    "years_exp": 9,
-    "college": "Eastern Washington",
-    "number": 10,
-    "height": "73",
-    "weight": "205",
-    "depth_chart_order": 3,
-    "depth_chart_position": "SWR"
+    ]
   },
   {
     "player_id": "CLE",
     "count": 917,
+    "full_name": "Cleveland Browns",
     "first_name": "Cleveland",
     "last_name": "Browns",
-    "full_name": "Cleveland Browns",
     "team": "CLE",
     "position": "DEF",
-    "status": {},
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "DEF"
-    ],
-    "age": {},
-    "years_exp": {},
-    "college": {},
-    "number": {},
-    "height": {},
-    "weight": {},
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   },
   {
-    "player_id": "7049",
-    "count": 917,
-    "first_name": "Jauan",
-    "last_name": "Jennings",
-    "full_name": "Jauan Jennings",
-    "team": "MIN",
+    "player_id": "2374",
+    "count": 916,
+    "full_name": "Tyler Lockett",
+    "first_name": "Tyler",
+    "last_name": "Lockett",
+    "team": {},
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 99,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 28,
-    "years_exp": 6,
-    "college": "Tennessee",
-    "number": 14,
-    "height": "75",
-    "weight": "212",
-    "depth_chart_order": 2,
-    "depth_chart_position": "SWR"
+    ]
+  },
+  {
+    "player_id": "12498",
+    "count": 910,
+    "full_name": "Mason Taylor",
+    "first_name": "Mason",
+    "last_name": "Taylor",
+    "team": "NYJ",
+    "position": "TE",
+    "depth_chart_order": 1,
+    "fantasy_positions": [
+      "TE"
+    ]
   },
   {
     "player_id": "11637",
-    "count": 891,
+    "count": 900,
+    "full_name": "Keon Coleman",
     "first_name": "Keon",
     "last_name": "Coleman",
-    "full_name": "Keon Coleman",
     "team": "BUF",
     "position": "WR",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 2,
     "fantasy_positions": [
       "WR"
-    ],
-    "age": 23,
-    "years_exp": 2,
-    "college": "Florida State",
-    "number": 0,
-    "height": "75",
-    "weight": "213",
-    "depth_chart_order": 2,
-    "depth_chart_position": "LWR"
+    ]
+  },
+  {
+    "player_id": "4039",
+    "count": 900,
+    "full_name": "Cooper Kupp",
+    "first_name": "Cooper",
+    "last_name": "Kupp",
+    "team": "SEA",
+    "position": "WR",
+    "depth_chart_order": 3,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "8698",
-    "count": 875,
+    "count": 885,
+    "full_name": "Jake Tonges",
     "first_name": "Jake",
     "last_name": "Tonges",
-    "full_name": "Jake Tonges",
     "team": "SF",
     "position": "TE",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "TE"
-    ],
-    "age": 26,
-    "years_exp": 4,
-    "college": "California",
-    "number": 88,
-    "height": "76",
-    "weight": "240",
-    "depth_chart_order": 3,
-    "depth_chart_position": "TE"
+    ]
+  },
+  {
+    "player_id": "7562",
+    "count": 882,
+    "full_name": "Tutu Atwell",
+    "first_name": "Tutu",
+    "last_name": "Atwell",
+    "team": "MIA",
+    "position": "WR",
+    "depth_chart_order": 2,
+    "fantasy_positions": [
+      "WR"
+    ]
   },
   {
     "player_id": "6011",
-    "count": 860,
+    "count": 876,
+    "full_name": "Gardner Minshew",
     "first_name": "Gardner",
     "last_name": "Minshew",
-    "full_name": "Gardner Minshew",
     "team": "ARI",
     "position": "QB",
-    "status": "Active",
-    "injury_status": {},
+    "depth_chart_order": 1,
     "fantasy_positions": [
       "QB"
-    ],
-    "age": 30,
-    "years_exp": 7,
-    "college": "Washington State",
-    "number": 15,
-    "height": "73",
-    "weight": "225",
-    "depth_chart_order": 1,
-    "depth_chart_position": "QB"
+    ]
+  },
+  {
+    "player_id": "8123",
+    "count": 875,
+    "full_name": "Hassan Haskins",
+    "first_name": "Hassan",
+    "last_name": "Haskins",
+    "team": {},
+    "position": "RB",
+    "depth_chart_order": 99,
+    "fantasy_positions": [
+      "RB"
+    ]
   },
   {
     "player_id": "9757",
-    "count": 840,
+    "count": 838,
+    "full_name": "Kendre Miller",
     "first_name": "Kendre",
     "last_name": "Miller",
-    "full_name": "Kendre Miller",
     "team": "NO",
     "position": "RB",
-    "status": "Active",
-    "injury_status": "Questionable",
+    "depth_chart_order": 3,
     "fantasy_positions": [
       "RB"
-    ],
-    "age": 23,
-    "years_exp": 3,
-    "college": "TCU",
-    "number": 5,
-    "height": "72",
-    "weight": "220",
-    "depth_chart_order": 3,
-    "depth_chart_position": "RB"
-  },
-  {
-    "player_id": "4171",
-    "count": 824,
-    "first_name": "Josh",
-    "last_name": "Reynolds",
-    "full_name": "Josh Reynolds",
-    "team": {},
-    "position": "WR",
-    "status": "Active",
-    "injury_status": "Questionable",
-    "fantasy_positions": [
-      "WR"
-    ],
-    "age": 31,
-    "years_exp": 9,
-    "college": "Texas A&M",
-    "number": 83,
-    "height": "75",
-    "weight": "192",
-    "depth_chart_order": {},
-    "depth_chart_position": {}
+    ]
   }
 ]
