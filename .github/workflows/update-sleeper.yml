@@ -37,6 +37,7 @@ jobs:
       - name: Install required R packages
         run: |
           Rscript -e "options(repos='https://cloud.r-project.org'); install.packages(c(
+            'dplyr',
             'httr',
             'jsonlite'
           ))"

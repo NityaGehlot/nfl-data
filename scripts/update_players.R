@@ -4,6 +4,7 @@
 
 library(httr)
 library(jsonlite)
+library(dplyr)
 
 # =====================
 # CONFIG
