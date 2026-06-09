@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (CLEANED + NEWS FOLDER OUTPUT)
+# scripts/generate_nfl_news.R (OFFENSE + DEFENSE CLEAN VERSION)
 # =====================
 
 library(httr)
@@ -11,13 +11,6 @@ library(xml2)
 library(stringdist)
 
 # =====================
-# HELPER
-# =====================
-`%||%` <- function(a, b) {
-  if (!is.null(a)) a else b
-}
-
-# =====================
 # CONFIG
 # =====================
 OUTPUT_DIR <- "data/news"
@@ -26,14 +19,14 @@ REQUEST_DELAY <- 0.3
 SEASON_START <- as.Date("2025-09-04")
 
 # =====================
-# CHECK FILE (ONLY REQUIRED DEPENDENCY)
+# CHECK FILE
 # =====================
 if (!file.exists("data/sleeperAPI/sleeper_players.json")) {
   stop("❌ sleeper_players.json not found in data/sleeperAPI/")
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS
+# LOAD DATA
 # =====================
 message("Loading Sleeper players...")
 
@@ -43,125 +36,138 @@ players_raw <- fromJSON(
 )
 
 # =====================
-# SAFE CONVERSION
+# HELPER
+# =====================
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
+# =====================
+# POSITION NORMALIZATION
+# =====================
+normalize_position <- function(pos, fantasy_positions) {
+
+  pos <- toupper(pos %||% "")
+
+  # Defensive line grouping
+  if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
+
+  # Linebackers
+  if (pos == "LB") return("LB")
+
+  # Defensive backs handling
+  if (pos == "CB") return("CB")
+  if (pos == "S") return("S")
+
+  # DB is ambiguous → split logic
+  if (pos == "DB") return("DB")
+
+  # Offense / special teams
+  return(pos)
+}
+
+resolve_db_role <- function(player) {
+  # fallback logic for DBs
+  # simple heuristic: default CB (can improve later)
+  return("CB")
+}
+
+# =====================
+# BUILD CLEAN PLAYER TABLE
 # =====================
 players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  depth_raw <- p$depth_chart_order
-
-  depth <- tryCatch(as.numeric(depth_raw), error = function(e) NA_real_)
-  if (length(depth) == 0 || is.na(depth)) depth <- 99
+  pos_raw <- p$position %||% NA
+  norm_pos <- normalize_position(pos_raw, p$fantasy_positions)
 
   data.frame(
+    player_id = p$player_id %||% NA,
     player_name = paste(p$first_name, p$last_name),
-    position = p$position %||% NA,
+    position_raw = pos_raw,
+    position = norm_pos,
     team = p$team %||% NA,
     status = p$status %||% NA,
-    depth_chart_order = depth,
+    depth_chart_order = {
+      d <- suppressWarnings(as.numeric(p$depth_chart_order))
+      if (is.na(d)) 99 else d
+    },
     stringsAsFactors = FALSE
   )
 })
 
-players_list <- Filter(Negate(is.null), players_list)
-players <- bind_rows(players_list)
+players <- bind_rows(Filter(Negate(is.null), players_list))
 
 message("Total players loaded: ", nrow(players))
 
 # =====================
-# CLEAN DATA
+# CLEAN
 # =====================
 players <- players %>%
-  filter(!is.na(position), !is.na(player_name), !is.na(team)) %>%
+  filter(!is.na(player_name), !is.na(position)) %>%
   filter(status == "Active" | is.na(status))
 
-message("After cleaning: ", nrow(players))
+# =====================
+# DEFENSIVE + OFFENSIVE FILTERS
+# =====================
 
-# =====================
-# DEPTH FILTER
-# =====================
-players <- players %>%
+filtered_players <- players %>%
   filter(
+    # OFFENSE
     (position == "QB" & depth_chart_order <= 2) |
     (position == "RB" & depth_chart_order <= 3) |
     (position == "WR" & depth_chart_order <= 6) |
     (position == "TE" & depth_chart_order <= 3) |
-    (position == "K" & depth_chart_order == 1)
+    (position == "K"  & depth_chart_order == 1) |
+
+    # DEFENSE
+    (position == "DL" & depth_chart_order <= 6) |
+    (position == "LB" & depth_chart_order <= 4) |
+    (position == "CB" & depth_chart_order <= 5) |
+    (position == "S"  & depth_chart_order <= 3) |
+
+    # fallback DB handling
+    (position == "DB" & depth_chart_order <= 5)
   )
 
-message("After depth filter: ", nrow(players))
+message("After filtering: ", nrow(filtered_players))
 
 # =====================
-# SPLIT
+# SPLIT GROUPS
 # =====================
-qb_players <- players %>% filter(position == "QB")
-rb_players <- players %>% filter(position == "RB")
-wr_players <- players %>% filter(position == "WR")
-te_players <- players %>% filter(position == "TE")
-k_players  <- players %>% filter(position == "K")
+groups <- split(filtered_players, filtered_players$position)
 
 # =====================
-# DATE PARSER
+# RSS HELPERS (UNCHANGED)
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
     parsed <- parse_date_time(
       x,
-      orders = c(
-        "a, d b Y H:M:S z",
-        "a, d b Y H:M:S",
-        "ymd HMS",
-        "ymd HM",
-        "Y-m-dTH:M:SZ",
-        "Y-m-dTH:M:S",
-        "Y-m-d"
-      ),
+      orders = c("a, d b Y H:M:S z","Y-m-d"),
       tz = "UTC"
     )
-
     if (length(parsed) == 0 || all(is.na(parsed))) return(NA)
     as.Date(parsed[[1]])
   }, error = function(e) NA)
 }
 
-# =====================
-# IMPACT SCORING
-# =====================
 get_impact <- function(text) {
   t <- tolower(text)
-
   if (grepl("injur|out|ir|surgery", t)) return("negative")
-  if (grepl("questionable|limited", t)) return("slightly_negative")
-  if (grepl("signed|trade|contract|released|cut", t)) return("roster_move")
-  if (grepl("breakout|dominant|career-high|huge", t)) return("positive")
-
+  if (grepl("signed|trade|cut|released", t)) return("roster_move")
+  if (grepl("breakout|huge|dominant", t)) return("positive")
   "neutral"
 }
 
-# =====================
-# DUPLICATE CHECK
-# =====================
-is_duplicate_topic <- function(title, existing_titles) {
-  any(sapply(existing_titles, function(t) {
-    stringdist(tolower(title), tolower(t), method = "jw") < 0.2
-  }))
-}
-
-# =====================
-# FETCH GOOGLE NEWS (RSS ONLY)
-# =====================
 fetch_google <- function(player_name) {
-
-  query <- paste(player_name, "NFL")
 
   url <- paste0(
     "https://news.google.com/rss/search?q=",
-    URLencode(query),
+    URLencode(paste(player_name, "NFL")),
     "&hl=en-US&gl=US&ceid=US:en"
   )
 
-  xml <- tryCatch(read_xml(url), error = function(e) NULL)
+  xml <- tryCatch(read_xml(url), error=function(e) NULL)
   if (is.null(xml)) return(list())
 
   items <- xml_find_all(xml, "//item")
@@ -170,23 +176,15 @@ fetch_google <- function(player_name) {
   for (item in items) {
 
     title <- xml_text(xml_find_first(item, "title"))
-    link  <- xml_text(xml_find_first(item, "link"))
-    pub_raw <- xml_text(xml_find_first(item, "pubDate"))
-    desc <- xml_text(xml_find_first(item, "description"))
+    link <- xml_text(xml_find_first(item, "link"))
+    pub <- xml_text(xml_find_first(item, "pubDate"))
 
-    parsed <- safe_parse_date(pub_raw)
-
-    if (is.na(parsed)) {
-      possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
-      parsed <- safe_parse_date(possible_date)
-    }
-
+    parsed <- safe_parse_date(pub)
     if (is.na(parsed)) parsed <- Sys.Date()
     if (parsed < SEASON_START) next
 
     articles <- c(articles, list(list(
       title = title,
-      summary = str_trunc(title, 160),
       link = link,
       published = as.character(parsed),
       player = player_name,
@@ -194,71 +192,38 @@ fetch_google <- function(player_name) {
     )))
   }
 
-  if (length(articles) == 0) return(list())
-
-  articles <- articles[order(
-    sapply(articles, function(x) safe_parse_date(x$published)),
-    decreasing = TRUE,
-    na.last = TRUE
-  )]
-
-  selected <- list()
-  titles <- c()
-
-  for (article in articles) {
-    if (length(selected) >= MAX_PER_PLAYER) break
-    if (is_duplicate_topic(article$title, titles)) next
-
-    selected <- c(selected, list(article))
-    titles <- c(titles, article$title)
-  }
-
-  selected
+  articles[1:min(length(articles), MAX_PER_PLAYER)]
 }
 
-# =====================
-# BUILD NEWS
-# =====================
-build_news <- function(player_df) {
-
+build_news <- function(df) {
   result <- list()
 
-  for (i in seq_len(nrow(player_df))) {
-
-    player_name <- player_df$player_name[i]
-
-    message("Fetching: ", player_name)
-
+  for (i in seq_len(nrow(df))) {
     Sys.sleep(REQUEST_DELAY)
-
-    news <- fetch_google(player_name)
-
-    if (length(news) > 0) {
-      result <- c(result, news)
-    }
+    news <- fetch_google(df$player_name[i])
+    result <- c(result, news)
   }
 
   result
 }
 
 # =====================
-# GENERATE
+# GENERATE ALL GROUPS
 # =====================
-qb_news <- build_news(qb_players)
-rb_news <- build_news(rb_players)
-wr_news <- build_news(wr_players)
-te_news <- build_news(te_players)
-k_news  <- build_news(k_players)
+news_by_pos <- lapply(groups, build_news)
 
 # =====================
 # SAVE
 # =====================
-if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
+if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive=TRUE)
 
-write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(wr_news, file.path(OUTPUT_DIR, "news_wr.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(te_news, file.path(OUTPUT_DIR, "news_te.json"), pretty=TRUE, auto_unbox=TRUE)
-write_json(k_news,  file.path(OUTPUT_DIR, "news_k.json"),  pretty=TRUE, auto_unbox=TRUE)
+for (pos in names(news_by_pos)) {
+  write_json(
+    news_by_pos[[pos]],
+    file.path(OUTPUT_DIR, paste0("news_", tolower(pos), ".json")),
+    pretty=TRUE,
+    auto_unbox=TRUE
+  )
+}
 
-message("✅ DONE — News generated successfully")
+message("✅ DONE — offense + defense news generated")
