@@ -57,12 +57,7 @@ jobs:
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
 
-          git add \
-            data/news_qb.json \
-            data/news_rb.json \
-            data/news_wr.json \
-            data/news_te.json \
-            data/news_k.json
+          git add data/news/*.json
 
           git commit -m "Update NFL news" || echo "No changes"
 
