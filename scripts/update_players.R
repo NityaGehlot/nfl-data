@@ -1,5 +1,5 @@
 # =====================
-# scripts/update_players.R (CLEAN + SAFE + NORMALIZED)
+# scripts/update_players.R (STRICT SCHEMA CLEAN VERSION)
 # =====================
 
 library(httr)
@@ -20,19 +20,15 @@ if (!dir.exists(OUTPUT_DIR)) {
 }
 
 # =====================
-# HELPER
+# HELPERS
 # =====================
 
 fetch_json <- function(url) {
 
   res <- tryCatch(GET(url), error = function(e) NULL)
 
-  if (is.null(res)) {
-    stop(paste("Failed to connect to", url))
-  }
-
-  if (status_code(res) != 200) {
-    stop(paste("Request failed:", status_code(res), url))
+  if (is.null(res) || status_code(res) != 200) {
+    stop(paste("Failed request:", url))
   }
 
   content(res, as = "text", encoding = "UTF-8")
@@ -41,31 +37,24 @@ fetch_json <- function(url) {
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
-# POSITION NORMALIZATION (NEW)
+# POSITION NORMALIZATION (SAFE)
 # =====================
 
 normalize_position <- function(pos) {
 
   pos <- toupper(pos %||% "")
 
-  # Defensive Line
   if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
-
-  # Linebacker
   if (pos == "LB") return("LB")
-
-  # Defensive Back split
   if (pos == "CB") return("CB")
   if (pos == "S") return("S")
-
-  # DB is ambiguous → keep but safe
   if (pos == "DB") return("DB")
 
   return(pos)
 }
 
 # =====================
-# DOWNLOAD PLAYER DATABASE
+# DOWNLOAD RAW DATA
 # =====================
 
 message("Downloading Sleeper player database...")
@@ -76,19 +65,81 @@ players_json <- fetch_json(
 
 writeLines(players_json, PLAYERS_FILE)
 
-message("Saved sleeper_players.json")
+message("Saved raw sleeper_players.json")
 
 # =====================
-# LOAD RAW DATA
+# PARSE RAW
 # =====================
 
-players_lookup <- fromJSON(
+players_raw <- fromJSON(
   PLAYERS_FILE,
   simplifyVector = FALSE
 )
 
 # =====================
-# ENRICH TRENDING PLAYERS (CLEANED)
+# BUILD CLEAN PLAYER OBJECTS (STRICT SCHEMA)
+# =====================
+
+players_clean <- lapply(players_raw, function(p) {
+
+  if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
+
+  status <- p$status %||% "Active"
+  if (!is.na(status) && status != "Active") return(NULL)
+
+  list(
+
+    player_id = p$player_id %||% NA,
+    first_name = p$first_name,
+    last_name = p$last_name,
+    full_name = paste(p$first_name, p$last_name),
+
+    position = normalize_position(p$position),
+    team = p$team %||% NA,
+
+    depth_chart_order = {
+      d <- suppressWarnings(as.numeric(p$depth_chart_order))
+      if (is.na(d) || length(d) == 0) 99 else d
+    },
+
+    status = status,
+
+    fantasy_positions = p$fantasy_positions %||% NULL
+  )
+})
+
+players_clean <- Filter(Negate(is.null), players_clean)
+
+# =====================
+# FINAL DATAFRAME (SAFE)
+# =====================
+
+players_df <- bind_rows(players_clean)
+
+message("Clean players loaded: ", nrow(players_df))
+
+# =====================
+# SAVE STRICT JSON (ONLY REQUIRED FIELDS)
+# =====================
+
+write_json(
+  players_df,
+  PLAYERS_FILE,
+  pretty = TRUE,
+  auto_unbox = TRUE,
+  na = "null"
+)
+
+message("✅ STRICT player index saved")
+
+# =====================
+# LOOKUP TABLE
+# =====================
+
+players_lookup <- split(players_df, players_df$player_id)
+
+# =====================
+# TRENDING ENRICHMENT (MATCHES SCHEMA)
 # =====================
 
 enrich_trending <- function(json_text) {
@@ -108,24 +159,20 @@ enrich_trending <- function(json_text) {
 
     if (is.null(player)) next
 
-    pos <- normalize_position(player$position)
-
     output[[length(output) + 1]] <- list(
 
       player_id = pid,
       count = trending$count[i],
 
-      full_name = paste(player$first_name, player$last_name),
       first_name = player$first_name,
       last_name = player$last_name,
+      full_name = player$full_name,
 
+      position = player$position,
       team = player$team,
-      position = pos,
 
-      depth_chart_order = {
-        d <- suppressWarnings(as.numeric(player$depth_chart_order))
-        if (is.na(d) || length(d) == 0) 99 else d
-      },
+      depth_chart_order = player$depth_chart_order,
+      status = player$status,
 
       fantasy_positions = player$fantasy_positions
     )
