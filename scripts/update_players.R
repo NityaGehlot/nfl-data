@@ -1,10 +1,9 @@
 # =====================
-# scripts/update_players.R (CLEAN + STABLE + NORMALIZED)
+# scripts/update_players.R (CLEAN + SAFE + NORMALIZED)
 # =====================
 
 library(httr)
 library(jsonlite)
-library(dplyr)
 
 # =====================
 # CONFIG
@@ -21,15 +20,19 @@ if (!dir.exists(OUTPUT_DIR)) {
 }
 
 # =====================
-# HELPERS
+# HELPER
 # =====================
 
 fetch_json <- function(url) {
 
   res <- tryCatch(GET(url), error = function(e) NULL)
 
-  if (is.null(res) || status_code(res) != 200) {
-    stop(paste("Failed request:", url))
+  if (is.null(res)) {
+    stop(paste("Failed to connect to", url))
+  }
+
+  if (status_code(res) != 200) {
+    stop(paste("Request failed:", status_code(res), url))
   }
 
   content(res, as = "text", encoding = "UTF-8")
@@ -38,31 +41,31 @@ fetch_json <- function(url) {
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
-# POSITION NORMALIZATION
+# POSITION NORMALIZATION (NEW)
 # =====================
 
 normalize_position <- function(pos) {
 
   pos <- toupper(pos %||% "")
 
-  # Defensive line grouping
+  # Defensive Line
   if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
 
   # Linebacker
   if (pos == "LB") return("LB")
 
-  # Defensive backs
+  # Defensive Back split
   if (pos == "CB") return("CB")
   if (pos == "S") return("S")
 
-  # ambiguous defensive back
+  # DB is ambiguous → keep but safe
   if (pos == "DB") return("DB")
 
   return(pos)
 }
 
 # =====================
-# DOWNLOAD RAW PLAYER DATA
+# DOWNLOAD PLAYER DATABASE
 # =====================
 
 message("Downloading Sleeper player database...")
@@ -73,87 +76,28 @@ players_json <- fetch_json(
 
 writeLines(players_json, PLAYERS_FILE)
 
-message("Saved raw sleeper_players.json")
+message("Saved sleeper_players.json")
 
 # =====================
-# PARSE RAW DATA
+# LOAD RAW DATA
 # =====================
 
-players_raw <- fromJSON(
+players_lookup <- fromJSON(
   PLAYERS_FILE,
   simplifyVector = FALSE
 )
 
 # =====================
-# BUILD CLEAN PLAYER LIST
-# =====================
-
-players_clean <- lapply(players_raw, function(p) {
-
-  if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
-
-  status <- p$status %||% "Active"
-  if (!is.na(status) && status != "Active") return(NULL)
-
-  pos <- normalize_position(p$position)
-
-  list(
-    player_id = p$player_id %||% NA,
-    full_name = paste(p$first_name, p$last_name),
-    first_name = p$first_name,
-    last_name = p$last_name,
-
-    position = pos,
-    team = p$team %||% NA,
-
-    depth_chart_order = {
-      d <- suppressWarnings(as.numeric(p$depth_chart_order))
-      if (is.na(d) || length(d) == 0) 99 else d
-    },
-
-    fantasy_positions = p$fantasy_positions %||% NULL
-  )
-})
-
-players_clean <- Filter(Negate(is.null), players_clean)
-
-# =====================
-# FINAL DATAFRAME (FIXED)
-# =====================
-
-players_df <- bind_rows(players_clean)
-
-message("Clean players loaded: ", nrow(players_df))
-
-# =====================
-# SAVE CLEAN FILE (FOR SEARCH + NEWS SYSTEM)
-# =====================
-
-write_json(
-  players_df,
-  PLAYERS_FILE,
-  pretty = TRUE,
-  auto_unbox = TRUE,
-  na = "null"
-)
-
-message("✅ Clean player index saved")
-
-# =====================
-# LOOKUP TABLE (FIXED)
-# =====================
-
-players_lookup <- split(players_df, players_df$player_id)
-
-# =====================
-# TRENDING ENRICHMENT
+# ENRICH TRENDING PLAYERS (CLEANED)
 # =====================
 
 enrich_trending <- function(json_text) {
 
   trending <- fromJSON(json_text, simplifyDataFrame = TRUE)
 
-  if (is.null(trending) || nrow(trending) == 0) return(list())
+  if (is.null(trending) || !is.data.frame(trending) || nrow(trending) == 0) {
+    return(list())
+  }
 
   output <- list()
 
@@ -164,15 +108,25 @@ enrich_trending <- function(json_text) {
 
     if (is.null(player)) next
 
+    pos <- normalize_position(player$position)
+
     output[[length(output) + 1]] <- list(
+
       player_id = pid,
       count = trending$count[i],
 
-      full_name = player$full_name,
-      position = player$position,
-      team = player$team,
+      full_name = paste(player$first_name, player$last_name),
+      first_name = player$first_name,
+      last_name = player$last_name,
 
-      depth_chart_order = player$depth_chart_order,
+      team = player$team,
+      position = pos,
+
+      depth_chart_order = {
+        d <- suppressWarnings(as.numeric(player$depth_chart_order))
+        if (is.na(d) || length(d) == 0) 99 else d
+      },
+
       fantasy_positions = player$fantasy_positions
     )
   }
@@ -186,7 +140,7 @@ enrich_trending <- function(json_text) {
 
 download_trending <- function(type, output_file) {
 
-  message("Downloading trending ", type, "...")
+  message(paste("Downloading trending", type, "..."))
 
   url <- paste0(
     "https://api.sleeper.app/v1/players/nfl/trending/",
@@ -205,8 +159,12 @@ download_trending <- function(type, output_file) {
     na = "null"
   )
 
-  message("Saved ", basename(output_file))
+  message(paste("Saved", basename(output_file)))
 }
+
+# =====================
+# RUN
+# =====================
 
 download_trending("add", TRENDING_ADDS_FILE)
 download_trending("drop", TRENDING_DROPS_FILE)
