@@ -1,14 +1,17 @@
 name: Update NFL News
 
-# 🔥 Prevent overlapping runs (VERY important)
+# Prevent overlapping runs
 concurrency:
   group: nfl-news
   cancel-in-progress: true
 
 on:
   workflow_dispatch:
+
   schedule:
-    - cron: '0 */6 * * *'   # every 6 hours
+    # Every 6 hours
+    # 03:00, 09:00, 15:00, 21:00 UTC
+    - cron: '0 */6 * * *'
 
 jobs:
   update-news:
@@ -18,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # 🔥 required for pull --rebase
+          fetch-depth: 0
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
@@ -28,9 +31,12 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+          sudo apt-get install -y \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev
 
-      - name: Install R packages
+      - name: Install required R packages
         run: |
           Rscript -e "options(repos='https://cloud.r-project.org'); install.packages(c(
             'httr',
@@ -39,15 +45,10 @@ jobs:
             'stringr',
             'lubridate',
             'xml2',
-            'nflreadr',
             'stringdist'
           ))"
 
-      - name: Update Sleeper players
-        run: |
-          Rscript scripts/update_players.R
-
-      - name: Run news generator
+      - name: Generate NFL news
         run: |
           Rscript scripts/generate_nfl_news.R
 
@@ -56,11 +57,15 @@ jobs:
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
 
-          git add data/**/*.json
+          git add \
+            data/news_qb.json \
+            data/news_rb.json \
+            data/news_wr.json \
+            data/news_te.json \
+            data/news_k.json
 
-          git commit -m "Update NFL news + player data" || echo "No changes"
+          git commit -m "Update NFL news" || echo "No changes"
 
-          # 🔥 CRITICAL FIX: sync before pushing
           git pull --rebase origin main
 
           git push
