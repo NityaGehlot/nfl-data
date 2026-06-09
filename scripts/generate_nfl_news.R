@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (FAST TRUE DATE VERSION - NO SCRAPING)
+# scripts/generate_nfl_news.R (CLEANED + NEWS FOLDER OUTPUT)
 # =====================
 
 library(httr)
@@ -20,16 +20,16 @@ library(stringdist)
 # =====================
 # CONFIG
 # =====================
-OUTPUT_DIR <- "data"
+OUTPUT_DIR <- "data/news"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY <- 0.3
 SEASON_START <- as.Date("2025-09-04")
 
 # =====================
-# CHECK FILE
+# CHECK FILE (ONLY REQUIRED DEPENDENCY)
 # =====================
 if (!file.exists("data/sleeperAPI/sleeper_players.json")) {
-  stop("❌ sleeper_players.json not found. Run update_players.R first.")
+  stop("❌ sleeper_players.json not found in data/sleeperAPI/")
 }
 
 # =====================
@@ -102,7 +102,7 @@ te_players <- players %>% filter(position == "TE")
 k_players  <- players %>% filter(position == "K")
 
 # =====================
-# DATE PARSER (IMPROVED RSS ONLY)
+# DATE PARSER
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
@@ -149,7 +149,7 @@ is_duplicate_topic <- function(title, existing_titles) {
 }
 
 # =====================
-# FETCH GOOGLE NEWS (FAST - NO SCRAPING)
+# FETCH GOOGLE NEWS (RSS ONLY)
 # =====================
 fetch_google <- function(player_name) {
 
@@ -176,14 +176,12 @@ fetch_google <- function(player_name) {
 
     parsed <- safe_parse_date(pub_raw)
 
-    # fallback (still RSS only, NO scraping)
     if (is.na(parsed)) {
       possible_date <- str_extract(desc, "\\w{3}, \\d{1,2} \\w{3} \\d{4}")
       parsed <- safe_parse_date(possible_date)
     }
 
     if (is.na(parsed)) parsed <- Sys.Date()
-
     if (parsed < SEASON_START) next
 
     articles <- c(articles, list(list(
@@ -208,7 +206,6 @@ fetch_google <- function(player_name) {
   titles <- c()
 
   for (article in articles) {
-
     if (length(selected) >= MAX_PER_PLAYER) break
     if (is_duplicate_topic(article$title, titles)) next
 
@@ -256,7 +253,7 @@ k_news  <- build_news(k_players)
 # =====================
 # SAVE
 # =====================
-if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR)
+if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 
 write_json(qb_news, file.path(OUTPUT_DIR, "news_qb.json"), pretty=TRUE, auto_unbox=TRUE)
 write_json(rb_news, file.path(OUTPUT_DIR, "news_rb.json"), pretty=TRUE, auto_unbox=TRUE)
