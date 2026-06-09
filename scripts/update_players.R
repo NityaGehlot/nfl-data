@@ -1,110 +1,136 @@
 # =====================
 # scripts/update_players.R
-# DAILY CACHE VERSION
+# Updates:
+#   - sleeper_players.json
+#   - trending_adds.json
+#   - trending_drops.json
 # =====================
 
 library(httr)
 library(jsonlite)
 
-OUTPUT_FILE <- "data/sleeperAPI/sleeper_players.json"
-TRENDING_ADDS_FILE <- "data/sleeperAPI/trending_adds.json"
-TRENDING_DROPS_FILE <- "data/sleeperAPI/trending_drops.json"
+# =====================
+# CONFIG
+# =====================
+
+OUTPUT_DIR <- "data/sleeperAPI"
+
+PLAYERS_FILE <- file.path(
+  OUTPUT_DIR,
+  "sleeper_players.json"
+)
+
+TRENDING_ADDS_FILE <- file.path(
+  OUTPUT_DIR,
+  "trending_adds.json"
+)
+
+TRENDING_DROPS_FILE <- file.path(
+  OUTPUT_DIR,
+  "trending_drops.json"
+)
+
+if (!dir.exists(OUTPUT_DIR)) {
+  dir.create(OUTPUT_DIR, recursive = TRUE)
+}
 
 # =====================
-# SKIP IF UPDATED < 24 HOURS AGO
+# HELPER
 # =====================
-if (file.exists(OUTPUT_FILE)) {
 
-  file_info <- file.info(OUTPUT_FILE)
-  last_modified <- file_info$mtime
+fetch_json <- function(url) {
 
-  hours_since_update <- as.numeric(
-    difftime(
-      Sys.time(),
-      last_modified,
-      units = "hours"
-    )
+  res <- tryCatch(
+    GET(url),
+    error = function(e) NULL
   )
 
-  if (!is.na(hours_since_update) &&
-      hours_since_update < 24) {
-
-    message(
-      "Skipping Sleeper update (last updated ",
-      round(hours_since_update, 2),
-      " hours ago)"
-    )
-
-    quit(save = "no", status = 0)
+  if (is.null(res)) {
+    stop(paste("Failed to connect to", url))
   }
+
+  if (status_code(res) != 200) {
+    stop(
+      paste(
+        "Request failed:",
+        status_code(res),
+        url
+      )
+    )
+  }
+
+  content(
+    res,
+    as = "text",
+    encoding = "UTF-8"
+  )
 }
 
 # =====================
-# CREATE OUTPUT DIRECTORY
+# DOWNLOAD PLAYER DATABASE
 # =====================
-output_dir <- dirname(OUTPUT_FILE)
 
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir, recursive = TRUE)
-}
+message("Downloading Sleeper player database...")
 
-# =====================
-# FETCH PLAYER DATABASE
-# =====================
-message("Fetching Sleeper players...")
-
-players_res <- tryCatch(
-  GET("https://api.sleeper.app/v1/players/nfl"),
-  error = function(e) NULL
+players_json <- fetch_json(
+  "https://api.sleeper.app/v1/players/nfl"
 )
 
-if (is.null(players_res) || status_code(players_res) != 200) {
-  stop("Failed to fetch Sleeper players")
-}
-
-players_json <- content(
-  players_res,
-  as = "text",
-  encoding = "UTF-8"
+writeLines(
+  players_json,
+  PLAYERS_FILE
 )
-
-writeLines(players_json, OUTPUT_FILE)
 
 message("Saved sleeper_players.json")
 
-# =====================
-# LOAD PLAYER LOOKUP
-# =====================
+# Load lookup table
 players_lookup <- fromJSON(
-  OUTPUT_FILE,
-  simplifyDataFrame = FALSE
+  PLAYERS_FILE,
+  simplifyVector = FALSE
 )
 
 # =====================
-# HELPER FUNCTION
+# ENRICH TRENDING PLAYERS
 # =====================
-enrich_trending <- function(trending_json, players_lookup) {
+
+enrich_trending <- function(json_text) {
 
   trending <- fromJSON(
-    trending_json,
+    json_text,
     simplifyDataFrame = TRUE
   )
 
-  if (length(trending) == 0 || nrow(trending) == 0) {
+  if (is.null(trending)) {
     return(list())
   }
 
-  results <- lapply(seq_len(nrow(trending)), function(i) {
+  if (!is.data.frame(trending)) {
+    return(list())
+  }
 
-    pid <- as.character(trending$player_id[i])
+  if (nrow(trending) == 0) {
+    return(list())
+  }
+
+  output <- vector(
+    "list",
+    nrow(trending)
+  )
+
+  for (i in seq_len(nrow(trending))) {
+
+    pid <- as.character(
+      trending$player_id[i]
+    )
 
     player <- players_lookup[[pid]]
 
     if (is.null(player)) {
-      return(NULL)
+      next
     }
 
-    list(
+    output[[i]] <- list(
+
       player_id = pid,
       count = trending$count[i],
 
@@ -115,113 +141,91 @@ enrich_trending <- function(trending_json, players_lookup) {
         player$last_name
       ),
 
-      position = player$position,
       team = player$team,
+      position = player$position,
 
-      age = player$age,
       status = player$status,
       injury_status = player$injury_status,
 
       fantasy_positions = player$fantasy_positions,
 
-      depth_chart_order = player$depth_chart_order,
-      depth_chart_position = player$depth_chart_position,
+      age = player$age,
 
       years_exp = player$years_exp,
+
       college = player$college,
 
+      number = player$number,
+
       height = player$height,
+
       weight = player$weight,
 
-      number = player$number
+      depth_chart_order = player$depth_chart_order,
+      depth_chart_position = player$depth_chart_position
     )
-  })
+  }
 
-  Filter(Negate(is.null), results)
+  Filter(
+    Negate(is.null),
+    output
+  )
 }
 
 # =====================
-# FETCH TRENDING ADDS
+# DOWNLOAD TRENDING
 # =====================
-message("Fetching trending adds...")
 
-adds_res <- tryCatch(
-  GET(
-    "https://api.sleeper.app/v1/players/nfl/trending/add?lookback_hours=24&limit=100"
-  ),
-  error = function(e) NULL
-)
+download_trending <- function(type, output_file) {
 
-if (!is.null(adds_res) &&
-    status_code(adds_res) == 200) {
-
-  adds_json <- content(
-    adds_res,
-    as = "text",
-    encoding = "UTF-8"
+  message(
+    paste(
+      "Downloading trending",
+      type,
+      "..."
+    )
   )
 
-  adds_enriched <- enrich_trending(
-    adds_json,
-    players_lookup
+  url <- paste0(
+    "https://api.sleeper.app/v1/players/nfl/trending/",
+    type,
+    "?lookback_hours=24&limit=100"
+  )
+
+  json_text <- fetch_json(url)
+
+  enriched <- enrich_trending(
+    json_text
   )
 
   write_json(
-    adds_enriched,
-    TRENDING_ADDS_FILE,
+    enriched,
+    output_file,
     pretty = TRUE,
     auto_unbox = TRUE,
     na = "null"
   )
 
-  message("Saved trending_adds.json")
-
-} else {
-
-  warning("Failed to fetch trending adds")
-
+  message(
+    paste(
+      "Saved",
+      basename(output_file)
+    )
+  )
 }
 
 # =====================
-# FETCH TRENDING DROPS
+# RUN
 # =====================
-message("Fetching trending drops...")
 
-drops_res <- tryCatch(
-  GET(
-    "https://api.sleeper.app/v1/players/nfl/trending/drop?lookback_hours=24&limit=100"
-  ),
-  error = function(e) NULL
+download_trending(
+  "add",
+  TRENDING_ADDS_FILE
 )
 
-if (!is.null(drops_res) &&
-    status_code(drops_res) == 200) {
+download_trending(
+  "drop",
+  TRENDING_DROPS_FILE
+)
 
-  drops_json <- content(
-    drops_res,
-    as = "text",
-    encoding = "UTF-8"
-  )
-
-  drops_enriched <- enrich_trending(
-    drops_json,
-    players_lookup
-  )
-
-  write_json(
-    drops_enriched,
-    TRENDING_DROPS_FILE,
-    pretty = TRUE,
-    auto_unbox = TRUE,
-    na = "null"
-  )
-
-  message("Saved trending_drops.json")
-
-} else {
-
-  warning("Failed to fetch trending drops")
-
-}
-
-message("All Sleeper files updated successfully")
+message("All Sleeper files updated successfully.")
