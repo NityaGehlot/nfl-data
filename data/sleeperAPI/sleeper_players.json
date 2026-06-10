@@ -14745,7 +14745,7 @@
     "last_name": "Haarberg",
     "full_name": "Heinrich Haarberg",
     "position": "TE",
-    "team": "CAR",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "TE"
@@ -54257,7 +54257,7 @@
     "last_name": "Laros",
     "full_name": "Aidan Laros",
     "position": "P",
-    "team": "TB",
+    "team": "PIT",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "P"
@@ -61363,7 +61363,7 @@
     "last_name": "Fox",
     "full_name": "Tomon Fox",
     "position": "LB",
-    "team": null,
+    "team": "LAR",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -73430,7 +73430,7 @@
     "last_name": "Wentz",
     "full_name": "Levi Wentz",
     "position": "WR",
-    "team": "SEA",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -78050,7 +78050,7 @@
     "last_name": "Skinner",
     "full_name": "Quentin Skinner",
     "position": "WR",
-    "team": "NYJ",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
