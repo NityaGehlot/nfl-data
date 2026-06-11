@@ -35,6 +35,16 @@ export_week_json <- function(week_df, dir, season, week_num) {
   message("Exported: ", file_name)
 }
 
+normalize_def_position <- function(pos) {
+  dplyr::case_when(
+    pos %in% c("DE", "DT", "NT", "DL")             ~ "DL",
+    pos %in% c("ILB", "OLB", "MLB", "LB", "EDGE")  ~ "LB",
+    pos == "CB"                                     ~ "CB",
+    pos %in% c("FS", "SS", "DB", "S")              ~ "S",
+    TRUE                                            ~ pos
+  )
+}
+
 # =====================
 # POSITION COLUMN SCHEMAS
 # =====================
@@ -46,9 +56,6 @@ BASE_COLS <- c(
   "primary_injury", "secondary_injury",
   "practice_primary_injury", "practice_secondary_injury"
 )
-
-RUSHING_RECEIVING <- c("carries", "rushing_yards", "rushing_tds",
-                       "targets", "receptions", "receiving_yards", "receiving_tds", "fumbles")
 
 POSITION_COLS <- list(
   QB  = c("completions", "attempts", "passing_yards", "passing_tds",
@@ -63,7 +70,6 @@ POSITION_COLS <- list(
           "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49",
           "fg_made_50_59", "fg_made_60_",
           "pat_made", "pat_att", "pat_missed", "pat_pct"),
-  # Individual defensive positions
   DL  = c("def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
           "def_tackles_for_loss_yards", "def_sacks", "def_sack_yards",
           "def_qb_hits", "def_fumbles_forced", "def_safeties", "def_tds"),
@@ -100,7 +106,7 @@ trim_to_position <- function(row) {
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
-# LOAD & PREP OFFENSE DATA
+# LOAD & PREP SHARED DATA
 # =====================
 message("Loading weekly player stats")
 weekly <- nflreadr::load_player_stats(seasons = season)
@@ -173,7 +179,6 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Build per-position then recombine (preserves only relevant stat cols per pos)
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
   offense_df %>%
     filter(position == pos) %>%
@@ -231,8 +236,9 @@ team_def <- team_weekly %>%
 message("Loading individual defensive player stats")
 def_positions <- c("DL", "LB", "CB", "S")
 
-# nflreadr player stats includes defensive stats; load the defensive type
 weekly_def_raw <- nflreadr::load_player_stats(seasons = season, stat_type = "defense")
+
+message("Raw def positions found: ", paste(sort(unique(weekly_def_raw$position)), collapse = ", "))
 
 def_stat_cols <- c(
   "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
@@ -242,16 +248,17 @@ def_stat_cols <- c(
   "def_safeties", "fumble_recovery_opp", "fumble_recovery_yards_opp"
 )
 
-players_def <- players %>% filter(position %in% def_positions)
+players_def <- players %>%
+  mutate(position = normalize_def_position(position)) %>%
+  filter(position %in% def_positions)
 
 weekly_def <- weekly_def_raw %>%
+  mutate(position = normalize_def_position(position)) %>%
   filter(position %in% def_positions) %>%
   ensure_cols(def_stat_cols) %>%
   mutate(fantasy_points_ppr = coalesce(fantasy_points_ppr, 0))
 
 def_weeks <- sort(unique(weekly_def$week))
-
-# If no def weeks yet (early season), fall back to offense weeks
 if (length(def_weeks) == 0) def_weeks <- all_weeks
 
 individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_weeks,
