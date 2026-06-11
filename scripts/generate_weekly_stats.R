@@ -372,20 +372,25 @@ clean_position_row <- function(row){
 # EXPORT BY WEEK
 # =====================
 
-# Create directory structure:
+# Folder structure:
+#
 # data/
-# └── 2025 Stats/
-#     └── 2025 Offense/
+# └── Stats/
+#     └── 2025 Season/
+#         └── 2025 Offense/
 
 stats_dir <- file.path(
   "data",
-  paste0(season, " Stats"),
+  "Stats",
+  paste0(season, " Season"),
   paste0(season, " Offense")
 )
 
-if (!dir.exists(stats_dir)) {
-  dir.create(stats_dir, recursive = TRUE)
-}
+dir.create(
+  stats_dir,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
 
 weeks <- sort(unique(combined_df$week))
 
