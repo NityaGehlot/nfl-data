@@ -372,19 +372,24 @@ clean_position_row <- function(row){
 # EXPORT BY WEEK
 # =====================
 
-if(!dir.exists("data")) {
-  dir.create("data")
-}
+# Create directory structure:
+# data/
+# └── 2025 Stats/
+#     └── 2025 Offense/
 
-stats_dir <- file.path("data", "2025 stats")
+stats_dir <- file.path(
+  "data",
+  paste0(season, " Stats"),
+  paste0(season, " Offense")
+)
 
-if(!dir.exists(stats_dir)) {
-  dir.create(stats_dir)
+if (!dir.exists(stats_dir)) {
+  dir.create(stats_dir, recursive = TRUE)
 }
 
 weeks <- sort(unique(combined_df$week))
 
-for(w in weeks){
+for (w in weeks) {
 
   week_data <- combined_df %>%
     filter(week == w)
@@ -392,15 +397,15 @@ for(w in weeks){
   week_num <- as.integer(trimws(as.character(w)))
 
   file_name <- file.path(
-  stats_dir,
-  paste0(
-    "player_stats_",
-    season,
-    "_week",
-    sprintf("%02d", week_num),
-    ".json"
+    stats_dir,
+    paste0(
+      "player_stats_",
+      season,
+      "_week",
+      sprintf("%02d", week_num),
+      ".json"
+    )
   )
-)
 
   json_rows <- lapply(
     split(week_data, seq_len(nrow(week_data))),
