@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
-          git add data/**/*.json
+          git add data/"2025 Stats"/**/*.json
           git commit -m "Update player stats JSON" || echo "No changes to commit"
           git push
 
