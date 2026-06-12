@@ -10059,7 +10059,7 @@
     "last_name": "Adomitis",
     "full_name": "Cal Adomitis",
     "position": "LS",
-    "team": "PIT",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LS"
@@ -28242,7 +28242,7 @@
     "last_name": "King",
     "full_name": "Isiah King",
     "position": "LB",
-    "team": "PHI",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -41563,7 +41563,7 @@
     "last_name": "Martin",
     "full_name": "Chandler Martin",
     "position": "LB",
-    "team": "PHI",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -45380,7 +45380,7 @@
     "last_name": "Porter",
     "full_name": "Daryl Porter",
     "position": "DB",
-    "team": null,
+    "team": "PIT",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -55214,7 +55214,7 @@
     "last_name": "Davis",
     "full_name": "Joaquin Davis",
     "position": "WR",
-    "team": null,
+    "team": "PIT",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -88544,7 +88544,7 @@
     "last_name": "Williams",
     "full_name": "Aiden Williams",
     "position": "OG",
-    "team": "PIT",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OG"
@@ -89699,7 +89699,7 @@
     "last_name": "Mims",
     "full_name": "Jordan Mims",
     "position": "RB",
-    "team": "SF",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "RB"
