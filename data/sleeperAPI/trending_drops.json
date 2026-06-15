@@ -1,7 +1,7 @@
 [
   {
     "player_id": "2505",
-    "count": 3483,
+    "count": 3789,
     "first_name": "Darren",
     "last_name": "Waller",
     "full_name": "Darren Waller",
@@ -15,7 +15,7 @@
   },
   {
     "player_id": "1339",
-    "count": 2691,
+    "count": 3060,
     "first_name": "Zach",
     "last_name": "Ertz",
     "full_name": "Zach Ertz",
@@ -29,7 +29,7 @@
   },
   {
     "player_id": "12455",
-    "count": 2534,
+    "count": 2996,
     "first_name": "Brashard",
     "last_name": "Smith",
     "full_name": "Brashard Smith",
@@ -43,7 +43,7 @@
   },
   {
     "player_id": "6130",
-    "count": 2385,
+    "count": 2745,
     "first_name": "Devin",
     "last_name": "Singletary",
     "full_name": "Devin Singletary",
@@ -56,22 +56,8 @@
     ]
   },
   {
-    "player_id": "11435",
-    "count": 2367,
-    "first_name": "Emanuel",
-    "last_name": "Wilson",
-    "full_name": "Emanuel Wilson",
-    "position": "RB",
-    "team": "SEA",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
     "player_id": "8125",
-    "count": 2250,
+    "count": 2439,
     "first_name": "Calvin",
     "last_name": "Austin",
     "full_name": "Calvin Austin",
@@ -84,50 +70,8 @@
     ]
   },
   {
-    "player_id": "4144",
-    "count": 2191,
-    "first_name": "Jonnu",
-    "last_name": "Smith",
-    "full_name": "Jonnu Smith",
-    "position": "TE",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "12500",
-    "count": 2007,
-    "first_name": "Quinn",
-    "last_name": "Ewers",
-    "full_name": "Quinn Ewers",
-    "position": "QB",
-    "team": "MIA",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "9494",
-    "count": 1818,
-    "first_name": "Marvin",
-    "last_name": "Mims",
-    "full_name": "Marvin Mims",
-    "position": "WR",
-    "team": "DEN",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
     "player_id": "11630",
-    "count": 1782,
+    "count": 2340,
     "first_name": "Roman",
     "last_name": "Wilson",
     "full_name": "Roman Wilson",
@@ -140,22 +84,50 @@
     ]
   },
   {
-    "player_id": "4098",
-    "count": 1772,
-    "first_name": "Kareem",
-    "last_name": "Hunt",
-    "full_name": "Kareem Hunt",
-    "position": "RB",
+    "player_id": "4144",
+    "count": 2331,
+    "first_name": "Jonnu",
+    "last_name": "Smith",
+    "full_name": "Jonnu Smith",
+    "position": "TE",
     "team": null,
     "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "11435",
+    "count": 2259,
+    "first_name": "Emanuel",
+    "last_name": "Wilson",
+    "full_name": "Emanuel Wilson",
+    "position": "RB",
+    "team": "SEA",
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": [
       "RB"
     ]
   },
   {
+    "player_id": "9494",
+    "count": 2250,
+    "first_name": "Marvin",
+    "last_name": "Mims",
+    "full_name": "Marvin Mims",
+    "position": "WR",
+    "team": "DEN",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
     "player_id": "12670",
-    "count": 1728,
+    "count": 2223,
     "first_name": "KeAndre",
     "last_name": "Lambert-Smith",
     "full_name": "KeAndre Lambert-Smith",
@@ -168,22 +140,8 @@
     ]
   },
   {
-    "player_id": "11619",
-    "count": 1683,
-    "first_name": "Ja'Lynn",
-    "last_name": "Polk",
-    "full_name": "Ja'Lynn Polk",
-    "position": "WR",
-    "team": "NO",
-    "depth_chart_order": 11,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
     "player_id": "8147",
-    "count": 1610,
+    "count": 2093,
     "first_name": "John",
     "last_name": "Metchie",
     "full_name": "John Metchie",
@@ -196,25 +154,25 @@
     ]
   },
   {
-    "player_id": "12540",
-    "count": 1593,
-    "first_name": "Chimere",
-    "last_name": "Dike",
-    "full_name": "Chimere Dike",
-    "position": "WR",
-    "team": "TEN",
-    "depth_chart_order": 4,
+    "player_id": "12500",
+    "count": 2088,
+    "first_name": "Quinn",
+    "last_name": "Ewers",
+    "full_name": "Quinn Ewers",
+    "position": "QB",
+    "team": "MIA",
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": [
-      "WR"
+      "QB"
     ]
   },
   {
-    "player_id": "7528",
-    "count": 1550,
-    "first_name": "Najee",
-    "last_name": "Harris",
-    "full_name": "Najee Harris",
+    "player_id": "4098",
+    "count": 2004,
+    "first_name": "Kareem",
+    "last_name": "Hunt",
+    "full_name": "Kareem Hunt",
     "position": "RB",
     "team": null,
     "depth_chart_order": 99,
@@ -225,7 +183,7 @@
   },
   {
     "player_id": "12641",
-    "count": 1536,
+    "count": 1952,
     "first_name": "Jaylin",
     "last_name": "Lane",
     "full_name": "Jaylin Lane",
@@ -238,22 +196,8 @@
     ]
   },
   {
-    "player_id": "12486",
-    "count": 1533,
-    "first_name": "Dillon",
-    "last_name": "Gabriel",
-    "full_name": "Dillon Gabriel",
-    "position": "QB",
-    "team": "CLE",
-    "depth_chart_order": 4,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
     "player_id": "11834",
-    "count": 1477,
+    "count": 1862,
     "first_name": "Devaughn",
     "last_name": "Vele",
     "full_name": "Devaughn Vele",
@@ -266,8 +210,50 @@
     ]
   },
   {
+    "player_id": "12486",
+    "count": 1799,
+    "first_name": "Dillon",
+    "last_name": "Gabriel",
+    "full_name": "Dillon Gabriel",
+    "position": "QB",
+    "team": "CLE",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "7528",
+    "count": 1730,
+    "first_name": "Najee",
+    "last_name": "Harris",
+    "full_name": "Najee Harris",
+    "position": "RB",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "11619",
+    "count": 1719,
+    "first_name": "Ja'Lynn",
+    "last_name": "Polk",
+    "full_name": "Ja'Lynn Polk",
+    "position": "WR",
+    "team": "NO",
+    "depth_chart_order": 11,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
     "player_id": "12503",
-    "count": 1440,
+    "count": 1665,
     "first_name": "Isaiah",
     "last_name": "Bond",
     "full_name": "Isaiah Bond",
@@ -280,64 +266,8 @@
     ]
   },
   {
-    "player_id": "12523",
-    "count": 1414,
-    "first_name": "Jimmy",
-    "last_name": "Horn",
-    "full_name": "Jimmy Horn",
-    "position": "WR",
-    "team": "CAR",
-    "depth_chart_order": 6,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "4381",
-    "count": 1400,
-    "first_name": "Taysom",
-    "last_name": "Hill",
-    "full_name": "Taysom Hill",
-    "position": "TE",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "11571",
-    "count": 1386,
-    "first_name": "Isaiah",
-    "last_name": "Davis",
-    "full_name": "Isaiah Davis",
-    "position": "RB",
-    "team": "NYJ",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "6789",
-    "count": 1379,
-    "first_name": "Henry",
-    "last_name": "Ruggs",
-    "full_name": "Henry Ruggs",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
     "player_id": "12472",
-    "count": 1376,
+    "count": 1656,
     "first_name": "Raheim",
     "last_name": "Sanders",
     "full_name": "Raheim Sanders",
@@ -350,111 +280,13 @@
     ]
   },
   {
-    "player_id": "1234",
-    "count": 1355,
-    "first_name": "Russell",
-    "last_name": "Wilson",
-    "full_name": "Russell Wilson",
-    "position": "QB",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "7090",
-    "count": 1350,
-    "first_name": "Darnell",
-    "last_name": "Mooney",
-    "full_name": "Darnell Mooney",
+    "player_id": "12540",
+    "count": 1647,
+    "first_name": "Chimere",
+    "last_name": "Dike",
+    "full_name": "Chimere Dike",
     "position": "WR",
-    "team": "NYG",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11562",
-    "count": 1336,
-    "first_name": "Spencer",
-    "last_name": "Rattler",
-    "full_name": "Spencer Rattler",
-    "position": "QB",
-    "team": "NO",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "4066",
-    "count": 1304,
-    "first_name": "Evan",
-    "last_name": "Engram",
-    "full_name": "Evan Engram",
-    "position": "TE",
-    "team": "DEN",
-    "depth_chart_order": 1,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "6865",
-    "count": 1272,
-    "first_name": "Colby",
-    "last_name": "Parkinson",
-    "full_name": "Colby Parkinson",
-    "position": "TE",
-    "team": "LAR",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "19",
-    "count": 1269,
-    "first_name": "Joe",
-    "last_name": "Flacco",
-    "full_name": "Joe Flacco",
-    "position": "QB",
-    "team": "CIN",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "6151",
-    "count": 1260,
-    "first_name": "Miles",
-    "last_name": "Sanders",
-    "full_name": "Miles Sanders",
-    "position": "RB",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "11623",
-    "count": 1260,
-    "first_name": "Jordan",
-    "last_name": "Whittington",
-    "full_name": "Jordan Whittington",
-    "position": "WR",
-    "team": "LAR",
+    "team": "TEN",
     "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": [
@@ -462,78 +294,8 @@
     ]
   },
   {
-    "player_id": "11581",
-    "count": 1224,
-    "first_name": "MarShawn",
-    "last_name": "Lloyd",
-    "full_name": "MarShawn Lloyd",
-    "position": "RB",
-    "team": "GB",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "12718",
-    "count": 1224,
-    "first_name": "Konata",
-    "last_name": "Mumpfield",
-    "full_name": "Konata Mumpfield",
-    "position": "WR",
-    "team": "LAR",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11625",
-    "count": 1200,
-    "first_name": "Adonai",
-    "last_name": "Mitchell",
-    "full_name": "Adonai Mitchell",
-    "position": "WR",
-    "team": "NYJ",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "8117",
-    "count": 1200,
-    "first_name": "Jalen",
-    "last_name": "Tolbert",
-    "full_name": "Jalen Tolbert",
-    "position": "WR",
-    "team": "MIA",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11650",
-    "count": 1190,
-    "first_name": "Luke",
-    "last_name": "McCaffrey",
-    "full_name": "Luke McCaffrey",
-    "position": "WR",
-    "team": "WAS",
-    "depth_chart_order": 7,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
     "player_id": "1479",
-    "count": 1184,
+    "count": 1644,
     "first_name": "Keenan",
     "last_name": "Allen",
     "full_name": "Keenan Allen",
@@ -546,22 +308,22 @@
     ]
   },
   {
-    "player_id": "7607",
-    "count": 1180,
-    "first_name": "Michael",
-    "last_name": "Carter",
-    "full_name": "Michael Carter",
-    "position": "RB",
-    "team": "TEN",
-    "depth_chart_order": 4,
+    "player_id": "7090",
+    "count": 1629,
+    "first_name": "Darnell",
+    "last_name": "Mooney",
+    "full_name": "Darnell Mooney",
+    "position": "WR",
+    "team": "NYG",
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": [
-      "RB"
+      "WR"
     ]
   },
   {
     "player_id": "11589",
-    "count": 1170,
+    "count": 1596,
     "first_name": "Trey",
     "last_name": "Benson",
     "full_name": "Trey Benson",
@@ -574,64 +336,106 @@
     ]
   },
   {
-    "player_id": "5995",
-    "count": 1170,
-    "first_name": "Justice",
+    "player_id": "4381",
+    "count": 1575,
+    "first_name": "Taysom",
     "last_name": "Hill",
-    "full_name": "Justice Hill",
-    "position": "RB",
-    "team": "BAL",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "12462",
-    "count": 1160,
-    "first_name": "Damien",
-    "last_name": "Martinez",
-    "full_name": "Damien Martinez",
-    "position": "RB",
-    "team": "GB",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "8800",
-    "count": 1107,
-    "first_name": "Malik",
-    "last_name": "Davis",
-    "full_name": "Malik Davis",
-    "position": "RB",
-    "team": "DAL",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "4663",
-    "count": 1084,
-    "first_name": "Austin",
-    "last_name": "Ekeler",
-    "full_name": "Austin Ekeler",
-    "position": "RB",
+    "full_name": "Taysom Hill",
+    "position": "TE",
     "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "11625",
+    "count": 1568,
+    "first_name": "Adonai",
+    "last_name": "Mitchell",
+    "full_name": "Adonai Mitchell",
+    "position": "WR",
+    "team": "NYJ",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11650",
+    "count": 1561,
+    "first_name": "Luke",
+    "last_name": "McCaffrey",
+    "full_name": "Luke McCaffrey",
+    "position": "WR",
+    "team": "WAS",
+    "depth_chart_order": 7,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11623",
+    "count": 1557,
+    "first_name": "Jordan",
+    "last_name": "Whittington",
+    "full_name": "Jordan Whittington",
+    "position": "WR",
+    "team": "LAR",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11571",
+    "count": 1539,
+    "first_name": "Isaiah",
+    "last_name": "Davis",
+    "full_name": "Isaiah Davis",
+    "position": "RB",
+    "team": "NYJ",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
       "RB"
     ]
   },
   {
+    "player_id": "11562",
+    "count": 1512,
+    "first_name": "Spencer",
+    "last_name": "Rattler",
+    "full_name": "Spencer Rattler",
+    "position": "QB",
+    "team": "NO",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "12523",
+    "count": 1484,
+    "first_name": "Jimmy",
+    "last_name": "Horn",
+    "full_name": "Jimmy Horn",
+    "position": "WR",
+    "team": "CAR",
+    "depth_chart_order": 6,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
     "player_id": "10235",
-    "count": 1048,
+    "count": 1456,
     "first_name": "Roschon",
     "last_name": "Johnson",
     "full_name": "Roschon Johnson",
@@ -644,8 +448,22 @@
     ]
   },
   {
+    "player_id": "7607",
+    "count": 1432,
+    "first_name": "Michael",
+    "last_name": "Carter",
+    "full_name": "Michael Carter",
+    "position": "RB",
+    "team": "TEN",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
     "player_id": "12547",
-    "count": 1025,
+    "count": 1420,
     "first_name": "Kyle",
     "last_name": "Williams",
     "full_name": "Kyle Williams",
@@ -658,55 +476,41 @@
     ]
   },
   {
-    "player_id": "13392",
-    "count": 1008,
-    "first_name": "Jeff",
-    "last_name": "Caldwell",
-    "full_name": "Jeff Caldwell",
-    "position": "WR",
-    "team": "KC",
-    "depth_chart_order": 99,
+    "player_id": "6865",
+    "count": 1368,
+    "first_name": "Colby",
+    "last_name": "Parkinson",
+    "full_name": "Colby Parkinson",
+    "position": "TE",
+    "team": "LAR",
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": [
-      "WR"
+      "TE"
     ]
   },
   {
-    "player_id": "12457",
-    "count": 1000,
-    "first_name": "Jaydon",
-    "last_name": "Blue",
-    "full_name": "Jaydon Blue",
+    "player_id": "5995",
+    "count": 1359,
+    "first_name": "Justice",
+    "last_name": "Hill",
+    "full_name": "Justice Hill",
     "position": "RB",
-    "team": "DAL",
-    "depth_chart_order": 3,
+    "team": "BAL",
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": [
       "RB"
     ]
   },
   {
-    "player_id": "3321",
-    "count": 1000,
-    "first_name": "Tyreek",
-    "last_name": "Hill",
-    "full_name": "Tyreek Hill",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "1166",
-    "count": 1000,
-    "first_name": "Kirk",
-    "last_name": "Cousins",
-    "full_name": "Kirk Cousins",
+    "player_id": "19",
+    "count": 1359,
+    "first_name": "Joe",
+    "last_name": "Flacco",
+    "full_name": "Joe Flacco",
     "position": "QB",
-    "team": "LV",
+    "team": "CIN",
     "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": [
@@ -714,28 +518,112 @@
     ]
   },
   {
-    "player_id": "3271",
-    "count": 999,
-    "first_name": "Tyler",
-    "last_name": "Higbee",
-    "full_name": "Tyler Higbee",
+    "player_id": "4066",
+    "count": 1344,
+    "first_name": "Evan",
+    "last_name": "Engram",
+    "full_name": "Evan Engram",
     "position": "TE",
-    "team": "LAR",
-    "depth_chart_order": 3,
+    "team": "DEN",
+    "depth_chart_order": 1,
     "status": "Active",
     "fantasy_positions": [
       "TE"
     ]
   },
   {
-    "player_id": "8135",
-    "count": 994,
-    "first_name": "Treylon",
-    "last_name": "Burks",
-    "full_name": "Treylon Burks",
+    "player_id": "6151",
+    "count": 1278,
+    "first_name": "Miles",
+    "last_name": "Sanders",
+    "full_name": "Miles Sanders",
+    "position": "RB",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "6149",
+    "count": 1266,
+    "first_name": "Darius",
+    "last_name": "Slayton",
+    "full_name": "Darius Slayton",
     "position": "WR",
-    "team": "WAS",
-    "depth_chart_order": 5,
+    "team": "NYG",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "6826",
+    "count": 1260,
+    "first_name": "Cole",
+    "last_name": "Kmet",
+    "full_name": "Cole Kmet",
+    "position": "TE",
+    "team": "CHI",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "1234",
+    "count": 1190,
+    "first_name": "Russell",
+    "last_name": "Wilson",
+    "full_name": "Russell Wilson",
+    "position": "QB",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "2078",
+    "count": 1176,
+    "first_name": "Odell",
+    "last_name": "Beckham",
+    "full_name": "Odell Beckham",
+    "position": "WR",
+    "team": "NYG",
+    "depth_chart_order": 6,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "8800",
+    "count": 1170,
+    "first_name": "Malik",
+    "last_name": "Davis",
+    "full_name": "Malik Davis",
+    "position": "RB",
+    "team": "DAL",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12718",
+    "count": 1170,
+    "first_name": "Konata",
+    "last_name": "Mumpfield",
+    "full_name": "Konata Mumpfield",
+    "position": "WR",
+    "team": "LAR",
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": [
       "WR"
@@ -743,7 +631,7 @@
   },
   {
     "player_id": "9999",
-    "count": 992,
+    "count": 1168,
     "first_name": "Will",
     "last_name": "Levis",
     "full_name": "Will Levis",
@@ -757,7 +645,7 @@
   },
   {
     "player_id": "10444",
-    "count": 939,
+    "count": 1149,
     "first_name": "Cedric",
     "last_name": "Tillman",
     "full_name": "Cedric Tillman",
@@ -770,92 +658,36 @@
     ]
   },
   {
-    "player_id": "12516",
-    "count": 924,
-    "first_name": "Kalel",
-    "last_name": "Mullings",
-    "full_name": "Kalel Mullings",
+    "player_id": "3321",
+    "count": 1136,
+    "first_name": "Tyreek",
+    "last_name": "Hill",
+    "full_name": "Tyreek Hill",
+    "position": "WR",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "4663",
+    "count": 1136,
+    "first_name": "Austin",
+    "last_name": "Ekeler",
+    "full_name": "Austin Ekeler",
     "position": "RB",
-    "team": "TEN",
-    "depth_chart_order": 5,
+    "team": null,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": [
       "RB"
-    ]
-  },
-  {
-    "player_id": "11579",
-    "count": 918,
-    "first_name": "Audric",
-    "last_name": "Estime",
-    "full_name": "Audric Estime",
-    "position": "RB",
-    "team": "NO",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "12496",
-    "count": 912,
-    "first_name": "Tai",
-    "last_name": "Felton",
-    "full_name": "Tai Felton",
-    "position": "WR",
-    "team": "MIN",
-    "depth_chart_order": 4,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "9482",
-    "count": 909,
-    "first_name": "Michael",
-    "last_name": "Mayer",
-    "full_name": "Michael Mayer",
-    "position": "TE",
-    "team": "LV",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "10226",
-    "count": 909,
-    "first_name": "Andrei",
-    "last_name": "Iosivas",
-    "full_name": "Andrei Iosivas",
-    "position": "WR",
-    "team": "CIN",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "6149",
-    "count": 894,
-    "first_name": "Darius",
-    "last_name": "Slayton",
-    "full_name": "Darius Slayton",
-    "position": "WR",
-    "team": "NYG",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
     ]
   },
   {
     "player_id": "9506",
-    "count": 882,
+    "count": 1125,
     "first_name": "Sean",
     "last_name": "Tucker",
     "full_name": "Sean Tucker",
@@ -868,78 +700,36 @@
     ]
   },
   {
-    "player_id": "11637",
-    "count": 873,
-    "first_name": "Keon",
-    "last_name": "Coleman",
-    "full_name": "Keon Coleman",
-    "position": "WR",
-    "team": "BUF",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11640",
-    "count": 872,
-    "first_name": "Jermaine",
-    "last_name": "Burton",
-    "full_name": "Jermaine Burton",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "2307",
-    "count": 872,
-    "first_name": "Marcus",
-    "last_name": "Mariota",
-    "full_name": "Marcus Mariota",
-    "position": "QB",
-    "team": "WAS",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "8129",
-    "count": 872,
-    "first_name": "Dameon",
-    "last_name": "Pierce",
-    "full_name": "Dameon Pierce",
+    "player_id": "11581",
+    "count": 1062,
+    "first_name": "MarShawn",
+    "last_name": "Lloyd",
+    "full_name": "MarShawn Lloyd",
     "position": "RB",
-    "team": "PHI",
-    "depth_chart_order": 4,
+    "team": "GB",
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": [
       "RB"
     ]
   },
   {
-    "player_id": "2078",
-    "count": 847,
-    "first_name": "Odell",
-    "last_name": "Beckham",
-    "full_name": "Odell Beckham",
-    "position": "WR",
-    "team": "NYG",
-    "depth_chart_order": 6,
+    "player_id": "11579",
+    "count": 1062,
+    "first_name": "Audric",
+    "last_name": "Estime",
+    "full_name": "Audric Estime",
+    "position": "RB",
+    "team": "NO",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": [
-      "WR"
+      "RB"
     ]
   },
   {
     "player_id": "827",
-    "count": 846,
+    "count": 1056,
     "first_name": "Tyrod",
     "last_name": "Taylor",
     "full_name": "Tyrod Taylor",
@@ -952,106 +742,8 @@
     ]
   },
   {
-    "player_id": "11439",
-    "count": 835,
-    "first_name": "Jaleel",
-    "last_name": "McLaughlin",
-    "full_name": "Jaleel McLaughlin",
-    "position": "RB",
-    "team": "DEN",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "12495",
-    "count": 833,
-    "first_name": "Ollie",
-    "last_name": "Gordon",
-    "full_name": "Ollie Gordon",
-    "position": "RB",
-    "team": "MIA",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "3200",
-    "count": 819,
-    "first_name": "Sterling",
-    "last_name": "Shepard",
-    "full_name": "Sterling Shepard",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11647",
-    "count": 805,
-    "first_name": "Kimani",
-    "last_name": "Vidal",
-    "full_name": "Kimani Vidal",
-    "position": "RB",
-    "team": "LAC",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "5970",
-    "count": 804,
-    "first_name": "Greg",
-    "last_name": "Dortch",
-    "full_name": "Greg Dortch",
-    "position": "WR",
-    "team": "DET",
-    "depth_chart_order": 4,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "6826",
-    "count": 801,
-    "first_name": "Cole",
-    "last_name": "Kmet",
-    "full_name": "Cole Kmet",
-    "position": "TE",
-    "team": "CHI",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "13300",
-    "count": 798,
-    "first_name": "Le'Veon",
-    "last_name": "Moss",
-    "full_name": "Le'Veon Moss",
-    "position": "RB",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
     "player_id": "12511",
-    "count": 795,
+    "count": 1055,
     "first_name": "Will",
     "last_name": "Howard",
     "full_name": "Will Howard",
@@ -1064,14 +756,84 @@
     ]
   },
   {
-    "player_id": "12492",
-    "count": 792,
-    "first_name": "Pat",
-    "last_name": "Bryant",
-    "full_name": "Pat Bryant",
+    "player_id": "12516",
+    "count": 1050,
+    "first_name": "Kalel",
+    "last_name": "Mullings",
+    "full_name": "Kalel Mullings",
+    "position": "RB",
+    "team": "TEN",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12495",
+    "count": 1022,
+    "first_name": "Ollie",
+    "last_name": "Gordon",
+    "full_name": "Ollie Gordon",
+    "position": "RB",
+    "team": "MIA",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "8117",
+    "count": 1008,
+    "first_name": "Jalen",
+    "last_name": "Tolbert",
+    "full_name": "Jalen Tolbert",
     "position": "WR",
-    "team": "DEN",
-    "depth_chart_order": 4,
+    "team": "MIA",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "1166",
+    "count": 1008,
+    "first_name": "Kirk",
+    "last_name": "Cousins",
+    "full_name": "Kirk Cousins",
+    "position": "QB",
+    "team": "LV",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "10226",
+    "count": 999,
+    "first_name": "Andrei",
+    "last_name": "Iosivas",
+    "full_name": "Andrei Iosivas",
+    "position": "WR",
+    "team": "CIN",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "10218",
+    "count": 994,
+    "first_name": "Xavier",
+    "last_name": "Hutchinson",
+    "full_name": "Xavier Hutchinson",
+    "position": "WR",
+    "team": "HOU",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": [
       "WR"
@@ -1079,7 +841,7 @@
   },
   {
     "player_id": "12482",
-    "count": 791,
+    "count": 994,
     "first_name": "Savion",
     "last_name": "Williams",
     "full_name": "Savion Williams",
@@ -1092,56 +854,28 @@
     ]
   },
   {
-    "player_id": "7049",
-    "count": 784,
-    "first_name": "Jauan",
-    "last_name": "Jennings",
-    "full_name": "Jauan Jennings",
+    "player_id": "6789",
+    "count": 987,
+    "first_name": "Henry",
+    "last_name": "Ruggs",
+    "full_name": "Henry Ruggs",
     "position": "WR",
-    "team": "MIN",
-    "depth_chart_order": 3,
+    "team": null,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": [
       "WR"
     ]
   },
   {
-    "player_id": "4039",
-    "count": 780,
-    "first_name": "Cooper",
-    "last_name": "Kupp",
-    "full_name": "Cooper Kupp",
-    "position": "WR",
-    "team": "SEA",
-    "depth_chart_order": 4,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "12510",
-    "count": 744,
-    "first_name": "Jalen",
-    "last_name": "Milroe",
-    "full_name": "Jalen Milroe",
-    "position": "QB",
-    "team": "SEA",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "12531",
-    "count": 740,
-    "first_name": "Trevor",
-    "last_name": "Etienne",
-    "full_name": "Trevor Etienne",
+    "player_id": "12462",
+    "count": 980,
+    "first_name": "Damien",
+    "last_name": "Martinez",
+    "full_name": "Damien Martinez",
     "position": "RB",
-    "team": "CAR",
-    "depth_chart_order": 4,
+    "team": "GB",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": [
       "RB"
@@ -1149,7 +883,7 @@
   },
   {
     "player_id": "7591",
-    "count": 738,
+    "count": 978,
     "first_name": "Justin",
     "last_name": "Fields",
     "full_name": "Justin Fields",
@@ -1162,8 +896,288 @@
     ]
   },
   {
+    "player_id": "8129",
+    "count": 968,
+    "first_name": "Dameon",
+    "last_name": "Pierce",
+    "full_name": "Dameon Pierce",
+    "position": "RB",
+    "team": "PHI",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "7049",
+    "count": 966,
+    "first_name": "Jauan",
+    "last_name": "Jennings",
+    "full_name": "Jauan Jennings",
+    "position": "WR",
+    "team": "MIN",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "3200",
+    "count": 959,
+    "first_name": "Sterling",
+    "last_name": "Shepard",
+    "full_name": "Sterling Shepard",
+    "position": "WR",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "13300",
+    "count": 936,
+    "first_name": "Le'Veon",
+    "last_name": "Moss",
+    "full_name": "Le'Veon Moss",
+    "position": "RB",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "2307",
+    "count": 928,
+    "first_name": "Marcus",
+    "last_name": "Mariota",
+    "full_name": "Marcus Mariota",
+    "position": "QB",
+    "team": "WAS",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "3271",
+    "count": 918,
+    "first_name": "Tyler",
+    "last_name": "Higbee",
+    "full_name": "Tyler Higbee",
+    "position": "TE",
+    "team": "LAR",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "12542",
+    "count": 908,
+    "first_name": "Efton",
+    "last_name": "Chism",
+    "full_name": "Efton Chism",
+    "position": "WR",
+    "team": "NE",
+    "depth_chart_order": 7,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12498",
+    "count": 905,
+    "first_name": "Mason",
+    "last_name": "Taylor",
+    "full_name": "Mason Taylor",
+    "position": "TE",
+    "team": "NYJ",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "12510",
+    "count": 900,
+    "first_name": "Jalen",
+    "last_name": "Milroe",
+    "full_name": "Jalen Milroe",
+    "position": "QB",
+    "team": "SEA",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "5970",
+    "count": 900,
+    "first_name": "Greg",
+    "last_name": "Dortch",
+    "full_name": "Greg Dortch",
+    "position": "WR",
+    "team": "DET",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11783",
+    "count": 896,
+    "first_name": "Ryan",
+    "last_name": "Flournoy",
+    "full_name": "Ryan Flournoy",
+    "position": "WR",
+    "team": "DAL",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12492",
+    "count": 896,
+    "first_name": "Pat",
+    "last_name": "Bryant",
+    "full_name": "Pat Bryant",
+    "position": "WR",
+    "team": "DEN",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "13401",
+    "count": 882,
+    "first_name": "Michael",
+    "last_name": "Trigg",
+    "full_name": "Michael Trigg",
+    "position": "TE",
+    "team": "DAL",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "11640",
+    "count": 880,
+    "first_name": "Jermaine",
+    "last_name": "Burton",
+    "full_name": "Jermaine Burton",
+    "position": "WR",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12496",
+    "count": 876,
+    "first_name": "Tai",
+    "last_name": "Felton",
+    "full_name": "Tai Felton",
+    "position": "WR",
+    "team": "MIN",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11647",
+    "count": 875,
+    "first_name": "Kimani",
+    "last_name": "Vidal",
+    "full_name": "Kimani Vidal",
+    "position": "RB",
+    "team": "LAC",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "9482",
+    "count": 864,
+    "first_name": "Michael",
+    "last_name": "Mayer",
+    "full_name": "Michael Mayer",
+    "position": "TE",
+    "team": "LV",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "11439",
+    "count": 840,
+    "first_name": "Jaleel",
+    "last_name": "McLaughlin",
+    "full_name": "Jaleel McLaughlin",
+    "position": "RB",
+    "team": "DEN",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "11637",
+    "count": 837,
+    "first_name": "Keon",
+    "last_name": "Coleman",
+    "full_name": "Keon Coleman",
+    "position": "WR",
+    "team": "BUF",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12457",
+    "count": 824,
+    "first_name": "Jaydon",
+    "last_name": "Blue",
+    "full_name": "Jaydon Blue",
+    "position": "RB",
+    "team": "DAL",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
     "player_id": "12487",
-    "count": 736,
+    "count": 824,
     "first_name": "Terrance",
     "last_name": "Ferguson",
     "full_name": "Terrance Ferguson",
@@ -1173,6 +1187,188 @@
     "status": "Active",
     "fantasy_positions": [
       "TE"
+    ]
+  },
+  {
+    "player_id": "CLE",
+    "count": 812,
+    "first_name": "Cleveland",
+    "last_name": "Browns",
+    "full_name": "Cleveland Browns",
+    "position": "DEF",
+    "team": "CLE",
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "DEF"
+    ]
+  },
+  {
+    "player_id": "8135",
+    "count": 805,
+    "first_name": "Treylon",
+    "last_name": "Burks",
+    "full_name": "Treylon Burks",
+    "position": "WR",
+    "team": "WAS",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12531",
+    "count": 804,
+    "first_name": "Trevor",
+    "last_name": "Etienne",
+    "full_name": "Trevor Etienne",
+    "position": "RB",
+    "team": "CAR",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "12470",
+    "count": 798,
+    "first_name": "Riley",
+    "last_name": "Leonard",
+    "full_name": "Riley Leonard",
+    "position": "QB",
+    "team": "IND",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "2374",
+    "count": 776,
+    "first_name": "Tyler",
+    "last_name": "Lockett",
+    "full_name": "Tyler Lockett",
+    "position": "WR",
+    "team": null,
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12471",
+    "count": 775,
+    "first_name": "DJ",
+    "last_name": "Giddens",
+    "full_name": "DJ Giddens",
+    "position": "RB",
+    "team": "IND",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "RB"
+    ]
+  },
+  {
+    "player_id": "4039",
+    "count": 774,
+    "first_name": "Cooper",
+    "last_name": "Kupp",
+    "full_name": "Cooper Kupp",
+    "position": "WR",
+    "team": "SEA",
+    "depth_chart_order": 4,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11596",
+    "count": 771,
+    "first_name": "Ben",
+    "last_name": "Sinnott",
+    "full_name": "Ben Sinnott",
+    "position": "TE",
+    "team": "WAS",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "TE"
+    ]
+  },
+  {
+    "player_id": "9230",
+    "count": 760,
+    "first_name": "Tanner",
+    "last_name": "McKee",
+    "full_name": "Tanner McKee",
+    "position": "QB",
+    "team": "PHI",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
+    ]
+  },
+  {
+    "player_id": "8188",
+    "count": 756,
+    "first_name": "Tyquan",
+    "last_name": "Thornton",
+    "full_name": "Tyquan Thornton",
+    "position": "WR",
+    "team": "KC",
+    "depth_chart_order": 3,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12539",
+    "count": 755,
+    "first_name": "Arian",
+    "last_name": "Smith",
+    "full_name": "Arian Smith",
+    "position": "WR",
+    "team": "NYJ",
+    "depth_chart_order": 6,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "12499",
+    "count": 712,
+    "first_name": "Elic",
+    "last_name": "Ayomanor",
+    "full_name": "Elic Ayomanor",
+    "position": "WR",
+    "team": "TEN",
+    "depth_chart_order": 5,
+    "status": "Active",
+    "fantasy_positions": [
+      "WR"
+    ]
+  },
+  {
+    "player_id": "11557",
+    "count": 712,
+    "first_name": "Joe",
+    "last_name": "Milton",
+    "full_name": "Joe Milton",
+    "position": "QB",
+    "team": "DAL",
+    "depth_chart_order": 2,
+    "status": "Active",
+    "fantasy_positions": [
+      "QB"
     ]
   },
   {
@@ -1190,120 +1386,8 @@
     ]
   },
   {
-    "player_id": "9230",
-    "count": 704,
-    "first_name": "Tanner",
-    "last_name": "McKee",
-    "full_name": "Tanner McKee",
-    "position": "QB",
-    "team": "PHI",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
-    "player_id": "12542",
-    "count": 692,
-    "first_name": "Efton",
-    "last_name": "Chism",
-    "full_name": "Efton Chism",
-    "position": "WR",
-    "team": "NE",
-    "depth_chart_order": 7,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11596",
-    "count": 672,
-    "first_name": "Ben",
-    "last_name": "Sinnott",
-    "full_name": "Ben Sinnott",
-    "position": "TE",
-    "team": "WAS",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "12471",
-    "count": 665,
-    "first_name": "DJ",
-    "last_name": "Giddens",
-    "full_name": "DJ Giddens",
-    "position": "RB",
-    "team": "IND",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "6943",
-    "count": 660,
-    "first_name": "Gabe",
-    "last_name": "Davis",
-    "full_name": "Gabe Davis",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "2374",
-    "count": 660,
-    "first_name": "Tyler",
-    "last_name": "Lockett",
-    "full_name": "Tyler Lockett",
-    "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "10218",
-    "count": 651,
-    "first_name": "Xavier",
-    "last_name": "Hutchinson",
-    "full_name": "Xavier Hutchinson",
-    "position": "WR",
-    "team": "HOU",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "12470",
-    "count": 648,
-    "first_name": "Riley",
-    "last_name": "Leonard",
-    "full_name": "Riley Leonard",
-    "position": "QB",
-    "team": "IND",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "QB"
-    ]
-  },
-  {
     "player_id": "8698",
-    "count": 645,
+    "count": 710,
     "first_name": "Jake",
     "last_name": "Tonges",
     "full_name": "Jake Tonges",
@@ -1313,90 +1397,6 @@
     "status": "Active",
     "fantasy_positions": [
       "TE"
-    ]
-  },
-  {
-    "player_id": "12499",
-    "count": 644,
-    "first_name": "Elic",
-    "last_name": "Ayomanor",
-    "full_name": "Elic Ayomanor",
-    "position": "WR",
-    "team": "TEN",
-    "depth_chart_order": 5,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "6039",
-    "count": 642,
-    "first_name": "Ty",
-    "last_name": "Johnson",
-    "full_name": "Ty Johnson",
-    "position": "RB",
-    "team": "BUF",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "RB"
-    ]
-  },
-  {
-    "player_id": "12498",
-    "count": 640,
-    "first_name": "Mason",
-    "last_name": "Taylor",
-    "full_name": "Mason Taylor",
-    "position": "TE",
-    "team": "NYJ",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": [
-      "TE"
-    ]
-  },
-  {
-    "player_id": "12539",
-    "count": 640,
-    "first_name": "Arian",
-    "last_name": "Smith",
-    "full_name": "Arian Smith",
-    "position": "WR",
-    "team": "NYJ",
-    "depth_chart_order": 6,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "11783",
-    "count": 632,
-    "first_name": "Ryan",
-    "last_name": "Flournoy",
-    "full_name": "Ryan Flournoy",
-    "position": "WR",
-    "team": "DAL",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
-    ]
-  },
-  {
-    "player_id": "6783",
-    "count": 612,
-    "first_name": "Jerry",
-    "last_name": "Jeudy",
-    "full_name": "Jerry Jeudy",
-    "position": "WR",
-    "team": "CLE",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": [
-      "WR"
     ]
   }
 ]
