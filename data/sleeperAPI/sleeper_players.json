@@ -3625,7 +3625,7 @@
     "full_name": "Nathan Shepherd",
     "position": "DL",
     "team": "NO",
-    "depth_chart_order": 1,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -3954,7 +3954,7 @@
     "last_name": "Etienne",
     "full_name": "Caleb Etienne",
     "position": "OL",
-    "team": "MIN",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -4329,7 +4329,7 @@
     "full_name": "Johnny Wilson",
     "position": "WR",
     "team": "PHI",
-    "depth_chart_order": 9,
+    "depth_chart_order": 10,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -5560,8 +5560,8 @@
     "last_name": "Johnson",
     "full_name": "Brandon Johnson",
     "position": "DB",
-    "team": "PHI",
-    "depth_chart_order": 3,
+    "team": null,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -5802,8 +5802,8 @@
     "last_name": "Brown",
     "full_name": "Tanner Brown",
     "position": "K",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "NO",
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "K"
   },
@@ -9575,7 +9575,7 @@
     "last_name": "Carnell",
     "full_name": "Daylan Carnell",
     "position": "DB",
-    "team": "PIT",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -9620,7 +9620,7 @@
     "full_name": "Justin Joly",
     "position": "TE",
     "team": "DEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -12436,7 +12436,7 @@
     "full_name": "Casey Washington",
     "position": "WR",
     "team": "ATL",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -14536,8 +14536,8 @@
     "last_name": "Jackson",
     "full_name": "Lucky Jackson",
     "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "DET",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -14724,7 +14724,7 @@
     "full_name": "Coziah Izzard",
     "position": "DL",
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -19453,8 +19453,8 @@
     "last_name": "Ravenell",
     "full_name": "C.J. Ravenell",
     "position": "DL",
-    "team": "TEN",
-    "depth_chart_order": 3,
+    "team": null,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -20190,7 +20190,7 @@
     "last_name": "Fields",
     "full_name": "Tony Fields",
     "position": "LB",
-    "team": null,
+    "team": "CHI",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -22489,8 +22489,8 @@
     "last_name": "Pline",
     "full_name": "Mason Pline",
     "position": "TE",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "KC",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -24173,7 +24173,7 @@
     "full_name": "Elijah Garcia",
     "position": "DL",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -26713,7 +26713,7 @@
     "last_name": "Goodwine",
     "full_name": "Monkell Goodwine",
     "position": "DL",
-    "team": "MIN",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -27500,28 +27500,6 @@
     "fantasy_positions": "LB"
   },
   {
-    "player_id": "7625",
-    "first_name": "Joe",
-    "last_name": "Tryon-Shoyinka",
-    "full_name": "Joe Tryon-Shoyinka",
-    "position": "LB",
-    "team": "PHI",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": "DL"
-  },
-  {
-    "player_id": "7625",
-    "first_name": "Joe",
-    "last_name": "Tryon-Shoyinka",
-    "full_name": "Joe Tryon-Shoyinka",
-    "position": "LB",
-    "team": "PHI",
-    "depth_chart_order": 3,
-    "status": "Active",
-    "fantasy_positions": "LB"
-  },
-  {
     "player_id": "5629",
     "first_name": "Kevin",
     "last_name": "Toliver",
@@ -27594,7 +27572,7 @@
     "full_name": "Zaire Mitchell-Paden",
     "position": "TE",
     "team": "NO",
-    "depth_chart_order": 5,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -34601,7 +34579,7 @@
     "full_name": "Jack Stoll",
     "position": "TE",
     "team": "CLE",
-    "depth_chart_order": 3,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -36129,7 +36107,7 @@
     "last_name": "Maxwell",
     "full_name": "Devonnsha Maxwell",
     "position": "DL",
-    "team": null,
+    "team": "ATL",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -36591,7 +36569,7 @@
     "last_name": "Dekkers",
     "full_name": "Hunter Dekkers",
     "position": "QB",
-    "team": null,
+    "team": "NO",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "QB"
@@ -39727,7 +39705,7 @@
     "full_name": "Chris Manhertz",
     "position": "TE",
     "team": "NYG",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -40288,7 +40266,7 @@
     "full_name": "Teagan Quitoriano",
     "position": "TE",
     "team": "ARI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -42069,8 +42047,8 @@
     "last_name": "Wells",
     "full_name": "Antwane Wells",
     "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "ATL",
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -43125,8 +43103,8 @@
     "last_name": "Davis",
     "full_name": "Kaden Davis",
     "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "CHI",
+    "depth_chart_order": 8,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -44669,6 +44647,17 @@
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
+  },
+  {
+    "player_id": "14059",
+    "first_name": "Sean",
+    "last_name": "Fresch",
+    "full_name": "Sean Fresch",
+    "position": "CB",
+    "team": "DEN",
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": "DB"
   },
   {
     "player_id": "3357",
@@ -46778,7 +46767,7 @@
     "full_name": "Adam Trautman",
     "position": "TE",
     "team": "DEN",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -48768,8 +48757,8 @@
     "last_name": "Martin",
     "full_name": "Tay Martin",
     "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "DET",
+    "depth_chart_order": 8,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -49352,7 +49341,7 @@
     "full_name": "Payne Durham",
     "position": "TE",
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -50166,7 +50155,7 @@
     "full_name": "Blake Whiteheart",
     "position": "TE",
     "team": "CLE",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -52723,6 +52712,17 @@
     "fantasy_positions": "DB"
   },
   {
+    "player_id": "7830",
+    "first_name": "Shaun",
+    "last_name": "Wade",
+    "full_name": "Shaun Wade",
+    "position": "CB",
+    "team": "PHI",
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": "DB"
+  },
+  {
     "player_id": "13085",
     "first_name": "Kole",
     "last_name": "Taylor",
@@ -53015,7 +53015,7 @@
     "full_name": "Moliki Matavao",
     "position": "TE",
     "team": "NO",
-    "depth_chart_order": 4,
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -53256,7 +53256,7 @@
     "last_name": "Hampton",
     "full_name": "Dominique Hampton",
     "position": "CB",
-    "team": "CHI",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -53443,7 +53443,7 @@
     "last_name": "Lang",
     "full_name": "Marshall Lang",
     "position": "TE",
-    "team": null,
+    "team": "MIN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "TE"
@@ -54246,7 +54246,7 @@
     "last_name": "Laros",
     "full_name": "Aidan Laros",
     "position": "P",
-    "team": "PIT",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "P"
@@ -56128,7 +56128,7 @@
     "full_name": "Dominic Lovett",
     "position": "WR",
     "team": "DET",
-    "depth_chart_order": 7,
+    "depth_chart_order": 9,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -58426,7 +58426,7 @@
     "last_name": "Smith",
     "full_name": "Kion Smith",
     "position": "T",
-    "team": "MIA",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -58437,7 +58437,7 @@
     "last_name": "Smith",
     "full_name": "Kion Smith",
     "position": "T",
-    "team": "MIA",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OT"
@@ -60241,7 +60241,7 @@
     "last_name": "Holmes",
     "full_name": "Jalyn Holmes",
     "position": "DL",
-    "team": null,
+    "team": "TEN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -61155,7 +61155,7 @@
     "full_name": "Kenny Yeboah",
     "position": "TE",
     "team": "ARI",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -61341,7 +61341,7 @@
     "last_name": "Ritzie",
     "full_name": "Jahvaree Ritzie",
     "position": "DL",
-    "team": null,
+    "team": "MIN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -63927,7 +63927,7 @@
     "full_name": "Ronnie Rivers",
     "position": "RB",
     "team": "LAR",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -64092,7 +64092,7 @@
     "full_name": "Tanner Conner",
     "position": "TE",
     "team": "NYG",
-    "depth_chart_order": 3,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -65797,7 +65797,7 @@
     "full_name": "Carlos Washington",
     "position": "RB",
     "team": "MIA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -65829,7 +65829,7 @@
     "last_name": "Plascencia",
     "full_name": "Gabriel Plascencia",
     "position": "K",
-    "team": "CHI",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "K"
@@ -71098,7 +71098,7 @@
     "last_name": "Black",
     "full_name": "Tarik Black",
     "position": "WR",
-    "team": null,
+    "team": "DET",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -73035,7 +73035,7 @@
     "full_name": "Jake Briningstool",
     "position": "TE",
     "team": "KC",
-    "depth_chart_order": 5,
+    "depth_chart_order": 6,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -73617,7 +73617,7 @@
     "last_name": "Speed",
     "full_name": "Ameer Speed",
     "position": "CB",
-    "team": null,
+    "team": "DAL",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -74888,17 +74888,6 @@
     "fantasy_positions": "DB"
   },
   {
-    "player_id": "8202",
-    "first_name": "Michael",
-    "last_name": "Woods",
-    "full_name": "Michael Woods",
-    "position": "WR",
-    "team": "DEN",
-    "depth_chart_order": 8,
-    "status": "Active",
-    "fantasy_positions": "WR"
-  },
-  {
     "player_id": "1067",
     "first_name": "Marvin",
     "last_name": "Jones",
@@ -75487,7 +75476,7 @@
     "last_name": "Manning",
     "full_name": "Paul Manning",
     "position": "DB",
-    "team": "DEN",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -76004,7 +75993,7 @@
     "last_name": "Glaser",
     "full_name": "Chris Glaser",
     "position": "G",
-    "team": null,
+    "team": "DAL",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -76873,7 +76862,7 @@
     "last_name": "Banks",
     "full_name": "Keshawn Banks",
     "position": "LB",
-    "team": null,
+    "team": "ATL",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -77555,8 +77544,8 @@
     "last_name": "Ezukanma",
     "full_name": "Erik Ezukanma",
     "position": "WR",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "PHI",
+    "depth_chart_order": 8,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -78524,7 +78513,7 @@
     "full_name": "Dean Connors",
     "position": "RB",
     "team": "LAR",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -81373,7 +81362,7 @@
     "full_name": "John Ridgeway",
     "position": "DL",
     "team": "NO",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -83169,17 +83158,6 @@
     "depth_chart_order": 5,
     "status": "Active",
     "fantasy_positions": "RB"
-  },
-  {
-    "player_id": "10948",
-    "first_name": "Carter",
-    "last_name": "Warren",
-    "full_name": "Carter Warren",
-    "position": "OL",
-    "team": "MIA",
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": "OL"
   },
   {
     "player_id": "5847",
@@ -85784,7 +85762,7 @@
     "full_name": "Jarquez Hunter",
     "position": "RB",
     "team": "LAR",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -86246,7 +86224,7 @@
     "full_name": "Tip Reiman",
     "position": "TE",
     "team": "ARI",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -86301,7 +86279,7 @@
     "full_name": "Oscar Delp",
     "position": "TE",
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -86455,7 +86433,7 @@
     "full_name": "Cedrick Wilson",
     "position": "WR",
     "team": "DET",
-    "depth_chart_order": 6,
+    "depth_chart_order": 7,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -86520,8 +86498,8 @@
     "last_name": "Jordan",
     "full_name": "Cameron Jordan",
     "position": "DL",
-    "team": null,
-    "depth_chart_order": 99,
+    "team": "NO",
+    "depth_chart_order": 1,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -86619,7 +86597,7 @@
     "last_name": "Windmon",
     "full_name": "Jacoby Windmon",
     "position": "LB",
-    "team": null,
+    "team": "PIT",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -91668,7 +91646,7 @@
     "last_name": "Ayedze",
     "full_name": "Gottlieb Ayedze",
     "position": "T",
-    "team": null,
+    "team": "MIA",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OT"
@@ -93231,7 +93209,7 @@
     "full_name": "Tom Kennedy",
     "position": "WR",
     "team": "DET",
-    "depth_chart_order": 5,
+    "depth_chart_order": 6,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -93990,7 +93968,7 @@
     "full_name": "Danny Gray",
     "position": "WR",
     "team": "PHI",
-    "depth_chart_order": 8,
+    "depth_chart_order": 9,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -94506,7 +94484,7 @@
     "last_name": "James",
     "full_name": "Andre James",
     "position": "C",
-    "team": null,
+    "team": "TEN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -94517,7 +94495,7 @@
     "last_name": "James",
     "full_name": "Andre James",
     "position": "C",
-    "team": null,
+    "team": "TEN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OT"
@@ -94803,7 +94781,7 @@
     "last_name": "Cropper",
     "full_name": "Jalen Cropper",
     "position": "WR",
-    "team": null,
+    "team": "NO",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -95694,7 +95672,7 @@
     "last_name": "Hill",
     "full_name": "Trey Hill",
     "position": "C",
-    "team": "TEN",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -97608,7 +97586,7 @@
     "last_name": "Keeney-James",
     "full_name": "Jakobie Keeney-James",
     "position": "WR",
-    "team": "GB",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -99149,7 +99127,7 @@
     "full_name": "Devin Culp",
     "position": "TE",
     "team": "TB",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -100227,7 +100205,7 @@
     "full_name": "Donovan Edwards",
     "position": "RB",
     "team": "MIA",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -100736,17 +100714,6 @@
     "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "DB"
-  },
-  {
-    "player_id": "13412",
-    "first_name": "Kendrick",
-    "last_name": "Law",
-    "full_name": "Kendrick Law",
-    "position": "WR",
-    "team": "DET",
-    "depth_chart_order": 8,
-    "status": "Active",
-    "fantasy_positions": "WR"
   },
   {
     "player_id": "4787",
