@@ -11940,7 +11940,7 @@
     "last_name": "Alford",
     "full_name": "Damien Alford",
     "position": "WR",
-    "team": "NO",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -12435,7 +12435,7 @@
     "last_name": "Washington",
     "full_name": "Casey Washington",
     "position": "WR",
-    "team": "ATL",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -14723,7 +14723,7 @@
     "last_name": "Izzard",
     "full_name": "Coziah Izzard",
     "position": "DL",
-    "team": "NO",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -18815,7 +18815,7 @@
     "last_name": "Mims",
     "full_name": "Denzel Mims",
     "position": "WR",
-    "team": null,
+    "team": "DAL",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -19446,17 +19446,6 @@
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "RB"
-  },
-  {
-    "player_id": "12282",
-    "first_name": "C.J.",
-    "last_name": "Ravenell",
-    "full_name": "C.J. Ravenell",
-    "position": "DL",
-    "team": null,
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": "DL"
   },
   {
     "player_id": "8628",
@@ -24172,7 +24161,7 @@
     "last_name": "Garcia",
     "full_name": "Elijah Garcia",
     "position": "DL",
-    "team": "ATL",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -30134,7 +30123,7 @@
     "last_name": "Holskey",
     "full_name": "Reid Holskey",
     "position": "OL",
-    "team": null,
+    "team": "DEN",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "OL"
@@ -34567,7 +34556,7 @@
     "last_name": "Nunnally",
     "full_name": "CJ Nunnally",
     "position": "DL",
-    "team": "ATL",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -35810,7 +35799,7 @@
     "last_name": "Duplessis",
     "full_name": "Kyre Duplessis",
     "position": "WR",
-    "team": "DET",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -37020,7 +37009,7 @@
     "last_name": "Wheeler",
     "full_name": "Ian Wheeler",
     "position": "RB",
-    "team": null,
+    "team": "BUF",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "RB"
@@ -42949,7 +42938,7 @@
     "last_name": "Jones",
     "full_name": "Dashawn Jones",
     "position": "CB",
-    "team": "NO",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -68915,6 +68904,17 @@
     "fantasy_positions": "DL"
   },
   {
+    "player_id": "14060",
+    "first_name": "Blake",
+    "last_name": "Cotton",
+    "full_name": "Blake Cotton",
+    "position": "DB",
+    "team": "DEN",
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": "DB"
+  },
+  {
     "player_id": "8019",
     "first_name": "Devontres",
     "last_name": "Dukes",
@@ -69397,17 +69397,6 @@
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
-  },
-  {
-    "player_id": "6881",
-    "first_name": "Matt",
-    "last_name": "Hennessy",
-    "full_name": "Matt Hennessy",
-    "position": "OL",
-    "team": "DAL",
-    "depth_chart_order": 99,
-    "status": "Active",
-    "fantasy_positions": "OL"
   },
   {
     "player_id": "8617",
@@ -72583,7 +72572,7 @@
     "last_name": "Shipley",
     "full_name": "Mason Shipley",
     "position": "K",
-    "team": "NO",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "K"
