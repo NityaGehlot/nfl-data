@@ -295,6 +295,11 @@ offense_export <- bind_rows(offense_combined, team_def)
 off_dir        <- stats_dir("Offense")
 
 for (w in sort(unique(offense_export$week))) {
+  file_name <- file.path(off_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
+  if (file.exists(file_name)) {
+    message("Skipping (already exists): ", file_name)
+    next
+  }
   export_week_json(offense_export %>% filter(week == w), off_dir, season, w)
 }
 
@@ -304,6 +309,11 @@ for (w in sort(unique(offense_export$week))) {
 def_dir <- stats_dir("Defense")
 
 for (w in sort(unique(individual_def_combined$week))) {
+  file_name <- file.path(def_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
+  if (file.exists(file_name)) {
+    message("Skipping (already exists): ", file_name)
+    next
+  }
   export_week_json(individual_def_combined %>% filter(week == w), def_dir, season, w)
 }
 
