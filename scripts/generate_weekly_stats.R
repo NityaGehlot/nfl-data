@@ -45,6 +45,8 @@ normalize_def_position <- function(pos) {
   )
 }
 
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
 # =====================
 # POSITION COLUMN SCHEMAS
 # =====================
@@ -52,6 +54,16 @@ BASE_COLS <- c(
   "season", "week", "player_id", "player_name",
   "position", "team", "opponent_team",
   "headshot_url", "fantasy_points_ppr",
+  "snap_count",
+  "injury_status", "practice_status",
+  "primary_injury", "secondary_injury",
+  "practice_primary_injury", "practice_secondary_injury"
+)
+
+BASE_COLS_DEF_TEAM <- c(
+  "season", "week", "player_id", "player_name",
+  "position", "team", "opponent_team",
+  "fantasy_points_ppr",
   "injury_status", "practice_status",
   "primary_injury", "secondary_injury",
   "practice_primary_injury", "practice_secondary_injury"
@@ -92,18 +104,12 @@ POSITION_COLS <- list(
 trim_to_position <- function(row) {
   pos  <- row$position
   keep <- if (pos == "DEF") {
-    c("season", "week", "player_id", "player_name", "position", "team", "opponent_team",
-      "fantasy_points_ppr", "injury_status", "practice_status",
-      "primary_injury", "secondary_injury",
-      "practice_primary_injury", "practice_secondary_injury",
-      POSITION_COLS[["DEF"]])
+    c(BASE_COLS_DEF_TEAM, POSITION_COLS[["DEF"]])
   } else {
     c(BASE_COLS, POSITION_COLS[[pos]] %||% character(0))
   }
   row[intersect(names(row), keep)]
 }
-
-`%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
 # LOAD & PREP SHARED DATA
@@ -129,6 +135,37 @@ injuries <- nflreadr::load_injuries(seasons = season) %>%
     secondary_injury          = report_secondary_injury,
     practice_primary_injury, practice_secondary_injury
   )
+
+message("Loading snap counts")
+snaps_raw <- nflreadr::load_snap_counts(seasons = season)
+
+# Offense snaps — one row per player per game
+offense_snaps <- snaps_raw %>%
+  select(pfr_player_id, week, offense_snaps) %>%
+  rename(snap_count = offense_snaps) %>%
+  filter(!is.na(pfr_player_id))
+
+# Defense snaps — one row per player per game
+defense_snaps <- snaps_raw %>%
+  select(pfr_player_id, week, defense_snaps) %>%
+  rename(snap_count = defense_snaps) %>%
+  filter(!is.na(pfr_player_id))
+
+# We need a pfr_player_id -> gsis_id bridge from the players table
+# nflreadr::load_players() contains both gsis_id and pfr_id
+pfr_bridge <- nflreadr::load_players() %>%
+  filter(!is.na(gsis_id), !is.na(pfr_id)) %>%
+  select(player_id = gsis_id, pfr_player_id = pfr_id)
+
+offense_snaps <- offense_snaps %>%
+  left_join(pfr_bridge, by = "pfr_player_id") %>%
+  filter(!is.na(player_id)) %>%
+  select(player_id, week, snap_count)
+
+defense_snaps <- defense_snaps %>%
+  left_join(pfr_bridge, by = "pfr_player_id") %>%
+  filter(!is.na(player_id)) %>%
+  select(player_id, week, snap_count)
 
 # =====================
 # OFFENSE PIPELINE
@@ -164,12 +201,14 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
   left_join(weekly_off %>% select(-any_of(c("player_name", "position", "headshot_url"))),
             by = c("player_id", "week")) %>%
   left_join(injuries, by = c("player_id", "week")) %>%
+  left_join(offense_snaps, by = c("player_id", "week")) %>%
   group_by(player_id) %>%
   mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
   ungroup() %>%
   coalesce_cols(off_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
+    snap_count                = coalesce(snap_count, 0L),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
     practice_status           = coalesce(practice_status, ""),
@@ -225,9 +264,12 @@ team_def <- team_weekly %>%
     def_tds, def_safeties, fumble_recovery_opp,
     passing_yards_allowed, passing_tds_allowed,
     rushing_yards_allowed, rushing_tds_allowed,
-    headshot_url = "", injury_status = "N/A",
-    practice_status = "", primary_injury = "", secondary_injury = "",
-    practice_primary_injury = "", practice_secondary_injury = ""
+    injury_status             = "N/A",
+    practice_status           = "",
+    primary_injury            = "",
+    secondary_injury          = "",
+    practice_primary_injury   = "",
+    practice_secondary_injury = ""
   )
 
 # =====================
@@ -267,12 +309,14 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
   left_join(weekly_def %>% select(-any_of(c("player_name", "position", "headshot_url"))),
             by = c("player_id", "week")) %>%
   left_join(injuries, by = c("player_id", "week")) %>%
+  left_join(defense_snaps, by = c("player_id", "week")) %>%
   group_by(player_id) %>%
   mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
   ungroup() %>%
   coalesce_cols(def_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
+    snap_count                = coalesce(snap_count, 0L),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
     practice_status           = coalesce(practice_status, ""),
@@ -288,33 +332,35 @@ individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
 
-# =====================
-# EXPORT — OFFENSE (QB/RB/WR/TE/K + team DEF)
-# =====================
-offense_export <- bind_rows(offense_combined, team_def)
-off_dir        <- stats_dir("Offense")
+# Combine individual defensive players + team DEF entries into one defense export
+defense_export <- bind_rows(individual_def_combined, team_def)
 
-for (w in sort(unique(offense_export$week))) {
+# =====================
+# EXPORT — OFFENSE (QB/RB/WR/TE/K only)
+# =====================
+off_dir <- stats_dir("Offense")
+
+for (w in sort(unique(offense_combined$week))) {
   file_name <- file.path(off_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
   if (file.exists(file_name)) {
     message("Skipping (already exists): ", file_name)
     next
   }
-  export_week_json(offense_export %>% filter(week == w), off_dir, season, w)
+  export_week_json(offense_combined %>% filter(week == w), off_dir, season, w)
 }
 
 # =====================
-# EXPORT — DEFENSE (DL/LB/CB/S individual players)
+# EXPORT — DEFENSE (DL/LB/CB/S individual players + team DEF)
 # =====================
 def_dir <- stats_dir("Defense")
 
-for (w in sort(unique(individual_def_combined$week))) {
+for (w in sort(unique(defense_export$week))) {
   file_name <- file.path(def_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
   if (file.exists(file_name)) {
     message("Skipping (already exists): ", file_name)
     next
   }
-  export_week_json(individual_def_combined %>% filter(week == w), def_dir, season, w)
+  export_week_json(defense_export %>% filter(week == w), def_dir, season, w)
 }
 
 message("✅ All weekly JSON files generated successfully.")
