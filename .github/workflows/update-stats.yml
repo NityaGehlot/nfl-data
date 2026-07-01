@@ -19,8 +19,6 @@ jobs:
         run: |
           ENFORCE="${{ github.event.inputs.enforce_offseason }}"
 
-          # Treat empty string (scheduled run) or explicit "true" as enforcing the gate
-          # Only an explicit "false" bypasses the offseason restriction
           if [ "$ENFORCE" = "false" ]; then
             echo "Offseason restrictions disabled — forcing run."
             echo "in_season=true" >> $GITHUB_OUTPUT
@@ -28,7 +26,6 @@ jobs:
           fi
 
           MONTH=$(date +%-m)
-          # NFL season runs September (9) through February (2)
           if [ "$MONTH" -ge 9 ] || [ "$MONTH" -le 2 ]; then
             echo "in_season=true" >> $GITHUB_OUTPUT
           else
@@ -43,6 +40,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Clear existing JSON files (force regenerate)
+        if: github.event.inputs.enforce_offseason == 'false'
+        run: |
+          rm -rf data/Stats/
+          echo "Cleared existing stats files — full regeneration will run."
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
