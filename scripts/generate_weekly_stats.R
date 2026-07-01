@@ -54,16 +54,17 @@ BASE_COLS <- c(
   "season", "week", "player_id", "player_name",
   "position", "team", "opponent_team",
   "headshot_url", "fantasy_points_ppr",
-  "snap_count",
+  "snap_count", "game_played", "team_status",
   "injury_status", "practice_status",
   "primary_injury", "secondary_injury",
-  "practice_primary_injury", "practice_secondary_injury"
+  "practice_primary_injury", "practice_secondary_difficulty"
 )
 
 BASE_COLS_DEF_TEAM <- c(
   "season", "week", "player_id", "player_name",
   "position", "team", "opponent_team",
   "fantasy_points_ppr",
+  "team_status",
   "injury_status", "practice_status",
   "primary_injury", "secondary_injury",
   "practice_primary_injury", "practice_secondary_injury"
@@ -139,33 +140,73 @@ injuries <- nflreadr::load_injuries(seasons = season) %>%
 message("Loading snap counts")
 snaps_raw <- nflreadr::load_snap_counts(seasons = season)
 
-# Offense snaps — one row per player per game
-offense_snaps <- snaps_raw %>%
-  select(pfr_player_id, week, offense_snaps) %>%
-  rename(snap_count = offense_snaps) %>%
-  filter(!is.na(pfr_player_id))
-
-# Defense snaps — one row per player per game
-defense_snaps <- snaps_raw %>%
-  select(pfr_player_id, week, defense_snaps) %>%
-  rename(snap_count = defense_snaps) %>%
-  filter(!is.na(pfr_player_id))
-
-# We need a pfr_player_id -> gsis_id bridge from the players table
-# nflreadr::load_players() contains both gsis_id and pfr_id
 pfr_bridge <- nflreadr::load_players() %>%
   filter(!is.na(gsis_id), !is.na(pfr_id)) %>%
   select(player_id = gsis_id, pfr_player_id = pfr_id)
 
-offense_snaps <- offense_snaps %>%
+offense_snaps <- snaps_raw %>%
+  select(pfr_player_id, week, offense_snaps) %>%
+  rename(snap_count = offense_snaps) %>%
+  filter(!is.na(pfr_player_id)) %>%
   left_join(pfr_bridge, by = "pfr_player_id") %>%
   filter(!is.na(player_id)) %>%
   select(player_id, week, snap_count)
 
-defense_snaps <- defense_snaps %>%
+defense_snaps <- snaps_raw %>%
+  select(pfr_player_id, week, defense_snaps) %>%
+  rename(snap_count = defense_snaps) %>%
+  filter(!is.na(pfr_player_id)) %>%
   left_join(pfr_bridge, by = "pfr_player_id") %>%
   filter(!is.na(player_id)) %>%
   select(player_id, week, snap_count)
+
+# =====================
+# TEAM STATUS LOOKUP (bye-week / played / eliminated)
+# =====================
+message("Loading schedules for team status")
+schedules_all <- nflreadr::load_schedules(seasons = season)
+
+reg_season_weeks  <- 1:18
+playoff_weeks     <- 19:22
+
+# All teams that appear in the schedule this season
+all_teams <- sort(unique(c(schedules_all$home_team, schedules_all$away_team)))
+all_weeks_sched   <- sort(unique(schedules_all$week))
+
+# Build a flat table: every team × every scheduled week → did they play?
+team_played <- bind_rows(
+  schedules_all %>% transmute(week, team = home_team),
+  schedules_all %>% transmute(week, team = away_team)
+) %>% distinct() %>% mutate(played = TRUE)
+
+# For each team, find the last playoff week they appeared in (NA if never)
+team_last_playoff_week <- team_played %>%
+  filter(week %in% playoff_weeks) %>%
+  group_by(team) %>%
+  summarise(last_playoff_week = max(week), .groups = "drop")
+
+# Build full grid: every team × every week that exists in the schedule
+team_week_grid <- expand.grid(
+  team = all_teams,
+  week = all_weeks_sched,
+  stringsAsFactors = FALSE
+)
+
+team_status_lookup <- team_week_grid %>%
+  left_join(team_played, by = c("team", "week")) %>%
+  left_join(team_last_playoff_week, by = "team") %>%
+  mutate(
+    played = coalesce(played, FALSE),
+    team_status = case_when(
+      played                          ~ "played",
+      week %in% reg_season_weeks      ~ "bye-week",
+      # Playoff week, team did not play:
+      # If they never made playoffs at all, or this week is beyond their last appearance
+      week %in% playoff_weeks & (is.na(last_playoff_week) | week > last_playoff_week) ~ "eliminated",
+      TRUE                            ~ "bye-week"   # fallback (shouldn't hit)
+    )
+  ) %>%
+  select(team, week, team_status)
 
 # =====================
 # OFFENSE PIPELINE
@@ -200,15 +241,18 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
   left_join(players_off, by = "player_id") %>%
   left_join(weekly_off %>% select(-any_of(c("player_name", "position", "headshot_url"))),
             by = c("player_id", "week")) %>%
-  left_join(injuries, by = c("player_id", "week")) %>%
+  left_join(injuries,      by = c("player_id", "week")) %>%
   left_join(offense_snaps, by = c("player_id", "week")) %>%
   group_by(player_id) %>%
   mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
   ungroup() %>%
+  left_join(team_status_lookup, by = c("team", "week")) %>%
   coalesce_cols(off_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
     snap_count                = coalesce(snap_count, 0L),
+    game_played               = snap_count > 0,
+    team_status               = coalesce(team_status, "played"),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
     practice_status           = coalesce(practice_status, ""),
@@ -227,8 +271,8 @@ offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
 # =====================
 # TEAM DEFENSE (DEF) PIPELINE
 # =====================
-message("Loading schedules")
-schedules <- nflreadr::load_schedules(seasons = season) %>% filter(game_type == "REG")
+message("Loading schedules for team defense")
+schedules <- schedules_all %>% filter(game_type == "REG")
 
 def_teams <- bind_rows(
   schedules %>% transmute(season, week, team = home_team, opponent_team = away_team),
@@ -249,10 +293,12 @@ team_def <- team_weekly %>%
          def_tds, def_safeties, fumble_recovery_opp) %>%
   left_join(def_teams,      by = c("season", "week", "team")) %>%
   left_join(opponent_stats, by = c("season", "week", "opponent_team")) %>%
+  left_join(team_status_lookup, by = c("team", "week")) %>%
   mutate(
     fantasy_points_ppr =
       (def_sacks * 1) + (def_interceptions * 2) + (def_fumbles_forced * 1) +
-      (fumble_recovery_opp * 2) + (def_tds * 6) + (def_safeties * 2)
+      (fumble_recovery_opp * 2) + (def_tds * 6) + (def_safeties * 2),
+    team_status = coalesce(team_status, "played")
   ) %>%
   transmute(
     season, week,
@@ -260,6 +306,7 @@ team_def <- team_weekly %>%
     player_name  = paste(team, "DEF"),
     position     = "DEF", team, opponent_team,
     fantasy_points_ppr,
+    team_status,
     def_fumbles_forced, def_sacks, def_interceptions,
     def_tds, def_safeties, fumble_recovery_opp,
     passing_yards_allowed, passing_tds_allowed,
@@ -308,15 +355,18 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
   left_join(players_def, by = "player_id") %>%
   left_join(weekly_def %>% select(-any_of(c("player_name", "position", "headshot_url"))),
             by = c("player_id", "week")) %>%
-  left_join(injuries, by = c("player_id", "week")) %>%
+  left_join(injuries,      by = c("player_id", "week")) %>%
   left_join(defense_snaps, by = c("player_id", "week")) %>%
   group_by(player_id) %>%
   mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
   ungroup() %>%
+  left_join(team_status_lookup, by = c("team", "week")) %>%
   coalesce_cols(def_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
     snap_count                = coalesce(snap_count, 0L),
+    game_played               = snap_count > 0,
+    team_status               = coalesce(team_status, "played"),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
     practice_status           = coalesce(practice_status, ""),
@@ -332,7 +382,6 @@ individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
 
-# Combine individual defensive players + team DEF entries into one defense export
 defense_export <- bind_rows(individual_def_combined, team_def)
 
 # =====================
