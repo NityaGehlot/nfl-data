@@ -8,7 +8,6 @@ on:
         default: 'true'
   schedule:
     - cron: '0 6 * * TUE'   # Every Tuesday at 06:00 UTC
-
 jobs:
   check-season:
     runs-on: ubuntu-latest
@@ -18,21 +17,23 @@ jobs:
       - name: Check if NFL season is active
         id: check
         run: |
-          # If enforce_offseason is false, always allow the run
           ENFORCE="${{ github.event.inputs.enforce_offseason }}"
+
+          # Treat empty string (scheduled run) or explicit "true" as enforcing the gate
+          # Only an explicit "false" bypasses the offseason restriction
           if [ "$ENFORCE" = "false" ]; then
             echo "Offseason restrictions disabled — forcing run."
             echo "in_season=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          # Scheduled runs and workflow_dispatch with enforce=true both respect the month gate
           MONTH=$(date +%-m)
           # NFL season runs September (9) through February (2)
           if [ "$MONTH" -ge 9 ] || [ "$MONTH" -le 2 ]; then
             echo "in_season=true" >> $GITHUB_OUTPUT
           else
             echo "in_season=false" >> $GITHUB_OUTPUT
+            echo "Skipping: offseason (month $MONTH). Set enforce_offseason=false to override."
           fi
 
   update:
