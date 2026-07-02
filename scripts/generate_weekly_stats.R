@@ -320,20 +320,23 @@ team_def_played <- team_weekly %>%
     practice_secondary_injury = ""
   )
 
-# Synthetic bye-week rows for teams that did not play a given reg season week
+# Synthetic rows for any team × week combination that has no real stats entry
+# Covers both reg season bye weeks AND playoff weeks where the team was eliminated
 teams_with_played_entry <- team_def_played %>%
   select(team, week) %>%
   distinct()
 
-all_reg_weeks <- sort(unique(schedules$week))
+# All weeks across the entire season (reg + playoffs)
+all_season_weeks <- sort(unique(schedules_all$week))
 
-team_def_bye <- expand.grid(
+team_def_missing <- expand.grid(
   team = all_teams,
-  week = all_reg_weeks,
+  week = all_season_weeks,
   stringsAsFactors = FALSE
 ) %>%
   anti_join(teams_with_played_entry, by = c("team", "week")) %>%
-  left_join(schedules_all %>% select(season) %>% distinct(), by = character()) %>%
+  # Pull the correct label (bye-week or eliminated) from the lookup we already built
+  left_join(team_status_lookup, by = c("team", "week")) %>%
   mutate(
     season                    = season,
     player_id                 = paste0("DEF_", team),
@@ -341,7 +344,7 @@ team_def_bye <- expand.grid(
     position                  = "DEF",
     opponent_team             = "",
     fantasy_points_ppr        = 0,
-    team_status               = "bye-week",
+    team_status               = coalesce(team_status, "bye-week"),
     def_fumbles_forced        = 0,
     def_sacks                 = 0,
     def_interceptions         = 0,
@@ -361,7 +364,7 @@ team_def_bye <- expand.grid(
   ) %>%
   select(any_of(names(team_def_played)))
 
-team_def <- bind_rows(team_def_played, team_def_bye) %>%
+team_def <- bind_rows(team_def_played, team_def_missing) %>%
   arrange(week, team)
 
 # =====================
