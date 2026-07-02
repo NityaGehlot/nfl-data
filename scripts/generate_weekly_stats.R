@@ -288,7 +288,8 @@ opponent_stats <- team_weekly %>%
          passing_tds_allowed = passing_tds, rushing_yards_allowed = rushing_yards,
          rushing_tds_allowed = rushing_tds)
 
-team_def <- team_weekly %>%
+# Teams that actually played each week (have real stats)
+team_def_played <- team_weekly %>%
   select(season, week, team, def_fumbles_forced, def_sacks, def_interceptions,
          def_tds, def_safeties, fumble_recovery_opp) %>%
   left_join(def_teams,      by = c("season", "week", "team")) %>%
@@ -318,6 +319,50 @@ team_def <- team_weekly %>%
     practice_primary_injury   = "",
     practice_secondary_injury = ""
   )
+
+# Synthetic bye-week rows for teams that did not play a given reg season week
+teams_with_played_entry <- team_def_played %>%
+  select(team, week) %>%
+  distinct()
+
+all_reg_weeks <- sort(unique(schedules$week))
+
+team_def_bye <- expand.grid(
+  team = all_teams,
+  week = all_reg_weeks,
+  stringsAsFactors = FALSE
+) %>%
+  anti_join(teams_with_played_entry, by = c("team", "week")) %>%
+  left_join(schedules_all %>% select(season) %>% distinct(), by = character()) %>%
+  mutate(
+    season                    = season,
+    player_id                 = paste0("DEF_", team),
+    player_name               = paste(team, "DEF"),
+    position                  = "DEF",
+    opponent_team             = "",
+    fantasy_points_ppr        = 0,
+    team_status               = "bye-week",
+    def_fumbles_forced        = 0,
+    def_sacks                 = 0,
+    def_interceptions         = 0,
+    def_tds                   = 0,
+    def_safeties              = 0,
+    fumble_recovery_opp       = 0,
+    passing_yards_allowed     = 0,
+    passing_tds_allowed       = 0,
+    rushing_yards_allowed     = 0,
+    rushing_tds_allowed       = 0,
+    injury_status             = "N/A",
+    practice_status           = "",
+    primary_injury            = "",
+    secondary_injury          = "",
+    practice_primary_injury   = "",
+    practice_secondary_injury = ""
+  ) %>%
+  select(any_of(names(team_def_played)))
+
+team_def <- bind_rows(team_def_played, team_def_bye) %>%
+  arrange(week, team)
 
 # =====================
 # INDIVIDUAL DEFENSIVE PLAYERS PIPELINE
