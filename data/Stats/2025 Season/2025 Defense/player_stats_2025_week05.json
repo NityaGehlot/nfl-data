@@ -348505,6 +348505,35 @@
     {
       "season": 2025,
       "week": 5,
+      "player_id": "DEF_ATL",
+      "player_name": "ATL DEF",
+      "position": "DEF",
+      "team": "ATL",
+      "opponent_team": "",
+      "fantasy_points_ppr": 0,
+      "team_status": "bye-week",
+      "injury_status": "N/A",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_sacks": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "fumble_recovery_opp": 0,
+      "passing_yards_allowed": 0,
+      "passing_tds_allowed": 0,
+      "rushing_yards_allowed": 0,
+      "rushing_tds_allowed": 0,
+      "practice_secondary_injury": ""
+    }
+  ],
+  "11139": [
+    {
+      "season": 2025,
+      "week": 5,
       "player_id": "DEF_BAL",
       "player_name": "BAL DEF",
       "position": "DEF",
@@ -348530,7 +348559,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11139": [
+  "11140": [
     {
       "season": 2025,
       "week": 5,
@@ -348559,7 +348588,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11140": [
+  "11141": [
     {
       "season": 2025,
       "week": 5,
@@ -348588,7 +348617,36 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11141": [
+  "11142": [
+    {
+      "season": 2025,
+      "week": 5,
+      "player_id": "DEF_CHI",
+      "player_name": "CHI DEF",
+      "position": "DEF",
+      "team": "CHI",
+      "opponent_team": "",
+      "fantasy_points_ppr": 0,
+      "team_status": "bye-week",
+      "injury_status": "N/A",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_sacks": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "fumble_recovery_opp": 0,
+      "passing_yards_allowed": 0,
+      "passing_tds_allowed": 0,
+      "rushing_yards_allowed": 0,
+      "rushing_tds_allowed": 0,
+      "practice_secondary_injury": ""
+    }
+  ],
+  "11143": [
     {
       "season": 2025,
       "week": 5,
@@ -348617,7 +348675,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11142": [
+  "11144": [
     {
       "season": 2025,
       "week": 5,
@@ -348646,7 +348704,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11143": [
+  "11145": [
     {
       "season": 2025,
       "week": 5,
@@ -348675,7 +348733,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11144": [
+  "11146": [
     {
       "season": 2025,
       "week": 5,
@@ -348704,7 +348762,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11145": [
+  "11147": [
     {
       "season": 2025,
       "week": 5,
@@ -348733,7 +348791,36 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11146": [
+  "11148": [
+    {
+      "season": 2025,
+      "week": 5,
+      "player_id": "DEF_GB",
+      "player_name": "GB DEF",
+      "position": "DEF",
+      "team": "GB",
+      "opponent_team": "",
+      "fantasy_points_ppr": 0,
+      "team_status": "bye-week",
+      "injury_status": "N/A",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_sacks": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "fumble_recovery_opp": 0,
+      "passing_yards_allowed": 0,
+      "passing_tds_allowed": 0,
+      "rushing_yards_allowed": 0,
+      "rushing_tds_allowed": 0,
+      "practice_secondary_injury": ""
+    }
+  ],
+  "11149": [
     {
       "season": 2025,
       "week": 5,
@@ -348762,7 +348849,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11147": [
+  "11150": [
     {
       "season": 2025,
       "week": 5,
@@ -348791,7 +348878,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11148": [
+  "11151": [
     {
       "season": 2025,
       "week": 5,
@@ -348820,7 +348907,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11149": [
+  "11152": [
     {
       "season": 2025,
       "week": 5,
@@ -348849,7 +348936,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11150": [
+  "11153": [
     {
       "season": 2025,
       "week": 5,
@@ -348878,7 +348965,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11151": [
+  "11154": [
     {
       "season": 2025,
       "week": 5,
@@ -348907,7 +348994,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11152": [
+  "11155": [
     {
       "season": 2025,
       "week": 5,
@@ -348936,7 +349023,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11153": [
+  "11156": [
     {
       "season": 2025,
       "week": 5,
@@ -348965,7 +349052,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11154": [
+  "11157": [
     {
       "season": 2025,
       "week": 5,
@@ -348994,7 +349081,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11155": [
+  "11158": [
     {
       "season": 2025,
       "week": 5,
@@ -349023,7 +349110,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11156": [
+  "11159": [
     {
       "season": 2025,
       "week": 5,
@@ -349052,7 +349139,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11157": [
+  "11160": [
     {
       "season": 2025,
       "week": 5,
@@ -349081,7 +349168,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11158": [
+  "11161": [
     {
       "season": 2025,
       "week": 5,
@@ -349110,7 +349197,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11159": [
+  "11162": [
     {
       "season": 2025,
       "week": 5,
@@ -349139,7 +349226,36 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11160": [
+  "11163": [
+    {
+      "season": 2025,
+      "week": 5,
+      "player_id": "DEF_PIT",
+      "player_name": "PIT DEF",
+      "position": "DEF",
+      "team": "PIT",
+      "opponent_team": "",
+      "fantasy_points_ppr": 0,
+      "team_status": "bye-week",
+      "injury_status": "N/A",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_sacks": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "fumble_recovery_opp": 0,
+      "passing_yards_allowed": 0,
+      "passing_tds_allowed": 0,
+      "rushing_yards_allowed": 0,
+      "rushing_tds_allowed": 0,
+      "practice_secondary_injury": ""
+    }
+  ],
+  "11164": [
     {
       "season": 2025,
       "week": 5,
@@ -349168,7 +349284,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11161": [
+  "11165": [
     {
       "season": 2025,
       "week": 5,
@@ -349197,7 +349313,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11162": [
+  "11166": [
     {
       "season": 2025,
       "week": 5,
@@ -349226,7 +349342,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11163": [
+  "11167": [
     {
       "season": 2025,
       "week": 5,
@@ -349255,7 +349371,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "11164": [
+  "11168": [
     {
       "season": 2025,
       "week": 5,
