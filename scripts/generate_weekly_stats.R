@@ -262,9 +262,15 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
+# Keep only players who recorded at least 1 snap in any week this season
+active_offense_ids <- offense_snaps %>%
+  filter(snap_count > 0) %>%
+  distinct(player_id)
+
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
   offense_df %>%
     filter(position == pos) %>%
+    semi_join(active_offense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
 
@@ -424,9 +430,15 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
+# Keep only players who recorded at least 1 defensive snap in any week this season
+active_defense_ids <- defense_snaps %>%
+  filter(snap_count > 0) %>%
+  distinct(player_id)
+
 individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
   individual_def_df %>%
     filter(position == pos) %>%
+    semi_join(active_defense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
 
