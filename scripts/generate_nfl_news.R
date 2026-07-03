@@ -13,10 +13,10 @@ library(stringdist)
 # =====================
 # CONFIG
 # =====================
-OUTPUT_DIR <- "data/news"
+OUTPUT_DIR   <- "data/news"
 MAX_PER_PLAYER <- 2
-REQUEST_DELAY <- 0.3
-SEASON_START <- as.Date("2025-09-04")
+REQUEST_DELAY  <- 0.3
+SEASON_START   <- as.Date("2025-09-04")
 
 # =====================
 # CHECK FILE
@@ -47,7 +47,7 @@ normalize_position <- function(pos, fantasy_positions) {
 
   pos <- toupper(pos %||% "")
 
-  # Defensive line grouping
+  # Defensive line
   if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
 
   # Linebackers
@@ -58,13 +58,13 @@ normalize_position <- function(pos, fantasy_positions) {
   if (pos == "S")  return("S")
   if (pos == "DB") return("DB")
 
-  # Offensive line — keep granular so we can filter per OL slot
+  # Offensive line — granular slots pass through as-is
   if (pos %in% c("LT", "LG", "C", "RG", "RT")) return(pos)
 
-  # Catch-all OL tag (some sources use "OL" or "OT"/"OG" without side)
-  if (pos %in% c("OL", "OT", "OG")) return("OL_OTHER")
+  # Generic OL tags Sleeper uses when side is not specified
+  if (pos %in% c("OT", "OG", "OL", "T", "G")) return(pos)
 
-  # Offense / special teams
+  # Everything else (QB, RB, WR, TE, K, etc.)
   return(pos)
 }
 
@@ -79,13 +79,13 @@ players_list <- lapply(players_raw, function(p) {
   norm_pos <- normalize_position(pos_raw, p$fantasy_positions)
 
   data.frame(
-    player_id          = p$player_id %||% NA,
-    player_name        = paste(p$first_name, p$last_name),
-    position_raw       = pos_raw,
-    position           = norm_pos,
-    team               = p$team %||% NA,
-    status             = p$status %||% NA,
-    depth_chart_order  = {
+    player_id         = p$player_id %||% NA,
+    player_name       = paste(p$first_name, p$last_name),
+    position_raw      = pos_raw,
+    position          = norm_pos,
+    team              = p$team %||% NA,
+    status            = p$status %||% NA,
+    depth_chart_order = {
       d <- suppressWarnings(as.numeric(p$depth_chart_order))
       if (is.na(d)) 99 else d
     },
@@ -105,19 +105,48 @@ players <- players %>%
   filter(status == "Active" | is.na(status))
 
 # =====================
-# OFFENSIVE LINE: top 2 per slot per team
-# OL slots tracked individually so depth_chart_order is meaningful within each slot
+# DIAGNOSTIC — see exactly what OL tags Sleeper uses
 # =====================
-ol_positions <- c("LT", "LG", "C", "RG", "RT")
+message("OL position tags found in Sleeper data: ",
+  paste(
+    players %>%
+      filter(position_raw %in% c("LT","LG","C","RG","RT",
+                                  "OT","OG","OL","T","G")) %>%
+      count(position_raw) %>%
+      mutate(label = paste0(position_raw, "(", n, ")")) %>%
+      pull(label),
+    collapse = ", "
+  )
+)
 
-ol_filtered <- players %>%
-  filter(position %in% ol_positions, !is.na(team)) %>%
+# =====================
+# OFFENSIVE LINE FILTERING
+# =====================
+ol_specific_positions <- c("LT", "LG", "C", "RG", "RT")
+ol_generic_positions  <- c("OT", "OG", "OL", "T", "G")
+
+# Granular slot tags — top 2 per slot per team
+ol_specific <- players %>%
+  filter(position %in% ol_specific_positions, !is.na(team)) %>%
   group_by(team, position) %>%
   slice_min(order_by = depth_chart_order, n = 2, with_ties = FALSE) %>%
   ungroup()
 
+# Generic OT/OG tags — top 4 OTs per team (covers LT+RT starters+backups),
+# top 2 OGs per team (covers interior starters)
+ol_generic <- players %>%
+  filter(position %in% ol_generic_positions, !is.na(team)) %>%
+  group_by(team, position) %>%
+  slice_min(order_by = depth_chart_order, n = 4, with_ties = FALSE) %>%
+  ungroup()
+
+ol_filtered <- bind_rows(ol_specific, ol_generic) %>%
+  distinct(player_id, .keep_all = TRUE)
+
+message("OL players after filtering: ", nrow(ol_filtered))
+
 # =====================
-# SKILL POSITION + DEFENSE FILTERS
+# SKILL POSITION + DEFENSE FILTERING
 # =====================
 skill_def_filtered <- players %>%
   filter(
@@ -149,6 +178,8 @@ message("After filtering: ", nrow(filtered_players))
 # =====================
 groups <- split(filtered_players, filtered_players$position)
 
+message("Position groups: ", paste(names(groups), collapse = ", "))
+
 # =====================
 # RSS HELPERS
 # =====================
@@ -166,9 +197,9 @@ safe_parse_date <- function(x) {
 
 get_impact <- function(text) {
   t <- tolower(text)
-  if (grepl("injur|out|ir|surgery", t))       return("negative")
-  if (grepl("signed|trade|cut|released", t))  return("roster_move")
-  if (grepl("breakout|huge|dominant", t))     return("positive")
+  if (grepl("injur|out|ir|surgery", t))      return("negative")
+  if (grepl("signed|trade|cut|released", t)) return("roster_move")
+  if (grepl("breakout|huge|dominant", t))    return("positive")
   "neutral"
 }
 
@@ -231,10 +262,12 @@ news_by_pos <- lapply(groups, build_news)
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 
 for (pos in names(news_by_pos)) {
+  # Sanitize position name for filename (e.g. OL_OTHER -> ol_other, OT -> ot)
+  safe_pos <- tolower(gsub("[^a-zA-Z0-9]", "_", pos))
   write_json(
     news_by_pos[[pos]],
-    file.path(OUTPUT_DIR, paste0("news_", tolower(pos), ".json")),
-    pretty    = TRUE,
+    file.path(OUTPUT_DIR, paste0("news_", safe_pos, ".json")),
+    pretty     = TRUE,
     auto_unbox = TRUE
   )
 }
