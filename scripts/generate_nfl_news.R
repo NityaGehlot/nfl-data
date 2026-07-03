@@ -1,5 +1,5 @@
 # =====================
-# scripts/generate_nfl_news.R (OFFENSE + DEFENSE CLEAN VERSION)
+# scripts/generate_nfl_news.R (OFFENSE + DEFENSE + OL CLEAN VERSION)
 # =====================
 
 library(httr)
@@ -53,21 +53,19 @@ normalize_position <- function(pos, fantasy_positions) {
   # Linebackers
   if (pos == "LB") return("LB")
 
-  # Defensive backs handling
+  # Defensive backs
   if (pos == "CB") return("CB")
-  if (pos == "S") return("S")
-
-  # DB is ambiguous → split logic
+  if (pos == "S")  return("S")
   if (pos == "DB") return("DB")
+
+  # Offensive line — keep granular so we can filter per OL slot
+  if (pos %in% c("LT", "LG", "C", "RG", "RT")) return(pos)
+
+  # Catch-all OL tag (some sources use "OL" or "OT"/"OG" without side)
+  if (pos %in% c("OL", "OT", "OG")) return("OL_OTHER")
 
   # Offense / special teams
   return(pos)
-}
-
-resolve_db_role <- function(player) {
-  # fallback logic for DBs
-  # simple heuristic: default CB (can improve later)
-  return("CB")
 }
 
 # =====================
@@ -77,17 +75,17 @@ players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  pos_raw <- p$position %||% NA
+  pos_raw  <- p$position %||% NA
   norm_pos <- normalize_position(pos_raw, p$fantasy_positions)
 
   data.frame(
-    player_id = p$player_id %||% NA,
-    player_name = paste(p$first_name, p$last_name),
-    position_raw = pos_raw,
-    position = norm_pos,
-    team = p$team %||% NA,
-    status = p$status %||% NA,
-    depth_chart_order = {
+    player_id          = p$player_id %||% NA,
+    player_name        = paste(p$first_name, p$last_name),
+    position_raw       = pos_raw,
+    position           = norm_pos,
+    team               = p$team %||% NA,
+    status             = p$status %||% NA,
+    depth_chart_order  = {
       d <- suppressWarnings(as.numeric(p$depth_chart_order))
       if (is.na(d)) 99 else d
     },
@@ -107,12 +105,23 @@ players <- players %>%
   filter(status == "Active" | is.na(status))
 
 # =====================
-# DEFENSIVE + OFFENSIVE FILTERS
+# OFFENSIVE LINE: top 2 per slot per team
+# OL slots tracked individually so depth_chart_order is meaningful within each slot
 # =====================
+ol_positions <- c("LT", "LG", "C", "RG", "RT")
 
-filtered_players <- players %>%
+ol_filtered <- players %>%
+  filter(position %in% ol_positions, !is.na(team)) %>%
+  group_by(team, position) %>%
+  slice_min(order_by = depth_chart_order, n = 2, with_ties = FALSE) %>%
+  ungroup()
+
+# =====================
+# SKILL POSITION + DEFENSE FILTERS
+# =====================
+skill_def_filtered <- players %>%
   filter(
-    # OFFENSE
+    # OFFENSE (skill)
     (position == "QB" & depth_chart_order <= 2) |
     (position == "RB" & depth_chart_order <= 3) |
     (position == "WR" & depth_chart_order <= 6) |
@@ -124,10 +133,14 @@ filtered_players <- players %>%
     (position == "LB" & depth_chart_order <= 4) |
     (position == "CB" & depth_chart_order <= 5) |
     (position == "S"  & depth_chart_order <= 3) |
-
-    # fallback DB handling
     (position == "DB" & depth_chart_order <= 5)
   )
+
+# =====================
+# COMBINE AND DEDUPLICATE
+# =====================
+filtered_players <- bind_rows(skill_def_filtered, ol_filtered) %>%
+  distinct(player_id, .keep_all = TRUE)
 
 message("After filtering: ", nrow(filtered_players))
 
@@ -137,13 +150,13 @@ message("After filtering: ", nrow(filtered_players))
 groups <- split(filtered_players, filtered_players$position)
 
 # =====================
-# RSS HELPERS (UNCHANGED)
+# RSS HELPERS
 # =====================
 safe_parse_date <- function(x) {
   tryCatch({
     parsed <- parse_date_time(
       x,
-      orders = c("a, d b Y H:M:S z","Y-m-d"),
+      orders = c("a, d b Y H:M:S z", "Y-m-d"),
       tz = "UTC"
     )
     if (length(parsed) == 0 || all(is.na(parsed))) return(NA)
@@ -153,9 +166,9 @@ safe_parse_date <- function(x) {
 
 get_impact <- function(text) {
   t <- tolower(text)
-  if (grepl("injur|out|ir|surgery", t)) return("negative")
-  if (grepl("signed|trade|cut|released", t)) return("roster_move")
-  if (grepl("breakout|huge|dominant", t)) return("positive")
+  if (grepl("injur|out|ir|surgery", t))       return("negative")
+  if (grepl("signed|trade|cut|released", t))  return("roster_move")
+  if (grepl("breakout|huge|dominant", t))     return("positive")
   "neutral"
 }
 
@@ -167,28 +180,28 @@ fetch_google <- function(player_name) {
     "&hl=en-US&gl=US&ceid=US:en"
   )
 
-  xml <- tryCatch(read_xml(url), error=function(e) NULL)
+  xml <- tryCatch(read_xml(url), error = function(e) NULL)
   if (is.null(xml)) return(list())
 
-  items <- xml_find_all(xml, "//item")
+  items    <- xml_find_all(xml, "//item")
   articles <- list()
 
   for (item in items) {
 
-    title <- xml_text(xml_find_first(item, "title"))
-    link <- xml_text(xml_find_first(item, "link"))
-    pub <- xml_text(xml_find_first(item, "pubDate"))
+    title  <- xml_text(xml_find_first(item, "title"))
+    link   <- xml_text(xml_find_first(item, "link"))
+    pub    <- xml_text(xml_find_first(item, "pubDate"))
 
     parsed <- safe_parse_date(pub)
     if (is.na(parsed)) parsed <- Sys.Date()
     if (parsed < SEASON_START) next
 
     articles <- c(articles, list(list(
-      title = title,
-      link = link,
+      title     = title,
+      link      = link,
       published = as.character(parsed),
-      player = player_name,
-      impact = get_impact(title)
+      player    = player_name,
+      impact    = get_impact(title)
     )))
   }
 
@@ -200,7 +213,7 @@ build_news <- function(df) {
 
   for (i in seq_len(nrow(df))) {
     Sys.sleep(REQUEST_DELAY)
-    news <- fetch_google(df$player_name[i])
+    news   <- fetch_google(df$player_name[i])
     result <- c(result, news)
   }
 
@@ -215,15 +228,15 @@ news_by_pos <- lapply(groups, build_news)
 # =====================
 # SAVE
 # =====================
-if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive=TRUE)
+if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 
 for (pos in names(news_by_pos)) {
   write_json(
     news_by_pos[[pos]],
     file.path(OUTPUT_DIR, paste0("news_", tolower(pos), ".json")),
-    pretty=TRUE,
-    auto_unbox=TRUE
+    pretty    = TRUE,
+    auto_unbox = TRUE
   )
 }
 
-message("✅ DONE — offense + defense news generated")
+message("✅ DONE — offense + defense + OL news generated")
