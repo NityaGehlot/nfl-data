@@ -262,10 +262,14 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Keep only players who recorded at least 1 snap in any week this season
-active_offense_ids <- offense_snaps %>%
-  filter(snap_count > 0) %>%
-  distinct(player_id)
+# Keep only players who recorded at least 1 snap in any week this season.
+# Uses two sources to avoid dropping players with broken pfr_id bridges:
+#   1. offense_snaps (snap count data via pfr bridge)
+#   2. weekly_off (direct appearance in offensive play-by-play stats)
+active_offense_ids <- bind_rows(
+  offense_snaps %>% filter(snap_count > 0) %>% select(player_id),
+  weekly_off    %>% filter(!is.na(player_id), player_id != "") %>% select(player_id)
+) %>% distinct(player_id)
 
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
   offense_df %>%
@@ -430,10 +434,17 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Keep only players who recorded at least 1 defensive snap in any week this season
-active_defense_ids <- defense_snaps %>%
-  filter(snap_count > 0) %>%
-  distinct(player_id)
+# Keep only players who recorded at least 1 defensive snap in any week this season.
+# Uses two sources to avoid dropping players with broken pfr_id bridges:
+#   1. defense_snaps (snap count data via pfr bridge)
+#   2. weekly_def_raw (direct appearance in defensive play-by-play stats)
+active_defense_ids <- bind_rows(
+  defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
+  weekly_def_raw %>%
+    mutate(position = normalize_def_position(position)) %>%
+    filter(position %in% def_positions, !is.na(player_id), player_id != "") %>%
+    select(player_id)
+) %>% distinct(player_id)
 
 individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
   individual_def_df %>%
