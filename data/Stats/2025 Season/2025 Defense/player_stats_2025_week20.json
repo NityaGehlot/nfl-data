@@ -6172,6 +6172,37 @@
     {
       "season": null,
       "week": 20,
+      "player_id": "00-0037041",
+      "player_name": "Haggai Ndubuisi",
+      "position": "DL",
+      "team": "HOU",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_tackles_for_loss_yards": 0,
+      "def_sacks": 0,
+      "def_sack_yards": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0
+    }
+  ],
+  "201": [
+    {
+      "season": null,
+      "week": 20,
       "player_id": "00-0039906",
       "player_name": "Jer'Zhan Newton",
       "position": "DL",
@@ -6199,7 +6230,7 @@
       "def_tds": 0
     }
   ],
-  "201": [
+  "202": [
     {
       "season": null,
       "week": 20,
@@ -6230,7 +6261,7 @@
       "def_tds": 0
     }
   ],
-  "202": [
+  "203": [
     {
       "season": null,
       "week": 20,
@@ -6261,7 +6292,7 @@
       "def_tds": 0
     }
   ],
-  "203": [
+  "204": [
     {
       "season": null,
       "week": 20,
@@ -6292,7 +6323,7 @@
       "def_tds": 0
     }
   ],
-  "204": [
+  "205": [
     {
       "season": null,
       "week": 20,
@@ -6323,7 +6354,7 @@
       "def_tds": 0
     }
   ],
-  "205": [
+  "206": [
     {
       "season": null,
       "week": 20,
@@ -6354,7 +6385,7 @@
       "def_tds": 0
     }
   ],
-  "206": [
+  "207": [
     {
       "season": null,
       "week": 20,
@@ -6385,7 +6416,7 @@
       "def_tds": 0
     }
   ],
-  "207": [
+  "208": [
     {
       "season": null,
       "week": 20,
@@ -6416,7 +6447,7 @@
       "def_tds": 0
     }
   ],
-  "208": [
+  "209": [
     {
       "season": null,
       "week": 20,
@@ -6447,7 +6478,7 @@
       "def_tds": 0
     }
   ],
-  "209": [
+  "210": [
     {
       "season": null,
       "week": 20,
@@ -6478,7 +6509,7 @@
       "def_tds": 0
     }
   ],
-  "210": [
+  "211": [
     {
       "season": null,
       "week": 20,
@@ -6509,7 +6540,7 @@
       "def_tds": 0
     }
   ],
-  "211": [
+  "212": [
     {
       "season": 2025,
       "week": 20,
@@ -6540,7 +6571,7 @@
       "def_tds": 0
     }
   ],
-  "212": [
+  "213": [
     {
       "season": null,
       "week": 20,
@@ -6571,7 +6602,7 @@
       "def_tds": 0
     }
   ],
-  "213": [
+  "214": [
     {
       "season": null,
       "week": 20,
@@ -6602,7 +6633,38 @@
       "def_tds": 0
     }
   ],
-  "214": [
+  "215": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039176",
+      "player_name": "Basil Okoye",
+      "position": "DL",
+      "team": "BAL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_tackles_for_loss_yards": 0,
+      "def_sacks": 0,
+      "def_sack_yards": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0
+    }
+  ],
+  "216": [
     {
       "season": 2025,
       "week": 20,
@@ -6633,7 +6695,7 @@
       "def_tds": 0
     }
   ],
-  "215": [
+  "217": [
     {
       "season": null,
       "week": 20,
@@ -6664,7 +6726,7 @@
       "def_tds": 0
     }
   ],
-  "216": [
+  "218": [
     {
       "season": null,
       "week": 20,
@@ -6695,7 +6757,7 @@
       "def_tds": 0
     }
   ],
-  "217": [
+  "219": [
     {
       "season": null,
       "week": 20,
@@ -6726,7 +6788,7 @@
       "def_tds": 0
     }
   ],
-  "218": [
+  "220": [
     {
       "season": null,
       "week": 20,
@@ -6757,7 +6819,7 @@
       "def_tds": 0
     }
   ],
-  "219": [
+  "221": [
     {
       "season": null,
       "week": 20,
@@ -6788,7 +6850,7 @@
       "def_tds": 0
     }
   ],
-  "220": [
+  "222": [
     {
       "season": null,
       "week": 20,
@@ -6819,7 +6881,7 @@
       "def_tds": 0
     }
   ],
-  "221": [
+  "223": [
     {
       "season": null,
       "week": 20,
@@ -6850,7 +6912,7 @@
       "def_tds": 0
     }
   ],
-  "222": [
+  "224": [
     {
       "season": null,
       "week": 20,
@@ -6881,7 +6943,7 @@
       "def_tds": 0
     }
   ],
-  "223": [
+  "225": [
     {
       "season": null,
       "week": 20,
@@ -6912,7 +6974,7 @@
       "def_tds": 0
     }
   ],
-  "224": [
+  "226": [
     {
       "season": null,
       "week": 20,
@@ -6943,7 +7005,7 @@
       "def_tds": 0
     }
   ],
-  "225": [
+  "227": [
     {
       "season": null,
       "week": 20,
@@ -6974,7 +7036,7 @@
       "def_tds": 0
     }
   ],
-  "226": [
+  "228": [
     {
       "season": null,
       "week": 20,
@@ -7005,7 +7067,7 @@
       "def_tds": 0
     }
   ],
-  "227": [
+  "229": [
     {
       "season": null,
       "week": 20,
@@ -7036,7 +7098,7 @@
       "def_tds": 0
     }
   ],
-  "228": [
+  "230": [
     {
       "season": null,
       "week": 20,
@@ -7067,7 +7129,7 @@
       "def_tds": 0
     }
   ],
-  "229": [
+  "231": [
     {
       "season": null,
       "week": 20,
@@ -7098,7 +7160,7 @@
       "def_tds": 0
     }
   ],
-  "230": [
+  "232": [
     {
       "season": null,
       "week": 20,
@@ -7129,7 +7191,7 @@
       "def_tds": 0
     }
   ],
-  "231": [
+  "233": [
     {
       "season": null,
       "week": 20,
@@ -7160,7 +7222,7 @@
       "def_tds": 0
     }
   ],
-  "232": [
+  "234": [
     {
       "season": null,
       "week": 20,
@@ -7191,7 +7253,7 @@
       "def_tds": 0
     }
   ],
-  "233": [
+  "235": [
     {
       "season": null,
       "week": 20,
@@ -7222,7 +7284,7 @@
       "def_tds": 0
     }
   ],
-  "234": [
+  "236": [
     {
       "season": null,
       "week": 20,
@@ -7253,7 +7315,7 @@
       "def_tds": 0
     }
   ],
-  "235": [
+  "237": [
     {
       "season": 2025,
       "week": 20,
@@ -7284,7 +7346,7 @@
       "def_tds": 0
     }
   ],
-  "236": [
+  "238": [
     {
       "season": 2025,
       "week": 20,
@@ -7315,7 +7377,7 @@
       "def_tds": 0
     }
   ],
-  "237": [
+  "239": [
     {
       "season": null,
       "week": 20,
@@ -7346,7 +7408,7 @@
       "def_tds": 0
     }
   ],
-  "238": [
+  "240": [
     {
       "season": null,
       "week": 20,
@@ -7377,7 +7439,7 @@
       "def_tds": 0
     }
   ],
-  "239": [
+  "241": [
     {
       "season": null,
       "week": 20,
@@ -7408,7 +7470,7 @@
       "def_tds": 0
     }
   ],
-  "240": [
+  "242": [
     {
       "season": null,
       "week": 20,
@@ -7439,7 +7501,7 @@
       "def_tds": 0
     }
   ],
-  "241": [
+  "243": [
     {
       "season": 2025,
       "week": 20,
@@ -7470,7 +7532,7 @@
       "def_tds": 0
     }
   ],
-  "242": [
+  "244": [
     {
       "season": null,
       "week": 20,
@@ -7501,7 +7563,7 @@
       "def_tds": 0
     }
   ],
-  "243": [
+  "245": [
     {
       "season": null,
       "week": 20,
@@ -7532,7 +7594,7 @@
       "def_tds": 0
     }
   ],
-  "244": [
+  "246": [
     {
       "season": 2025,
       "week": 20,
@@ -7563,7 +7625,7 @@
       "def_tds": 0
     }
   ],
-  "245": [
+  "247": [
     {
       "season": null,
       "week": 20,
@@ -7594,7 +7656,7 @@
       "def_tds": 0
     }
   ],
-  "246": [
+  "248": [
     {
       "season": null,
       "week": 20,
@@ -7625,7 +7687,7 @@
       "def_tds": 0
     }
   ],
-  "247": [
+  "249": [
     {
       "season": null,
       "week": 20,
@@ -7656,7 +7718,7 @@
       "def_tds": 0
     }
   ],
-  "248": [
+  "250": [
     {
       "season": null,
       "week": 20,
@@ -7687,7 +7749,7 @@
       "def_tds": 0
     }
   ],
-  "249": [
+  "251": [
     {
       "season": null,
       "week": 20,
@@ -7718,7 +7780,7 @@
       "def_tds": 0
     }
   ],
-  "250": [
+  "252": [
     {
       "season": 2025,
       "week": 20,
@@ -7749,7 +7811,7 @@
       "def_tds": 0
     }
   ],
-  "251": [
+  "253": [
     {
       "season": null,
       "week": 20,
@@ -7780,7 +7842,7 @@
       "def_tds": 0
     }
   ],
-  "252": [
+  "254": [
     {
       "season": null,
       "week": 20,
@@ -7811,7 +7873,7 @@
       "def_tds": 0
     }
   ],
-  "253": [
+  "255": [
     {
       "season": null,
       "week": 20,
@@ -7842,7 +7904,7 @@
       "def_tds": 0
     }
   ],
-  "254": [
+  "256": [
     {
       "season": null,
       "week": 20,
@@ -7873,7 +7935,7 @@
       "def_tds": 0
     }
   ],
-  "255": [
+  "257": [
     {
       "season": null,
       "week": 20,
@@ -7904,7 +7966,7 @@
       "def_tds": 0
     }
   ],
-  "256": [
+  "258": [
     {
       "season": null,
       "week": 20,
@@ -7935,7 +7997,7 @@
       "def_tds": 0
     }
   ],
-  "257": [
+  "259": [
     {
       "season": null,
       "week": 20,
@@ -7966,7 +8028,7 @@
       "def_tds": 0
     }
   ],
-  "258": [
+  "260": [
     {
       "season": null,
       "week": 20,
@@ -7997,7 +8059,7 @@
       "def_tds": 0
     }
   ],
-  "259": [
+  "261": [
     {
       "season": null,
       "week": 20,
@@ -8028,7 +8090,7 @@
       "def_tds": 0
     }
   ],
-  "260": [
+  "262": [
     {
       "season": null,
       "week": 20,
@@ -8059,7 +8121,7 @@
       "def_tds": 0
     }
   ],
-  "261": [
+  "263": [
     {
       "season": null,
       "week": 20,
@@ -8090,7 +8152,7 @@
       "def_tds": 0
     }
   ],
-  "262": [
+  "264": [
     {
       "season": null,
       "week": 20,
@@ -8121,7 +8183,7 @@
       "def_tds": 0
     }
   ],
-  "263": [
+  "265": [
     {
       "season": null,
       "week": 20,
@@ -8152,7 +8214,7 @@
       "def_tds": 0
     }
   ],
-  "264": [
+  "266": [
     {
       "season": null,
       "week": 20,
@@ -8183,7 +8245,7 @@
       "def_tds": 0
     }
   ],
-  "265": [
+  "267": [
     {
       "season": null,
       "week": 20,
@@ -8214,7 +8276,7 @@
       "def_tds": 0
     }
   ],
-  "266": [
+  "268": [
     {
       "season": null,
       "week": 20,
@@ -8245,7 +8307,7 @@
       "def_tds": 0
     }
   ],
-  "267": [
+  "269": [
     {
       "season": null,
       "week": 20,
@@ -8276,7 +8338,7 @@
       "def_tds": 0
     }
   ],
-  "268": [
+  "270": [
     {
       "season": null,
       "week": 20,
@@ -8307,7 +8369,7 @@
       "def_tds": 0
     }
   ],
-  "269": [
+  "271": [
     {
       "season": null,
       "week": 20,
@@ -8338,7 +8400,7 @@
       "def_tds": 0
     }
   ],
-  "270": [
+  "272": [
     {
       "season": null,
       "week": 20,
@@ -8369,7 +8431,7 @@
       "def_tds": 0
     }
   ],
-  "271": [
+  "273": [
     {
       "season": null,
       "week": 20,
@@ -8400,7 +8462,7 @@
       "def_tds": 0
     }
   ],
-  "272": [
+  "274": [
     {
       "season": null,
       "week": 20,
@@ -8431,7 +8493,7 @@
       "def_tds": 0
     }
   ],
-  "273": [
+  "275": [
     {
       "season": null,
       "week": 20,
@@ -8462,7 +8524,7 @@
       "def_tds": 0
     }
   ],
-  "274": [
+  "276": [
     {
       "season": null,
       "week": 20,
@@ -8493,7 +8555,7 @@
       "def_tds": 0
     }
   ],
-  "275": [
+  "277": [
     {
       "season": null,
       "week": 20,
@@ -8524,7 +8586,7 @@
       "def_tds": 0
     }
   ],
-  "276": [
+  "278": [
     {
       "season": 2025,
       "week": 20,
@@ -8555,7 +8617,7 @@
       "def_tds": 0
     }
   ],
-  "277": [
+  "279": [
     {
       "season": null,
       "week": 20,
@@ -8586,7 +8648,7 @@
       "def_tds": 0
     }
   ],
-  "278": [
+  "280": [
     {
       "season": null,
       "week": 20,
@@ -8617,7 +8679,7 @@
       "def_tds": 0
     }
   ],
-  "279": [
+  "281": [
     {
       "season": null,
       "week": 20,
@@ -8648,7 +8710,7 @@
       "def_tds": 0
     }
   ],
-  "280": [
+  "282": [
     {
       "season": null,
       "week": 20,
@@ -8679,7 +8741,7 @@
       "def_tds": 0
     }
   ],
-  "281": [
+  "283": [
     {
       "season": null,
       "week": 20,
@@ -8710,7 +8772,7 @@
       "def_tds": 0
     }
   ],
-  "282": [
+  "284": [
     {
       "season": null,
       "week": 20,
@@ -8741,7 +8803,7 @@
       "def_tds": 0
     }
   ],
-  "283": [
+  "285": [
     {
       "season": null,
       "week": 20,
@@ -8772,7 +8834,7 @@
       "def_tds": 0
     }
   ],
-  "284": [
+  "286": [
     {
       "season": null,
       "week": 20,
@@ -8803,7 +8865,7 @@
       "def_tds": 0
     }
   ],
-  "285": [
+  "287": [
     {
       "season": 2025,
       "week": 20,
@@ -8834,7 +8896,7 @@
       "def_tds": 0
     }
   ],
-  "286": [
+  "288": [
     {
       "season": null,
       "week": 20,
@@ -8865,7 +8927,7 @@
       "def_tds": 0
     }
   ],
-  "287": [
+  "289": [
     {
       "season": null,
       "week": 20,
@@ -8896,7 +8958,7 @@
       "def_tds": 0
     }
   ],
-  "288": [
+  "290": [
     {
       "season": 2025,
       "week": 20,
@@ -8927,7 +8989,7 @@
       "def_tds": 0
     }
   ],
-  "289": [
+  "291": [
     {
       "season": null,
       "week": 20,
@@ -8958,7 +9020,7 @@
       "def_tds": 0
     }
   ],
-  "290": [
+  "292": [
     {
       "season": null,
       "week": 20,
@@ -8989,7 +9051,7 @@
       "def_tds": 0
     }
   ],
-  "291": [
+  "293": [
     {
       "season": null,
       "week": 20,
@@ -9020,7 +9082,7 @@
       "def_tds": 0
     }
   ],
-  "292": [
+  "294": [
     {
       "season": null,
       "week": 20,
@@ -9051,7 +9113,7 @@
       "def_tds": 0
     }
   ],
-  "293": [
+  "295": [
     {
       "season": null,
       "week": 20,
@@ -9082,7 +9144,7 @@
       "def_tds": 0
     }
   ],
-  "294": [
+  "296": [
     {
       "season": 2025,
       "week": 20,
@@ -9113,7 +9175,7 @@
       "def_tds": 0
     }
   ],
-  "295": [
+  "297": [
     {
       "season": null,
       "week": 20,
@@ -9144,7 +9206,7 @@
       "def_tds": 0
     }
   ],
-  "296": [
+  "298": [
     {
       "season": null,
       "week": 20,
@@ -9175,7 +9237,7 @@
       "def_tds": 0
     }
   ],
-  "297": [
+  "299": [
     {
       "season": null,
       "week": 20,
@@ -9206,7 +9268,7 @@
       "def_tds": 0
     }
   ],
-  "298": [
+  "300": [
     {
       "season": 2025,
       "week": 20,
@@ -9237,7 +9299,7 @@
       "def_tds": 0
     }
   ],
-  "299": [
+  "301": [
     {
       "season": null,
       "week": 20,
@@ -9268,7 +9330,7 @@
       "def_tds": 0
     }
   ],
-  "300": [
+  "302": [
     {
       "season": null,
       "week": 20,
@@ -9299,7 +9361,7 @@
       "def_tds": 0
     }
   ],
-  "301": [
+  "303": [
     {
       "season": 2025,
       "week": 20,
@@ -9330,7 +9392,7 @@
       "def_tds": 0
     }
   ],
-  "302": [
+  "304": [
     {
       "season": null,
       "week": 20,
@@ -9361,7 +9423,7 @@
       "def_tds": 0
     }
   ],
-  "303": [
+  "305": [
     {
       "season": null,
       "week": 20,
@@ -9392,7 +9454,7 @@
       "def_tds": 0
     }
   ],
-  "304": [
+  "306": [
     {
       "season": null,
       "week": 20,
@@ -9423,7 +9485,7 @@
       "def_tds": 0
     }
   ],
-  "305": [
+  "307": [
     {
       "season": null,
       "week": 20,
@@ -9454,7 +9516,7 @@
       "def_tds": 0
     }
   ],
-  "306": [
+  "308": [
     {
       "season": 2025,
       "week": 20,
@@ -9485,7 +9547,7 @@
       "def_tds": 0
     }
   ],
-  "307": [
+  "309": [
     {
       "season": null,
       "week": 20,
@@ -9516,7 +9578,7 @@
       "def_tds": 0
     }
   ],
-  "308": [
+  "310": [
     {
       "season": null,
       "week": 20,
@@ -9547,7 +9609,7 @@
       "def_tds": 0
     }
   ],
-  "309": [
+  "311": [
     {
       "season": 2025,
       "week": 20,
@@ -9578,7 +9640,7 @@
       "def_tds": 0
     }
   ],
-  "310": [
+  "312": [
     {
       "season": null,
       "week": 20,
@@ -9609,7 +9671,7 @@
       "def_tds": 0
     }
   ],
-  "311": [
+  "313": [
     {
       "season": null,
       "week": 20,
@@ -9640,7 +9702,38 @@
       "def_tds": 0
     }
   ],
-  "312": [
+  "314": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035944",
+      "player_name": "Jonah Williams",
+      "position": "DL",
+      "team": "NO",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_tackles_for_loss_yards": 0,
+      "def_sacks": 0,
+      "def_sack_yards": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_safeties": 0,
+      "def_tds": 0
+    }
+  ],
+  "315": [
     {
       "season": 2025,
       "week": 20,
@@ -9671,7 +9764,7 @@
       "def_tds": 0
     }
   ],
-  "313": [
+  "316": [
     {
       "season": 2025,
       "week": 20,
@@ -9702,7 +9795,7 @@
       "def_tds": 0
     }
   ],
-  "314": [
+  "317": [
     {
       "season": null,
       "week": 20,
@@ -9733,7 +9826,7 @@
       "def_tds": 0
     }
   ],
-  "315": [
+  "318": [
     {
       "season": null,
       "week": 20,
@@ -9764,7 +9857,7 @@
       "def_tds": 0
     }
   ],
-  "316": [
+  "319": [
     {
       "season": null,
       "week": 20,
@@ -9795,7 +9888,7 @@
       "def_tds": 0
     }
   ],
-  "317": [
+  "320": [
     {
       "season": null,
       "week": 20,
@@ -9826,7 +9919,7 @@
       "def_tds": 0
     }
   ],
-  "318": [
+  "321": [
     {
       "season": null,
       "week": 20,
@@ -9857,7 +9950,7 @@
       "def_tds": 0
     }
   ],
-  "319": [
+  "322": [
     {
       "season": null,
       "week": 20,
@@ -9888,7 +9981,7 @@
       "def_tds": 0
     }
   ],
-  "320": [
+  "323": [
     {
       "season": null,
       "week": 20,
@@ -9919,7 +10012,7 @@
       "def_tds": 0
     }
   ],
-  "321": [
+  "324": [
     {
       "season": null,
       "week": 20,
@@ -9950,7 +10043,7 @@
       "def_tds": 0
     }
   ],
-  "322": [
+  "325": [
     {
       "season": null,
       "week": 20,
@@ -9981,7 +10074,7 @@
       "def_tds": 0
     }
   ],
-  "323": [
+  "326": [
     {
       "season": null,
       "week": 20,
@@ -10012,7 +10105,7 @@
       "def_tds": 0
     }
   ],
-  "324": [
+  "327": [
     {
       "season": null,
       "week": 20,
@@ -10043,7 +10136,7 @@
       "def_tds": 0
     }
   ],
-  "325": [
+  "328": [
     {
       "season": null,
       "week": 20,
@@ -10074,7 +10167,7 @@
       "def_tds": 0
     }
   ],
-  "326": [
+  "329": [
     {
       "season": null,
       "week": 20,
@@ -10105,7 +10198,7 @@
       "def_tds": 0
     }
   ],
-  "327": [
+  "330": [
     {
       "season": null,
       "week": 20,
@@ -10136,7 +10229,7 @@
       "def_tds": 0
     }
   ],
-  "328": [
+  "331": [
     {
       "season": null,
       "week": 20,
@@ -10169,7 +10262,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "329": [
+  "332": [
     {
       "season": null,
       "week": 20,
@@ -10202,7 +10295,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "330": [
+  "333": [
     {
       "season": null,
       "week": 20,
@@ -10235,7 +10328,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "331": [
+  "334": [
     {
       "season": 2025,
       "week": 20,
@@ -10268,7 +10361,7 @@
       "fumble_recovery_yards_opp": 2
     }
   ],
-  "332": [
+  "335": [
     {
       "season": 2025,
       "week": 20,
@@ -10301,7 +10394,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "333": [
+  "336": [
     {
       "season": null,
       "week": 20,
@@ -10334,7 +10427,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "334": [
+  "337": [
     {
       "season": null,
       "week": 20,
@@ -10367,7 +10460,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "335": [
+  "338": [
     {
       "season": null,
       "week": 20,
@@ -10400,7 +10493,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "336": [
+  "339": [
     {
       "season": null,
       "week": 20,
@@ -10433,7 +10526,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "337": [
+  "340": [
     {
       "season": null,
       "week": 20,
@@ -10466,7 +10559,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "338": [
+  "341": [
     {
       "season": null,
       "week": 20,
@@ -10499,7 +10592,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "339": [
+  "342": [
     {
       "season": null,
       "week": 20,
@@ -10532,7 +10625,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "340": [
+  "343": [
     {
       "season": null,
       "week": 20,
@@ -10565,7 +10658,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "341": [
+  "344": [
     {
       "season": null,
       "week": 20,
@@ -10598,7 +10691,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "342": [
+  "345": [
     {
       "season": null,
       "week": 20,
@@ -10631,7 +10724,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "343": [
+  "346": [
     {
       "season": null,
       "week": 20,
@@ -10664,7 +10757,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "344": [
+  "347": [
     {
       "season": null,
       "week": 20,
@@ -10697,7 +10790,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "345": [
+  "348": [
     {
       "season": null,
       "week": 20,
@@ -10730,7 +10823,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "346": [
+  "349": [
     {
       "season": null,
       "week": 20,
@@ -10763,7 +10856,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "347": [
+  "350": [
     {
       "season": null,
       "week": 20,
@@ -10796,7 +10889,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "348": [
+  "351": [
     {
       "season": null,
       "week": 20,
@@ -10829,7 +10922,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "349": [
+  "352": [
     {
       "season": null,
       "week": 20,
@@ -10862,7 +10955,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "350": [
+  "353": [
     {
       "season": null,
       "week": 20,
@@ -10895,7 +10988,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "351": [
+  "354": [
     {
       "season": null,
       "week": 20,
@@ -10928,7 +11021,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "352": [
+  "355": [
     {
       "season": 2025,
       "week": 20,
@@ -10961,7 +11054,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "353": [
+  "356": [
     {
       "season": null,
       "week": 20,
@@ -10994,7 +11087,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "354": [
+  "357": [
     {
       "season": null,
       "week": 20,
@@ -11027,7 +11120,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "355": [
+  "358": [
     {
       "season": null,
       "week": 20,
@@ -11060,7 +11153,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "356": [
+  "359": [
     {
       "season": null,
       "week": 20,
@@ -11093,7 +11186,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "357": [
+  "360": [
     {
       "season": null,
       "week": 20,
@@ -11126,7 +11219,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "358": [
+  "361": [
     {
       "season": null,
       "week": 20,
@@ -11159,7 +11252,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "359": [
+  "362": [
     {
       "season": null,
       "week": 20,
@@ -11192,7 +11285,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "360": [
+  "363": [
     {
       "season": null,
       "week": 20,
@@ -11225,7 +11318,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "361": [
+  "364": [
     {
       "season": null,
       "week": 20,
@@ -11258,7 +11351,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "362": [
+  "365": [
     {
       "season": null,
       "week": 20,
@@ -11291,7 +11384,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "363": [
+  "366": [
     {
       "season": null,
       "week": 20,
@@ -11324,7 +11417,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "364": [
+  "367": [
     {
       "season": null,
       "week": 20,
@@ -11357,7 +11450,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "365": [
+  "368": [
     {
       "season": null,
       "week": 20,
@@ -11390,7 +11483,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "366": [
+  "369": [
     {
       "season": null,
       "week": 20,
@@ -11423,7 +11516,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "367": [
+  "370": [
     {
       "season": null,
       "week": 20,
@@ -11456,7 +11549,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "368": [
+  "371": [
     {
       "season": null,
       "week": 20,
@@ -11489,7 +11582,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "369": [
+  "372": [
     {
       "season": null,
       "week": 20,
@@ -11522,7 +11615,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "370": [
+  "373": [
     {
       "season": null,
       "week": 20,
@@ -11555,7 +11648,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "371": [
+  "374": [
     {
       "season": 2025,
       "week": 20,
@@ -11588,7 +11681,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "372": [
+  "375": [
     {
       "season": null,
       "week": 20,
@@ -11621,7 +11714,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "373": [
+  "376": [
     {
       "season": null,
       "week": 20,
@@ -11654,7 +11747,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "374": [
+  "377": [
     {
       "season": null,
       "week": 20,
@@ -11687,7 +11780,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "375": [
+  "378": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035900",
+      "player_name": "Cole Christiansen",
+      "position": "LB",
+      "team": "KC",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "379": [
     {
       "season": null,
       "week": 20,
@@ -11720,7 +11846,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "376": [
+  "380": [
     {
       "season": 2025,
       "week": 20,
@@ -11753,7 +11879,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "377": [
+  "381": [
     {
       "season": null,
       "week": 20,
@@ -11786,7 +11912,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "378": [
+  "382": [
     {
       "season": null,
       "week": 20,
@@ -11819,7 +11945,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "379": [
+  "383": [
     {
       "season": null,
       "week": 20,
@@ -11852,7 +11978,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "380": [
+  "384": [
     {
       "season": null,
       "week": 20,
@@ -11885,7 +12011,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "381": [
+  "385": [
     {
       "season": null,
       "week": 20,
@@ -11918,7 +12044,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "382": [
+  "386": [
     {
       "season": 2025,
       "week": 20,
@@ -11951,7 +12077,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "383": [
+  "387": [
     {
       "season": null,
       "week": 20,
@@ -11984,7 +12110,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "384": [
+  "388": [
     {
       "season": null,
       "week": 20,
@@ -12017,7 +12143,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "385": [
+  "389": [
     {
       "season": null,
       "week": 20,
@@ -12050,7 +12176,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "386": [
+  "390": [
     {
       "season": null,
       "week": 20,
@@ -12083,7 +12209,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "387": [
+  "391": [
     {
       "season": null,
       "week": 20,
@@ -12116,7 +12242,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "388": [
+  "392": [
     {
       "season": null,
       "week": 20,
@@ -12149,7 +12275,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "389": [
+  "393": [
     {
       "season": null,
       "week": 20,
@@ -12182,7 +12308,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "390": [
+  "394": [
     {
       "season": null,
       "week": 20,
@@ -12215,7 +12341,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "391": [
+  "395": [
     {
       "season": null,
       "week": 20,
@@ -12248,7 +12374,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "392": [
+  "396": [
     {
       "season": null,
       "week": 20,
@@ -12281,7 +12407,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "393": [
+  "397": [
     {
       "season": null,
       "week": 20,
@@ -12314,7 +12440,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "394": [
+  "398": [
     {
       "season": null,
       "week": 20,
@@ -12347,7 +12473,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "395": [
+  "399": [
     {
       "season": null,
       "week": 20,
@@ -12380,7 +12506,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "396": [
+  "400": [
     {
       "season": null,
       "week": 20,
@@ -12413,7 +12539,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "397": [
+  "401": [
     {
       "season": null,
       "week": 20,
@@ -12446,7 +12572,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "398": [
+  "402": [
     {
       "season": null,
       "week": 20,
@@ -12479,7 +12605,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "399": [
+  "403": [
     {
       "season": null,
       "week": 20,
@@ -12512,7 +12638,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "400": [
+  "404": [
     {
       "season": null,
       "week": 20,
@@ -12545,7 +12671,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "401": [
+  "405": [
     {
       "season": 2025,
       "week": 20,
@@ -12578,7 +12704,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "402": [
+  "406": [
     {
       "season": null,
       "week": 20,
@@ -12611,7 +12737,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "403": [
+  "407": [
     {
       "season": null,
       "week": 20,
@@ -12644,7 +12770,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "404": [
+  "408": [
     {
       "season": 2025,
       "week": 20,
@@ -12677,7 +12803,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "405": [
+  "409": [
     {
       "season": 2025,
       "week": 20,
@@ -12710,7 +12836,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "406": [
+  "410": [
     {
       "season": null,
       "week": 20,
@@ -12743,7 +12869,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "407": [
+  "411": [
     {
       "season": null,
       "week": 20,
@@ -12776,7 +12902,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "408": [
+  "412": [
     {
       "season": null,
       "week": 20,
@@ -12809,7 +12935,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "409": [
+  "413": [
     {
       "season": null,
       "week": 20,
@@ -12842,7 +12968,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "410": [
+  "414": [
     {
       "season": null,
       "week": 20,
@@ -12875,7 +13001,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "411": [
+  "415": [
     {
       "season": null,
       "week": 20,
@@ -12908,7 +13034,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "412": [
+  "416": [
     {
       "season": null,
       "week": 20,
@@ -12941,7 +13067,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "413": [
+  "417": [
     {
       "season": null,
       "week": 20,
@@ -12974,7 +13100,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "414": [
+  "418": [
     {
       "season": null,
       "week": 20,
@@ -13007,7 +13133,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "415": [
+  "419": [
     {
       "season": 2025,
       "week": 20,
@@ -13040,7 +13166,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "416": [
+  "420": [
     {
       "season": null,
       "week": 20,
@@ -13073,7 +13199,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "417": [
+  "421": [
     {
       "season": null,
       "week": 20,
@@ -13106,7 +13232,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "418": [
+  "422": [
     {
       "season": null,
       "week": 20,
@@ -13139,7 +13265,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "419": [
+  "423": [
     {
       "season": null,
       "week": 20,
@@ -13172,7 +13298,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "420": [
+  "424": [
     {
       "season": null,
       "week": 20,
@@ -13205,7 +13331,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "421": [
+  "425": [
     {
       "season": null,
       "week": 20,
@@ -13238,7 +13364,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "422": [
+  "426": [
     {
       "season": null,
       "week": 20,
@@ -13271,7 +13397,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "423": [
+  "427": [
     {
       "season": null,
       "week": 20,
@@ -13304,7 +13430,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "424": [
+  "428": [
     {
       "season": 2025,
       "week": 20,
@@ -13337,7 +13463,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "425": [
+  "429": [
     {
       "season": 2025,
       "week": 20,
@@ -13370,7 +13496,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "426": [
+  "430": [
     {
       "season": 2025,
       "week": 20,
@@ -13403,7 +13529,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "427": [
+  "431": [
     {
       "season": null,
       "week": 20,
@@ -13436,7 +13562,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "428": [
+  "432": [
     {
       "season": 2025,
       "week": 20,
@@ -13469,7 +13595,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "429": [
+  "433": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035157",
+      "player_name": "Darius Harris",
+      "position": "LB",
+      "team": "NE",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "434": [
     {
       "season": null,
       "week": 20,
@@ -13502,7 +13661,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "430": [
+  "435": [
     {
       "season": null,
       "week": 20,
@@ -13535,7 +13694,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "431": [
+  "436": [
     {
       "season": null,
       "week": 20,
@@ -13568,7 +13727,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "432": [
+  "437": [
     {
       "season": null,
       "week": 20,
@@ -13601,7 +13760,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "433": [
+  "438": [
     {
       "season": null,
       "week": 20,
@@ -13634,7 +13793,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "434": [
+  "439": [
     {
       "season": null,
       "week": 20,
@@ -13667,7 +13826,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "435": [
+  "440": [
     {
       "season": null,
       "week": 20,
@@ -13700,7 +13859,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "436": [
+  "441": [
     {
       "season": null,
       "week": 20,
@@ -13733,7 +13892,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "437": [
+  "442": [
     {
       "season": 2025,
       "week": 20,
@@ -13766,7 +13925,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "438": [
+  "443": [
     {
       "season": null,
       "week": 20,
@@ -13799,7 +13958,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "439": [
+  "444": [
     {
       "season": null,
       "week": 20,
@@ -13832,7 +13991,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "440": [
+  "445": [
     {
       "season": null,
       "week": 20,
@@ -13865,7 +14024,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "441": [
+  "446": [
     {
       "season": null,
       "week": 20,
@@ -13898,7 +14057,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "442": [
+  "447": [
     {
       "season": null,
       "week": 20,
@@ -13931,7 +14090,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "443": [
+  "448": [
     {
       "season": null,
       "week": 20,
@@ -13964,7 +14123,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "444": [
+  "449": [
     {
       "season": null,
       "week": 20,
@@ -13997,7 +14156,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "445": [
+  "450": [
     {
       "season": null,
       "week": 20,
@@ -14030,7 +14189,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "446": [
+  "451": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039836",
+      "player_name": "Brennan Jackson",
+      "position": "LB",
+      "team": "LV",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "452": [
     {
       "season": 2025,
       "week": 20,
@@ -14063,7 +14255,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "447": [
+  "453": [
     {
       "season": null,
       "week": 20,
@@ -14096,7 +14288,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "448": [
+  "454": [
     {
       "season": null,
       "week": 20,
@@ -14129,7 +14321,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "449": [
+  "455": [
     {
       "season": null,
       "week": 20,
@@ -14162,7 +14354,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "450": [
+  "456": [
     {
       "season": null,
       "week": 20,
@@ -14195,7 +14387,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "451": [
+  "457": [
     {
       "season": 2025,
       "week": 20,
@@ -14228,7 +14420,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "452": [
+  "458": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0036704",
+      "player_name": "Caleb Johnson",
+      "position": "LB",
+      "team": "MIA",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "459": [
     {
       "season": null,
       "week": 20,
@@ -14261,7 +14486,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "453": [
+  "460": [
     {
       "season": null,
       "week": 20,
@@ -14294,7 +14519,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "454": [
+  "461": [
     {
       "season": null,
       "week": 20,
@@ -14327,7 +14552,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "455": [
+  "462": [
     {
       "season": null,
       "week": 20,
@@ -14360,7 +14585,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "456": [
+  "463": [
     {
       "season": null,
       "week": 20,
@@ -14393,7 +14618,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "457": [
+  "464": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039460",
+      "player_name": "Carl Jones",
+      "position": "LB",
+      "team": "BAL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "465": [
     {
       "season": null,
       "week": 20,
@@ -14426,7 +14684,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "458": [
+  "466": [
     {
       "season": 2025,
       "week": 20,
@@ -14459,7 +14717,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "459": [
+  "467": [
     {
       "season": null,
       "week": 20,
@@ -14492,7 +14750,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "460": [
+  "468": [
     {
       "season": null,
       "week": 20,
@@ -14525,7 +14783,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "461": [
+  "469": [
     {
       "season": null,
       "week": 20,
@@ -14558,7 +14816,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "462": [
+  "470": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040318",
+      "player_name": "Ale Kaho",
+      "position": "LB",
+      "team": "WAS",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "471": [
     {
       "season": null,
       "week": 20,
@@ -14591,7 +14882,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "463": [
+  "472": [
     {
       "season": null,
       "week": 20,
@@ -14624,7 +14915,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "464": [
+  "473": [
     {
       "season": 2025,
       "week": 20,
@@ -14657,7 +14948,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "465": [
+  "474": [
     {
       "season": null,
       "week": 20,
@@ -14690,7 +14981,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "466": [
+  "475": [
     {
       "season": null,
       "week": 20,
@@ -14723,7 +15014,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "467": [
+  "476": [
     {
       "season": null,
       "week": 20,
@@ -14756,7 +15047,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "468": [
+  "477": [
     {
       "season": null,
       "week": 20,
@@ -14789,7 +15080,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "469": [
+  "478": [
     {
       "season": null,
       "week": 20,
@@ -14822,7 +15113,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "470": [
+  "479": [
     {
       "season": 2025,
       "week": 20,
@@ -14855,7 +15146,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "471": [
+  "480": [
     {
       "season": null,
       "week": 20,
@@ -14888,7 +15179,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "472": [
+  "481": [
     {
       "season": null,
       "week": 20,
@@ -14921,7 +15212,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "473": [
+  "482": [
     {
       "season": 2025,
       "week": 20,
@@ -14954,7 +15245,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "474": [
+  "483": [
     {
       "season": 2025,
       "week": 20,
@@ -14987,7 +15278,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "475": [
+  "484": [
     {
       "season": 2025,
       "week": 20,
@@ -15020,7 +15311,73 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "476": [
+  "485": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038782",
+      "player_name": "Eku Leota",
+      "position": "LB",
+      "team": "NO",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "486": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040228",
+      "player_name": "Cody Lindenberg",
+      "position": "LB",
+      "team": "LV",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "487": [
     {
       "season": null,
       "week": 20,
@@ -15053,7 +15410,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "477": [
+  "488": [
     {
       "season": null,
       "week": 20,
@@ -15086,7 +15443,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "478": [
+  "489": [
     {
       "season": null,
       "week": 20,
@@ -15119,7 +15476,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "479": [
+  "490": [
     {
       "season": null,
       "week": 20,
@@ -15152,7 +15509,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "480": [
+  "491": [
     {
       "season": null,
       "week": 20,
@@ -15185,7 +15542,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "481": [
+  "492": [
     {
       "season": null,
       "week": 20,
@@ -15218,7 +15575,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "482": [
+  "493": [
     {
       "season": null,
       "week": 20,
@@ -15251,7 +15608,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "483": [
+  "494": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040108",
+      "player_name": "Chandler Martin",
+      "position": "LB",
+      "team": "BAL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "495": [
     {
       "season": null,
       "week": 20,
@@ -15284,7 +15674,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "484": [
+  "496": [
     {
       "season": null,
       "week": 20,
@@ -15317,7 +15707,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "485": [
+  "497": [
     {
       "season": null,
       "week": 20,
@@ -15350,7 +15740,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "486": [
+  "498": [
     {
       "season": null,
       "week": 20,
@@ -15383,7 +15773,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "487": [
+  "499": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040503",
+      "player_name": "Dorian Mausi",
+      "position": "LB",
+      "team": "TEN",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "500": [
     {
       "season": null,
       "week": 20,
@@ -15416,7 +15839,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "488": [
+  "501": [
     {
       "season": null,
       "week": 20,
@@ -15449,7 +15872,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "489": [
+  "502": [
     {
       "season": null,
       "week": 20,
@@ -15482,7 +15905,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "490": [
+  "503": [
     {
       "season": null,
       "week": 20,
@@ -15515,7 +15938,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "491": [
+  "504": [
     {
       "season": null,
       "week": 20,
@@ -15548,7 +15971,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "492": [
+  "505": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040216",
+      "player_name": "Kain Medrano",
+      "position": "LB",
+      "team": "WAS",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "506": [
     {
       "season": 2025,
       "week": 20,
@@ -15581,7 +16037,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "493": [
+  "507": [
     {
       "season": null,
       "week": 20,
@@ -15614,7 +16070,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "494": [
+  "508": [
     {
       "season": null,
       "week": 20,
@@ -15647,7 +16103,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "495": [
+  "509": [
     {
       "season": null,
       "week": 20,
@@ -15680,7 +16136,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "496": [
+  "510": [
     {
       "season": null,
       "week": 20,
@@ -15713,7 +16169,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "497": [
+  "511": [
     {
       "season": null,
       "week": 20,
@@ -15746,7 +16202,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "498": [
+  "512": [
     {
       "season": null,
       "week": 20,
@@ -15779,7 +16235,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "499": [
+  "513": [
     {
       "season": 2025,
       "week": 20,
@@ -15812,7 +16268,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "500": [
+  "514": [
     {
       "season": null,
       "week": 20,
@@ -15845,7 +16301,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "501": [
+  "515": [
     {
       "season": null,
       "week": 20,
@@ -15878,7 +16334,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "502": [
+  "516": [
     {
       "season": null,
       "week": 20,
@@ -15911,7 +16367,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "503": [
+  "517": [
+    {
+      "season": 2025,
+      "week": 20,
+      "player_id": "00-0039775",
+      "player_name": "Elias Neal",
+      "position": "LB",
+      "team": "LA",
+      "opponent_team": "CHI",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 2,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "518": [
     {
       "season": null,
       "week": 20,
@@ -15944,7 +16433,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "504": [
+  "519": [
     {
       "season": null,
       "week": 20,
@@ -15977,7 +16466,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "505": [
+  "520": [
     {
       "season": null,
       "week": 20,
@@ -16010,7 +16499,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "506": [
+  "521": [
     {
       "season": null,
       "week": 20,
@@ -16043,7 +16532,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "507": [
+  "522": [
     {
       "season": 2025,
       "week": 20,
@@ -16076,7 +16565,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "508": [
+  "523": [
     {
       "season": 2025,
       "week": 20,
@@ -16109,7 +16598,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "509": [
+  "524": [
     {
       "season": 2025,
       "week": 20,
@@ -16142,7 +16631,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "510": [
+  "525": [
     {
       "season": 2025,
       "week": 20,
@@ -16175,7 +16664,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "511": [
+  "526": [
     {
       "season": null,
       "week": 20,
@@ -16208,7 +16697,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "512": [
+  "527": [
     {
       "season": null,
       "week": 20,
@@ -16241,7 +16730,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "513": [
+  "528": [
     {
       "season": null,
       "week": 20,
@@ -16274,7 +16763,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "514": [
+  "529": [
     {
       "season": null,
       "week": 20,
@@ -16307,7 +16796,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "515": [
+  "530": [
     {
       "season": null,
       "week": 20,
@@ -16340,7 +16829,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "516": [
+  "531": [
     {
       "season": null,
       "week": 20,
@@ -16373,7 +16862,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "517": [
+  "532": [
     {
       "season": null,
       "week": 20,
@@ -16406,7 +16895,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "518": [
+  "533": [
     {
       "season": null,
       "week": 20,
@@ -16439,7 +16928,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "519": [
+  "534": [
     {
       "season": null,
       "week": 20,
@@ -16472,7 +16961,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "520": [
+  "535": [
     {
       "season": null,
       "week": 20,
@@ -16505,7 +16994,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "521": [
+  "536": [
     {
       "season": null,
       "week": 20,
@@ -16538,7 +17027,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "522": [
+  "537": [
     {
       "season": null,
       "week": 20,
@@ -16571,7 +17060,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "523": [
+  "538": [
     {
       "season": null,
       "week": 20,
@@ -16604,7 +17093,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "524": [
+  "539": [
     {
       "season": null,
       "week": 20,
@@ -16637,7 +17126,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "525": [
+  "540": [
     {
       "season": null,
       "week": 20,
@@ -16670,7 +17159,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "526": [
+  "541": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035330",
+      "player_name": "Anthony Pittman",
+      "position": "LB",
+      "team": "DET",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "542": [
     {
       "season": 2025,
       "week": 20,
@@ -16703,7 +17225,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "527": [
+  "543": [
     {
       "season": null,
       "week": 20,
@@ -16736,7 +17258,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "528": [
+  "544": [
     {
       "season": null,
       "week": 20,
@@ -16769,7 +17291,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "529": [
+  "545": [
     {
       "season": null,
       "week": 20,
@@ -16802,7 +17324,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "530": [
+  "546": [
     {
       "season": 2025,
       "week": 20,
@@ -16835,7 +17357,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "531": [
+  "547": [
     {
       "season": null,
       "week": 20,
@@ -16868,7 +17390,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "532": [
+  "548": [
     {
       "season": null,
       "week": 20,
@@ -16901,7 +17423,73 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "533": [
+  "549": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0036802",
+      "player_name": "Jon Rhattigan",
+      "position": "LB",
+      "team": "LV",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "550": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0037000",
+      "player_name": "Monty Rice",
+      "position": "LB",
+      "team": "DET",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "551": [
     {
       "season": null,
       "week": 20,
@@ -16934,7 +17522,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "534": [
+  "552": [
     {
       "season": null,
       "week": 20,
@@ -16967,7 +17555,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "535": [
+  "553": [
     {
       "season": 2025,
       "week": 20,
@@ -17000,7 +17588,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "536": [
+  "554": [
     {
       "season": null,
       "week": 20,
@@ -17033,7 +17621,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "537": [
+  "555": [
     {
       "season": null,
       "week": 20,
@@ -17066,7 +17654,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "538": [
+  "556": [
     {
       "season": null,
       "week": 20,
@@ -17099,7 +17687,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "539": [
+  "557": [
     {
       "season": null,
       "week": 20,
@@ -17132,7 +17720,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "540": [
+  "558": [
     {
       "season": null,
       "week": 20,
@@ -17165,7 +17753,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "541": [
+  "559": [
     {
       "season": 2025,
       "week": 20,
@@ -17198,7 +17786,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "542": [
+  "560": [
     {
       "season": null,
       "week": 20,
@@ -17231,7 +17819,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "543": [
+  "561": [
     {
       "season": null,
       "week": 20,
@@ -17264,7 +17852,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "544": [
+  "562": [
     {
       "season": null,
       "week": 20,
@@ -17297,7 +17885,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "545": [
+  "563": [
     {
       "season": null,
       "week": 20,
@@ -17330,7 +17918,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "546": [
+  "564": [
     {
       "season": null,
       "week": 20,
@@ -17363,7 +17951,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "547": [
+  "565": [
     {
       "season": null,
       "week": 20,
@@ -17396,7 +17984,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "548": [
+  "566": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0037544",
+      "player_name": "Nephi Sewell",
+      "position": "LB",
+      "team": "NO",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "567": [
     {
       "season": null,
       "week": 20,
@@ -17429,7 +18050,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "549": [
+  "568": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039944",
+      "player_name": "Jamie Sheriff",
+      "position": "LB",
+      "team": "SEA",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "569": [
     {
       "season": null,
       "week": 20,
@@ -17462,7 +18116,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "550": [
+  "570": [
     {
       "season": null,
       "week": 20,
@@ -17495,7 +18149,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "551": [
+  "571": [
     {
       "season": null,
       "week": 20,
@@ -17528,7 +18182,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "552": [
+  "572": [
     {
       "season": 2025,
       "week": 20,
@@ -17561,7 +18215,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "553": [
+  "573": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039288",
+      "player_name": "Jackson Sirmon",
+      "position": "LB",
+      "team": "NYJ",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "574": [
     {
       "season": null,
       "week": 20,
@@ -17594,7 +18281,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "554": [
+  "575": [
     {
       "season": null,
       "week": 20,
@@ -17627,7 +18314,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "555": [
+  "576": [
     {
       "season": 2025,
       "week": 20,
@@ -17660,7 +18347,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "556": [
+  "577": [
     {
       "season": null,
       "week": 20,
@@ -17693,7 +18380,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "557": [
+  "578": [
     {
       "season": 2025,
       "week": 20,
@@ -17726,7 +18413,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "558": [
+  "579": [
     {
       "season": 2025,
       "week": 20,
@@ -17759,7 +18446,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "559": [
+  "580": [
     {
       "season": 2025,
       "week": 20,
@@ -17792,7 +18479,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "560": [
+  "581": [
     {
       "season": null,
       "week": 20,
@@ -17825,7 +18512,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "561": [
+  "582": [
     {
       "season": 2025,
       "week": 20,
@@ -17858,7 +18545,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "562": [
+  "583": [
     {
       "season": 2025,
       "week": 20,
@@ -17891,7 +18578,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "563": [
+  "584": [
     {
       "season": null,
       "week": 20,
@@ -17924,7 +18611,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "564": [
+  "585": [
     {
       "season": null,
       "week": 20,
@@ -17957,7 +18644,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "565": [
+  "586": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0034999",
+      "player_name": "Ty Summers",
+      "position": "LB",
+      "team": "DET",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "587": [
     {
       "season": null,
       "week": 20,
@@ -17990,7 +18710,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "566": [
+  "588": [
     {
       "season": null,
       "week": 20,
@@ -18023,7 +18743,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "567": [
+  "589": [
     {
       "season": null,
       "week": 20,
@@ -18056,7 +18776,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "568": [
+  "590": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035646",
+      "player_name": "Sione Takitaki",
+      "position": "LB",
+      "team": "MIN",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "591": [
     {
       "season": 2025,
       "week": 20,
@@ -18089,7 +18842,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "569": [
+  "592": [
     {
       "season": null,
       "week": 20,
@@ -18122,7 +18875,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "570": [
+  "593": [
     {
       "season": 2025,
       "week": 20,
@@ -18155,7 +18908,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "571": [
+  "594": [
     {
       "season": null,
       "week": 20,
@@ -18188,7 +18941,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "572": [
+  "595": [
     {
       "season": 2025,
       "week": 20,
@@ -18221,7 +18974,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "573": [
+  "596": [
     {
       "season": 2025,
       "week": 20,
@@ -18254,7 +19007,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "574": [
+  "597": [
     {
       "season": null,
       "week": 20,
@@ -18287,7 +19040,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "575": [
+  "598": [
     {
       "season": 2025,
       "week": 20,
@@ -18320,7 +19073,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "576": [
+  "599": [
     {
       "season": null,
       "week": 20,
@@ -18353,7 +19106,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "577": [
+  "600": [
     {
       "season": null,
       "week": 20,
@@ -18386,7 +19139,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "578": [
+  "601": [
     {
       "season": null,
       "week": 20,
@@ -18419,7 +19172,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "579": [
+  "602": [
     {
       "season": null,
       "week": 20,
@@ -18452,7 +19205,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "580": [
+  "603": [
     {
       "season": 2025,
       "week": 20,
@@ -18485,7 +19238,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "581": [
+  "604": [
     {
       "season": null,
       "week": 20,
@@ -18518,7 +19271,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "582": [
+  "605": [
     {
       "season": null,
       "week": 20,
@@ -18551,7 +19304,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "583": [
+  "606": [
     {
       "season": null,
       "week": 20,
@@ -18584,7 +19337,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "584": [
+  "607": [
     {
       "season": null,
       "week": 20,
@@ -18617,7 +19370,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "585": [
+  "608": [
     {
       "season": null,
       "week": 20,
@@ -18650,7 +19403,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "586": [
+  "609": [
     {
       "season": 2025,
       "week": 20,
@@ -18683,7 +19436,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "587": [
+  "610": [
     {
       "season": null,
       "week": 20,
@@ -18716,7 +19469,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "588": [
+  "611": [
     {
       "season": null,
       "week": 20,
@@ -18749,7 +19502,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "589": [
+  "612": [
     {
       "season": null,
       "week": 20,
@@ -18782,7 +19535,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "590": [
+  "613": [
     {
       "season": null,
       "week": 20,
@@ -18815,7 +19568,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "591": [
+  "614": [
     {
       "season": null,
       "week": 20,
@@ -18848,7 +19601,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "592": [
+  "615": [
     {
       "season": null,
       "week": 20,
@@ -18881,7 +19634,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "593": [
+  "616": [
     {
       "season": 2025,
       "week": 20,
@@ -18914,7 +19667,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "594": [
+  "617": [
     {
       "season": null,
       "week": 20,
@@ -18947,7 +19700,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "595": [
+  "618": [
     {
       "season": null,
       "week": 20,
@@ -18980,7 +19733,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "596": [
+  "619": [
     {
       "season": null,
       "week": 20,
@@ -19013,7 +19766,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "597": [
+  "620": [
     {
       "season": null,
       "week": 20,
@@ -19046,7 +19799,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "598": [
+  "621": [
     {
       "season": null,
       "week": 20,
@@ -19079,7 +19832,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "599": [
+  "622": [
     {
       "season": null,
       "week": 20,
@@ -19112,7 +19865,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "600": [
+  "623": [
     {
       "season": null,
       "week": 20,
@@ -19145,7 +19898,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "601": [
+  "624": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040408",
+      "player_name": "Ja'Markis Weston",
+      "position": "LB",
+      "team": "NYJ",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "625": [
     {
       "season": null,
       "week": 20,
@@ -19178,7 +19964,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "602": [
+  "626": [
     {
       "season": null,
       "week": 20,
@@ -19211,7 +19997,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "603": [
+  "627": [
     {
       "season": 2025,
       "week": 20,
@@ -19244,7 +20030,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "604": [
+  "628": [
     {
       "season": null,
       "week": 20,
@@ -19277,7 +20063,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "605": [
+  "629": [
     {
       "season": null,
       "week": 20,
@@ -19310,7 +20096,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "606": [
+  "630": [
     {
       "season": null,
       "week": 20,
@@ -19343,7 +20129,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "607": [
+  "631": [
     {
       "season": null,
       "week": 20,
@@ -19376,7 +20162,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "608": [
+  "632": [
     {
       "season": null,
       "week": 20,
@@ -19409,7 +20195,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "609": [
+  "633": [
     {
       "season": null,
       "week": 20,
@@ -19442,7 +20228,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "610": [
+  "634": [
     {
       "season": 2025,
       "week": 20,
@@ -19475,7 +20261,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "611": [
+  "635": [
     {
       "season": null,
       "week": 20,
@@ -19508,7 +20294,40 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "612": [
+  "636": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0040066",
+      "player_name": "Jackson Woodard",
+      "position": "LB",
+      "team": "MIA",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_sacks": 0,
+      "def_qb_hits": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "637": [
     {
       "season": null,
       "week": 20,
@@ -19541,7 +20360,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "613": [
+  "638": [
     {
       "season": 2025,
       "week": 20,
@@ -19574,7 +20393,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "614": [
+  "639": [
     {
       "season": null,
       "week": 20,
@@ -19602,7 +20421,7 @@
       "def_pass_defended": 0
     }
   ],
-  "615": [
+  "640": [
     {
       "season": null,
       "week": 20,
@@ -19630,7 +20449,7 @@
       "def_pass_defended": 0
     }
   ],
-  "616": [
+  "641": [
     {
       "season": null,
       "week": 20,
@@ -19658,7 +20477,7 @@
       "def_pass_defended": 0
     }
   ],
-  "617": [
+  "642": [
     {
       "season": null,
       "week": 20,
@@ -19686,7 +20505,7 @@
       "def_pass_defended": 0
     }
   ],
-  "618": [
+  "643": [
     {
       "season": null,
       "week": 20,
@@ -19714,7 +20533,7 @@
       "def_pass_defended": 0
     }
   ],
-  "619": [
+  "644": [
     {
       "season": null,
       "week": 20,
@@ -19742,7 +20561,7 @@
       "def_pass_defended": 0
     }
   ],
-  "620": [
+  "645": [
     {
       "season": null,
       "week": 20,
@@ -19770,7 +20589,7 @@
       "def_pass_defended": 0
     }
   ],
-  "621": [
+  "646": [
     {
       "season": null,
       "week": 20,
@@ -19798,7 +20617,7 @@
       "def_pass_defended": 0
     }
   ],
-  "622": [
+  "647": [
     {
       "season": null,
       "week": 20,
@@ -19826,7 +20645,7 @@
       "def_pass_defended": 0
     }
   ],
-  "623": [
+  "648": [
     {
       "season": null,
       "week": 20,
@@ -19854,7 +20673,7 @@
       "def_pass_defended": 0
     }
   ],
-  "624": [
+  "649": [
     {
       "season": null,
       "week": 20,
@@ -19882,7 +20701,7 @@
       "def_pass_defended": 0
     }
   ],
-  "625": [
+  "650": [
     {
       "season": null,
       "week": 20,
@@ -19910,7 +20729,7 @@
       "def_pass_defended": 0
     }
   ],
-  "626": [
+  "651": [
     {
       "season": null,
       "week": 20,
@@ -19938,7 +20757,7 @@
       "def_pass_defended": 0
     }
   ],
-  "627": [
+  "652": [
     {
       "season": null,
       "week": 20,
@@ -19966,7 +20785,7 @@
       "def_pass_defended": 0
     }
   ],
-  "628": [
+  "653": [
     {
       "season": null,
       "week": 20,
@@ -19994,7 +20813,7 @@
       "def_pass_defended": 0
     }
   ],
-  "629": [
+  "654": [
     {
       "season": null,
       "week": 20,
@@ -20022,7 +20841,7 @@
       "def_pass_defended": 0
     }
   ],
-  "630": [
+  "655": [
     {
       "season": null,
       "week": 20,
@@ -20050,7 +20869,7 @@
       "def_pass_defended": 0
     }
   ],
-  "631": [
+  "656": [
     {
       "season": null,
       "week": 20,
@@ -20078,7 +20897,7 @@
       "def_pass_defended": 0
     }
   ],
-  "632": [
+  "657": [
     {
       "season": 2025,
       "week": 20,
@@ -20106,7 +20925,7 @@
       "def_pass_defended": 1
     }
   ],
-  "633": [
+  "658": [
     {
       "season": null,
       "week": 20,
@@ -20134,7 +20953,7 @@
       "def_pass_defended": 0
     }
   ],
-  "634": [
+  "659": [
     {
       "season": null,
       "week": 20,
@@ -20162,7 +20981,7 @@
       "def_pass_defended": 0
     }
   ],
-  "635": [
+  "660": [
     {
       "season": 2025,
       "week": 20,
@@ -20190,7 +21009,7 @@
       "def_pass_defended": 0
     }
   ],
-  "636": [
+  "661": [
     {
       "season": null,
       "week": 20,
@@ -20218,7 +21037,7 @@
       "def_pass_defended": 0
     }
   ],
-  "637": [
+  "662": [
     {
       "season": null,
       "week": 20,
@@ -20246,7 +21065,7 @@
       "def_pass_defended": 0
     }
   ],
-  "638": [
+  "663": [
     {
       "season": null,
       "week": 20,
@@ -20274,7 +21093,7 @@
       "def_pass_defended": 0
     }
   ],
-  "639": [
+  "664": [
     {
       "season": null,
       "week": 20,
@@ -20302,7 +21121,7 @@
       "def_pass_defended": 0
     }
   ],
-  "640": [
+  "665": [
     {
       "season": null,
       "week": 20,
@@ -20330,7 +21149,7 @@
       "def_pass_defended": 0
     }
   ],
-  "641": [
+  "666": [
     {
       "season": null,
       "week": 20,
@@ -20358,7 +21177,7 @@
       "def_pass_defended": 0
     }
   ],
-  "642": [
+  "667": [
     {
       "season": null,
       "week": 20,
@@ -20386,7 +21205,7 @@
       "def_pass_defended": 0
     }
   ],
-  "643": [
+  "668": [
     {
       "season": null,
       "week": 20,
@@ -20414,7 +21233,7 @@
       "def_pass_defended": 0
     }
   ],
-  "644": [
+  "669": [
     {
       "season": null,
       "week": 20,
@@ -20442,7 +21261,7 @@
       "def_pass_defended": 0
     }
   ],
-  "645": [
+  "670": [
     {
       "season": null,
       "week": 20,
@@ -20470,7 +21289,7 @@
       "def_pass_defended": 0
     }
   ],
-  "646": [
+  "671": [
     {
       "season": null,
       "week": 20,
@@ -20498,7 +21317,7 @@
       "def_pass_defended": 0
     }
   ],
-  "647": [
+  "672": [
     {
       "season": null,
       "week": 20,
@@ -20526,7 +21345,7 @@
       "def_pass_defended": 0
     }
   ],
-  "648": [
+  "673": [
     {
       "season": null,
       "week": 20,
@@ -20554,7 +21373,7 @@
       "def_pass_defended": 0
     }
   ],
-  "649": [
+  "674": [
     {
       "season": null,
       "week": 20,
@@ -20582,7 +21401,7 @@
       "def_pass_defended": 0
     }
   ],
-  "650": [
+  "675": [
     {
       "season": null,
       "week": 20,
@@ -20610,7 +21429,7 @@
       "def_pass_defended": 0
     }
   ],
-  "651": [
+  "676": [
     {
       "season": null,
       "week": 20,
@@ -20638,7 +21457,7 @@
       "def_pass_defended": 0
     }
   ],
-  "652": [
+  "677": [
     {
       "season": null,
       "week": 20,
@@ -20666,7 +21485,7 @@
       "def_pass_defended": 0
     }
   ],
-  "653": [
+  "678": [
     {
       "season": 2025,
       "week": 20,
@@ -20694,7 +21513,7 @@
       "def_pass_defended": 4
     }
   ],
-  "654": [
+  "679": [
     {
       "season": null,
       "week": 20,
@@ -20722,7 +21541,7 @@
       "def_pass_defended": 0
     }
   ],
-  "655": [
+  "680": [
     {
       "season": null,
       "week": 20,
@@ -20750,7 +21569,7 @@
       "def_pass_defended": 0
     }
   ],
-  "656": [
+  "681": [
     {
       "season": null,
       "week": 20,
@@ -20778,7 +21597,7 @@
       "def_pass_defended": 0
     }
   ],
-  "657": [
+  "682": [
     {
       "season": null,
       "week": 20,
@@ -20806,7 +21625,7 @@
       "def_pass_defended": 0
     }
   ],
-  "658": [
+  "683": [
     {
       "season": null,
       "week": 20,
@@ -20834,7 +21653,7 @@
       "def_pass_defended": 0
     }
   ],
-  "659": [
+  "684": [
     {
       "season": null,
       "week": 20,
@@ -20862,7 +21681,7 @@
       "def_pass_defended": 0
     }
   ],
-  "660": [
+  "685": [
     {
       "season": null,
       "week": 20,
@@ -20890,7 +21709,7 @@
       "def_pass_defended": 0
     }
   ],
-  "661": [
+  "686": [
     {
       "season": null,
       "week": 20,
@@ -20918,7 +21737,7 @@
       "def_pass_defended": 0
     }
   ],
-  "662": [
+  "687": [
     {
       "season": 2025,
       "week": 20,
@@ -20946,7 +21765,7 @@
       "def_pass_defended": 3
     }
   ],
-  "663": [
+  "688": [
     {
       "season": null,
       "week": 20,
@@ -20974,7 +21793,7 @@
       "def_pass_defended": 0
     }
   ],
-  "664": [
+  "689": [
     {
       "season": null,
       "week": 20,
@@ -21002,7 +21821,7 @@
       "def_pass_defended": 0
     }
   ],
-  "665": [
+  "690": [
     {
       "season": null,
       "week": 20,
@@ -21030,7 +21849,7 @@
       "def_pass_defended": 0
     }
   ],
-  "666": [
+  "691": [
     {
       "season": null,
       "week": 20,
@@ -21058,7 +21877,35 @@
       "def_pass_defended": 0
     }
   ],
-  "667": [
+  "692": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0037395",
+      "player_name": "Dallis Flowers",
+      "position": "CB",
+      "team": "CHI",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "693": [
     {
       "season": null,
       "week": 20,
@@ -21086,7 +21933,7 @@
       "def_pass_defended": 0
     }
   ],
-  "668": [
+  "694": [
     {
       "season": 2025,
       "week": 20,
@@ -21114,7 +21961,7 @@
       "def_pass_defended": 0
     }
   ],
-  "669": [
+  "695": [
     {
       "season": null,
       "week": 20,
@@ -21142,7 +21989,7 @@
       "def_pass_defended": 0
     }
   ],
-  "670": [
+  "696": [
     {
       "season": null,
       "week": 20,
@@ -21170,7 +22017,7 @@
       "def_pass_defended": 0
     }
   ],
-  "671": [
+  "697": [
     {
       "season": 2025,
       "week": 20,
@@ -21198,7 +22045,35 @@
       "def_pass_defended": 1
     }
   ],
-  "672": [
+  "698": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0031357",
+      "player_name": "C.J. Goodwin",
+      "position": "CB",
+      "team": "DAL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "699": [
     {
       "season": 2025,
       "week": 20,
@@ -21226,7 +22101,7 @@
       "def_pass_defended": 0
     }
   ],
-  "673": [
+  "700": [
     {
       "season": null,
       "week": 20,
@@ -21254,7 +22129,35 @@
       "def_pass_defended": 0
     }
   ],
-  "674": [
+  "701": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038788",
+      "player_name": "Art Green",
+      "position": "CB",
+      "team": "NYG",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "702": [
     {
       "season": 2025,
       "week": 20,
@@ -21282,7 +22185,7 @@
       "def_pass_defended": 0
     }
   ],
-  "675": [
+  "703": [
     {
       "season": null,
       "week": 20,
@@ -21310,7 +22213,7 @@
       "def_pass_defended": 0
     }
   ],
-  "676": [
+  "704": [
     {
       "season": null,
       "week": 20,
@@ -21338,7 +22241,7 @@
       "def_pass_defended": 0
     }
   ],
-  "677": [
+  "705": [
     {
       "season": null,
       "week": 20,
@@ -21366,7 +22269,7 @@
       "def_pass_defended": 0
     }
   ],
-  "678": [
+  "706": [
     {
       "season": null,
       "week": 20,
@@ -21394,7 +22297,7 @@
       "def_pass_defended": 0
     }
   ],
-  "679": [
+  "707": [
     {
       "season": null,
       "week": 20,
@@ -21422,7 +22325,7 @@
       "def_pass_defended": 0
     }
   ],
-  "680": [
+  "708": [
     {
       "season": null,
       "week": 20,
@@ -21450,7 +22353,7 @@
       "def_pass_defended": 0
     }
   ],
-  "681": [
+  "709": [
     {
       "season": null,
       "week": 20,
@@ -21478,7 +22381,7 @@
       "def_pass_defended": 0
     }
   ],
-  "682": [
+  "710": [
     {
       "season": null,
       "week": 20,
@@ -21506,7 +22409,7 @@
       "def_pass_defended": 0
     }
   ],
-  "683": [
+  "711": [
     {
       "season": null,
       "week": 20,
@@ -21534,7 +22437,7 @@
       "def_pass_defended": 0
     }
   ],
-  "684": [
+  "712": [
     {
       "season": null,
       "week": 20,
@@ -21562,7 +22465,7 @@
       "def_pass_defended": 0
     }
   ],
-  "685": [
+  "713": [
     {
       "season": null,
       "week": 20,
@@ -21590,7 +22493,7 @@
       "def_pass_defended": 0
     }
   ],
-  "686": [
+  "714": [
     {
       "season": null,
       "week": 20,
@@ -21618,7 +22521,7 @@
       "def_pass_defended": 0
     }
   ],
-  "687": [
+  "715": [
     {
       "season": null,
       "week": 20,
@@ -21646,7 +22549,7 @@
       "def_pass_defended": 0
     }
   ],
-  "688": [
+  "716": [
     {
       "season": null,
       "week": 20,
@@ -21674,7 +22577,7 @@
       "def_pass_defended": 0
     }
   ],
-  "689": [
+  "717": [
     {
       "season": null,
       "week": 20,
@@ -21702,7 +22605,7 @@
       "def_pass_defended": 0
     }
   ],
-  "690": [
+  "718": [
     {
       "season": null,
       "week": 20,
@@ -21730,7 +22633,7 @@
       "def_pass_defended": 0
     }
   ],
-  "691": [
+  "719": [
     {
       "season": null,
       "week": 20,
@@ -21758,7 +22661,7 @@
       "def_pass_defended": 0
     }
   ],
-  "692": [
+  "720": [
     {
       "season": null,
       "week": 20,
@@ -21786,7 +22689,7 @@
       "def_pass_defended": 0
     }
   ],
-  "693": [
+  "721": [
     {
       "season": null,
       "week": 20,
@@ -21814,7 +22717,7 @@
       "def_pass_defended": 0
     }
   ],
-  "694": [
+  "722": [
     {
       "season": 2025,
       "week": 20,
@@ -21842,7 +22745,7 @@
       "def_pass_defended": 1
     }
   ],
-  "695": [
+  "723": [
     {
       "season": null,
       "week": 20,
@@ -21870,7 +22773,7 @@
       "def_pass_defended": 0
     }
   ],
-  "696": [
+  "724": [
     {
       "season": null,
       "week": 20,
@@ -21898,7 +22801,7 @@
       "def_pass_defended": 0
     }
   ],
-  "697": [
+  "725": [
     {
       "season": null,
       "week": 20,
@@ -21926,7 +22829,7 @@
       "def_pass_defended": 0
     }
   ],
-  "698": [
+  "726": [
     {
       "season": null,
       "week": 20,
@@ -21954,7 +22857,7 @@
       "def_pass_defended": 0
     }
   ],
-  "699": [
+  "727": [
     {
       "season": null,
       "week": 20,
@@ -21982,7 +22885,7 @@
       "def_pass_defended": 0
     }
   ],
-  "700": [
+  "728": [
     {
       "season": null,
       "week": 20,
@@ -22010,7 +22913,7 @@
       "def_pass_defended": 0
     }
   ],
-  "701": [
+  "729": [
     {
       "season": 2025,
       "week": 20,
@@ -22038,7 +22941,7 @@
       "def_pass_defended": 0
     }
   ],
-  "702": [
+  "730": [
     {
       "season": null,
       "week": 20,
@@ -22066,7 +22969,35 @@
       "def_pass_defended": 0
     }
   ],
-  "703": [
+  "731": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039483",
+      "player_name": "Isaiah Johnson",
+      "position": "CB",
+      "team": "MIA",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "732": [
     {
       "season": 2025,
       "week": 20,
@@ -22094,7 +23025,35 @@
       "def_pass_defended": 0
     }
   ],
-  "704": [
+  "733": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0037198",
+      "player_name": "Nazeeh Johnson",
+      "position": "CB",
+      "team": "KC",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "734": [
     {
       "season": 2025,
       "week": 20,
@@ -22122,7 +23081,7 @@
       "def_pass_defended": 0
     }
   ],
-  "705": [
+  "735": [
     {
       "season": null,
       "week": 20,
@@ -22150,7 +23109,7 @@
       "def_pass_defended": 0
     }
   ],
-  "706": [
+  "736": [
     {
       "season": null,
       "week": 20,
@@ -22178,7 +23137,7 @@
       "def_pass_defended": 0
     }
   ],
-  "707": [
+  "737": [
     {
       "season": null,
       "week": 20,
@@ -22206,7 +23165,7 @@
       "def_pass_defended": 0
     }
   ],
-  "708": [
+  "738": [
     {
       "season": null,
       "week": 20,
@@ -22234,7 +23193,7 @@
       "def_pass_defended": 0
     }
   ],
-  "709": [
+  "739": [
     {
       "season": null,
       "week": 20,
@@ -22262,7 +23221,7 @@
       "def_pass_defended": 0
     }
   ],
-  "710": [
+  "740": [
     {
       "season": 2025,
       "week": 20,
@@ -22290,7 +23249,7 @@
       "def_pass_defended": 2
     }
   ],
-  "711": [
+  "741": [
     {
       "season": null,
       "week": 20,
@@ -22318,7 +23277,7 @@
       "def_pass_defended": 0
     }
   ],
-  "712": [
+  "742": [
     {
       "season": null,
       "week": 20,
@@ -22346,7 +23305,7 @@
       "def_pass_defended": 0
     }
   ],
-  "713": [
+  "743": [
     {
       "season": null,
       "week": 20,
@@ -22374,7 +23333,7 @@
       "def_pass_defended": 0
     }
   ],
-  "714": [
+  "744": [
     {
       "season": 2025,
       "week": 20,
@@ -22402,7 +23361,7 @@
       "def_pass_defended": 3
     }
   ],
-  "715": [
+  "745": [
     {
       "season": null,
       "week": 20,
@@ -22430,7 +23389,7 @@
       "def_pass_defended": 0
     }
   ],
-  "716": [
+  "746": [
     {
       "season": 2025,
       "week": 20,
@@ -22458,7 +23417,7 @@
       "def_pass_defended": 0
     }
   ],
-  "717": [
+  "747": [
     {
       "season": null,
       "week": 20,
@@ -22486,7 +23445,7 @@
       "def_pass_defended": 0
     }
   ],
-  "718": [
+  "748": [
     {
       "season": 2025,
       "week": 20,
@@ -22514,7 +23473,7 @@
       "def_pass_defended": 2
     }
   ],
-  "719": [
+  "749": [
     {
       "season": null,
       "week": 20,
@@ -22542,7 +23501,7 @@
       "def_pass_defended": 0
     }
   ],
-  "720": [
+  "750": [
     {
       "season": null,
       "week": 20,
@@ -22570,7 +23529,7 @@
       "def_pass_defended": 0
     }
   ],
-  "721": [
+  "751": [
     {
       "season": null,
       "week": 20,
@@ -22598,7 +23557,7 @@
       "def_pass_defended": 0
     }
   ],
-  "722": [
+  "752": [
     {
       "season": null,
       "week": 20,
@@ -22626,7 +23585,7 @@
       "def_pass_defended": 0
     }
   ],
-  "723": [
+  "753": [
     {
       "season": null,
       "week": 20,
@@ -22654,7 +23613,7 @@
       "def_pass_defended": 0
     }
   ],
-  "724": [
+  "754": [
     {
       "season": null,
       "week": 20,
@@ -22682,7 +23641,7 @@
       "def_pass_defended": 0
     }
   ],
-  "725": [
+  "755": [
     {
       "season": null,
       "week": 20,
@@ -22710,7 +23669,7 @@
       "def_pass_defended": 0
     }
   ],
-  "726": [
+  "756": [
     {
       "season": null,
       "week": 20,
@@ -22738,7 +23697,7 @@
       "def_pass_defended": 0
     }
   ],
-  "727": [
+  "757": [
     {
       "season": 2025,
       "week": 20,
@@ -22766,7 +23725,7 @@
       "def_pass_defended": 0
     }
   ],
-  "728": [
+  "758": [
     {
       "season": null,
       "week": 20,
@@ -22794,7 +23753,7 @@
       "def_pass_defended": 0
     }
   ],
-  "729": [
+  "759": [
     {
       "season": null,
       "week": 20,
@@ -22822,7 +23781,7 @@
       "def_pass_defended": 0
     }
   ],
-  "730": [
+  "760": [
     {
       "season": null,
       "week": 20,
@@ -22850,7 +23809,7 @@
       "def_pass_defended": 0
     }
   ],
-  "731": [
+  "761": [
     {
       "season": 2025,
       "week": 20,
@@ -22878,7 +23837,7 @@
       "def_pass_defended": 1
     }
   ],
-  "732": [
+  "762": [
     {
       "season": null,
       "week": 20,
@@ -22906,7 +23865,7 @@
       "def_pass_defended": 0
     }
   ],
-  "733": [
+  "763": [
     {
       "season": null,
       "week": 20,
@@ -22934,7 +23893,35 @@
       "def_pass_defended": 0
     }
   ],
-  "734": [
+  "764": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0037091",
+      "player_name": "Bo Melton",
+      "position": "CB",
+      "team": "GB",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "765": [
     {
       "season": null,
       "week": 20,
@@ -22962,7 +23949,7 @@
       "def_pass_defended": 0
     }
   ],
-  "735": [
+  "766": [
     {
       "season": null,
       "week": 20,
@@ -22990,7 +23977,7 @@
       "def_pass_defended": 0
     }
   ],
-  "736": [
+  "767": [
     {
       "season": null,
       "week": 20,
@@ -23018,7 +24005,7 @@
       "def_pass_defended": 0
     }
   ],
-  "737": [
+  "768": [
     {
       "season": null,
       "week": 20,
@@ -23046,7 +24033,7 @@
       "def_pass_defended": 0
     }
   ],
-  "738": [
+  "769": [
     {
       "season": null,
       "week": 20,
@@ -23074,7 +24061,7 @@
       "def_pass_defended": 0
     }
   ],
-  "739": [
+  "770": [
     {
       "season": null,
       "week": 20,
@@ -23102,7 +24089,7 @@
       "def_pass_defended": 0
     }
   ],
-  "740": [
+  "771": [
     {
       "season": 2025,
       "week": 20,
@@ -23130,7 +24117,35 @@
       "def_pass_defended": 0
     }
   ],
-  "741": [
+  "772": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0036661",
+      "player_name": "Israel Mukuamu",
+      "position": "CB",
+      "team": "CAR",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "773": [
     {
       "season": null,
       "week": 20,
@@ -23158,7 +24173,7 @@
       "def_pass_defended": 0
     }
   ],
-  "742": [
+  "774": [
     {
       "season": null,
       "week": 20,
@@ -23186,7 +24201,7 @@
       "def_pass_defended": 0
     }
   ],
-  "743": [
+  "775": [
     {
       "season": null,
       "week": 20,
@@ -23214,7 +24229,7 @@
       "def_pass_defended": 0
     }
   ],
-  "744": [
+  "776": [
     {
       "season": null,
       "week": 20,
@@ -23242,7 +24257,7 @@
       "def_pass_defended": 0
     }
   ],
-  "745": [
+  "777": [
     {
       "season": null,
       "week": 20,
@@ -23270,7 +24285,35 @@
       "def_pass_defended": 0
     }
   ],
-  "746": [
+  "778": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0035270",
+      "player_name": "Amani Oruwariye",
+      "position": "CB",
+      "team": "BAL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "779": [
     {
       "season": null,
       "week": 20,
@@ -23298,7 +24341,7 @@
       "def_pass_defended": 0
     }
   ],
-  "747": [
+  "780": [
     {
       "season": null,
       "week": 20,
@@ -23326,7 +24369,35 @@
       "def_pass_defended": 0
     }
   ],
-  "748": [
+  "781": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038568",
+      "player_name": "Clark Phillips III",
+      "position": "CB",
+      "team": "ATL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "782": [
     {
       "season": null,
       "week": 20,
@@ -23354,7 +24425,7 @@
       "def_pass_defended": 0
     }
   ],
-  "749": [
+  "783": [
     {
       "season": null,
       "week": 20,
@@ -23382,7 +24453,7 @@
       "def_pass_defended": 0
     }
   ],
-  "750": [
+  "784": [
     {
       "season": null,
       "week": 20,
@@ -23410,7 +24481,7 @@
       "def_pass_defended": 0
     }
   ],
-  "751": [
+  "785": [
     {
       "season": null,
       "week": 20,
@@ -23438,7 +24509,7 @@
       "def_pass_defended": 0
     }
   ],
-  "752": [
+  "786": [
     {
       "season": null,
       "week": 20,
@@ -23466,7 +24537,7 @@
       "def_pass_defended": 0
     }
   ],
-  "753": [
+  "787": [
     {
       "season": null,
       "week": 20,
@@ -23494,7 +24565,7 @@
       "def_pass_defended": 0
     }
   ],
-  "754": [
+  "788": [
     {
       "season": null,
       "week": 20,
@@ -23522,7 +24593,7 @@
       "def_pass_defended": 0
     }
   ],
-  "755": [
+  "789": [
     {
       "season": null,
       "week": 20,
@@ -23550,7 +24621,7 @@
       "def_pass_defended": 0
     }
   ],
-  "756": [
+  "790": [
     {
       "season": null,
       "week": 20,
@@ -23578,7 +24649,7 @@
       "def_pass_defended": 0
     }
   ],
-  "757": [
+  "791": [
     {
       "season": null,
       "week": 20,
@@ -23606,7 +24677,7 @@
       "def_pass_defended": 0
     }
   ],
-  "758": [
+  "792": [
     {
       "season": null,
       "week": 20,
@@ -23634,7 +24705,7 @@
       "def_pass_defended": 0
     }
   ],
-  "759": [
+  "793": [
     {
       "season": null,
       "week": 20,
@@ -23662,7 +24733,35 @@
       "def_pass_defended": 0
     }
   ],
-  "760": [
+  "794": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0036904",
+      "player_name": "Robert Rochell",
+      "position": "CB",
+      "team": "CAR",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0
+    }
+  ],
+  "795": [
     {
       "season": null,
       "week": 20,
@@ -23690,7 +24789,7 @@
       "def_pass_defended": 0
     }
   ],
-  "761": [
+  "796": [
     {
       "season": null,
       "week": 20,
@@ -23718,7 +24817,7 @@
       "def_pass_defended": 0
     }
   ],
-  "762": [
+  "797": [
     {
       "season": null,
       "week": 20,
@@ -23746,7 +24845,7 @@
       "def_pass_defended": 0
     }
   ],
-  "763": [
+  "798": [
     {
       "season": null,
       "week": 20,
@@ -23774,7 +24873,7 @@
       "def_pass_defended": 0
     }
   ],
-  "764": [
+  "799": [
     {
       "season": null,
       "week": 20,
@@ -23802,7 +24901,7 @@
       "def_pass_defended": 0
     }
   ],
-  "765": [
+  "800": [
     {
       "season": null,
       "week": 20,
@@ -23830,7 +24929,7 @@
       "def_pass_defended": 0
     }
   ],
-  "766": [
+  "801": [
     {
       "season": null,
       "week": 20,
@@ -23858,7 +24957,7 @@
       "def_pass_defended": 0
     }
   ],
-  "767": [
+  "802": [
     {
       "season": null,
       "week": 20,
@@ -23886,7 +24985,7 @@
       "def_pass_defended": 0
     }
   ],
-  "768": [
+  "803": [
     {
       "season": 2025,
       "week": 20,
@@ -23914,7 +25013,7 @@
       "def_pass_defended": 0
     }
   ],
-  "769": [
+  "804": [
     {
       "season": null,
       "week": 20,
@@ -23942,7 +25041,7 @@
       "def_pass_defended": 0
     }
   ],
-  "770": [
+  "805": [
     {
       "season": null,
       "week": 20,
@@ -23970,7 +25069,7 @@
       "def_pass_defended": 0
     }
   ],
-  "771": [
+  "806": [
     {
       "season": null,
       "week": 20,
@@ -23998,7 +25097,7 @@
       "def_pass_defended": 0
     }
   ],
-  "772": [
+  "807": [
     {
       "season": 2025,
       "week": 20,
@@ -24026,7 +25125,7 @@
       "def_pass_defended": 2
     }
   ],
-  "773": [
+  "808": [
     {
       "season": null,
       "week": 20,
@@ -24054,7 +25153,7 @@
       "def_pass_defended": 0
     }
   ],
-  "774": [
+  "809": [
     {
       "season": 2025,
       "week": 20,
@@ -24082,7 +25181,7 @@
       "def_pass_defended": 0
     }
   ],
-  "775": [
+  "810": [
     {
       "season": null,
       "week": 20,
@@ -24110,7 +25209,7 @@
       "def_pass_defended": 0
     }
   ],
-  "776": [
+  "811": [
     {
       "season": 2025,
       "week": 20,
@@ -24138,7 +25237,7 @@
       "def_pass_defended": 0
     }
   ],
-  "777": [
+  "812": [
     {
       "season": null,
       "week": 20,
@@ -24166,7 +25265,7 @@
       "def_pass_defended": 0
     }
   ],
-  "778": [
+  "813": [
     {
       "season": 2025,
       "week": 20,
@@ -24194,7 +25293,7 @@
       "def_pass_defended": 0
     }
   ],
-  "779": [
+  "814": [
     {
       "season": null,
       "week": 20,
@@ -24222,7 +25321,7 @@
       "def_pass_defended": 0
     }
   ],
-  "780": [
+  "815": [
     {
       "season": null,
       "week": 20,
@@ -24250,7 +25349,7 @@
       "def_pass_defended": 0
     }
   ],
-  "781": [
+  "816": [
     {
       "season": null,
       "week": 20,
@@ -24278,7 +25377,7 @@
       "def_pass_defended": 0
     }
   ],
-  "782": [
+  "817": [
     {
       "season": null,
       "week": 20,
@@ -24306,7 +25405,7 @@
       "def_pass_defended": 0
     }
   ],
-  "783": [
+  "818": [
     {
       "season": null,
       "week": 20,
@@ -24334,7 +25433,7 @@
       "def_pass_defended": 0
     }
   ],
-  "784": [
+  "819": [
     {
       "season": null,
       "week": 20,
@@ -24362,7 +25461,7 @@
       "def_pass_defended": 0
     }
   ],
-  "785": [
+  "820": [
     {
       "season": null,
       "week": 20,
@@ -24390,7 +25489,7 @@
       "def_pass_defended": 0
     }
   ],
-  "786": [
+  "821": [
     {
       "season": null,
       "week": 20,
@@ -24418,7 +25517,7 @@
       "def_pass_defended": 0
     }
   ],
-  "787": [
+  "822": [
     {
       "season": null,
       "week": 20,
@@ -24446,7 +25545,7 @@
       "def_pass_defended": 0
     }
   ],
-  "788": [
+  "823": [
     {
       "season": null,
       "week": 20,
@@ -24474,7 +25573,7 @@
       "def_pass_defended": 0
     }
   ],
-  "789": [
+  "824": [
     {
       "season": null,
       "week": 20,
@@ -24502,7 +25601,7 @@
       "def_pass_defended": 0
     }
   ],
-  "790": [
+  "825": [
     {
       "season": 2025,
       "week": 20,
@@ -24530,7 +25629,7 @@
       "def_pass_defended": 0
     }
   ],
-  "791": [
+  "826": [
     {
       "season": null,
       "week": 20,
@@ -24558,7 +25657,7 @@
       "def_pass_defended": 0
     }
   ],
-  "792": [
+  "827": [
     {
       "season": null,
       "week": 20,
@@ -24586,7 +25685,7 @@
       "def_pass_defended": 0
     }
   ],
-  "793": [
+  "828": [
     {
       "season": null,
       "week": 20,
@@ -24614,7 +25713,7 @@
       "def_pass_defended": 0
     }
   ],
-  "794": [
+  "829": [
     {
       "season": null,
       "week": 20,
@@ -24642,7 +25741,7 @@
       "def_pass_defended": 0
     }
   ],
-  "795": [
+  "830": [
     {
       "season": 2025,
       "week": 20,
@@ -24670,7 +25769,7 @@
       "def_pass_defended": 0
     }
   ],
-  "796": [
+  "831": [
     {
       "season": null,
       "week": 20,
@@ -24698,7 +25797,7 @@
       "def_pass_defended": 0
     }
   ],
-  "797": [
+  "832": [
     {
       "season": 2025,
       "week": 20,
@@ -24726,7 +25825,7 @@
       "def_pass_defended": 0
     }
   ],
-  "798": [
+  "833": [
     {
       "season": null,
       "week": 20,
@@ -24754,7 +25853,7 @@
       "def_pass_defended": 0
     }
   ],
-  "799": [
+  "834": [
     {
       "season": null,
       "week": 20,
@@ -24782,7 +25881,7 @@
       "def_pass_defended": 0
     }
   ],
-  "800": [
+  "835": [
     {
       "season": null,
       "week": 20,
@@ -24810,7 +25909,7 @@
       "def_pass_defended": 0
     }
   ],
-  "801": [
+  "836": [
     {
       "season": null,
       "week": 20,
@@ -24838,7 +25937,7 @@
       "def_pass_defended": 0
     }
   ],
-  "802": [
+  "837": [
     {
       "season": 2025,
       "week": 20,
@@ -24866,7 +25965,7 @@
       "def_pass_defended": 1
     }
   ],
-  "803": [
+  "838": [
     {
       "season": null,
       "week": 20,
@@ -24894,7 +25993,7 @@
       "def_pass_defended": 0
     }
   ],
-  "804": [
+  "839": [
     {
       "season": null,
       "week": 20,
@@ -24922,7 +26021,7 @@
       "def_pass_defended": 0
     }
   ],
-  "805": [
+  "840": [
     {
       "season": 2025,
       "week": 20,
@@ -24950,7 +26049,7 @@
       "def_pass_defended": 0
     }
   ],
-  "806": [
+  "841": [
     {
       "season": 2025,
       "week": 20,
@@ -24978,7 +26077,7 @@
       "def_pass_defended": 2
     }
   ],
-  "807": [
+  "842": [
     {
       "season": 2025,
       "week": 20,
@@ -25006,7 +26105,7 @@
       "def_pass_defended": 0
     }
   ],
-  "808": [
+  "843": [
     {
       "season": null,
       "week": 20,
@@ -25034,7 +26133,7 @@
       "def_pass_defended": 0
     }
   ],
-  "809": [
+  "844": [
     {
       "season": null,
       "week": 20,
@@ -25062,7 +26161,38 @@
       "def_pass_defended": 0
     }
   ],
-  "810": [
+  "845": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039676",
+      "player_name": "Chigozie Anusiem",
+      "position": "S",
+      "team": "LV",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "846": [
     {
       "season": null,
       "week": 20,
@@ -25093,7 +26223,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "811": [
+  "847": [
     {
       "season": null,
       "week": 20,
@@ -25124,7 +26254,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "812": [
+  "848": [
     {
       "season": null,
       "week": 20,
@@ -25155,7 +26285,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "813": [
+  "849": [
     {
       "season": null,
       "week": 20,
@@ -25186,7 +26316,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "814": [
+  "850": [
     {
       "season": null,
       "week": 20,
@@ -25217,7 +26347,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "815": [
+  "851": [
     {
       "season": null,
       "week": 20,
@@ -25248,7 +26378,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "816": [
+  "852": [
     {
       "season": null,
       "week": 20,
@@ -25279,7 +26409,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "817": [
+  "853": [
     {
       "season": null,
       "week": 20,
@@ -25310,7 +26440,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "818": [
+  "854": [
     {
       "season": null,
       "week": 20,
@@ -25341,7 +26471,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "819": [
+  "855": [
     {
       "season": null,
       "week": 20,
@@ -25372,7 +26502,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "820": [
+  "856": [
     {
       "season": 2025,
       "week": 20,
@@ -25403,7 +26533,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "821": [
+  "857": [
     {
       "season": null,
       "week": 20,
@@ -25434,7 +26564,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "822": [
+  "858": [
     {
       "season": null,
       "week": 20,
@@ -25465,7 +26595,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "823": [
+  "859": [
     {
       "season": null,
       "week": 20,
@@ -25496,7 +26626,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "824": [
+  "860": [
     {
       "season": null,
       "week": 20,
@@ -25527,7 +26657,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "825": [
+  "861": [
     {
       "season": null,
       "week": 20,
@@ -25558,7 +26688,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "826": [
+  "862": [
     {
       "season": null,
       "week": 20,
@@ -25589,7 +26719,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "827": [
+  "863": [
     {
       "season": null,
       "week": 20,
@@ -25620,7 +26750,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "828": [
+  "864": [
     {
       "season": null,
       "week": 20,
@@ -25651,7 +26781,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "829": [
+  "865": [
     {
       "season": null,
       "week": 20,
@@ -25682,7 +26812,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "830": [
+  "866": [
     {
       "season": null,
       "week": 20,
@@ -25713,7 +26843,69 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "831": [
+  "867": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0034639",
+      "player_name": "Mike Ford",
+      "position": "S",
+      "team": "ATL",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "868": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0034116",
+      "player_name": "J.T. Gray",
+      "position": "S",
+      "team": "TB",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "869": [
     {
       "season": null,
       "week": 20,
@@ -25744,7 +26936,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "832": [
+  "870": [
     {
       "season": null,
       "week": 20,
@@ -25775,7 +26967,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "833": [
+  "871": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0039051",
+      "player_name": "Josh Hayes",
+      "position": "S",
+      "team": "TB",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "872": [
     {
       "season": null,
       "week": 20,
@@ -25806,7 +27029,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "834": [
+  "873": [
     {
       "season": null,
       "week": 20,
@@ -25837,7 +27060,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "835": [
+  "874": [
     {
       "season": null,
       "week": 20,
@@ -25868,7 +27091,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "836": [
+  "875": [
     {
       "season": null,
       "week": 20,
@@ -25899,7 +27122,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "837": [
+  "876": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038877",
+      "player_name": "D'Shawn Jamison",
+      "position": "S",
+      "team": "PIT",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "877": [
     {
       "season": null,
       "week": 20,
@@ -25930,7 +27184,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "838": [
+  "878": [
     {
       "season": 2025,
       "week": 20,
@@ -25961,7 +27215,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "839": [
+  "879": [
     {
       "season": null,
       "week": 20,
@@ -25992,7 +27246,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "840": [
+  "880": [
     {
       "season": null,
       "week": 20,
@@ -26023,7 +27277,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "841": [
+  "881": [
     {
       "season": null,
       "week": 20,
@@ -26054,7 +27308,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "842": [
+  "882": [
     {
       "season": null,
       "week": 20,
@@ -26085,7 +27339,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "843": [
+  "883": [
     {
       "season": null,
       "week": 20,
@@ -26116,7 +27370,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "844": [
+  "884": [
     {
       "season": null,
       "week": 20,
@@ -26147,7 +27401,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "845": [
+  "885": [
     {
       "season": null,
       "week": 20,
@@ -26178,7 +27432,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "846": [
+  "886": [
     {
       "season": null,
       "week": 20,
@@ -26209,7 +27463,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "847": [
+  "887": [
     {
       "season": null,
       "week": 20,
@@ -26240,7 +27494,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "848": [
+  "888": [
     {
       "season": null,
       "week": 20,
@@ -26271,7 +27525,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "849": [
+  "889": [
     {
       "season": null,
       "week": 20,
@@ -26302,7 +27556,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "850": [
+  "890": [
     {
       "season": null,
       "week": 20,
@@ -26333,7 +27587,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "851": [
+  "891": [
     {
       "season": null,
       "week": 20,
@@ -26364,7 +27618,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "852": [
+  "892": [
+    {
+      "season": 2025,
+      "week": 20,
+      "player_id": "00-0034391",
+      "player_name": "Siran Neal",
+      "position": "S",
+      "team": "SF",
+      "opponent_team": "SEA",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 1,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "893": [
     {
       "season": null,
       "week": 20,
@@ -26395,7 +27680,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "853": [
+  "894": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0034091",
+      "player_name": "George Odum",
+      "position": "S",
+      "team": "IND",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "eliminated",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "895": [
     {
       "season": null,
       "week": 20,
@@ -26426,7 +27742,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "854": [
+  "896": [
     {
       "season": null,
       "week": 20,
@@ -26457,7 +27773,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "855": [
+  "897": [
     {
       "season": null,
       "week": 20,
@@ -26488,7 +27804,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "856": [
+  "898": [
     {
       "season": null,
       "week": 20,
@@ -26519,7 +27835,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "857": [
+  "899": [
     {
       "season": null,
       "week": 20,
@@ -26550,7 +27866,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "858": [
+  "900": [
     {
       "season": null,
       "week": 20,
@@ -26581,7 +27897,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "859": [
+  "901": [
     {
       "season": null,
       "week": 20,
@@ -26612,7 +27928,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "860": [
+  "902": [
     {
       "season": null,
       "week": 20,
@@ -26643,7 +27959,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "861": [
+  "903": [
     {
       "season": null,
       "week": 20,
@@ -26674,7 +27990,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "862": [
+  "904": [
     {
       "season": null,
       "week": 20,
@@ -26705,7 +28021,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "863": [
+  "905": [
     {
       "season": null,
       "week": 20,
@@ -26736,7 +28052,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "864": [
+  "906": [
     {
       "season": null,
       "week": 20,
@@ -26767,7 +28083,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "865": [
+  "907": [
     {
       "season": null,
       "week": 20,
@@ -26798,7 +28114,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "866": [
+  "908": [
     {
       "season": null,
       "week": 20,
@@ -26829,7 +28145,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "867": [
+  "909": [
     {
       "season": null,
       "week": 20,
@@ -26860,7 +28176,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "868": [
+  "910": [
     {
       "season": null,
       "week": 20,
@@ -26891,7 +28207,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "869": [
+  "911": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038624",
+      "player_name": "Ameer Speed",
+      "position": "S",
+      "team": "HOU",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "912": [
     {
       "season": null,
       "week": 20,
@@ -26922,7 +28269,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "870": [
+  "913": [
     {
       "season": null,
       "week": 20,
@@ -26953,7 +28300,38 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "871": [
+  "914": [
+    {
+      "season": null,
+      "week": 20,
+      "player_id": "00-0038521",
+      "player_name": "Reese Taylor",
+      "position": "S",
+      "team": "DEN",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "915": [
     {
       "season": null,
       "week": 20,
@@ -26984,7 +28362,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "872": [
+  "916": [
     {
       "season": null,
       "week": 20,
@@ -27015,7 +28393,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "873": [
+  "917": [
     {
       "season": null,
       "week": 20,
@@ -27046,7 +28424,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "874": [
+  "918": [
     {
       "season": null,
       "week": 20,
@@ -27077,7 +28455,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "875": [
+  "919": [
     {
       "season": null,
       "week": 20,
@@ -27108,7 +28486,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "876": [
+  "920": [
     {
       "season": 2025,
       "week": 20,
@@ -27137,7 +28515,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "877": [
+  "921": [
     {
       "season": 2025,
       "week": 20,
@@ -27166,7 +28544,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "878": [
+  "922": [
     {
       "season": 2025,
       "week": 20,
@@ -27195,7 +28573,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "879": [
+  "923": [
     {
       "season": 2025,
       "week": 20,
@@ -27224,7 +28602,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "880": [
+  "924": [
     {
       "season": 2025,
       "week": 20,
@@ -27253,7 +28631,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "881": [
+  "925": [
     {
       "season": 2025,
       "week": 20,
@@ -27282,7 +28660,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "882": [
+  "926": [
     {
       "season": 2025,
       "week": 20,
@@ -27311,7 +28689,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "883": [
+  "927": [
     {
       "season": 2025,
       "week": 20,
@@ -27340,7 +28718,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "884": [
+  "928": [
     {
       "season": 2025,
       "week": 20,
@@ -27369,7 +28747,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "885": [
+  "929": [
     {
       "season": 2025,
       "week": 20,
@@ -27398,7 +28776,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "886": [
+  "930": [
     {
       "season": 2025,
       "week": 20,
@@ -27427,7 +28805,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "887": [
+  "931": [
     {
       "season": 2025,
       "week": 20,
@@ -27456,7 +28834,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "888": [
+  "932": [
     {
       "season": 2025,
       "week": 20,
@@ -27485,7 +28863,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "889": [
+  "933": [
     {
       "season": 2025,
       "week": 20,
@@ -27514,7 +28892,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "890": [
+  "934": [
     {
       "season": 2025,
       "week": 20,
@@ -27543,7 +28921,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "891": [
+  "935": [
     {
       "season": 2025,
       "week": 20,
@@ -27572,7 +28950,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "892": [
+  "936": [
     {
       "season": 2025,
       "week": 20,
@@ -27601,7 +28979,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "893": [
+  "937": [
     {
       "season": 2025,
       "week": 20,
@@ -27630,7 +29008,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "894": [
+  "938": [
     {
       "season": 2025,
       "week": 20,
@@ -27659,7 +29037,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "895": [
+  "939": [
     {
       "season": 2025,
       "week": 20,
@@ -27688,7 +29066,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "896": [
+  "940": [
     {
       "season": 2025,
       "week": 20,
@@ -27717,7 +29095,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "897": [
+  "941": [
     {
       "season": 2025,
       "week": 20,
@@ -27746,7 +29124,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "898": [
+  "942": [
     {
       "season": 2025,
       "week": 20,
@@ -27775,7 +29153,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "899": [
+  "943": [
     {
       "season": 2025,
       "week": 20,
@@ -27804,7 +29182,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "900": [
+  "944": [
     {
       "season": 2025,
       "week": 20,
@@ -27833,7 +29211,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "901": [
+  "945": [
     {
       "season": 2025,
       "week": 20,
@@ -27862,7 +29240,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "902": [
+  "946": [
     {
       "season": 2025,
       "week": 20,
@@ -27891,7 +29269,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "903": [
+  "947": [
     {
       "season": 2025,
       "week": 20,
@@ -27920,7 +29298,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "904": [
+  "948": [
     {
       "season": 2025,
       "week": 20,
@@ -27949,7 +29327,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "905": [
+  "949": [
     {
       "season": 2025,
       "week": 20,
@@ -27978,7 +29356,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "906": [
+  "950": [
     {
       "season": 2025,
       "week": 20,
@@ -28007,7 +29385,7 @@
       "practice_secondary_injury": ""
     }
   ],
-  "907": [
+  "951": [
     {
       "season": 2025,
       "week": 20,
