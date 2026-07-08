@@ -19448,6 +19448,17 @@
     "fantasy_positions": "RB"
   },
   {
+    "player_id": "12282",
+    "first_name": "C.J.",
+    "last_name": "Ravenell",
+    "full_name": "C.J. Ravenell",
+    "position": "DL",
+    "team": "NYG",
+    "depth_chart_order": 99,
+    "status": "Active",
+    "fantasy_positions": "DL"
+  },
+  {
     "player_id": "8628",
     "first_name": "Jontre",
     "last_name": "Kirklin",
@@ -56898,7 +56909,7 @@
     "full_name": "Rico Payton",
     "position": "CB",
     "team": "NYG",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
