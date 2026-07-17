@@ -2,6 +2,7 @@
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
+library(httr)
 
 # =====================
 # CONFIG
@@ -13,6 +14,8 @@ message("Generating stats for season: ", season)
 # =====================
 # HELPERS
 # =====================
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
 ensure_cols <- function(df, cols, fill = 0) {
   for (col in cols) if (!col %in% names(df)) df[[col]] <- fill
   df
@@ -37,18 +40,13 @@ export_week_json <- function(week_df, dir, season, week_num) {
 
 normalize_def_position <- function(pos) {
   dplyr::case_when(
-    pos %in% c("DE", "DT", "NT", "DL")   ~ "DL",
-    pos %in% c("ILB", "OLB", "LB")       ~ "LB",
-    pos == "CB"                           ~ "CB",
-    pos == "DB"                           ~ "DB",
-    pos == "S"                            ~ "S",
-    pos == "FS"                           ~ "FS",
-    pos == "SS"                           ~ "SS",
-    TRUE                                  ~ pos
+    pos %in% c("DE", "DT", "NT", "DL")             ~ "DL",
+    pos %in% c("ILB", "OLB", "MLB", "LB", "EDGE")  ~ "LB",
+    pos == "CB"                                     ~ "CB",
+    pos %in% c("FS", "SS", "DB", "S")              ~ "S",
+    TRUE                                            ~ pos
   )
 }
-
-`%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
 # POSITION COLUMN SCHEMAS
@@ -97,17 +95,8 @@ POSITION_COLS <- list(
           "def_tackles_solo", "def_tackles_with_assist",
           "def_fumbles_forced", "def_tds"),
   S   = c("def_interceptions", "def_interception_yards", "def_pass_defended",
-        "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
-        "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
-  FS  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
           "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
           "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
-  SS  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
-          "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
-          "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
-  DB  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
-          "def_tackles_solo", "def_tackles_with_assist",
-          "def_fumbles_forced", "def_tds"),
   DEF = c("def_fumbles_forced", "def_sacks", "def_interceptions",
           "def_tds", "def_safeties", "fumble_recovery_opp",
           "passing_yards_allowed", "passing_tds_allowed",
@@ -125,113 +114,82 @@ trim_to_position <- function(row) {
 }
 
 # =====================
-# SLEEPER DEPTH CHART ELIGIBILITY
+# ESPN POSITION OVERRIDE
 # =====================
+message("Fetching ESPN team list...")
 
-# Always initialize so later code never errors even if Sleeper loading fails
-sleeper_eligible_ids <- character(0)
+espn_teams_resp <- tryCatch(
+  httr::GET("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32"),
+  error = function(e) NULL
+)
 
-if (file.exists("data/sleeperAPI/sleeper_players.json")) {
-  message("Loading Sleeper depth charts for player eligibility...")
-
-  sleeper_raw <- tryCatch(
-    fromJSON("data/sleeperAPI/sleeper_players.json", simplifyVector = FALSE),
-    error = function(e) {
-      message("Failed to parse sleeper_players.json: ", e$message)
-      NULL
-    }
+espn_team_ids <- character(0)
+if (!is.null(espn_teams_resp) && httr::status_code(espn_teams_resp) == 200) {
+  espn_teams_json <- httr::content(espn_teams_resp, as = "parsed", simplifyVector = FALSE)
+  espn_team_ids <- tryCatch(
+    sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$id),
+    error = function(e) character(0)
   )
-
-  if (!is.null(sleeper_raw) && length(sleeper_raw) > 0) {
-
-    # Diagnostic — shows what fields Sleeper provides so you can verify gsis_id exists
-    message("Sample Sleeper player fields: ",
-            paste(names(sleeper_raw[[1]]), collapse = ", "))
-
-    # Per-team depth caps by normalized position
-    POSITION_CAPS <- list(
-      QB  = 3, RB  = 4, WR  = 6, TE  = 4, K   = 1,
-      DL  = 8, LB  = 5, CB  = 8, DB  = 8, FS  = 3, SS  = 3,
-      DE  = 8, DT  = 4, NT  = 4,
-      ILB = 3, OLB = 3
-    )
-
-    normalize_sleeper_def <- function(pos) {
-      pos <- toupper(pos)
-      if (pos %in% c("DE", "DT", "NT", "DL")) return("DL")
-      if (pos %in% c("ILB", "OLB", "LB"))     return("LB")
-      if (pos == "CB")                         return("CB")
-      if (pos == "DB")                         return("DB")
-      if (pos == "S")                          return("S")
-      if (pos == "FS")                         return("FS")
-      if (pos == "SS")                         return("SS")
-      return(pos)
-    }
-
-    sleeper_list <- lapply(sleeper_raw, function(p) {
-      tryCatch({
-        gsis  <- p$gsis_id %||% NULL
-        pos   <- toupper(p$position %||% "")
-        team  <- p$team %||% NA
-        depth <- suppressWarnings(as.numeric(p$depth_chart_order %||% NA))
-        if (is.null(gsis) || length(gsis) == 0 ||
-            is.na(gsis)   || nchar(gsis) == 0  || is.na(team)) return(NULL)
-        data.frame(
-          gsis_id           = as.character(gsis),
-          position_raw      = pos,
-          position_norm     = normalize_sleeper_def(pos),
-          team              = as.character(team),
-          depth_chart_order = if (is.na(depth)) 99L else as.integer(depth),
-          stringsAsFactors  = FALSE
-        )
-      }, error = function(e) NULL)
-    })
-
-    sleeper_list_clean <- Filter(Negate(is.null), sleeper_list)
-
-    if (length(sleeper_list_clean) == 0) {
-      message("No valid Sleeper players found — Sleeper eligibility disabled")
-    } else {
-      sleeper_df <- bind_rows(sleeper_list_clean)
-
-      if (!"gsis_id" %in% names(sleeper_df) || !"team" %in% names(sleeper_df)) {
-        message("Sleeper data missing expected columns — Sleeper eligibility disabled")
-      } else {
-        sleeper_df <- sleeper_df %>%
-          filter(!is.na(gsis_id), nchar(gsis_id) > 0, !is.na(team), nchar(team) > 0)
-
-        if (nrow(sleeper_df) == 0) {
-          message("Sleeper data empty after cleaning — Sleeper eligibility disabled")
-        } else {
-          all_norm_positions <- unique(sleeper_df$position_norm)
-
-          sleeper_capped <- bind_rows(lapply(all_norm_positions, function(pos_norm) {
-            cap <- POSITION_CAPS[[pos_norm]] %||% NULL
-            if (is.null(cap)) return(NULL)
-            sleeper_df %>%
-              filter(position_norm == pos_norm) %>%
-              group_by(team) %>%
-              slice_min(order_by = depth_chart_order, n = cap, with_ties = FALSE) %>%
-              ungroup()
-          }))
-
-          if (nrow(sleeper_capped) == 0) {
-            message("No players survived Sleeper depth capping — Sleeper eligibility disabled")
-          } else {
-            sleeper_eligible_ids <- unique(sleeper_capped$gsis_id)
-            message("Sleeper eligible player IDs after depth caps: ",
-                    length(sleeper_eligible_ids))
-          }
-        }
-      }
-    }
-  } else {
-    message("sleeper_players.json is empty or unreadable — Sleeper eligibility disabled")
-  }
-
 } else {
-  message("sleeper_players.json not found — Sleeper eligibility disabled")
+  message("ESPN team list request failed — position override disabled")
 }
+
+fetch_espn_roster <- function(team_id) {
+  url  <- sprintf("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/%s/roster", team_id)
+  resp <- tryCatch(httr::GET(url), error = function(e) NULL)
+  if (is.null(resp) || httr::status_code(resp) != 200) return(NULL)
+
+  parsed <- tryCatch(
+    httr::content(resp, as = "parsed", simplifyVector = FALSE),
+    error = function(e) NULL
+  )
+  if (is.null(parsed) || is.null(parsed$athletes)) return(NULL)
+
+  athletes <- unlist(lapply(parsed$athletes, function(group) group$items), recursive = FALSE)
+
+  rows <- lapply(athletes, function(a) {
+    tryCatch(
+      data.frame(
+        espn_id       = as.character(a$id),
+        espn_position = a$position$abbreviation %||% NA_character_,
+        stringsAsFactors = FALSE
+      ),
+      error = function(e) NULL
+    )
+  })
+  bind_rows(Filter(Negate(is.null), rows))
+}
+
+espn_roster_all <- if (length(espn_team_ids) > 0) {
+  bind_rows(lapply(espn_team_ids, function(tid) {
+    Sys.sleep(0.15)  # polite pacing against ESPN's unofficial API
+    fetch_espn_roster(tid)
+  })) %>% distinct(espn_id, .keep_all = TRUE)
+} else {
+  message("No ESPN team IDs available — position override disabled")
+  tibble(espn_id = character(0), espn_position = character(0))
+}
+
+message("ESPN roster players fetched: ", nrow(espn_roster_all))
+
+message("Loading gsis_id <-> espn_id crosswalk")
+id_crosswalk <- tryCatch(
+  nflreadr::load_ff_playerids() %>%
+    filter(!is.na(gsis_id), !is.na(espn_id)) %>%
+    transmute(player_id = gsis_id, espn_id = as.character(espn_id)),
+  error = function(e) {
+    message("Failed to load ff_playerids crosswalk: ", e$message)
+    tibble(player_id = character(0), espn_id = character(0))
+  }
+)
+
+espn_position_lookup <- espn_roster_all %>%
+  inner_join(id_crosswalk, by = "espn_id") %>%
+  filter(!is.na(espn_position), espn_position != "") %>%
+  distinct(player_id, .keep_all = TRUE) %>%
+  select(player_id, espn_position)
+
+message("Players matched to ESPN position: ", nrow(espn_position_lookup))
 
 # =====================
 # LOAD & PREP SHARED DATA
@@ -242,7 +200,10 @@ weekly <- nflreadr::load_player_stats(seasons = season)
 message("Loading player metadata")
 players <- nflreadr::load_players() %>%
   ensure_cols(c("display_name", "position", "headshot_url"), fill = "") %>%
-  transmute(player_id = gsis_id, player_name = display_name, position, headshot_url)
+  transmute(player_id = gsis_id, player_name = display_name, position, headshot_url) %>%
+  left_join(espn_position_lookup, by = "player_id") %>%
+  mutate(position = coalesce(espn_position, position)) %>%
+  select(-espn_position)
 
 message("Loading injury data")
 injuries <- nflreadr::load_injuries(seasons = season) %>%
@@ -287,22 +248,26 @@ defense_snaps <- snaps_raw %>%
 message("Loading schedules for team status")
 schedules_all <- nflreadr::load_schedules(seasons = season)
 
-reg_season_weeks <- 1:18
-playoff_weeks    <- 19:22
+reg_season_weeks  <- 1:18
+playoff_weeks     <- 19:22
 
-all_teams       <- sort(unique(c(schedules_all$home_team, schedules_all$away_team)))
-all_weeks_sched <- sort(unique(schedules_all$week))
+# All teams that appear in the schedule this season
+all_teams <- sort(unique(c(schedules_all$home_team, schedules_all$away_team)))
+all_weeks_sched   <- sort(unique(schedules_all$week))
 
+# Build a flat table: every team x every scheduled week -> did they play?
 team_played <- bind_rows(
   schedules_all %>% transmute(week, team = home_team),
   schedules_all %>% transmute(week, team = away_team)
 ) %>% distinct() %>% mutate(played = TRUE)
 
+# For each team, find the last playoff week they appeared in (NA if never)
 team_last_playoff_week <- team_played %>%
   filter(week %in% playoff_weeks) %>%
   group_by(team) %>%
   summarise(last_playoff_week = max(week), .groups = "drop")
 
+# Build full grid: every team x every week that exists in the schedule
 team_week_grid <- expand.grid(
   team = all_teams,
   week = all_weeks_sched,
@@ -315,10 +280,12 @@ team_status_lookup <- team_week_grid %>%
   mutate(
     played = coalesce(played, FALSE),
     team_status = case_when(
-      played                         ~ "played",
-      week %in% reg_season_weeks     ~ "bye-week",
+      played                          ~ "played",
+      week %in% reg_season_weeks      ~ "bye-week",
+      # Playoff week, team did not play:
+      # If they never made playoffs at all, or this week is beyond their last appearance
       week %in% playoff_weeks & (is.na(last_playoff_week) | week > last_playoff_week) ~ "eliminated",
-      TRUE                           ~ "bye-week"
+      TRUE                            ~ "bye-week"   # fallback (shouldn't hit)
     )
   ) %>%
   select(team, week, team_status)
@@ -377,10 +344,13 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
+# Keep only players who recorded at least 1 snap in any week this season.
+# Uses two sources to avoid dropping players with broken pfr_id bridges:
+#   1. offense_snaps (snap count data via pfr bridge)
+#   2. weekly_off (direct appearance in offensive play-by-play stats)
 active_offense_ids <- bind_rows(
   offense_snaps %>% filter(snap_count > 0) %>% select(player_id),
-  weekly_off %>% filter(!is.na(player_id), player_id != "") %>% select(player_id),
-  tibble(player_id = intersect(sleeper_eligible_ids, players_off$player_id))
+  weekly_off    %>% filter(!is.na(player_id), player_id != "") %>% select(player_id)
 ) %>% distinct(player_id)
 
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
@@ -389,8 +359,6 @@ offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
     semi_join(active_offense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
-
-message("Offense players after filtering: ", n_distinct(offense_combined$player_id))
 
 # =====================
 # TEAM DEFENSE (DEF) PIPELINE
@@ -412,6 +380,7 @@ opponent_stats <- team_weekly %>%
          passing_tds_allowed = passing_tds, rushing_yards_allowed = rushing_yards,
          rushing_tds_allowed = rushing_tds)
 
+# Teams that actually played each week (have real stats)
 team_def_played <- team_weekly %>%
   select(season, week, team, def_fumbles_forced, def_sacks, def_interceptions,
          def_tds, def_safeties, fumble_recovery_opp) %>%
@@ -443,10 +412,13 @@ team_def_played <- team_weekly %>%
     practice_secondary_injury = ""
   )
 
+# Synthetic rows for any team x week combination that has no real stats entry
+# Covers both reg season bye weeks AND playoff weeks where the team was eliminated
 teams_with_played_entry <- team_def_played %>%
   select(team, week) %>%
   distinct()
 
+# All weeks across the entire season (reg + playoffs)
 all_season_weeks <- sort(unique(schedules_all$week))
 
 team_def_missing <- expand.grid(
@@ -455,6 +427,7 @@ team_def_missing <- expand.grid(
   stringsAsFactors = FALSE
 ) %>%
   anti_join(teams_with_played_entry, by = c("team", "week")) %>%
+  # Pull the correct label (bye-week or eliminated) from the lookup we already built
   left_join(team_status_lookup, by = c("team", "week")) %>%
   mutate(
     season                    = season,
@@ -490,16 +463,7 @@ team_def <- bind_rows(team_def_played, team_def_missing) %>%
 # INDIVIDUAL DEFENSIVE PLAYERS PIPELINE
 # =====================
 message("Loading individual defensive player stats")
-def_positions <- c("DL", "LB", "CB", "S", "DB", "FS", "SS")
-
-raw_def_positions <- c(
-  "DE", "DT", "NT", "DL",
-  "ILB", "OLB", "LB",
-  "CB",
-  "DB",
-  "FS", "S",
-  "SS"
-)
+def_positions <- c("DL", "LB", "CB", "S")
 
 weekly_def_raw <- nflreadr::load_player_stats(seasons = season, stat_type = "defense")
 
@@ -514,12 +478,10 @@ def_stat_cols <- c(
 )
 
 players_def <- players %>%
-  filter(position %in% raw_def_positions) %>%
   mutate(position = normalize_def_position(position)) %>%
   filter(position %in% def_positions)
 
 weekly_def <- weekly_def_raw %>%
-  filter(position %in% raw_def_positions) %>%
   mutate(position = normalize_def_position(position)) %>%
   filter(position %in% def_positions) %>%
   ensure_cols(def_stat_cols) %>%
@@ -554,14 +516,16 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
+# Keep only players who recorded at least 1 defensive snap in any week this season.
+# Uses two sources to avoid dropping players with broken pfr_id bridges:
+#   1. defense_snaps (snap count data via pfr bridge)
+#   2. weekly_def_raw (direct appearance in defensive play-by-play stats)
 active_defense_ids <- bind_rows(
   defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_def_raw %>%
-    filter(position %in% raw_def_positions, !is.na(player_id), player_id != "") %>%
     mutate(position = normalize_def_position(position)) %>%
-    filter(position %in% def_positions) %>%
-    select(player_id),
-  tibble(player_id = intersect(sleeper_eligible_ids, players_def$player_id))
+    filter(position %in% def_positions, !is.na(player_id), player_id != "") %>%
+    select(player_id)
 ) %>% distinct(player_id)
 
 individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
@@ -570,8 +534,6 @@ individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
     semi_join(active_defense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
-
-message("Defense players after filtering: ", n_distinct(individual_def_combined$player_id))
 
 defense_export <- bind_rows(individual_def_combined, team_def)
 
@@ -590,7 +552,7 @@ for (w in sort(unique(offense_combined$week))) {
 }
 
 # =====================
-# EXPORT — DEFENSE (DL/LB/CB/DB/FS/SS individual players + team DEF)
+# EXPORT — DEFENSE (DL/LB/CB/S individual players + team DEF)
 # =====================
 def_dir <- stats_dir("Defense")
 
