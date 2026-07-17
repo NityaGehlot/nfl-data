@@ -121,6 +121,114 @@ trim_to_position <- function(row) {
 }
 
 # =====================
+# SLEEPER DEPTH CHART ELIGIBILITY
+# =====================
+
+# Always initialize so later code never errors even if Sleeper loading fails
+sleeper_eligible_ids <- character(0)
+
+if (file.exists("data/sleeperAPI/sleeper_players.json")) {
+  message("Loading Sleeper depth charts for player eligibility...")
+
+  sleeper_raw <- tryCatch(
+    fromJSON("data/sleeperAPI/sleeper_players.json", simplifyVector = FALSE),
+    error = function(e) {
+      message("Failed to parse sleeper_players.json: ", e$message)
+      NULL
+    }
+  )
+
+  if (!is.null(sleeper_raw) && length(sleeper_raw) > 0) {
+
+    # Diagnostic — shows what fields Sleeper provides so you can verify gsis_id exists
+    message("Sample Sleeper player fields: ",
+            paste(names(sleeper_raw[[1]]), collapse = ", "))
+
+    # Per-team depth caps by normalized position
+    POSITION_CAPS <- list(
+      QB  = 3, RB  = 4, WR  = 6, TE  = 4, K   = 1,
+      DL  = 8, LB  = 5, CB  = 8, DB  = 8, FS  = 3, SS  = 3,
+      DE  = 8, DT  = 4, NT  = 4,
+      ILB = 3, OLB = 3
+    )
+
+    normalize_sleeper_def <- function(pos) {
+      pos <- toupper(pos)
+      if (pos %in% c("DE", "DT", "NT", "DL")) return("DL")
+      if (pos %in% c("ILB", "OLB", "LB"))     return("LB")
+      if (pos == "CB")                         return("CB")
+      if (pos == "DB")                         return("DB")
+      if (pos %in% c("FS", "S"))              return("FS")
+      if (pos == "SS")                         return("SS")
+      return(pos)
+    }
+
+    sleeper_list <- lapply(sleeper_raw, function(p) {
+      tryCatch({
+        gsis  <- p$gsis_id %||% NULL
+        pos   <- toupper(p$position %||% "")
+        team  <- p$team %||% NA
+        depth <- suppressWarnings(as.numeric(p$depth_chart_order %||% NA))
+        if (is.null(gsis) || length(gsis) == 0 ||
+            is.na(gsis)   || nchar(gsis) == 0  || is.na(team)) return(NULL)
+        data.frame(
+          gsis_id           = as.character(gsis),
+          position_raw      = pos,
+          position_norm     = normalize_sleeper_def(pos),
+          team              = as.character(team),
+          depth_chart_order = if (is.na(depth)) 99L else as.integer(depth),
+          stringsAsFactors  = FALSE
+        )
+      }, error = function(e) NULL)
+    })
+
+    sleeper_list_clean <- Filter(Negate(is.null), sleeper_list)
+
+    if (length(sleeper_list_clean) == 0) {
+      message("No valid Sleeper players found — Sleeper eligibility disabled")
+    } else {
+      sleeper_df <- bind_rows(sleeper_list_clean)
+
+      if (!"gsis_id" %in% names(sleeper_df) || !"team" %in% names(sleeper_df)) {
+        message("Sleeper data missing expected columns — Sleeper eligibility disabled")
+      } else {
+        sleeper_df <- sleeper_df %>%
+          filter(!is.na(gsis_id), nchar(gsis_id) > 0, !is.na(team), nchar(team) > 0)
+
+        if (nrow(sleeper_df) == 0) {
+          message("Sleeper data empty after cleaning — Sleeper eligibility disabled")
+        } else {
+          all_norm_positions <- unique(sleeper_df$position_norm)
+
+          sleeper_capped <- bind_rows(lapply(all_norm_positions, function(pos_norm) {
+            cap <- POSITION_CAPS[[pos_norm]] %||% NULL
+            if (is.null(cap)) return(NULL)
+            sleeper_df %>%
+              filter(position_norm == pos_norm) %>%
+              group_by(team) %>%
+              slice_min(order_by = depth_chart_order, n = cap, with_ties = FALSE) %>%
+              ungroup()
+          }))
+
+          if (nrow(sleeper_capped) == 0) {
+            message("No players survived Sleeper depth capping — Sleeper eligibility disabled")
+          } else {
+            sleeper_eligible_ids <- unique(sleeper_capped$gsis_id)
+            message("Sleeper eligible player IDs after depth caps: ",
+                    length(sleeper_eligible_ids))
+          }
+        }
+      }
+    }
+  } else {
+    message("sleeper_players.json is empty or unreadable — Sleeper eligibility disabled")
+  }
+
+} else {
+  message("sleeper_players.json not found — Sleeper eligibility disabled")
+}
+
+# =====================
 # LOAD & PREP SHARED DATA
 # =====================
 message("Loading weekly player stats")
@@ -264,10 +372,6 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Active offense eligibility — three sources:
-#   1. offense_snaps: snap count data via pfr bridge
-#   2. weekly_off: direct appearance in offensive stat logs
-#   3. sleeper_eligible_ids: within depth cap on Sleeper roster
 active_offense_ids <- bind_rows(
   offense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_off %>% filter(!is.na(player_id), player_id != "") %>% select(player_id),
@@ -410,6 +514,7 @@ players_def <- players %>%
   filter(position %in% def_positions)
 
 weekly_def <- weekly_def_raw %>%
+  filter(position %in% raw_def_positions) %>%
   mutate(position = normalize_def_position(position)) %>%
   filter(position %in% def_positions) %>%
   ensure_cols(def_stat_cols) %>%
@@ -444,10 +549,6 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Active defense eligibility — three sources:
-#   1. defense_snaps: snap count data via pfr bridge
-#   2. weekly_def_raw: direct appearance in defensive stat logs
-#   3. sleeper_eligible_ids: within depth cap on Sleeper roster
 active_defense_ids <- bind_rows(
   defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_def_raw %>%
@@ -484,7 +585,7 @@ for (w in sort(unique(offense_combined$week))) {
 }
 
 # =====================
-# EXPORT — DEFENSE (DL/LB/CB/S individual players + team DEF)
+# EXPORT — DEFENSE (DL/LB/CB/DB/FS/SS individual players + team DEF)
 # =====================
 def_dir <- stats_dir("Defense")
 
