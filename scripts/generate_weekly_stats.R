@@ -37,11 +37,13 @@ export_week_json <- function(week_df, dir, season, week_num) {
 
 normalize_def_position <- function(pos) {
   dplyr::case_when(
-    pos %in% c("DE", "DT", "NT", "DL")             ~ "DL",
-    pos %in% c("ILB", "OLB", "MLB", "LB", "EDGE")  ~ "LB",
-    pos == "CB"                                     ~ "CB",
-    pos %in% c("FS", "SS", "DB", "S")              ~ "S",
-    TRUE                                            ~ pos
+    pos %in% c("DE", "DT", "NT", "DL")   ~ "DL",
+    pos %in% c("ILB", "OLB", "LB")       ~ "LB",
+    pos == "CB"                           ~ "CB",
+    pos == "DB"                           ~ "DB",
+    pos %in% c("FS", "S")                ~ "FS",
+    pos == "SS"                           ~ "SS",
+    TRUE                                  ~ pos
   )
 }
 
@@ -93,9 +95,15 @@ POSITION_COLS <- list(
   CB  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
           "def_tackles_solo", "def_tackles_with_assist",
           "def_fumbles_forced", "def_tds"),
-  S   = c("def_interceptions", "def_interception_yards", "def_pass_defended",
+  FS  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
           "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
           "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
+  SS  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
+          "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
+          "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
+  DB  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
+          "def_tackles_solo", "def_tackles_with_assist",
+          "def_fumbles_forced", "def_tds"),
   DEF = c("def_fumbles_forced", "def_sacks", "def_interceptions",
           "def_tds", "def_safeties", "fumble_recovery_opp",
           "passing_yards_allowed", "passing_tds_allowed",
@@ -113,30 +121,75 @@ trim_to_position <- function(row) {
 }
 
 # =====================
-# LOAD SLEEPER PLAYERS FOR EXPANDED COVERAGE
+# SLEEPER DEPTH CHART ELIGIBILITY
 # =====================
-sleeper_gsis_ids <- character(0)
+sleeper_eligible_ids <- character(0)
 
 if (file.exists("data/sleeperAPI/sleeper_players.json")) {
-  message("Loading Sleeper players for expanded coverage...")
+  message("Loading Sleeper depth charts for player eligibility...")
 
   sleeper_raw <- fromJSON(
     "data/sleeperAPI/sleeper_players.json",
     simplifyVector = FALSE
   )
 
-  # Sleeper stores gsis_id under the "gsis_id" field on each player object
-  # Collect all non-null gsis_ids so we can use them as an additional
-  # eligibility source alongside nflreadr snap counts and stat logs
-  sleeper_gsis_ids <- Filter(
-    function(x) !is.null(x) && nchar(x) > 0,
-    lapply(sleeper_raw, function(p) p$gsis_id %||% NULL)
+  # Per-team depth caps by normalized position
+  # Tune these numbers to control how many players per position per team appear
+  POSITION_CAPS <- list(
+    QB   = 2,  RB  = 4,  WR  = 6,  TE  = 3,  K   = 1,
+    DL   = 6,  LB  = 5,  CB  = 6,  S   = 4,  DB  = 4,
+    DE   = 6,  DT  = 4,  NT  = 2,
+    ILB  = 3,  OLB = 3,  MLB = 2,  EDGE = 4,
+    FS   = 3,  SS  = 3
   )
-  sleeper_gsis_ids <- unique(unlist(sleeper_gsis_ids))
 
-  message("Sleeper gsis_ids loaded: ", length(sleeper_gsis_ids))
+  # Normalize Sleeper defensive positions to match generate_weekly_stats groupings
+  normalize_sleeper_def <- function(pos) {
+    pos <- toupper(pos)
+    if (pos %in% c("DE", "DT", "NT"))            return("DL")
+    if (pos %in% c("ILB", "OLB", "MLB", "EDGE")) return("LB")
+    if (pos == "CB")                              return("CB")
+    if (pos %in% c("FS", "SS", "DB", "S"))       return("S")
+    return(pos)
+  }
+
+  sleeper_list <- lapply(sleeper_raw, function(p) {
+    gsis  <- p$gsis_id %||% NULL
+    pos   <- toupper(p$position %||% "")
+    team  <- p$team %||% NA
+    depth <- suppressWarnings(as.numeric(p$depth_chart_order %||% NA))
+    if (is.null(gsis) || nchar(gsis) == 0 || is.na(team)) return(NULL)
+    data.frame(
+      gsis_id           = gsis,
+      position_raw      = pos,
+      position_norm     = normalize_sleeper_def(pos),
+      team              = team,
+      depth_chart_order = if (is.na(depth)) 99L else as.integer(depth),
+      stringsAsFactors  = FALSE
+    )
+  })
+
+  sleeper_df <- bind_rows(Filter(Negate(is.null), sleeper_list)) %>%
+    filter(nchar(gsis_id) > 0, !is.na(team))
+
+  # Apply per-team depth caps using normalized positions
+  all_norm_positions <- unique(sleeper_df$position_norm)
+
+  sleeper_capped <- bind_rows(lapply(all_norm_positions, function(pos_norm) {
+    cap <- POSITION_CAPS[[pos_norm]] %||% NULL
+    if (is.null(cap)) return(NULL)
+    sleeper_df %>%
+      filter(position_norm == pos_norm) %>%
+      group_by(team) %>%
+      slice_min(order_by = depth_chart_order, n = cap, with_ties = FALSE) %>%
+      ungroup()
+  }))
+
+  sleeper_eligible_ids <- unique(sleeper_capped$gsis_id)
+  message("Sleeper eligible player IDs after depth caps: ", length(sleeper_eligible_ids))
+
 } else {
-  message("sleeper_players.json not found — skipping Sleeper expansion")
+  message("sleeper_players.json not found — Sleeper eligibility disabled")
 }
 
 # =====================
@@ -286,11 +339,11 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
 # Active offense eligibility — three sources:
 #   1. offense_snaps: snap count data via pfr bridge
 #   2. weekly_off: direct appearance in offensive stat logs
-#   3. sleeper_gsis_ids: players on Sleeper depth charts (catches missing pfr bridges)
+#   3. sleeper_eligible_ids: within depth cap on Sleeper roster
 active_offense_ids <- bind_rows(
   offense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_off %>% filter(!is.na(player_id), player_id != "") %>% select(player_id),
-  tibble(player_id = intersect(sleeper_gsis_ids, players_off$player_id))
+  tibble(player_id = intersect(sleeper_eligible_ids, players_off$player_id))
 ) %>% distinct(player_id)
 
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
@@ -456,14 +509,14 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
 # Active defense eligibility — three sources:
 #   1. defense_snaps: snap count data via pfr bridge
 #   2. weekly_def_raw: direct appearance in defensive stat logs
-#   3. sleeper_gsis_ids: players on Sleeper depth charts (catches missing pfr bridges)
+#   3. sleeper_eligible_ids: within depth cap on Sleeper roster
 active_defense_ids <- bind_rows(
   defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_def_raw %>%
     mutate(position = normalize_def_position(position)) %>%
     filter(position %in% def_positions, !is.na(player_id), player_id != "") %>%
     select(player_id),
-  tibble(player_id = intersect(sleeper_gsis_ids, players_def$player_id))
+  tibble(player_id = intersect(sleeper_eligible_ids, players_def$player_id))
 ) %>% distinct(player_id)
 
 individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
