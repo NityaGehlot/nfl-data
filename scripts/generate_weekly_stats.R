@@ -41,7 +41,8 @@ normalize_def_position <- function(pos) {
     pos %in% c("ILB", "OLB", "LB")       ~ "LB",
     pos == "CB"                           ~ "CB",
     pos == "DB"                           ~ "DB",
-    pos %in% c("FS", "S")                ~ "FS",
+    pos == "S"                            ~ "S",
+    pos == "FS"                           ~ "FS",
     pos == "SS"                           ~ "SS",
     TRUE                                  ~ pos
   )
@@ -95,6 +96,9 @@ POSITION_COLS <- list(
   CB  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
           "def_tackles_solo", "def_tackles_with_assist",
           "def_fumbles_forced", "def_tds"),
+  S   = c("def_interceptions", "def_interception_yards", "def_pass_defended",
+        "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
+        "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
   FS  = c("def_interceptions", "def_interception_yards", "def_pass_defended",
           "def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
           "def_fumbles_forced", "fumble_recovery_opp", "fumble_recovery_yards_opp", "def_tds"),
@@ -158,7 +162,8 @@ if (file.exists("data/sleeperAPI/sleeper_players.json")) {
       if (pos %in% c("ILB", "OLB", "LB"))     return("LB")
       if (pos == "CB")                         return("CB")
       if (pos == "DB")                         return("DB")
-      if (pos %in% c("FS", "S"))              return("FS")
+      if (pos == "S")                          return("S")
+      if (pos == "FS")                         return("FS")
       if (pos == "SS")                         return("SS")
       return(pos)
     }
@@ -485,7 +490,7 @@ team_def <- bind_rows(team_def_played, team_def_missing) %>%
 # INDIVIDUAL DEFENSIVE PLAYERS PIPELINE
 # =====================
 message("Loading individual defensive player stats")
-def_positions <- c("DL", "LB", "CB", "DB", "FS", "SS")
+def_positions <- c("DL", "LB", "CB", "S", "DB", "FS", "SS")
 
 raw_def_positions <- c(
   "DE", "DT", "NT", "DL",
