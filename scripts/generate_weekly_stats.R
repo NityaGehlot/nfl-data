@@ -57,7 +57,7 @@ BASE_COLS <- c(
   "snap_count", "game_played", "team_status",
   "injury_status", "practice_status",
   "primary_injury", "secondary_injury",
-  "practice_primary_injury", "practice_secondary_difficulty"
+  "practice_primary_injury", "practice_secondary_injury"
 )
 
 BASE_COLS_DEF_TEAM <- c(
@@ -110,6 +110,33 @@ trim_to_position <- function(row) {
     c(BASE_COLS, POSITION_COLS[[pos]] %||% character(0))
   }
   row[intersect(names(row), keep)]
+}
+
+# =====================
+# LOAD SLEEPER PLAYERS FOR EXPANDED COVERAGE
+# =====================
+sleeper_gsis_ids <- character(0)
+
+if (file.exists("data/sleeperAPI/sleeper_players.json")) {
+  message("Loading Sleeper players for expanded coverage...")
+
+  sleeper_raw <- fromJSON(
+    "data/sleeperAPI/sleeper_players.json",
+    simplifyVector = FALSE
+  )
+
+  # Sleeper stores gsis_id under the "gsis_id" field on each player object
+  # Collect all non-null gsis_ids so we can use them as an additional
+  # eligibility source alongside nflreadr snap counts and stat logs
+  sleeper_gsis_ids <- Filter(
+    function(x) !is.null(x) && nchar(x) > 0,
+    lapply(sleeper_raw, function(p) p$gsis_id %||% NULL)
+  )
+  sleeper_gsis_ids <- unique(unlist(sleeper_gsis_ids))
+
+  message("Sleeper gsis_ids loaded: ", length(sleeper_gsis_ids))
+} else {
+  message("sleeper_players.json not found — skipping Sleeper expansion")
 }
 
 # =====================
@@ -166,26 +193,22 @@ defense_snaps <- snaps_raw %>%
 message("Loading schedules for team status")
 schedules_all <- nflreadr::load_schedules(seasons = season)
 
-reg_season_weeks  <- 1:18
-playoff_weeks     <- 19:22
+reg_season_weeks <- 1:18
+playoff_weeks    <- 19:22
 
-# All teams that appear in the schedule this season
-all_teams <- sort(unique(c(schedules_all$home_team, schedules_all$away_team)))
-all_weeks_sched   <- sort(unique(schedules_all$week))
+all_teams       <- sort(unique(c(schedules_all$home_team, schedules_all$away_team)))
+all_weeks_sched <- sort(unique(schedules_all$week))
 
-# Build a flat table: every team × every scheduled week → did they play?
 team_played <- bind_rows(
   schedules_all %>% transmute(week, team = home_team),
   schedules_all %>% transmute(week, team = away_team)
 ) %>% distinct() %>% mutate(played = TRUE)
 
-# For each team, find the last playoff week they appeared in (NA if never)
 team_last_playoff_week <- team_played %>%
   filter(week %in% playoff_weeks) %>%
   group_by(team) %>%
   summarise(last_playoff_week = max(week), .groups = "drop")
 
-# Build full grid: every team × every week that exists in the schedule
 team_week_grid <- expand.grid(
   team = all_teams,
   week = all_weeks_sched,
@@ -198,12 +221,10 @@ team_status_lookup <- team_week_grid %>%
   mutate(
     played = coalesce(played, FALSE),
     team_status = case_when(
-      played                          ~ "played",
-      week %in% reg_season_weeks      ~ "bye-week",
-      # Playoff week, team did not play:
-      # If they never made playoffs at all, or this week is beyond their last appearance
+      played                         ~ "played",
+      week %in% reg_season_weeks     ~ "bye-week",
       week %in% playoff_weeks & (is.na(last_playoff_week) | week > last_playoff_week) ~ "eliminated",
-      TRUE                            ~ "bye-week"   # fallback (shouldn't hit)
+      TRUE                           ~ "bye-week"
     )
   ) %>%
   select(team, week, team_status)
@@ -262,13 +283,14 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Keep only players who recorded at least 1 snap in any week this season.
-# Uses two sources to avoid dropping players with broken pfr_id bridges:
-#   1. offense_snaps (snap count data via pfr bridge)
-#   2. weekly_off (direct appearance in offensive play-by-play stats)
+# Active offense eligibility — three sources:
+#   1. offense_snaps: snap count data via pfr bridge
+#   2. weekly_off: direct appearance in offensive stat logs
+#   3. sleeper_gsis_ids: players on Sleeper depth charts (catches missing pfr bridges)
 active_offense_ids <- bind_rows(
   offense_snaps %>% filter(snap_count > 0) %>% select(player_id),
-  weekly_off    %>% filter(!is.na(player_id), player_id != "") %>% select(player_id)
+  weekly_off %>% filter(!is.na(player_id), player_id != "") %>% select(player_id),
+  tibble(player_id = intersect(sleeper_gsis_ids, players_off$player_id))
 ) %>% distinct(player_id)
 
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
@@ -277,6 +299,8 @@ offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
     semi_join(active_offense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
+
+message("Offense players after filtering: ", n_distinct(offense_combined$player_id))
 
 # =====================
 # TEAM DEFENSE (DEF) PIPELINE
@@ -298,7 +322,6 @@ opponent_stats <- team_weekly %>%
          passing_tds_allowed = passing_tds, rushing_yards_allowed = rushing_yards,
          rushing_tds_allowed = rushing_tds)
 
-# Teams that actually played each week (have real stats)
 team_def_played <- team_weekly %>%
   select(season, week, team, def_fumbles_forced, def_sacks, def_interceptions,
          def_tds, def_safeties, fumble_recovery_opp) %>%
@@ -330,13 +353,10 @@ team_def_played <- team_weekly %>%
     practice_secondary_injury = ""
   )
 
-# Synthetic rows for any team × week combination that has no real stats entry
-# Covers both reg season bye weeks AND playoff weeks where the team was eliminated
 teams_with_played_entry <- team_def_played %>%
   select(team, week) %>%
   distinct()
 
-# All weeks across the entire season (reg + playoffs)
 all_season_weeks <- sort(unique(schedules_all$week))
 
 team_def_missing <- expand.grid(
@@ -345,7 +365,6 @@ team_def_missing <- expand.grid(
   stringsAsFactors = FALSE
 ) %>%
   anti_join(teams_with_played_entry, by = c("team", "week")) %>%
-  # Pull the correct label (bye-week or eliminated) from the lookup we already built
   left_join(team_status_lookup, by = c("team", "week")) %>%
   mutate(
     season                    = season,
@@ -434,16 +453,17 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
     practice_secondary_injury = coalesce(practice_secondary_injury, "")
   )
 
-# Keep only players who recorded at least 1 defensive snap in any week this season.
-# Uses two sources to avoid dropping players with broken pfr_id bridges:
-#   1. defense_snaps (snap count data via pfr bridge)
-#   2. weekly_def_raw (direct appearance in defensive play-by-play stats)
+# Active defense eligibility — three sources:
+#   1. defense_snaps: snap count data via pfr bridge
+#   2. weekly_def_raw: direct appearance in defensive stat logs
+#   3. sleeper_gsis_ids: players on Sleeper depth charts (catches missing pfr bridges)
 active_defense_ids <- bind_rows(
   defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_def_raw %>%
     mutate(position = normalize_def_position(position)) %>%
     filter(position %in% def_positions, !is.na(player_id), player_id != "") %>%
-    select(player_id)
+    select(player_id),
+  tibble(player_id = intersect(sleeper_gsis_ids, players_def$player_id))
 ) %>% distinct(player_id)
 
 individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
@@ -452,6 +472,8 @@ individual_def_combined <- bind_rows(lapply(def_positions, function(pos) {
     semi_join(active_defense_ids, by = "player_id") %>%
     select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
+
+message("Defense players after filtering: ", n_distinct(individual_def_combined$player_id))
 
 defense_export <- bind_rows(individual_def_combined, team_def)
 
