@@ -136,20 +136,21 @@ if (file.exists("data/sleeperAPI/sleeper_players.json")) {
   # Per-team depth caps by normalized position
   # Tune these numbers to control how many players per position per team appear
   POSITION_CAPS <- list(
-    QB   = 2,  RB  = 4,  WR  = 6,  TE  = 3,  K   = 1,
-    DL   = 6,  LB  = 5,  CB  = 6,  S   = 4,  DB  = 4,
-    DE   = 6,  DT  = 4,  NT  = 2,
-    ILB  = 3,  OLB = 3,  MLB = 2,  EDGE = 4,
-    FS   = 3,  SS  = 3
+    QB  = 3, RB  = 4, WR  = 6, TE  = 4, K   = 1,
+    DL  = 8, LB  = 5, CB  = 8, DB  = 8, FS  = 3, SS  = 3,
+    DE  = 8, DT = 4, NT  = 4,
+    ILB = 3, OLB = 3
   )
 
   # Normalize Sleeper defensive positions to match generate_weekly_stats groupings
   normalize_sleeper_def <- function(pos) {
     pos <- toupper(pos)
-    if (pos %in% c("DE", "DT", "NT"))            return("DL")
-    if (pos %in% c("ILB", "OLB", "MLB", "EDGE")) return("LB")
-    if (pos == "CB")                              return("CB")
-    if (pos %in% c("FS", "SS", "DB", "S"))       return("S")
+    if (pos %in% c("DE", "DT", "NT", "DL")) return("DL")
+    if (pos %in% c("ILB", "OLB", "LB"))     return("LB")
+    if (pos == "CB")                   return("CB")
+    if (pos == "DB")                   return("DB")
+    if (pos %in% c("FS", "S"))        return("FS")
+    if (pos == "SS")                   return("SS")
     return(pos)
   }
 
@@ -453,7 +454,16 @@ team_def <- bind_rows(team_def_played, team_def_missing) %>%
 # INDIVIDUAL DEFENSIVE PLAYERS PIPELINE
 # =====================
 message("Loading individual defensive player stats")
-def_positions <- c("DL", "LB", "CB", "S")
+def_positions <- c("DL", "LB", "CB", "DB", "FS", "SS")
+
+raw_def_positions <- c(
+  "DE", "DT", "NT", "DL",
+  "ILB", "OLB", "LB",
+  "CB",
+  "DB",
+  "FS", "S",
+  "SS"
+)
 
 weekly_def_raw <- nflreadr::load_player_stats(seasons = season, stat_type = "defense")
 
@@ -468,6 +478,7 @@ def_stat_cols <- c(
 )
 
 players_def <- players %>%
+  filter(position %in% raw_def_positions) %>%
   mutate(position = normalize_def_position(position)) %>%
   filter(position %in% def_positions)
 
@@ -513,8 +524,9 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
 active_defense_ids <- bind_rows(
   defense_snaps %>% filter(snap_count > 0) %>% select(player_id),
   weekly_def_raw %>%
+    filter(position %in% raw_def_positions, !is.na(player_id), player_id != "") %>%
     mutate(position = normalize_def_position(position)) %>%
-    filter(position %in% def_positions, !is.na(player_id), player_id != "") %>%
+    filter(position %in% def_positions) %>%
     select(player_id),
   tibble(player_id = intersect(sleeper_eligible_ids, players_def$player_id))
 ) %>% distinct(player_id)
