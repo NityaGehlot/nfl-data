@@ -26764,6 +26764,262 @@
   ],
   "838": [
     {
+      "season": 2025,
+      "week": 14,
+      "player_id": "00-0033890",
+      "player_name": "Budda Baker",
+      "position": "S",
+      "team": "ARI",
+      "opponent_team": "LA",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 62,
+      "game_played": true,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 3,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "839": [
+    {
+      "season": null,
+      "week": 14,
+      "player_id": "00-0031608",
+      "player_name": "Quandre Diggs",
+      "position": "S",
+      "team": "TEN",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "840": [
+    {
+      "season": null,
+      "week": 14,
+      "player_id": "00-0034858",
+      "player_name": "Terrell Edmunds",
+      "position": "S",
+      "team": null,
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "841": [
+    {
+      "season": 2025,
+      "week": 14,
+      "player_id": "00-0030294",
+      "player_name": "Tony Jefferson",
+      "position": "S",
+      "team": "LAC",
+      "opponent_team": "PHI",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 44,
+      "game_played": true,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 5,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 1,
+      "def_interception_yards": 3,
+      "def_pass_defended": 1,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "842": [
+    {
+      "season": null,
+      "week": 14,
+      "player_id": "00-0033512",
+      "player_name": "Damontae Kazee",
+      "position": "S",
+      "team": null,
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "843": [
+    {
+      "season": 2025,
+      "week": 14,
+      "player_id": "00-0033038",
+      "player_name": "Eric Murray",
+      "position": "S",
+      "team": "JAX",
+      "opponent_team": "IND",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 57,
+      "game_played": true,
+      "team_status": "played",
+      "injury_status": "Questionable",
+      "practice_status": "Full Participation in Practice",
+      "primary_injury": "Neck",
+      "secondary_injury": "",
+      "practice_primary_injury": "Neck",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 1,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 1,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 1,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "844": [
+    {
+      "season": null,
+      "week": 14,
+      "player_id": "00-0034361",
+      "player_name": "Justin Reid",
+      "position": "S",
+      "team": "NO",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "Out",
+      "practice_status": "Did Not Participate In Practice",
+      "primary_injury": "Knee",
+      "secondary_injury": "",
+      "practice_primary_injury": "Knee",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "845": [
+    {
+      "season": null,
+      "week": 14,
+      "player_id": "00-0038602",
+      "player_name": "Chris Smith II",
+      "position": "S",
+      "team": "LV",
+      "opponent_team": "",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 0,
+      "game_played": false,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "def_tackles_solo": 0,
+      "def_tackles_with_assist": 0,
+      "def_tackles_for_loss": 0,
+      "def_fumbles_forced": 0,
+      "def_tds": 0,
+      "def_interceptions": 0,
+      "def_interception_yards": 0,
+      "def_pass_defended": 0,
+      "fumble_recovery_opp": 0,
+      "fumble_recovery_yards_opp": 0
+    }
+  ],
+  "846": [
+    {
       "season": null,
       "week": 14,
       "player_id": "00-0039676",
@@ -26791,7 +27047,7 @@
       "def_pass_defended": 0
     }
   ],
-  "839": [
+  "847": [
     {
       "season": null,
       "week": 14,
@@ -26820,7 +27076,7 @@
       "def_pass_defended": 0
     }
   ],
-  "840": [
+  "848": [
     {
       "season": null,
       "week": 14,
@@ -26849,7 +27105,7 @@
       "def_pass_defended": 0
     }
   ],
-  "841": [
+  "849": [
     {
       "season": null,
       "week": 14,
@@ -26878,7 +27134,7 @@
       "def_pass_defended": 0
     }
   ],
-  "842": [
+  "850": [
     {
       "season": 2025,
       "week": 14,
@@ -26907,7 +27163,7 @@
       "def_pass_defended": 0
     }
   ],
-  "843": [
+  "851": [
     {
       "season": 2025,
       "week": 14,
@@ -26936,7 +27192,7 @@
       "def_pass_defended": 0
     }
   ],
-  "844": [
+  "852": [
     {
       "season": null,
       "week": 14,
@@ -26965,7 +27221,7 @@
       "def_pass_defended": 0
     }
   ],
-  "845": [
+  "853": [
     {
       "season": null,
       "week": 14,
@@ -26994,7 +27250,7 @@
       "def_pass_defended": 0
     }
   ],
-  "846": [
+  "854": [
     {
       "season": null,
       "week": 14,
@@ -27023,7 +27279,7 @@
       "def_pass_defended": 0
     }
   ],
-  "847": [
+  "855": [
     {
       "season": null,
       "week": 14,
@@ -27052,7 +27308,7 @@
       "def_pass_defended": 0
     }
   ],
-  "848": [
+  "856": [
     {
       "season": 2025,
       "week": 14,
@@ -27081,7 +27337,7 @@
       "def_pass_defended": 0
     }
   ],
-  "849": [
+  "857": [
     {
       "season": null,
       "week": 14,
@@ -27110,7 +27366,7 @@
       "def_pass_defended": 0
     }
   ],
-  "850": [
+  "858": [
     {
       "season": null,
       "week": 14,
@@ -27139,7 +27395,7 @@
       "def_pass_defended": 0
     }
   ],
-  "851": [
+  "859": [
     {
       "season": 2025,
       "week": 14,
@@ -27168,7 +27424,7 @@
       "def_pass_defended": 0
     }
   ],
-  "852": [
+  "860": [
     {
       "season": null,
       "week": 14,
@@ -27197,7 +27453,7 @@
       "def_pass_defended": 0
     }
   ],
-  "853": [
+  "861": [
     {
       "season": null,
       "week": 14,
@@ -27226,7 +27482,7 @@
       "def_pass_defended": 0
     }
   ],
-  "854": [
+  "862": [
     {
       "season": null,
       "week": 14,
@@ -27255,7 +27511,7 @@
       "def_pass_defended": 0
     }
   ],
-  "855": [
+  "863": [
     {
       "season": null,
       "week": 14,
@@ -27284,7 +27540,7 @@
       "def_pass_defended": 0
     }
   ],
-  "856": [
+  "864": [
     {
       "season": null,
       "week": 14,
@@ -27313,7 +27569,7 @@
       "def_pass_defended": 0
     }
   ],
-  "857": [
+  "865": [
     {
       "season": null,
       "week": 14,
@@ -27342,7 +27598,7 @@
       "def_pass_defended": 0
     }
   ],
-  "858": [
+  "866": [
     {
       "season": 2025,
       "week": 14,
@@ -27371,7 +27627,7 @@
       "def_pass_defended": 0
     }
   ],
-  "859": [
+  "867": [
     {
       "season": 2025,
       "week": 14,
@@ -27400,7 +27656,7 @@
       "def_pass_defended": 1
     }
   ],
-  "860": [
+  "868": [
     {
       "season": null,
       "week": 14,
@@ -27429,7 +27685,7 @@
       "def_pass_defended": 0
     }
   ],
-  "861": [
+  "869": [
     {
       "season": null,
       "week": 14,
@@ -27458,7 +27714,7 @@
       "def_pass_defended": 0
     }
   ],
-  "862": [
+  "870": [
     {
       "season": 2025,
       "week": 14,
@@ -27487,7 +27743,7 @@
       "def_pass_defended": 0
     }
   ],
-  "863": [
+  "871": [
     {
       "season": 2025,
       "week": 14,
@@ -27516,7 +27772,7 @@
       "def_pass_defended": 0
     }
   ],
-  "864": [
+  "872": [
     {
       "season": 2025,
       "week": 14,
@@ -27545,7 +27801,7 @@
       "def_pass_defended": 2
     }
   ],
-  "865": [
+  "873": [
     {
       "season": 2025,
       "week": 14,
@@ -27574,7 +27830,7 @@
       "def_pass_defended": 1
     }
   ],
-  "866": [
+  "874": [
     {
       "season": null,
       "week": 14,
@@ -27603,7 +27859,7 @@
       "def_pass_defended": 0
     }
   ],
-  "867": [
+  "875": [
     {
       "season": null,
       "week": 14,
@@ -27632,7 +27888,7 @@
       "def_pass_defended": 0
     }
   ],
-  "868": [
+  "876": [
     {
       "season": null,
       "week": 14,
@@ -27661,7 +27917,7 @@
       "def_pass_defended": 0
     }
   ],
-  "869": [
+  "877": [
     {
       "season": null,
       "week": 14,
@@ -27690,7 +27946,7 @@
       "def_pass_defended": 0
     }
   ],
-  "870": [
+  "878": [
     {
       "season": null,
       "week": 14,
@@ -27719,7 +27975,7 @@
       "def_pass_defended": 0
     }
   ],
-  "871": [
+  "879": [
     {
       "season": null,
       "week": 14,
@@ -27748,7 +28004,7 @@
       "def_pass_defended": 0
     }
   ],
-  "872": [
+  "880": [
     {
       "season": null,
       "week": 14,
@@ -27777,7 +28033,7 @@
       "def_pass_defended": 0
     }
   ],
-  "873": [
+  "881": [
     {
       "season": 2025,
       "week": 14,
@@ -27806,7 +28062,7 @@
       "def_pass_defended": 2
     }
   ],
-  "874": [
+  "882": [
     {
       "season": null,
       "week": 14,
@@ -27835,7 +28091,7 @@
       "def_pass_defended": 0
     }
   ],
-  "875": [
+  "883": [
     {
       "season": 2025,
       "week": 14,
@@ -27864,7 +28120,7 @@
       "def_pass_defended": 0
     }
   ],
-  "876": [
+  "884": [
     {
       "season": null,
       "week": 14,
@@ -27893,7 +28149,7 @@
       "def_pass_defended": 0
     }
   ],
-  "877": [
+  "885": [
     {
       "season": null,
       "week": 14,
@@ -27922,7 +28178,7 @@
       "def_pass_defended": 0
     }
   ],
-  "878": [
+  "886": [
     {
       "season": 2025,
       "week": 14,
@@ -27951,7 +28207,7 @@
       "def_pass_defended": 0
     }
   ],
-  "879": [
+  "887": [
     {
       "season": null,
       "week": 14,
@@ -27980,7 +28236,7 @@
       "def_pass_defended": 0
     }
   ],
-  "880": [
+  "888": [
     {
       "season": null,
       "week": 14,
@@ -28009,7 +28265,7 @@
       "def_pass_defended": 0
     }
   ],
-  "881": [
+  "889": [
     {
       "season": null,
       "week": 14,
@@ -28038,7 +28294,7 @@
       "def_pass_defended": 0
     }
   ],
-  "882": [
+  "890": [
     {
       "season": 2025,
       "week": 14,
@@ -28067,7 +28323,7 @@
       "def_pass_defended": 0
     }
   ],
-  "883": [
+  "891": [
     {
       "season": null,
       "week": 14,
@@ -28096,7 +28352,7 @@
       "def_pass_defended": 0
     }
   ],
-  "884": [
+  "892": [
     {
       "season": 2025,
       "week": 14,
@@ -28125,7 +28381,7 @@
       "def_pass_defended": 0
     }
   ],
-  "885": [
+  "893": [
     {
       "season": 2025,
       "week": 14,
@@ -28154,7 +28410,7 @@
       "def_pass_defended": 0
     }
   ],
-  "886": [
+  "894": [
     {
       "season": 2025,
       "week": 14,
@@ -28183,7 +28439,7 @@
       "def_pass_defended": 0
     }
   ],
-  "887": [
+  "895": [
     {
       "season": null,
       "week": 14,
@@ -28212,7 +28468,7 @@
       "def_pass_defended": 0
     }
   ],
-  "888": [
+  "896": [
     {
       "season": 2025,
       "week": 14,
@@ -28241,7 +28497,7 @@
       "def_pass_defended": 0
     }
   ],
-  "889": [
+  "897": [
     {
       "season": 2025,
       "week": 14,
@@ -28270,7 +28526,7 @@
       "def_pass_defended": 0
     }
   ],
-  "890": [
+  "898": [
     {
       "season": null,
       "week": 14,
@@ -28299,39 +28555,7 @@
       "def_pass_defended": 0
     }
   ],
-  "891": [
-    {
-      "season": 2025,
-      "week": 14,
-      "player_id": "00-0033890",
-      "player_name": "Budda Baker",
-      "position": "FS",
-      "team": "ARI",
-      "opponent_team": "LA",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 62,
-      "game_played": true,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 3,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "892": [
+  "899": [
     {
       "season": 2025,
       "week": 14,
@@ -28363,7 +28587,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "893": [
+  "900": [
     {
       "season": 2025,
       "week": 14,
@@ -28395,71 +28619,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "894": [
-    {
-      "season": null,
-      "week": 14,
-      "player_id": "00-0031608",
-      "player_name": "Quandre Diggs",
-      "position": "FS",
-      "team": "TEN",
-      "opponent_team": "",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "895": [
-    {
-      "season": null,
-      "week": 14,
-      "player_id": "00-0034858",
-      "player_name": "Terrell Edmunds",
-      "position": "FS",
-      "team": null,
-      "opponent_team": "",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "896": [
+  "901": [
     {
       "season": 2025,
       "week": 14,
@@ -28491,7 +28651,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "897": [
+  "902": [
     {
       "season": 2025,
       "week": 14,
@@ -28523,7 +28683,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "898": [
+  "903": [
     {
       "season": 2025,
       "week": 14,
@@ -28555,71 +28715,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "899": [
-    {
-      "season": 2025,
-      "week": 14,
-      "player_id": "00-0030294",
-      "player_name": "Tony Jefferson",
-      "position": "FS",
-      "team": "LAC",
-      "opponent_team": "PHI",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 44,
-      "game_played": true,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 5,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 1,
-      "def_interception_yards": 3,
-      "def_pass_defended": 1,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "900": [
-    {
-      "season": null,
-      "week": 14,
-      "player_id": "00-0033512",
-      "player_name": "Damontae Kazee",
-      "position": "FS",
-      "team": null,
-      "opponent_team": "",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "901": [
+  "904": [
     {
       "season": 2025,
       "week": 14,
@@ -28651,7 +28747,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "902": [
+  "905": [
     {
       "season": null,
       "week": 14,
@@ -28683,39 +28779,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "903": [
-    {
-      "season": 2025,
-      "week": 14,
-      "player_id": "00-0033038",
-      "player_name": "Eric Murray",
-      "position": "FS",
-      "team": "JAX",
-      "opponent_team": "IND",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 57,
-      "game_played": true,
-      "team_status": "played",
-      "injury_status": "Questionable",
-      "practice_status": "Full Participation in Practice",
-      "primary_injury": "Neck",
-      "secondary_injury": "",
-      "practice_primary_injury": "Neck",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 1,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 1,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 1,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "904": [
+  "906": [
     {
       "season": 2025,
       "week": 14,
@@ -28747,7 +28811,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "905": [
+  "907": [
     {
       "season": 2025,
       "week": 14,
@@ -28779,7 +28843,7 @@
       "fumble_recovery_yards_opp": 0
     }
   ],
-  "906": [
+  "908": [
     {
       "season": 2025,
       "week": 14,
@@ -28800,70 +28864,6 @@
       "practice_primary_injury": "",
       "practice_secondary_injury": "",
       "def_tackles_solo": 6,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "907": [
-    {
-      "season": null,
-      "week": 14,
-      "player_id": "00-0034361",
-      "player_name": "Justin Reid",
-      "position": "FS",
-      "team": "NO",
-      "opponent_team": "",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "Out",
-      "practice_status": "Did Not Participate In Practice",
-      "primary_injury": "Knee",
-      "secondary_injury": "",
-      "practice_primary_injury": "Knee",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
-      "def_fumbles_forced": 0,
-      "def_tds": 0,
-      "def_interceptions": 0,
-      "def_interception_yards": 0,
-      "def_pass_defended": 0,
-      "fumble_recovery_opp": 0,
-      "fumble_recovery_yards_opp": 0
-    }
-  ],
-  "908": [
-    {
-      "season": null,
-      "week": 14,
-      "player_id": "00-0038602",
-      "player_name": "Chris Smith II",
-      "position": "FS",
-      "team": "LV",
-      "opponent_team": "",
-      "headshot_url": "",
-      "fantasy_points_ppr": 0,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
       "def_tackles_with_assist": 0,
       "def_tackles_for_loss": 0,
       "def_fumbles_forced": 0,
