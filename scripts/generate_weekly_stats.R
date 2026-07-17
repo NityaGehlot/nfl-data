@@ -2,7 +2,6 @@
 library(nflreadr)
 library(dplyr)
 library(jsonlite)
-library(httr)
 
 # =====================
 # CONFIG
@@ -118,30 +117,33 @@ trim_to_position <- function(row) {
 # =====================
 message("Fetching ESPN team list...")
 
-espn_teams_resp <- tryCatch(
-  httr::GET("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32"),
-  error = function(e) NULL
+espn_teams_json <- tryCatch(
+  jsonlite::fromJSON(
+    "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32",
+    simplifyVector = FALSE
+  ),
+  error = function(e) {
+    message("ESPN team list request failed: ", e$message, " — position override disabled")
+    NULL
+  }
 )
 
 espn_team_ids <- character(0)
-if (!is.null(espn_teams_resp) && httr::status_code(espn_teams_resp) == 200) {
-  espn_teams_json <- httr::content(espn_teams_resp, as = "parsed", simplifyVector = FALSE)
+if (!is.null(espn_teams_json)) {
   espn_team_ids <- tryCatch(
     sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$id),
     error = function(e) character(0)
   )
-} else {
-  message("ESPN team list request failed — position override disabled")
 }
 
 fetch_espn_roster <- function(team_id) {
-  url  <- sprintf("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/%s/roster", team_id)
-  resp <- tryCatch(httr::GET(url), error = function(e) NULL)
-  if (is.null(resp) || httr::status_code(resp) != 200) return(NULL)
-
+  url <- sprintf("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/%s/roster", team_id)
   parsed <- tryCatch(
-    httr::content(resp, as = "parsed", simplifyVector = FALSE),
-    error = function(e) NULL
+    jsonlite::fromJSON(url, simplifyVector = FALSE),
+    error = function(e) {
+      message("Failed to fetch ESPN roster for team ", team_id, ": ", e$message)
+      NULL
+    }
   )
   if (is.null(parsed) || is.null(parsed$athletes)) return(NULL)
 
