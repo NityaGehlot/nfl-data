@@ -5,6 +5,7 @@
 library(httr)
 library(jsonlite)
 library(dplyr)
+library(nflreadr)
 
 # =====================
 # CONFIG
@@ -38,7 +39,7 @@ fetch_json <- function(url) {
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # =====================
-# POSITION NORMALIZATION (SAFE)
+# POSITION NORMALIZATION (SAFE) — Sleeper's own tag
 # =====================
 
 normalize_position <- function(pos) {
@@ -53,6 +54,31 @@ normalize_position <- function(pos) {
 
   return(pos)
 }
+
+# =====================
+# NFLREADR POSITION LOOKUP (gsis_id -> position)
+# =====================
+
+message("Loading nflreadr player positions...")
+
+nflreadr_positions <- tryCatch(
+  nflreadr::load_players() %>%
+    filter(!is.na(gsis_id), gsis_id != "") %>%
+    transmute(gsis_id = as.character(gsis_id), nflreadr_position = position) %>%
+    distinct(gsis_id, .keep_all = TRUE),
+  error = function(e) {
+    message("Failed to load nflreadr player positions: ", e$message)
+    tibble(gsis_id = character(0), nflreadr_position = character(0))
+  }
+)
+
+# Named vector for fast lookup inside the per-player loop: gsis_id -> position
+nflreadr_position_map <- setNames(
+  nflreadr_positions$nflreadr_position,
+  nflreadr_positions$gsis_id
+)
+
+message("nflreadr positions loaded for ", length(nflreadr_position_map), " players")
 
 # =====================
 # DOWNLOAD RAW DATA
@@ -88,6 +114,13 @@ players_clean <- lapply(players_raw, function(p) {
   status <- p$status %||% "Active"
   if (!is.na(status) && status != "Active") return(NULL)
 
+  gsis_id <- p$gsis_id %||% NA_character_
+  nflreadr_position <- if (!is.na(gsis_id) && gsis_id %in% names(nflreadr_position_map)) {
+    nflreadr_position_map[[gsis_id]]
+  } else {
+    NA_character_
+  }
+
   list(
 
     player_id = p$player_id %||% NA,
@@ -95,7 +128,8 @@ players_clean <- lapply(players_raw, function(p) {
     last_name = p$last_name,
     full_name = paste(p$first_name, p$last_name),
 
-    position = normalize_position(p$position),
+    position_listed_on_sleeper = normalize_position(p$position),
+    position_listed_on_nflreadr = nflreadr_position,
     team = p$team %||% NA,
 
     depth_chart_order = {
@@ -169,7 +203,8 @@ enrich_trending <- function(json_text) {
       last_name = player$last_name,
       full_name = player$full_name,
 
-      position = player$position,
+      position_listed_on_sleeper = player$position_listed_on_sleeper,
+      position_listed_on_nflreadr = player$position_listed_on_nflreadr,
       team = player$team,
 
       depth_chart_order = player$depth_chart_order,
