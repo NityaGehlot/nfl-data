@@ -128,15 +128,23 @@ espn_teams_json <- tryCatch(
   }
 )
 
-espn_team_ids <- character(0)
+espn_team_ids     <- character(0)
+espn_team_abbrevs <- character(0)  # named vector: team_id -> abbreviation
 if (!is.null(espn_teams_json)) {
   espn_team_ids <- tryCatch(
     sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$id),
     error = function(e) character(0)
   )
+  espn_team_abbrevs <- tryCatch(
+    sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$abbreviation),
+    error = function(e) character(0)
+  )
+  if (length(espn_team_abbrevs) == length(espn_team_ids)) {
+    names(espn_team_abbrevs) <- espn_team_ids
+  }
 }
 
-fetch_espn_roster <- function(team_id) {
+fetch_espn_roster <- function(team_id, team_abbr = NA_character_) {
   url <- sprintf("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/%s/roster", team_id)
   parsed <- tryCatch(
     jsonlite::fromJSON(url, simplifyVector = FALSE),
@@ -154,6 +162,7 @@ fetch_espn_roster <- function(team_id) {
       data.frame(
         espn_id       = as.character(a$id),
         espn_position = a$position$abbreviation %||% NA_character_,
+        espn_team     = team_abbr,
         stringsAsFactors = FALSE
       ),
       error = function(e) NULL
@@ -165,11 +174,11 @@ fetch_espn_roster <- function(team_id) {
 espn_roster_all <- if (length(espn_team_ids) > 0) {
   bind_rows(lapply(espn_team_ids, function(tid) {
     Sys.sleep(0.15)  # polite pacing against ESPN's unofficial API
-    fetch_espn_roster(tid)
+    fetch_espn_roster(tid, team_abbr = unname(espn_team_abbrevs[as.character(tid)]))
   })) %>% distinct(espn_id, .keep_all = TRUE)
 } else {
   message("No ESPN team IDs available — position override disabled")
-  tibble(espn_id = character(0), espn_position = character(0))
+  tibble(espn_id = character(0), espn_position = character(0), espn_team = character(0))
 }
 
 message("ESPN roster players fetched: ", nrow(espn_roster_all))
@@ -192,6 +201,17 @@ espn_position_lookup <- espn_roster_all %>%
   select(player_id, espn_position)
 
 message("Players matched to ESPN position: ", nrow(espn_position_lookup))
+
+# Last-resort fallback for team when neither the weekly stat row nor snap
+# counts have it for any week (e.g. brand-new rookies, IDs still settling).
+espn_team_lookup <- espn_roster_all %>%
+  inner_join(id_crosswalk, by = "espn_id") %>%
+  filter(!is.na(espn_team), espn_team != "") %>%
+  mutate(espn_team = nflreadr::clean_team_abbrs(espn_team)) %>%
+  distinct(player_id, .keep_all = TRUE) %>%
+  select(player_id, espn_current_team = espn_team)
+
+message("Players matched to ESPN current team: ", nrow(espn_team_lookup))
 
 # =====================
 # LOAD & PREP SHARED DATA
@@ -228,21 +248,33 @@ pfr_bridge <- nflreadr::load_players() %>%
   filter(!is.na(gsis_id), !is.na(pfr_id)) %>%
   select(player_id = gsis_id, pfr_player_id = pfr_id)
 
+# Snap counts carry their own team/opponent columns tied directly to game
+# participation (this is where "did they actually play" comes from), so we
+# capture those here too. They serve as a fallback whenever a player's weekly
+# stat row is missing/unmatched but they clearly played (snap_count > 0).
 offense_snaps <- snaps_raw %>%
-  select(pfr_player_id, week, offense_snaps) %>%
-  rename(snap_count = offense_snaps) %>%
+  select(pfr_player_id, week, team, opponent, offense_snaps) %>%
+  rename(snap_count = offense_snaps, snap_team = team, snap_opponent = opponent) %>%
+  mutate(
+    snap_team     = nflreadr::clean_team_abbrs(snap_team),
+    snap_opponent = nflreadr::clean_team_abbrs(snap_opponent)
+  ) %>%
   filter(!is.na(pfr_player_id)) %>%
   left_join(pfr_bridge, by = "pfr_player_id") %>%
   filter(!is.na(player_id)) %>%
-  select(player_id, week, snap_count)
+  select(player_id, week, snap_count, snap_team, snap_opponent)
 
 defense_snaps <- snaps_raw %>%
-  select(pfr_player_id, week, defense_snaps) %>%
-  rename(snap_count = defense_snaps) %>%
+  select(pfr_player_id, week, team, opponent, defense_snaps) %>%
+  rename(snap_count = defense_snaps, snap_team = team, snap_opponent = opponent) %>%
+  mutate(
+    snap_team     = nflreadr::clean_team_abbrs(snap_team),
+    snap_opponent = nflreadr::clean_team_abbrs(snap_opponent)
+  ) %>%
   filter(!is.na(pfr_player_id)) %>%
   left_join(pfr_bridge, by = "pfr_player_id") %>%
   filter(!is.na(player_id)) %>%
-  select(player_id, week, snap_count)
+  select(player_id, week, snap_count, snap_team, snap_opponent)
 
 # =====================
 # TEAM STATUS LOOKUP (bye-week / played / eliminated)
@@ -292,6 +324,14 @@ team_status_lookup <- team_week_grid %>%
   ) %>%
   select(team, week, team_status)
 
+# Authoritative team -> opponent mapping straight from the schedule (covers
+# reg season + playoffs). Used as the last-resort fallback for opponent_team
+# whenever neither the weekly stat row nor snap-count data has it.
+team_week_opponent <- bind_rows(
+  schedules_all %>% transmute(week, team = home_team, sched_opponent = away_team),
+  schedules_all %>% transmute(week, team = away_team, sched_opponent = home_team)
+) %>% distinct()
+
 # =====================
 # OFFENSE PIPELINE
 # =====================
@@ -327,10 +367,26 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
             by = c("player_id", "week")) %>%
   left_join(injuries,      by = c("player_id", "week")) %>%
   left_join(offense_snaps, by = c("player_id", "week")) %>%
+  left_join(espn_team_lookup, by = "player_id") %>%
+  mutate(
+    team          = nflreadr::clean_team_abbrs(team),
+    team          = coalesce(team, snap_team),
+    opponent_team = nflreadr::clean_team_abbrs(opponent_team),
+    opponent_team = coalesce(opponent_team, snap_opponent)
+  ) %>%
   group_by(player_id) %>%
-  mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
+  mutate(
+    # Season-long team assumption (unchanged from before): once we know a
+    # player's team from ANY week/source, apply it everywhere so one missing
+    # stat row doesn't null out an otherwise-known team.
+    team = if (all(is.na(team))) NA_character_ else last(na.omit(team))
+  ) %>%
   ungroup() %>%
+  mutate(team = coalesce(team, espn_current_team)) %>%
   left_join(team_status_lookup, by = c("team", "week")) %>%
+  left_join(team_week_opponent, by = c("team", "week")) %>%
+  mutate(opponent_team = coalesce(opponent_team, sched_opponent)) %>%
+  select(-snap_team, -snap_opponent, -sched_opponent, -espn_current_team) %>%
   coalesce_cols(off_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
@@ -499,10 +555,26 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
             by = c("player_id", "week")) %>%
   left_join(injuries,      by = c("player_id", "week")) %>%
   left_join(defense_snaps, by = c("player_id", "week")) %>%
+  left_join(espn_team_lookup, by = "player_id") %>%
+  mutate(
+    team          = nflreadr::clean_team_abbrs(team),
+    team          = coalesce(team, snap_team),
+    opponent_team = nflreadr::clean_team_abbrs(opponent_team),
+    opponent_team = coalesce(opponent_team, snap_opponent)
+  ) %>%
   group_by(player_id) %>%
-  mutate(team = if (all(is.na(team))) NA_character_ else last(na.omit(team))) %>%
+  mutate(
+    # Season-long team assumption (unchanged from before): once we know a
+    # player's team from ANY week/source, apply it everywhere so one missing
+    # stat row doesn't null out an otherwise-known team.
+    team = if (all(is.na(team))) NA_character_ else last(na.omit(team))
+  ) %>%
   ungroup() %>%
+  mutate(team = coalesce(team, espn_current_team)) %>%
   left_join(team_status_lookup, by = c("team", "week")) %>%
+  left_join(team_week_opponent, by = c("team", "week")) %>%
+  mutate(opponent_team = coalesce(opponent_team, sched_opponent)) %>%
+  select(-snap_team, -snap_opponent, -sched_opponent, -espn_current_team) %>%
   coalesce_cols(def_stat_cols) %>%
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
