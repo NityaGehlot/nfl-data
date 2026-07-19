@@ -89,6 +89,85 @@ nflreadr_position_map <- setNames(
 
 message("nflreadr positions loaded for ", length(nflreadr_position_map), " players")
 
+# =====================
+# ESPN POSITION OVERRIDE (same approach as generate_weekly_stats.R)
+# =====================
+# ESPN's roster API tags positions more specifically than nflreadr's own
+# load_players() (e.g. distinguishes CB/S/FS/SS rather than lumping them),
+# so we prefer it when available and fall back to nflreadr's raw tag.
+
+message("Fetching ESPN team list...")
+
+espn_teams_json <- tryCatch(
+  jsonlite::fromJSON(
+    "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32",
+    simplifyVector = FALSE
+  ),
+  error = function(e) {
+    message("ESPN team list request failed: ", e$message, " — position override disabled")
+    NULL
+  }
+)
+
+espn_team_ids     <- character(0)
+espn_team_abbrevs <- character(0)  # named vector: team_id -> abbreviation
+if (!is.null(espn_teams_json)) {
+  espn_team_ids <- tryCatch(
+    sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$id),
+    error = function(e) character(0)
+  )
+  espn_team_abbrevs <- tryCatch(
+    sapply(espn_teams_json$sports[[1]]$leagues[[1]]$teams, function(t) t$team$abbreviation),
+    error = function(e) character(0)
+  )
+  if (length(espn_team_abbrevs) == length(espn_team_ids)) {
+    names(espn_team_abbrevs) <- espn_team_ids
+  }
+}
+
+fetch_espn_roster <- function(team_id, team_abbr = NA_character_) {
+  url <- sprintf("https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/%s/roster", team_id)
+  parsed <- tryCatch(
+    jsonlite::fromJSON(url, simplifyVector = FALSE),
+    error = function(e) {
+      message("Failed to fetch ESPN roster for team ", team_id, ": ", e$message)
+      NULL
+    }
+  )
+  if (is.null(parsed) || is.null(parsed$athletes)) return(NULL)
+
+  athletes <- unlist(lapply(parsed$athletes, function(group) group$items), recursive = FALSE)
+
+  rows <- lapply(athletes, function(a) {
+    tryCatch(
+      data.frame(
+        espn_id       = as.character(a$id),
+        espn_position = a$position$abbreviation %||% NA_character_,
+        espn_team     = team_abbr,
+        stringsAsFactors = FALSE
+      ),
+      error = function(e) NULL
+    )
+  })
+  bind_rows(Filter(Negate(is.null), rows))
+}
+
+espn_roster_all <- if (length(espn_team_ids) > 0) {
+  bind_rows(lapply(espn_team_ids, function(tid) {
+    Sys.sleep(0.15)  # polite pacing against ESPN's unofficial API
+    fetch_espn_roster(tid, team_abbr = unname(espn_team_abbrevs[as.character(tid)]))
+  })) %>% distinct(espn_id, .keep_all = TRUE)
+} else {
+  message("No ESPN team IDs available — position override disabled")
+  tibble(espn_id = character(0), espn_position = character(0), espn_team = character(0))
+}
+
+message("ESPN roster players fetched: ", nrow(espn_roster_all))
+
+# Direct lookup keyed by ESPN's own id, so we can use Sleeper's p$espn_id
+# straight away without needing to round-trip through gsis_id first.
+espn_position_by_espn_id <- setNames(espn_roster_all$espn_position, espn_roster_all$espn_id)
+
 # Sleeper's own gsis_id field is frequently blank for recent rookies (their
 # crosswalk lags), even when nflreadr already has the player. To close that
 # gap, also build fallback crosswalks that resolve gsis_id via Sleeper's own
@@ -123,33 +202,48 @@ espn_to_gsis_map <- if (all(c("espn_id", "gsis_id") %in% names(id_crosswalk_full
   character(0)
 }
 
+# gsis_id -> espn_position, for cases where we only resolved a gsis_id
+# (e.g. via the sleeper_id crosswalk) and need to check ESPN's tag too.
+espn_position_by_gsis <- if (length(espn_to_gsis_map) > 0 && nrow(espn_roster_all) > 0) {
+  gsis_to_espn_id <- setNames(names(espn_to_gsis_map), unname(espn_to_gsis_map))
+  espn_pos_lookup <- espn_position_by_espn_id[gsis_to_espn_id]
+  names(espn_pos_lookup) <- names(gsis_to_espn_id)
+  espn_pos_lookup[!is.na(espn_pos_lookup)]
+} else {
+  character(0)
+}
+
 message("Sleeper-id -> gsis_id fallback entries: ", length(sleeper_to_gsis_map))
 message("ESPN-id -> gsis_id fallback entries: ", length(espn_to_gsis_map))
 
-# Resolves a player's nflreadr position using gsis_id first, then falling
-# back through Sleeper's player_id and espn_id if gsis_id is missing/unmatched.
+# Resolves a player's nflreadr-sourced position the same way
+# generate_weekly_stats.R does: prefer ESPN's tag (more specific), fall back
+# to nflreadr's raw load_players() tag. Tries gsis_id first, then falls back
+# through Sleeper's player_id and espn_id if gsis_id is missing/unmatched.
 resolve_nflreadr_position <- function(gsis_id, sleeper_id, espn_id) {
 
-  gsis_id <- as.character(gsis_id)
-  sleeper_id <- as.character(sleeper_id)
-  espn_id <- as.character(espn_id)
-
-  if (!is.na(gsis_id) && gsis_id != "" && gsis_id %in% names(nflreadr_position_map)) {
-    return(nflreadr_position_map[[gsis_id]])
+  # Try ESPN directly via Sleeper's own espn_id first — no round-trip needed
+  if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_position_by_espn_id)) {
+    espn_pos <- espn_position_by_espn_id[[espn_id]]
+    if (!is.na(espn_pos) && espn_pos != "") return(espn_pos)
   }
 
-  if (!is.na(sleeper_id) && sleeper_id != "" && sleeper_id %in% names(sleeper_to_gsis_map)) {
+  # Resolve an effective gsis_id via the fallback chain
+  resolved_gsis <- NA_character_
+  if (!is.na(gsis_id) && gsis_id != "") {
+    resolved_gsis <- gsis_id
+  } else if (!is.na(sleeper_id) && sleeper_id != "" && sleeper_id %in% names(sleeper_to_gsis_map)) {
     resolved_gsis <- sleeper_to_gsis_map[[sleeper_id]]
-    if (resolved_gsis %in% names(nflreadr_position_map)) {
-      return(nflreadr_position_map[[resolved_gsis]])
-    }
+  } else if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_to_gsis_map)) {
+    resolved_gsis <- espn_to_gsis_map[[espn_id]]
   }
 
-  if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_to_gsis_map)) {
-    resolved_gsis <- espn_to_gsis_map[[espn_id]]
-    if (resolved_gsis %in% names(nflreadr_position_map)) {
-      return(nflreadr_position_map[[resolved_gsis]])
-    }
+  if (!is.na(resolved_gsis) && resolved_gsis %in% names(espn_position_by_gsis)) {
+    return(espn_position_by_gsis[[resolved_gsis]])
+  }
+
+  if (!is.na(resolved_gsis) && resolved_gsis %in% names(nflreadr_position_map)) {
+    return(nflreadr_position_map[[resolved_gsis]])
   }
 
   NA_character_
