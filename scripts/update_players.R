@@ -222,6 +222,12 @@ message("ESPN-id -> gsis_id fallback entries: ", length(espn_to_gsis_map))
 # through Sleeper's player_id and espn_id if gsis_id is missing/unmatched.
 resolve_nflreadr_position <- function(gsis_id, sleeper_id, espn_id) {
 
+  # Defensive coercion — these lookups use named-vector `[[`, which does
+  # POSITIONAL indexing (not name lookup) if given a numeric argument.
+  gsis_id    <- as.character(gsis_id)
+  sleeper_id <- as.character(sleeper_id)
+  espn_id    <- as.character(espn_id)
+
   # Try ESPN directly via Sleeper's own espn_id first — no round-trip needed
   if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_position_by_espn_id)) {
     espn_pos <- espn_position_by_espn_id[[espn_id]]
@@ -233,9 +239,9 @@ resolve_nflreadr_position <- function(gsis_id, sleeper_id, espn_id) {
   if (!is.na(gsis_id) && gsis_id != "") {
     resolved_gsis <- gsis_id
   } else if (!is.na(sleeper_id) && sleeper_id != "" && sleeper_id %in% names(sleeper_to_gsis_map)) {
-    resolved_gsis <- sleeper_to_gsis_map[[sleeper_id]]
+    resolved_gsis <- as.character(sleeper_to_gsis_map[[sleeper_id]])
   } else if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_to_gsis_map)) {
-    resolved_gsis <- espn_to_gsis_map[[espn_id]]
+    resolved_gsis <- as.character(espn_to_gsis_map[[espn_id]])
   }
 
   if (!is.na(resolved_gsis) && resolved_gsis %in% names(espn_position_by_gsis)) {
@@ -283,9 +289,13 @@ players_clean <- lapply(players_raw, function(p) {
   status <- p$status %||% "Active"
   if (!is.na(status) && status != "Active") return(NULL)
 
-  gsis_id    <- p$gsis_id %||% NA_character_
-  sleeper_id <- p$player_id %||% NA_character_
-  espn_id    <- p$espn_id %||% NA_character_
+  # IMPORTANT: force these to character explicitly. If any of these come back
+  # from the JSON parse as numeric, `x[[numeric_id]]` on a named vector does
+  # POSITIONAL indexing instead of name lookup, which throws "subscript out
+  # of bounds" once the id exceeds the vector's length.
+  gsis_id    <- as.character(p$gsis_id %||% NA_character_)
+  sleeper_id <- as.character(p$player_id %||% NA_character_)
+  espn_id    <- as.character(p$espn_id %||% NA_character_)
 
   nflreadr_position <- resolve_nflreadr_position(gsis_id, sleeper_id, espn_id)
 
