@@ -81,13 +81,75 @@ nflreadr_positions <- tryCatch(
   }
 )
 
-# Named vector for fast lookup inside the per-player loop: gsis_id -> position
+# Named vector for fast lookup: gsis_id -> position
 nflreadr_position_map <- setNames(
   nflreadr_positions$nflreadr_position,
   nflreadr_positions$gsis_id
 )
 
 message("nflreadr positions loaded for ", length(nflreadr_position_map), " players")
+
+# Sleeper's own gsis_id field is frequently blank for recent rookies (their
+# crosswalk lags), even when nflreadr already has the player. To close that
+# gap, also build fallback crosswalks that resolve gsis_id via Sleeper's own
+# player_id or espn_id, using nflreadr's broader ID crosswalk table.
+message("Loading ID crosswalk for gsis_id fallback resolution...")
+
+id_crosswalk_full <- tryCatch(
+  nflreadr::load_ff_playerids(),
+  error = function(e) {
+    message("Failed to load ff_playerids crosswalk: ", e$message)
+    tibble()
+  }
+)
+
+sleeper_to_gsis_map <- if (all(c("sleeper_id", "gsis_id") %in% names(id_crosswalk_full))) {
+  xwalk <- id_crosswalk_full %>%
+    filter(!is.na(sleeper_id), sleeper_id != "", !is.na(gsis_id), gsis_id != "") %>%
+    transmute(sleeper_id = as.character(sleeper_id), gsis_id = as.character(gsis_id)) %>%
+    distinct(sleeper_id, .keep_all = TRUE)
+  setNames(xwalk$gsis_id, xwalk$sleeper_id)
+} else {
+  character(0)
+}
+
+espn_to_gsis_map <- if (all(c("espn_id", "gsis_id") %in% names(id_crosswalk_full))) {
+  xwalk <- id_crosswalk_full %>%
+    filter(!is.na(espn_id), espn_id != "", !is.na(gsis_id), gsis_id != "") %>%
+    transmute(espn_id = as.character(espn_id), gsis_id = as.character(gsis_id)) %>%
+    distinct(espn_id, .keep_all = TRUE)
+  setNames(xwalk$gsis_id, xwalk$espn_id)
+} else {
+  character(0)
+}
+
+message("Sleeper-id -> gsis_id fallback entries: ", length(sleeper_to_gsis_map))
+message("ESPN-id -> gsis_id fallback entries: ", length(espn_to_gsis_map))
+
+# Resolves a player's nflreadr position using gsis_id first, then falling
+# back through Sleeper's player_id and espn_id if gsis_id is missing/unmatched.
+resolve_nflreadr_position <- function(gsis_id, sleeper_id, espn_id) {
+
+  if (!is.na(gsis_id) && gsis_id != "" && gsis_id %in% names(nflreadr_position_map)) {
+    return(nflreadr_position_map[[gsis_id]])
+  }
+
+  if (!is.na(sleeper_id) && sleeper_id != "" && sleeper_id %in% names(sleeper_to_gsis_map)) {
+    resolved_gsis <- sleeper_to_gsis_map[[sleeper_id]]
+    if (resolved_gsis %in% names(nflreadr_position_map)) {
+      return(nflreadr_position_map[[resolved_gsis]])
+    }
+  }
+
+  if (!is.na(espn_id) && espn_id != "" && espn_id %in% names(espn_to_gsis_map)) {
+    resolved_gsis <- espn_to_gsis_map[[espn_id]]
+    if (resolved_gsis %in% names(nflreadr_position_map)) {
+      return(nflreadr_position_map[[resolved_gsis]])
+    }
+  }
+
+  NA_character_
+}
 
 # =====================
 # DOWNLOAD RAW DATA
@@ -123,12 +185,11 @@ players_clean <- lapply(players_raw, function(p) {
   status <- p$status %||% "Active"
   if (!is.na(status) && status != "Active") return(NULL)
 
-  gsis_id <- p$gsis_id %||% NA_character_
-  nflreadr_position <- if (!is.na(gsis_id) && gsis_id %in% names(nflreadr_position_map)) {
-    nflreadr_position_map[[gsis_id]]
-  } else {
-    NA_character_
-  }
+  gsis_id    <- p$gsis_id %||% NA_character_
+  sleeper_id <- p$player_id %||% NA_character_
+  espn_id    <- p$espn_id %||% NA_character_
+
+  nflreadr_position <- resolve_nflreadr_position(gsis_id, sleeper_id, espn_id)
 
   list(
 
