@@ -130,6 +130,10 @@ message("ESPN-id -> gsis_id fallback entries: ", length(espn_to_gsis_map))
 # back through Sleeper's player_id and espn_id if gsis_id is missing/unmatched.
 resolve_nflreadr_position <- function(gsis_id, sleeper_id, espn_id) {
 
+  gsis_id <- as.character(gsis_id)
+  sleeper_id <- as.character(sleeper_id)
+  espn_id <- as.character(espn_id)
+
   if (!is.na(gsis_id) && gsis_id != "" && gsis_id %in% names(nflreadr_position_map)) {
     return(nflreadr_position_map[[gsis_id]])
   }
