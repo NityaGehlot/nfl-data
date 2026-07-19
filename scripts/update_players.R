@@ -2,6 +2,15 @@
 # scripts/update_players.R (STRICT SCHEMA CLEAN VERSION)
 # =====================
 
+# Ensure required packages are available even if the CI environment hasn't
+# pre-installed them (avoids "there is no package called X" hard failures).
+required_packages <- c("httr", "jsonlite", "dplyr", "nflreadr")
+missing_packages  <- setdiff(required_packages, rownames(installed.packages()))
+if (length(missing_packages) > 0) {
+  message("Installing missing packages: ", paste(missing_packages, collapse = ", "))
+  install.packages(missing_packages, repos = "https://cloud.r-project.org")
+}
+
 library(httr)
 library(jsonlite)
 library(dplyr)
