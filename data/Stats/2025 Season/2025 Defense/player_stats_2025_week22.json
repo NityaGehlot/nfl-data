@@ -29410,7 +29410,7 @@
   ],
   "923": [
     {
-      "season": null,
+      "season": 2025,
       "week": 22,
       "player_id": "00-0040733",
       "player_name": "Nick Emmanwori",
@@ -29428,8 +29428,8 @@
       "secondary_injury": "",
       "practice_primary_injury": "Ankle",
       "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
+      "def_tackles_solo": 4,
+      "def_tackles_with_assist": 1,
       "def_tackles_for_loss": 0,
       "def_fumbles_forced": 0,
       "def_tds": 0,
@@ -29794,7 +29794,7 @@
   ],
   "935": [
     {
-      "season": null,
+      "season": 2025,
       "week": 22,
       "player_id": "00-0036302",
       "player_name": "Jaylinn Hawkins",
@@ -29812,8 +29812,8 @@
       "secondary_injury": "",
       "practice_primary_injury": "",
       "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
+      "def_tackles_solo": 4,
+      "def_tackles_with_assist": 1,
       "def_tackles_for_loss": 0,
       "def_fumbles_forced": 0,
       "def_tds": 0,
@@ -30722,7 +30722,7 @@
   ],
   "964": [
     {
-      "season": null,
+      "season": 2025,
       "week": 22,
       "player_id": "00-0034974",
       "player_name": "Julian Love",
@@ -30740,14 +30740,14 @@
       "secondary_injury": "",
       "practice_primary_injury": "Shoulder",
       "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
+      "def_tackles_solo": 2,
+      "def_tackles_with_assist": 1,
       "def_tackles_for_loss": 0,
       "def_fumbles_forced": 0,
       "def_tds": 0,
-      "def_interceptions": 0,
+      "def_interceptions": 1,
       "def_interception_yards": 0,
-      "def_pass_defended": 0,
+      "def_pass_defended": 1,
       "fumble_recovery_opp": 0,
       "fumble_recovery_yards_opp": 0
     }
@@ -31522,7 +31522,7 @@
   ],
   "989": [
     {
-      "season": null,
+      "season": 2025,
       "week": 22,
       "player_id": "00-0039692",
       "player_name": "Dell Pettus",
@@ -31540,8 +31540,8 @@
       "secondary_injury": "",
       "practice_primary_injury": "",
       "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
+      "def_tackles_solo": 1,
+      "def_tackles_with_assist": 1,
       "def_tackles_for_loss": 0,
       "def_fumbles_forced": 0,
       "def_tds": 0,
@@ -33154,7 +33154,7 @@
   ],
   "1040": [
     {
-      "season": null,
+      "season": 2025,
       "week": 22,
       "player_id": "00-0040716",
       "player_name": "Craig Woodson",
@@ -33172,14 +33172,14 @@
       "secondary_injury": "",
       "practice_primary_injury": "",
       "practice_secondary_injury": "",
-      "def_tackles_solo": 0,
-      "def_tackles_with_assist": 0,
-      "def_tackles_for_loss": 0,
+      "def_tackles_solo": 7,
+      "def_tackles_with_assist": 3,
+      "def_tackles_for_loss": 3,
       "def_fumbles_forced": 0,
       "def_tds": 0,
       "def_interceptions": 0,
       "def_interception_yards": 0,
-      "def_pass_defended": 0,
+      "def_pass_defended": 2,
       "fumble_recovery_opp": 0,
       "fumble_recovery_yards_opp": 0
     }
