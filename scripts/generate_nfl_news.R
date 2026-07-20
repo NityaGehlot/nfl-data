@@ -45,7 +45,13 @@ players_raw <- fromJSON(
 # =====================
 normalize_position <- function(pos, fantasy_positions) {
 
-  pos <- toupper(pos %||% "")
+  # Defensive: %||% only catches NULL, not NA. Since update_players.R can
+  # legitimately produce NA here (player_id resolved but no position match),
+  # collapse both NULL and NA down to "" before anything else, so none of
+  # the `==` comparisons below ever get handed a literal NA.
+  pos <- pos %||% NA_character_
+  if (length(pos) == 0 || is.na(pos)) pos <- ""
+  pos <- toupper(pos)
 
   # Defensive line
   if (pos %in% c("DE", "DT", "LDT", "RDT")) return("DL")
@@ -75,7 +81,12 @@ players_list <- lapply(players_raw, function(p) {
 
   if (is.null(p$first_name) || is.null(p$last_name)) return(NULL)
 
-  pos_raw  <- p$position %||% NA
+  # update_players.R now writes position_listed_on_sleeper /
+  # position_listed_on_nflreadr instead of a plain "position" field.
+  # Prefer the nflreadr-sourced tag (more accurate, ESPN-backed per
+  # generate_weekly_stats.R's logic) and fall back to Sleeper's own tag
+  # when nflreadr has no match yet (e.g. very recent rookies).
+  pos_raw  <- p$position_listed_on_nflreadr %||% p$position_listed_on_sleeper %||% NA_character_
   norm_pos <- normalize_position(pos_raw, p$fantasy_positions)
 
   data.frame(
