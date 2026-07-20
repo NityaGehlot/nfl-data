@@ -548,6 +548,112 @@ weekly_def <- weekly_def_raw %>%
 def_weeks <- sort(unique(weekly_def$week))
 if (length(def_weeks) == 0) def_weeks <- all_weeks
 
+# =====================
+# DEFENSIVE STAT FALLBACK (PLAY-BY-PLAY)
+# =====================
+# nflreadr::load_player_stats(stat_type = "defense") can lag official box
+# scores for very recent games and rookies. A player can have confirmed snap
+# participation (via defense_snaps) with NO matching row in weekly_def at
+# all — in which case every stat column silently zero-fills later even
+# though the player genuinely recorded tackles/sacks/INTs that week.
+#
+# Fix: identify exactly those gaps (snap_count > 0, no weekly_def row) and
+# backfill counting stats directly from play-by-play, which tags individual
+# players on each tackle/sack/INT/etc. independently of the box-score table.
+# Yardage-based fields (interception yards, defensive TDs, fumble recovery
+# yards, tackle-for-loss yards, sack yards) are left at 0 for these fallback
+# rows — they're harder to reconstruct reliably from PBP, and the counting
+# stats below are what people actually track week to week.
+players_with_snaps <- defense_snaps %>%
+  filter(snap_count > 0) %>%
+  distinct(player_id, week)
+
+weekly_def_present <- weekly_def %>% distinct(player_id, week)
+
+missing_def_keys <- players_with_snaps %>%
+  anti_join(weekly_def_present, by = c("player_id", "week")) %>%
+  semi_join(players_def, by = "player_id")
+
+pbp_def_stats <- tibble(
+  player_id                = character(0),
+  week                     = integer(0),
+  def_tackles_solo         = integer(0),
+  def_tackles_with_assist  = integer(0),
+  def_tackles_for_loss     = integer(0),
+  def_sacks                = integer(0),
+  def_qb_hits              = integer(0),
+  def_interceptions        = integer(0),
+  def_pass_defended        = integer(0),
+  def_fumbles_forced       = integer(0),
+  fumble_recovery_opp      = integer(0)
+)
+
+if (nrow(missing_def_keys) > 0) {
+  message("Backfilling ", nrow(missing_def_keys),
+          " defensive stat row(s) from play-by-play (missing from primary source)")
+
+  pbp_weeks_needed <- sort(unique(missing_def_keys$week))
+
+  pbp <- tryCatch(
+    nflreadr::load_pbp(seasons = season) %>% filter(week %in% pbp_weeks_needed),
+    error = function(e) {
+      message("Failed to load play-by-play for defensive stat fallback: ", e$message)
+      NULL
+    }
+  )
+
+  if (!is.null(pbp) && nrow(pbp) > 0) {
+
+    # Collapses one or more "<stat>_N_player_id" columns into per-player,
+    # per-week counts (e.g. 2 assist-tackle columns both count toward
+    # def_tackles_with_assist).
+    count_stat_from_cols <- function(pbp_df, cols, stat_name) {
+      empty_result <- tibble(player_id = character(0), week = integer(0)) %>%
+        mutate(!!stat_name := integer(0))
+
+      cols <- intersect(cols, names(pbp_df))
+      if (length(cols) == 0) return(empty_result)
+
+      long_df <- bind_rows(lapply(cols, function(col) {
+        pbp_df %>% transmute(player_id = as.character(.data[[col]]), week)
+      }))
+
+      result <- long_df %>%
+        filter(!is.na(player_id), player_id != "") %>%
+        count(player_id, week, name = stat_name)
+
+      if (nrow(result) == 0) return(empty_result)
+      result
+    }
+
+    stat_specs <- list(
+      def_tackles_solo         = c("solo_tackle_1_player_id"),
+      def_tackles_with_assist  = c("assist_tackle_1_player_id", "assist_tackle_2_player_id",
+                                    "assist_tackle_3_player_id", "assist_tackle_4_player_id"),
+      def_tackles_for_loss     = c("tackle_for_loss_1_player_id", "tackle_for_loss_2_player_id"),
+      def_sacks                = c("sack_player_id", "half_sack_1_player_id", "half_sack_2_player_id"),
+      def_qb_hits               = c("qb_hit_1_player_id", "qb_hit_2_player_id"),
+      def_interceptions        = c("interception_player_id"),
+      def_pass_defended        = c("pass_defense_1_player_id", "pass_defense_2_player_id"),
+      def_fumbles_forced       = c("forced_fumble_player_1_player_id", "forced_fumble_player_2_player_id"),
+      fumble_recovery_opp      = c("fumble_recovery_1_player_id", "fumble_recovery_2_player_id")
+    )
+
+    stat_tables <- lapply(names(stat_specs), function(stat_name) {
+      count_stat_from_cols(pbp, stat_specs[[stat_name]], stat_name)
+    })
+
+    pbp_def_stats <- Reduce(
+      function(x, y) full_join(x, y, by = c("player_id", "week")),
+      stat_tables
+    ) %>%
+      mutate(across(-c(player_id, week), ~ coalesce(as.integer(.x), 0L))) %>%
+      semi_join(missing_def_keys, by = c("player_id", "week"))
+
+    message("Play-by-play backfill produced ", nrow(pbp_def_stats), " matching row(s)")
+  }
+}
+
 individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_weeks,
                                   stringsAsFactors = FALSE) %>%
   left_join(players_def, by = "player_id") %>%
@@ -555,6 +661,25 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
             by = c("player_id", "week")) %>%
   left_join(injuries,      by = c("player_id", "week")) %>%
   left_join(defense_snaps, by = c("player_id", "week")) %>%
+  left_join(pbp_def_stats, by = c("player_id", "week"), suffix = c("", "_pbp")) %>%
+  mutate(
+    def_tackles_solo         = coalesce(def_tackles_solo, def_tackles_solo_pbp),
+    def_tackles_with_assist  = coalesce(def_tackles_with_assist, def_tackles_with_assist_pbp),
+    def_tackles_for_loss     = coalesce(def_tackles_for_loss, def_tackles_for_loss_pbp),
+    def_sacks                = coalesce(def_sacks, def_sacks_pbp),
+    def_qb_hits              = coalesce(def_qb_hits, def_qb_hits_pbp),
+    def_interceptions        = coalesce(def_interceptions, def_interceptions_pbp),
+    def_pass_defended        = coalesce(def_pass_defended, def_pass_defended_pbp),
+    def_fumbles_forced       = coalesce(def_fumbles_forced, def_fumbles_forced_pbp),
+    fumble_recovery_opp      = coalesce(fumble_recovery_opp, fumble_recovery_opp_pbp),
+    # If the primary source had no row (season NA) but PBP backfilled it,
+    # the row is definitively real data for this season — stamp it so
+    # "season": null no longer shows up for confirmed-played weeks that we
+    # were able to reconstruct. Rows with no PBP match either stay NA here
+    # and get zero-filled downstream as before (no snap data, truly inactive).
+    season = if_else(is.na(season) & !is.na(def_tackles_solo_pbp), .env$season, season)
+  ) %>%
+  select(-ends_with("_pbp")) %>%
   left_join(espn_team_lookup, by = "player_id") %>%
   mutate(
     team          = nflreadr::clean_team_abbrs(team),
