@@ -571,7 +571,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -991,7 +991,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "LB",
     "team": "HOU",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -9055,7 +9055,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "TEN",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -9691,7 +9691,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -10339,7 +10339,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "CB",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -10602,7 +10602,7 @@
     "full_name": "Isaiah Iton",
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
-    "team": null,
+    "team": "NE",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -10843,7 +10843,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -14743,7 +14743,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -15139,7 +15139,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -20335,7 +20335,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "JAX",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -25099,7 +25099,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -26623,7 +26623,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -28507,7 +28507,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -30211,7 +30211,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -30223,7 +30223,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -33403,7 +33403,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -34351,7 +34351,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "LB",
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -39775,7 +39775,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "HOU",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -44407,7 +44407,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DT",
     "team": "TEN",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -44803,7 +44803,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": null,
     "team": "IND",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -46447,7 +46447,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DT",
     "team": "HOU",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -52843,7 +52843,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "HOU",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -54499,7 +54499,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -54571,7 +54571,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -56167,7 +56167,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -61627,7 +61627,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "CB",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -62455,7 +62455,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -62947,7 +62947,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "S",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -64411,7 +64411,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -65059,7 +65059,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -68743,7 +68743,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -68767,7 +68767,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -72199,7 +72199,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -73423,7 +73423,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -73843,7 +73843,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -76399,7 +76399,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "CAR",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -79231,7 +79231,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -82603,7 +82603,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -84415,7 +84415,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -86719,7 +86719,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -87067,7 +87067,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "TEN",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -87679,7 +87679,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "CAR",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -89107,7 +89107,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "NO",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -90955,7 +90955,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "TEN",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -95779,7 +95779,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -103507,7 +103507,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
     "team": "HOU",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -103963,7 +103963,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "NO",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
