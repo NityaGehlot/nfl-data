@@ -943,7 +943,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "CLE",
-    "depth_chart_order": 2,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -1867,7 +1867,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "DE",
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -5515,7 +5515,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SEA",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -6066,7 +6066,7 @@
     "full_name": "Brandon Johnson",
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
-    "team": null,
+    "team": "SEA",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -6967,7 +6967,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "LV",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -8693,7 +8693,7 @@
     "last_name": "Hailassie",
     "full_name": "Kahlef Hailassie",
     "position_listed_on_sleeper": "CB",
-    "position_listed_on_nflreadr": "CB",
+    "position_listed_on_nflreadr": "S",
     "team": "MIN",
     "depth_chart_order": 2,
     "status": "Active",
@@ -16901,7 +16901,7 @@
     "last_name": "Williams",
     "full_name": "Milton Williams",
     "position_listed_on_sleeper": "DL",
-    "position_listed_on_nflreadr": "DE",
+    "position_listed_on_nflreadr": "DT",
     "team": "NE",
     "depth_chart_order": 1,
     "status": "Active",
@@ -20755,7 +20755,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -22135,7 +22135,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "LV",
-    "depth_chart_order": 2,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -29189,7 +29189,7 @@
     "last_name": "Brandel",
     "full_name": "Blake Brandel",
     "position_listed_on_sleeper": "T",
-    "position_listed_on_nflreadr": "G",
+    "position_listed_on_nflreadr": "C",
     "team": "MIN",
     "depth_chart_order": 99,
     "status": "Active",
@@ -31171,7 +31171,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "LV",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -39163,7 +39163,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "S",
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -44971,7 +44971,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -49543,7 +49543,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "S",
     "team": "LAC",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -50143,7 +50143,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -50155,7 +50155,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -63187,7 +63187,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
     "team": "KC",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -66931,7 +66931,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "team": "LAR",
-    "depth_chart_order": 99,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "LB"
   },
@@ -67543,7 +67543,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "LAR",
-    "depth_chart_order": 2,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -69583,7 +69583,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -79049,8 +79049,8 @@
     "last_name": "Mathis",
     "full_name": "Damarri Mathis",
     "position_listed_on_sleeper": "DB",
-    "position_listed_on_nflreadr": "DB",
-    "team": null,
+    "position_listed_on_nflreadr": "CB",
+    "team": "CLE",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -84835,7 +84835,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -89683,7 +89683,7 @@
     "position_listed_on_sleeper": "TE",
     "position_listed_on_nflreadr": "TE",
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "TE"
   },
@@ -90079,7 +90079,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SF",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -91903,7 +91903,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "LB",
     "team": "LAC",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -93019,7 +93019,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -97243,7 +97243,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SEA",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -98743,7 +98743,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -98825,7 +98825,7 @@
     "last_name": "Westover",
     "full_name": "Jack Westover",
     "position_listed_on_sleeper": "TE",
-    "position_listed_on_nflreadr": "FB",
+    "position_listed_on_nflreadr": "TE",
     "team": "NE",
     "depth_chart_order": 4,
     "status": "Active",
@@ -99139,7 +99139,7 @@
     "position_listed_on_sleeper": "WR",
     "position_listed_on_nflreadr": null,
     "team": "SEA",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
   },
@@ -99715,7 +99715,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "team": "LV",
-    "depth_chart_order": 99,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "DB"
   },
@@ -100831,7 +100831,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "S",
     "team": "KC",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
   },
