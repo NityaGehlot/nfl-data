@@ -411,11 +411,49 @@ active_offense_ids <- bind_rows(
   weekly_off    %>% filter(!is.na(player_id), player_id != "") %>% select(player_id)
 ) %>% distinct(player_id)
 
+# =====================
+# KICKER PER-TEAM CAP (min 1, max 2 kickers per team)
+# =====================
+# Kicker snap counts are frequently 0/unreliable (kickers barely register in
+# offensive-snap data), so relying on active_offense_ids alone can either
+# admit every K ever rostered by a team (preseason adds, practice-squad
+# tryouts, etc.) or miss the actual kicker if their snap rows are sparse.
+# Instead: rank each team's kickers by real season-long kicking activity
+# (FG/PAT attempts first, then weeks with a recorded game, then snaps as a
+# tiebreaker) and keep at most the top 2 per team. If a team only has one
+# kicker with any activity at all, that one kicker is kept — we never
+# fabricate a second kicker just to hit the cap, and we never drop a team's
+# lone active kicker.
+kicker_activity <- offense_df %>%
+  filter(position == "K", !is.na(team), team != "") %>%
+  group_by(player_id, team) %>%
+  summarise(
+    total_kick_att = sum(coalesce(fg_att, 0) + coalesce(pat_att, 0), na.rm = TRUE),
+    weeks_active   = sum(game_played, na.rm = TRUE),
+    total_snaps    = sum(snap_count, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+top_kickers_per_team <- kicker_activity %>%
+  group_by(team) %>%
+  arrange(desc(total_kick_att), desc(weeks_active), desc(total_snaps), .by_group = TRUE) %>%
+  slice_head(n = 2) %>%
+  ungroup() %>%
+  distinct(player_id)
+
+message("Kickers kept after per-team cap (max 2): ", nrow(top_kickers_per_team),
+        " across ", n_distinct(kicker_activity$team), " teams")
+
 offense_combined <- bind_rows(lapply(offense_positions, function(pos) {
-  offense_df %>%
+  pos_df <- offense_df %>%
     filter(position == pos) %>%
-    semi_join(active_offense_ids, by = "player_id") %>%
-    select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
+    semi_join(active_offense_ids, by = "player_id")
+
+  if (pos == "K") {
+    pos_df <- pos_df %>% semi_join(top_kickers_per_team, by = "player_id")
+  }
+
+  pos_df %>% select(any_of(c(BASE_COLS, POSITION_COLS[[pos]])))
 }))
 
 # =====================
