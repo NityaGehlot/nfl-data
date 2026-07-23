@@ -166,7 +166,7 @@ skill_def_filtered <- players %>%
     (position == "RB" & depth_chart_order <= 3) |
     (position == "WR" & depth_chart_order <= 6) |
     (position == "TE" & depth_chart_order <= 3) |
-    (position == "K"  & depth_chart_order == 1) |
+    (position == "K"  & depth_chart_order <= 2) |
 
     # DEFENSE
     (position == "DL" & depth_chart_order <= 6) |
