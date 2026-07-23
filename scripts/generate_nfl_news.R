@@ -157,8 +157,32 @@ ol_filtered <- bind_rows(ol_specific, ol_generic) %>%
 message("OL players after filtering: ", nrow(ol_filtered))
 
 # =====================
+# KICKER FILTERING (guaranteed 1-2 per team)
+# =====================
+# NOTE: a plain `depth_chart_order <= 2` filter (as used for the other
+# skill positions below) silently drops a team's kicker whenever Sleeper's
+# depth_chart_order is missing/garbled for K (it defaults to 99 above,
+# which fails "<= 2"). Kickers are single-slot positions where every team
+# should contribute at least one player, so we use slice_min per team
+# instead — same pattern as the OL blocks above. This guarantees:
+#   - at least 1 kicker per team that has any K on the roster
+#   - at most 2 kickers per team
+#   - across 32 teams: 32-64 total kickers selected
+kickers_filtered <- players %>%
+  filter(position == "K", !is.na(team)) %>%
+  group_by(team) %>%
+  slice_min(order_by = depth_chart_order, n = 2, with_ties = FALSE) %>%
+  ungroup()
+
+message("Kickers after filtering: ", nrow(kickers_filtered),
+        " across ", n_distinct(kickers_filtered$team), " teams")
+
+# =====================
 # SKILL POSITION + DEFENSE FILTERING
 # =====================
+# K removed from here — handled above via kickers_filtered so every team
+# is guaranteed at least one kicker regardless of depth_chart_order data
+# quality.
 skill_def_filtered <- players %>%
   filter(
     # OFFENSE (skill)
@@ -166,7 +190,6 @@ skill_def_filtered <- players %>%
     (position == "RB" & depth_chart_order <= 3) |
     (position == "WR" & depth_chart_order <= 6) |
     (position == "TE" & depth_chart_order <= 3) |
-    (position == "K"  & depth_chart_order <= 2) |
 
     # DEFENSE
     (position == "DL" & depth_chart_order <= 6) |
@@ -179,7 +202,7 @@ skill_def_filtered <- players %>%
 # =====================
 # COMBINE AND DEDUPLICATE
 # =====================
-filtered_players <- bind_rows(skill_def_filtered, ol_filtered) %>%
+filtered_players <- bind_rows(skill_def_filtered, ol_filtered, kickers_filtered) %>%
   distinct(player_id, .keep_all = TRUE)
 
 message("After filtering: ", nrow(filtered_players))
