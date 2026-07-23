@@ -197,6 +197,13 @@ id_crosswalk <- tryCatch(
 espn_position_lookup <- espn_roster_all %>%
   inner_join(id_crosswalk, by = "espn_id") %>%
   filter(!is.na(espn_position), espn_position != "") %>%
+  # ESPN's roster API tags kickers as "PK" (place kicker) rather than "K".
+  # Without normalizing this, the position coalesce below silently moves
+  # every ESPN-matched kicker into a "PK" bucket that nothing downstream
+  # filters on — only kickers ESPN failed to match (which fall back to
+  # nflreadr's own "K" tag) survived, which is why only a handful of
+  # kickers were making it into the offense pipeline at all.
+  mutate(espn_position = if_else(espn_position == "PK", "K", espn_position)) %>%
   distinct(player_id, .keep_all = TRUE) %>%
   select(player_id, espn_position)
 
