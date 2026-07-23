@@ -942,7 +942,7 @@
     "full_name": "Dom Jones",
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": null,
-    "team": "CLE",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DB"
@@ -16062,7 +16062,7 @@
     "full_name": "Coziah Izzard",
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
-    "team": null,
+    "team": "ARI",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "DL"
@@ -24931,7 +24931,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DT",
     "team": "ARI",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "status": "Active",
     "fantasy_positions": "DL"
   },
@@ -52368,18 +52368,6 @@
     "fantasy_positions": "WR"
   },
   {
-    "player_id": "13503",
-    "first_name": "Kaleb",
-    "last_name": "Proctor",
-    "full_name": "Kaleb Proctor",
-    "position_listed_on_sleeper": "DL",
-    "position_listed_on_nflreadr": "DT",
-    "team": "ARI",
-    "depth_chart_order": 2,
-    "status": "Active",
-    "fantasy_positions": "DL"
-  },
-  {
     "player_id": "11695",
     "first_name": "Ruke",
     "last_name": "Orhorhoro",
@@ -52855,7 +52843,7 @@
     "position_listed_on_sleeper": "FB",
     "position_listed_on_nflreadr": null,
     "team": "NE",
-    "depth_chart_order": 10,
+    "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "RB"
   },
@@ -76134,7 +76122,7 @@
     "full_name": "Mitch Van Vooren",
     "position_listed_on_sleeper": "WR",
     "position_listed_on_nflreadr": null,
-    "team": null,
+    "team": "NE",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "WR"
@@ -89682,7 +89670,7 @@
     "full_name": "Harrison Bryant",
     "position_listed_on_sleeper": "TE",
     "position_listed_on_nflreadr": "TE",
-    "team": "SEA",
+    "team": null,
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "TE"
@@ -98850,7 +98838,7 @@
     "full_name": "Riley Wilson",
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": null,
-    "team": "TB",
+    "team": "NE",
     "depth_chart_order": 99,
     "status": "Active",
     "fantasy_positions": "LB"
@@ -99919,7 +99907,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": "DE",
     "team": "ARI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "status": "Active",
     "fantasy_positions": "DL"
   },
