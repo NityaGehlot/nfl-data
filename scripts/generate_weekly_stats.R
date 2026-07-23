@@ -92,9 +92,8 @@ POSITION_COLS <- list(
   K   = c("position_on_nflreadr",
           "fg_made", "fg_att", "fg_missed", "fg_pct",
           "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49",
-          "fg_made_50_59", "fg_made_60_",
-          "fg_missed_0_19", "fg_missed_20_29", "fg_missed_30_39", "fg_missed_40_49",
-          "fg_missed_50_59", "fg_missed_60_",
+          "fg_made_50_59", "fg_made_60_", "fg_missed_0_19", "fg_missed_20_29",
+          "fg_missed_30_39", "fg_missed_40_49", "fg_missed_50_59", "fg_missed_60_",
           "pat_made", "pat_att", "pat_missed", "pat_pct"),
   DL  = c("def_tackles_solo", "def_tackles_with_assist", "def_tackles_for_loss",
           "def_tackles_for_loss_yards", "def_sacks", "def_sack_yards",
@@ -371,9 +370,8 @@ off_stat_cols <- c(
   "targets", "receptions", "receiving_yards", "receiving_tds", "fumbles",
   "fg_made", "fg_att", "fg_missed", "fg_pct",
   "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49",
-  "fg_made_50_59", "fg_made_60_",
-  "fg_missed_0_19", "fg_missed_20_29", "fg_missed_30_39", "fg_missed_40_49",
-  "fg_missed_50_59", "fg_missed_60_",
+  "fg_made_50_59", "fg_made_60_", "fg_missed_0_19", "fg_missed_20_29",
+  "fg_missed_30_39", "fg_missed_40_49", "fg_missed_50_59", "fg_missed_60_",
   "pat_made", "pat_att", "pat_missed", "pat_pct"
 )
 
@@ -833,3 +831,6 @@ for (w in sort(unique(defense_export$week))) {
 }
 
 message("✅ All weekly JSON files generated successfully.")
+
+
+
