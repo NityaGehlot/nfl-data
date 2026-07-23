@@ -47,6 +47,16 @@ normalize_def_position <- function(pos) {
   )
 }
 
+# Both ESPN's roster feed and nflreadr's own load_players()/load_player_stats()
+# inconsistently tag kickers as "K" or "PK" (place kicker). Everything that
+# FILTERS on position should treat these as the same player pool; the raw,
+# un-normalized tag is preserved separately as "position_on_nflreadr" for K
+# rows only (see POSITION_COLS$K) so consumers can see which label was
+# actually reported.
+normalize_off_position <- function(pos) {
+  dplyr::if_else(pos %in% c("K", "PK"), "K", pos)
+}
+
 # =====================
 # POSITION COLUMN SCHEMAS
 # =====================
@@ -79,7 +89,8 @@ POSITION_COLS <- list(
           "carries", "rushing_yards", "rushing_tds", "fumbles"),
   TE  = c("receptions", "targets", "receiving_yards", "receiving_tds",
           "carries", "rushing_yards", "rushing_tds", "fumbles"),
-  K   = c("fg_made", "fg_att", "fg_missed", "fg_pct",
+  K   = c("position_on_nflreadr",
+          "fg_made", "fg_att", "fg_missed", "fg_pct",
           "fg_made_0_19", "fg_made_20_29", "fg_made_30_39", "fg_made_40_49",
           "fg_made_50_59", "fg_made_60_",
           "pat_made", "pat_att", "pat_missed", "pat_pct"),
@@ -197,13 +208,10 @@ id_crosswalk <- tryCatch(
 espn_position_lookup <- espn_roster_all %>%
   inner_join(id_crosswalk, by = "espn_id") %>%
   filter(!is.na(espn_position), espn_position != "") %>%
-  # ESPN's roster API tags kickers as "PK" (place kicker) rather than "K".
-  # Without normalizing this, the position coalesce below silently moves
-  # every ESPN-matched kicker into a "PK" bucket that nothing downstream
-  # filters on — only kickers ESPN failed to match (which fall back to
-  # nflreadr's own "K" tag) survived, which is why only a handful of
-  # kickers were making it into the offense pipeline at all.
-  mutate(espn_position = if_else(espn_position == "PK", "K", espn_position)) %>%
+  # NOTE: ESPN's roster API tags kickers as "PK" (place kicker) rather than
+  # "K", and this raw tag is intentionally left as-is here — it's kept
+  # further down (see `players`) as position_on_nflreadr, and normalized to
+  # "K" only for the "position" field everything else filters/groups on.
   distinct(player_id, .keep_all = TRUE) %>%
   select(player_id, espn_position)
 
@@ -224,15 +232,26 @@ message("Players matched to ESPN current team: ", nrow(espn_team_lookup))
 # LOAD & PREP SHARED DATA
 # =====================
 message("Loading weekly player stats")
-weekly <- nflreadr::load_player_stats(seasons = season)
+weekly <- nflreadr::load_player_stats(seasons = season) %>%
+  mutate(position = normalize_off_position(position))
 
 message("Loading player metadata")
 players <- nflreadr::load_players() %>%
   ensure_cols(c("display_name", "position", "headshot_url"), fill = "") %>%
   transmute(player_id = gsis_id, player_name = display_name, position, headshot_url) %>%
   left_join(espn_position_lookup, by = "player_id") %>%
-  mutate(position = coalesce(espn_position, position)) %>%
-  select(-espn_position)
+  mutate(
+    # Same ESPN-priority-then-nflreadr chain used everywhere else, but kept
+    # RAW (may be "K" or "PK") before any normalization is applied.
+    position_raw = coalesce(espn_position, position),
+    # Exposed downstream only for kickers (see POSITION_COLS$K) so the
+    # exported JSON shows exactly what nflreadr/ESPN reported.
+    position_on_nflreadr = if_else(position_raw %in% c("K", "PK"), position_raw, NA_character_),
+    # The "position" field itself always defaults K/PK -> "K" so nothing
+    # downstream (filters, grouping, depth caps) has to special-case PK.
+    position = normalize_off_position(position_raw)
+  ) %>%
+  select(-espn_position, -position_raw)
 
 message("Loading injury data")
 injuries <- nflreadr::load_injuries(seasons = season) %>%
