@@ -18594,6 +18594,36 @@
     {
       "season": null,
       "week": 5,
+      "player_id": "00-0039305",
+      "player_name": "Jack Westover",
+      "position": "TE",
+      "team": "NE",
+      "opponent_team": "BUF",
+      "headshot_url": "",
+      "fantasy_points_ppr": 0,
+      "snap_count": 14,
+      "game_played": true,
+      "team_status": "played",
+      "injury_status": "ACTIVE",
+      "practice_status": "",
+      "primary_injury": "",
+      "secondary_injury": "",
+      "practice_primary_injury": "",
+      "practice_secondary_injury": "",
+      "carries": 0,
+      "rushing_yards": 0,
+      "rushing_tds": 0,
+      "fumbles": 0,
+      "receptions": 0,
+      "targets": 0,
+      "receiving_yards": 0,
+      "receiving_tds": 0
+    }
+  ],
+  "619": [
+    {
+      "season": null,
+      "week": 5,
       "player_id": "00-0038710",
       "player_name": "Blake Whiteheart",
       "position": "TE",
@@ -18620,7 +18650,7 @@
       "receiving_tds": 0
     }
   ],
-  "619": [
+  "620": [
     {
       "season": null,
       "week": 5,
@@ -18650,7 +18680,7 @@
       "receiving_tds": 0
     }
   ],
-  "620": [
+  "621": [
     {
       "season": null,
       "week": 5,
@@ -18680,7 +18710,7 @@
       "receiving_tds": 0
     }
   ],
-  "621": [
+  "622": [
     {
       "season": 2025,
       "week": 5,
@@ -18710,7 +18740,7 @@
       "receiving_tds": 0
     }
   ],
-  "622": [
+  "623": [
     {
       "season": null,
       "week": 5,
@@ -18740,7 +18770,7 @@
       "receiving_tds": 0
     }
   ],
-  "623": [
+  "624": [
     {
       "season": null,
       "week": 5,
@@ -18770,7 +18800,7 @@
       "receiving_tds": 0
     }
   ],
-  "624": [
+  "625": [
     {
       "season": 2025,
       "week": 5,
@@ -18800,7 +18830,7 @@
       "receiving_tds": 1
     }
   ],
-  "625": [
+  "626": [
     {
       "season": 2025,
       "week": 5,
@@ -18830,7 +18860,7 @@
       "receiving_tds": 0
     }
   ],
-  "626": [
+  "627": [
     {
       "season": null,
       "week": 5,
@@ -18860,7 +18890,7 @@
       "receiving_tds": 0
     }
   ],
-  "627": [
+  "628": [
     {
       "season": null,
       "week": 5,
@@ -18890,7 +18920,7 @@
       "receiving_tds": 0
     }
   ],
-  "628": [
+  "629": [
     {
       "season": null,
       "week": 5,
@@ -18926,7 +18956,7 @@
       "pat_pct": 0
     }
   ],
-  "629": [
+  "630": [
     {
       "season": 2025,
       "week": 5,
@@ -18962,7 +18992,7 @@
       "pat_pct": 0
     }
   ],
-  "630": [
+  "631": [
     {
       "season": null,
       "week": 5,
@@ -18998,7 +19028,7 @@
       "pat_pct": 0
     }
   ],
-  "631": [
+  "632": [
     {
       "season": 2025,
       "week": 5,
@@ -19034,7 +19064,7 @@
       "pat_pct": 0.6667
     }
   ],
-  "632": [
+  "633": [
     {
       "season": null,
       "week": 5,
@@ -19068,42 +19098,6 @@
       "pat_att": 0,
       "pat_missed": 0,
       "pat_pct": 0
-    }
-  ],
-  "633": [
-    {
-      "season": 2025,
-      "week": 5,
-      "player_id": "00-0039934",
-      "player_name": "Jude McAtamney",
-      "position": "K",
-      "team": "NYG",
-      "opponent_team": "NO",
-      "headshot_url": "",
-      "fantasy_points_ppr": 2,
-      "snap_count": 0,
-      "game_played": false,
-      "team_status": "played",
-      "injury_status": "ACTIVE",
-      "practice_status": "",
-      "primary_injury": "",
-      "secondary_injury": "",
-      "practice_primary_injury": "",
-      "practice_secondary_injury": "",
-      "fg_made": 0,
-      "fg_att": 0,
-      "fg_missed": 0,
-      "fg_pct": 0,
-      "fg_made_0_19": 0,
-      "fg_made_20_29": 0,
-      "fg_made_30_39": 0,
-      "fg_made_40_49": 0,
-      "fg_made_50_59": 0,
-      "fg_made_60_": 0,
-      "pat_made": 2,
-      "pat_att": 2,
-      "pat_missed": 0,
-      "pat_pct": 1
     }
   ],
   "634": [
