@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Clear existing JSON files (force regenerate)
         if: github.event.inputs.enforce_offseason == 'false'
@@ -69,4 +71,5 @@ jobs:
           git config --local user.name "github-actions"
           git add data/Stats/**/*.json
           git commit -m "Update player stats JSON" || echo "No changes to commit"
+          git pull --rebase origin main
           git push
