@@ -306,9 +306,17 @@ players_clean <- lapply(players_raw, function(p) {
   # for K is the flakiest case in this pipeline, so fall back to Sleeper's
   # own (reliable) "K" tag instead.
   position_for_FFHelper <- if (!is.na(sleeper_position) && sleeper_position == "K") {
+    # Always trust Sleeper for kickers
     sleeper_position
-  } else {
+  
+  } else if (!is.na(nflreadr_position) && nflreadr_position != "") {
+    # Prefer the ESPN/nflreadr-resolved position when available
     nflreadr_position
+  
+  } else {
+    # If nflreadr/ESPN couldn't determine a position,
+    # fall back to Sleeper's listed position
+    sleeper_position
   }
 
   list(
