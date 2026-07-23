@@ -297,7 +297,19 @@ players_clean <- lapply(players_raw, function(p) {
   sleeper_id <- as.character(p$player_id %||% NA_character_)
   espn_id    <- as.character(p$espn_id %||% NA_character_)
 
+  sleeper_position  <- normalize_position(p$position)
   nflreadr_position <- resolve_nflreadr_position(gsis_id, sleeper_id, espn_id)
+
+  # FFHelper-facing position: normally trust the ESPN/nflreadr-resolved tag,
+  # since it's more specific for most positions (e.g. splits CB/S rather
+  # than lumping into DB). Kickers are the exception — ESPN/nflreadr tagging
+  # for K is the flakiest case in this pipeline, so fall back to Sleeper's
+  # own (reliable) "K" tag instead.
+  position_for_FFHelper <- if (!is.na(sleeper_position) && sleeper_position == "K") {
+    sleeper_position
+  } else {
+    nflreadr_position
+  }
 
   list(
 
@@ -306,8 +318,9 @@ players_clean <- lapply(players_raw, function(p) {
     last_name = p$last_name,
     full_name = paste(p$first_name, p$last_name),
 
-    position_listed_on_sleeper = normalize_position(p$position),
+    position_listed_on_sleeper = sleeper_position,
     position_listed_on_nflreadr = nflreadr_position,
+    position_for_FFHelper = position_for_FFHelper,
     team = p$team %||% NA,
 
     depth_chart_order = {
@@ -315,9 +328,7 @@ players_clean <- lapply(players_raw, function(p) {
       if (is.na(d) || length(d) == 0) 99 else d
     },
 
-    status = status,
-
-    fantasy_positions = p$fantasy_positions %||% NULL
+    status = status
   )
 })
 
@@ -383,12 +394,11 @@ enrich_trending <- function(json_text) {
 
       position_listed_on_sleeper = player$position_listed_on_sleeper,
       position_listed_on_nflreadr = player$position_listed_on_nflreadr,
+      position_for_FFHelper = player$position_for_FFHelper,
       team = player$team,
 
       depth_chart_order = player$depth_chart_order,
-      status = player$status,
-
-      fantasy_positions = player$fantasy_positions
+      status = player$status
     )
   }
 
