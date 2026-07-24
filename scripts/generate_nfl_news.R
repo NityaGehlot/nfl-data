@@ -232,7 +232,17 @@ fetch_google <- function(player_name) {
     "&hl=en-US&gl=US&ceid=US:en"
   )
 
-  xml <- tryCatch(read_xml(url), error = function(e) NULL)
+  # Fetch via httr so the HTTP connection is properly released after the
+  # request completes.  Passing raw bytes to read_xml() avoids xml2 opening
+  # a URL connection that R counts against its 128-connection limit, which
+  # caused "all 128 connections are in use" when processing ~1900 players.
+  resp <- tryCatch(
+    GET(url, timeout(15)),
+    error = function(e) NULL
+  )
+  if (is.null(resp) || http_error(resp)) return(list())
+
+  xml <- tryCatch(read_xml(content(resp, as = "raw")), error = function(e) NULL)
   if (is.null(xml)) return(list())
 
   items    <- xml_find_all(xml, "//item")
