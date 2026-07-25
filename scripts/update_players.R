@@ -1,5 +1,5 @@
 # =====================
-# scripts/update_players.R (STRICT SCHEMA CLEAN VERSION)
+# scripts/update_players.R
 # =====================
 
 # Ensure required packages are available even if the CI environment hasn't
@@ -336,6 +336,17 @@ players_clean <- lapply(players_raw, function(p) {
       if (is.na(d) || length(d) == 0) 99 else d
     },
 
+    # Sleeper's own overall relevance/popularity ranking (lower = more
+    # relevant/searched). NA for players Sleeper hasn't ranked (e.g. deep
+    # practice-squad/inactive names) — kept as NA rather than defaulted,
+    # since unlike depth_chart_order there's no sensible "worst case"
+    # numeric stand-in and callers may want to distinguish "unranked" from
+    # "ranked last".
+    search_rank = {
+      sr <- suppressWarnings(as.numeric(p$search_rank))
+      if (is.na(sr) || length(sr) == 0) NA_real_ else sr
+    },
+
     status = status
   )
 })
@@ -406,6 +417,7 @@ enrich_trending <- function(json_text) {
       team = player$team,
 
       depth_chart_order = player$depth_chart_order,
+      search_rank = player$search_rank,
       status = player$status
     )
   }
