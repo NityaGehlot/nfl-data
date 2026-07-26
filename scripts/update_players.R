@@ -347,6 +347,11 @@ players_clean <- lapply(players_raw, function(p) {
       if (is.na(sr) || length(sr) == 0) NA_real_ else sr
     },
 
+    years_exp = {
+      ye <- suppressWarnings(as.numeric(p$years_exp))
+      if (is.na(ye) || length(ye) == 0) NA_real_ else ye
+    },
+
     status = status
   )
 })
