@@ -6,8 +6,42 @@ library(jsonlite)
 # =====================
 # CONFIG
 # =====================
-current_year  <- as.numeric(format(Sys.Date(), "%Y"))
-season        <- min(current_year, nflreadr::most_recent_season())
+# Season is normally the current/most-recent one, but can be overridden to
+# backfill any past season on demand — two ways to do that, either works:
+#   1. Command-line arg:   Rscript scripts/generate_weekly_stats.R 2024
+#   2. Environment var:    Sys.setenv(SEASON_YEAR = "2024") before sourcing,
+#                          or `SEASON_YEAR=2024 Rscript scripts/generate_weekly_stats.R`
+# Command-line arg takes priority if both are supplied. Neither supplied ->
+# falls back to the original "current year, capped at nflreadr's most recent
+# available season" behavior.
+args <- commandArgs(trailingOnly = TRUE)
+
+requested_season <- if (length(args) >= 1 && nzchar(args[1])) {
+  suppressWarnings(as.numeric(args[1]))
+} else if (nzchar(Sys.getenv("SEASON_YEAR"))) {
+  suppressWarnings(as.numeric(Sys.getenv("SEASON_YEAR")))
+} else {
+  NA_real_
+}
+
+current_year <- as.numeric(format(Sys.Date(), "%Y"))
+
+season <- if (!is.na(requested_season)) {
+  requested_season
+} else {
+  min(current_year, nflreadr::most_recent_season())
+}
+
+# nflreadr/nflfastR play-by-play and weekly stats only go back to 1999;
+# also guard against typos producing a season that hasn't happened yet.
+if (is.na(season) || season < 1999 || season > current_year) {
+  stop(
+    "Invalid season requested: ", season,
+    " — pass a valid year, e.g. `Rscript scripts/generate_weekly_stats.R 2024` ",
+    "or set the SEASON_YEAR environment variable."
+  )
+}
+
 message("Generating stats for season: ", season)
 
 # =====================
@@ -831,6 +865,3 @@ for (w in sort(unique(defense_export$week))) {
 }
 
 message("✅ All weekly JSON files generated successfully.")
-
-
-
