@@ -347,6 +347,16 @@ players_clean <- lapply(players_raw, function(p) {
       if (is.na(sr) || length(sr) == 0) NA_real_ else sr
     },
 
+    # Years of NFL experience per Sleeper (0 = rookie). Note 0 is a
+    # legitimate value here, not a missing-data marker — unlike
+    # depth_chart_order/search_rank, we don't want to confuse a true rookie
+    # (years_exp = 0) with an unresolved value, so a genuinely missing
+    # years_exp is kept as NA rather than coerced to 0.
+    years_exp = {
+      ye <- suppressWarnings(as.numeric(p$years_exp))
+      if (is.na(ye) || length(ye) == 0) NA_real_ else ye
+    },
+
     status = status
   )
 })
@@ -418,6 +428,7 @@ enrich_trending <- function(json_text) {
 
       depth_chart_order = player$depth_chart_order,
       search_rank = player$search_rank,
+      years_exp = player$years_exp,
       status = player$status
     )
   }
