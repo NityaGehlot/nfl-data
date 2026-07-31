@@ -58,6 +58,51 @@ coalesce_cols <- function(df, cols, fill = 0) {
   df %>% mutate(across(all_of(cols), ~ coalesce(.x, fill)))
 }
 
+parse_date_modified <- function(values) {
+  values <- trimws(as.character(values))
+  values[values == ""] <- NA_character_
+
+  formats <- c(
+    "%Y-%m-%d %H:%M:%OS",
+    "%Y-%m-%dT%H:%M:%OS%z",
+    "%Y-%m-%dT%H:%M:%OSZ",
+    "%Y-%m-%dT%H:%M:%OS",
+    "%Y/%m/%d %H:%M:%OS",
+    "%m/%d/%Y %I:%M:%OS %p",
+    "%m/%d/%Y %H:%M:%OS"
+  )
+
+  parse_one <- function(value) {
+    if (is.na(value)) {
+      return(as.POSIXct(NA_real_, origin = "1970-01-01", tz = "UTC"))
+    }
+
+    for (fmt in formats) {
+      parsed <- suppressWarnings(as.POSIXct(value, format = fmt, tz = "UTC"))
+      if (!is.na(parsed)) return(parsed)
+    }
+
+    parsed <- suppressWarnings(
+      lubridate::parse_date_time(
+        value,
+        orders = c(
+          "Ymd HMS z", "Ymd HMS", "Ymd HM z", "Ymd HM",
+          "mdY HMS p", "mdY HM p", "mdY HMS", "mdY HM"
+        ),
+        tz = "UTC",
+        exact = FALSE,
+        quiet = TRUE
+      )
+    )
+
+    if (!is.na(parsed)) return(as.POSIXct(parsed, tz = "UTC"))
+
+    as.POSIXct(NA_real_, origin = "1970-01-01", tz = "UTC")
+  }
+
+  as.POSIXct(unlist(lapply(values, parse_one)), origin = "1970-01-01", tz = "UTC")
+}
+
 stats_dir <- function(type) {
   path <- file.path("data", "Stats", paste0(season, " Season"), paste0(season, " ", type))
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
@@ -316,7 +361,7 @@ injuries <- injuries_raw %>%
                 "date_modified"), fill = "") %>%
   mutate(gsis_id = trimws(as.character(gsis_id))) %>%
   filter(!is.na(gsis_id), gsis_id != "") %>%
-  mutate(.date_modified_parsed = suppressWarnings(as.POSIXct(date_modified, tz = "UTC"))) %>%
+  mutate(.date_modified_parsed = parse_date_modified(date_modified)) %>%
   arrange(gsis_id, week, desc(.date_modified_parsed)) %>%
   distinct(gsis_id, week, .keep_all = TRUE) %>%
   select(-.date_modified_parsed) %>%
