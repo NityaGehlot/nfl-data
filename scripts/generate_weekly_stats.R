@@ -229,25 +229,16 @@ espn_roster_all <- if (length(espn_team_ids) > 0) {
 
 message("ESPN roster players fetched: ", nrow(espn_roster_all))
 
-message("Loading gsis_id <-> espn_id / sportradar_id crosswalk")
-# This one load_ff_playerids() call now backs BOTH the ESPN position/roster
-# override (espn_id) AND the Sportradar injury feed below (sportradar_id) —
-# same crosswalk table, just carrying an extra ID column.
-ff_playerids_raw <- tryCatch(
-  nflreadr::load_ff_playerids(),
+message("Loading gsis_id <-> espn_id crosswalk")
+id_crosswalk <- tryCatch(
+  nflreadr::load_ff_playerids() %>%
+    filter(!is.na(gsis_id), !is.na(espn_id)) %>%
+    transmute(player_id = gsis_id, espn_id = as.character(espn_id)),
   error = function(e) {
     message("Failed to load ff_playerids crosswalk: ", e$message)
-    tibble(gsis_id = character(0), espn_id = character(0), sportradar_id = character(0))
+    tibble(player_id = character(0), espn_id = character(0))
   }
 )
-
-id_crosswalk <- ff_playerids_raw %>%
-  filter(!is.na(gsis_id), !is.na(espn_id)) %>%
-  transmute(player_id = gsis_id, espn_id = as.character(espn_id))
-
-sportradar_crosswalk <- ff_playerids_raw %>%
-  filter(!is.na(gsis_id), !is.na(sportradar_id)) %>%
-  transmute(player_id = gsis_id, sportradar_id = as.character(sportradar_id))
 
 espn_position_lookup <- espn_roster_all %>%
   inner_join(id_crosswalk, by = "espn_id") %>%
@@ -297,166 +288,57 @@ players <- nflreadr::load_players() %>%
   ) %>%
   select(-espn_position, -position_raw)
 
+# =====================
+# INJURY DATA
+# =====================
+# Verified live against nflreadr::load_injuries() output (via the underlying
+# nflverse-data injuries_<season>.csv release):
+#   - gsis_id matches players$gsis_id 1:1 with no format mismatches.
+#   - week numbering is CONTINUOUS across game_type (REG 1-18, WC=19, DIV=20,
+#     CON=21, SB=22) — same convention used everywhere else in this script —
+#     so joining on plain "week" (without game_type) is correct.
+#   - report_status/report_primary_injury/etc. are legitimately blank ("")
+#     for players who simply weren't given a game-status designation that
+#     week (most players, most weeks) — that's not a bug, that's "healthy".
+#   - A very small number of players (rare, but real — e.g. a report updated
+#     more than once in a week) can have MORE than one row for the same
+#     (gsis_id, week). Left un-deduped, that fans out the downstream
+#     left_join into duplicate rows. We keep only the most-recently-modified
+#     row per player+week so the join is always 1:1.
 message("Loading injury data")
+injuries_raw <- nflreadr::load_injuries(seasons = season)
+message("Injury rows loaded from nflreadr: ", nrow(injuries_raw))
 
-# =====================================================================
-# INJURY DATA SOURCE: Sportradar NFL v7 — "Weekly Injuries" endpoint
-#   https://developer.sportradar.com/football/reference/nfl-weekly-injuries
-#   GET https://api.sportradar.com/nfl/official/{access_level}/v7/{language_code}
-#         /seasons/{season_year}/{season_type}/{nfl_season_week}/injuries.json
-#
-# Replaces nflreadr::load_injuries(). Why this API specifically:
-#   - It's Sportradar's own official NFL feed (the same commercial data
-#     provider used by the league's media partners), organized exactly like
-#     the old source: one report per team, per week, per season.
-#   - Its documented schema maps almost 1:1 onto what this script already
-#     needs: player.injury.status ("Questionable"/"Doubtful"/"Out"),
-#     player.injury.primary (injury description), and
-#     player.injury.practice.status ("Full Participation In Practice" /
-#     "Limited Participation In Practice" / "Did Not Participate In
-#     Practice") — i.e. it distinguishes game-report status from practice
-#     status the same way nflreadr did.
-#   - player.injury.status_date gives a per-record timestamp, so the same
-#     "keep the most recent update" dedup logic used before still applies.
-#
-# SETUP REQUIRED: this endpoint needs a (free-tier available) Sportradar API
-# key. Sign up at https://developer.sportradar.com, subscribe to the NFL v7
-# API, then set:
-#     SPORTRADAR_API_KEY      (required)
-#     SPORTRADAR_ACCESS_LEVEL ("trial" or "production"; defaults to "trial")
-# Trial keys are rate-limited to ~1 request/second, which is why each weekly
-# call below is paced with Sys.sleep().
-#
-# KNOWN SCHEMA GAP vs. the old nflreadr feed: Sportradar's documented model
-# only exposes a single free-text injury description per player
-# (player.injury.primary) — there's no separate "secondary injury" field,
-# and no separate practice-report injury text distinct from the game-report
-# one. So secondary_injury and practice_secondary_injury are left blank
-# here (there's nothing upstream to put in them), and
-# practice_primary_injury reuses the same primary-injury text as
-# primary_injury, since Sportradar doesn't report it twice. Document this
-# to anyone reading the exported JSON: those two "secondary" fields will
-# now always be "" for this data source.
-sportradar_api_key      <- Sys.getenv("SPORTRADAR_API_KEY")
-sportradar_access_level <- Sys.getenv("SPORTRADAR_ACCESS_LEVEL", unset = "trial")
-sportradar_lang         <- "en"
-
-if (!nzchar(sportradar_api_key)) {
-  stop(
-    "SPORTRADAR_API_KEY is not set. Sign up for a (free trial) key at ",
-    "https://developer.sportradar.com, subscribe to the NFL v7 API, and set ",
-    "the SPORTRADAR_API_KEY environment variable before running this script."
+injuries <- injuries_raw %>%
+  ensure_cols(c("gsis_id", "week", "report_status", "practice_status",
+                "report_primary_injury", "report_secondary_injury",
+                "practice_primary_injury", "practice_secondary_injury",
+                "date_modified"), fill = "") %>%
+  mutate(gsis_id = trimws(as.character(gsis_id))) %>%
+  filter(!is.na(gsis_id), gsis_id != "") %>%
+  mutate(.date_modified_parsed = suppressWarnings(as.POSIXct(date_modified, tz = "UTC"))) %>%
+  arrange(gsis_id, week, desc(.date_modified_parsed)) %>%
+  distinct(gsis_id, week, .keep_all = TRUE) %>%
+  select(-.date_modified_parsed) %>%
+  transmute(
+    player_id                 = gsis_id, week,
+    injury_status             = report_status,
+    practice_status,
+    primary_injury            = report_primary_injury,
+    secondary_injury          = report_secondary_injury,
+    practice_primary_injury, practice_secondary_injury
   )
-}
-
-# season_type/week pairs to pull: regular season weeks 1-18, then playoff
-# weeks mapped onto Sportradar's own PST week numbering (1 = Wild Card,
-# 2 = Divisional, 3 = Conference Championship, 4 = Super Bowl), while still
-# tagging each result with the internal week number (19-22) used everywhere
-# else in this script so joins against team_status_lookup/schedules line up.
-sportradar_week_plan <- bind_rows(
-  tibble(internal_week = 1:18, season_type = "REG", sr_week = 1:18),
-  tibble(internal_week = 19:22, season_type = "PST", sr_week = 1:4)
-)
-
-fetch_sportradar_week_injuries <- function(internal_week, season_type, sr_week) {
-  url <- sprintf(
-    "https://api.sportradar.com/nfl/official/%s/v7/%s/seasons/%d/%s/%02d/injuries.json?api_key=%s",
-    sportradar_access_level, sportradar_lang, season, season_type, sr_week, sportradar_api_key
-  )
-
-  resp <- tryCatch(
-    jsonlite::fromJSON(url, simplifyVector = FALSE),
-    error = function(e) {
-      message(
-        "Sportradar injuries fetch failed for ", season_type, " week ", sr_week,
-        " (internal week ", internal_week, "): ", e$message
-      )
-      NULL
-    }
-  )
-  if (is.null(resp) || is.null(resp$teams)) return(NULL)
-
-  rows <- lapply(resp$teams, function(tm) {
-    players <- tm$players %||% list()
-    lapply(players, function(pl) {
-      injuries_list <- pl$injuries %||% list()
-      lapply(injuries_list, function(inj) {
-        data.frame(
-          sportradar_id  = as.character(pl$id %||% NA_character_),
-          week           = internal_week,
-          report_status  = inj$status %||% NA_character_,
-          primary_injury = inj$primary %||% NA_character_,
-          practice_status = inj$practice$status %||% NA_character_,
-          date_modified  = inj$status_date %||% NA_character_,
-          stringsAsFactors = FALSE
-        )
-      })
-    })
-  })
-
-  rows <- unlist(rows, recursive = FALSE)
-  rows <- unlist(rows, recursive = FALSE)
-  rows <- Filter(Negate(is.null), rows)
-  if (length(rows) == 0) return(NULL)
-  bind_rows(rows)
-}
 
 message(
-  "Fetching Sportradar weekly injuries (", sportradar_access_level, " tier) for ",
-  nrow(sportradar_week_plan), " week(s)..."
+  "Injury rows after cleanup/dedup: ", nrow(injuries),
+  " (", n_distinct(injuries$player_id), " distinct players) for season ", season
 )
-
-raw_sportradar_injuries <- bind_rows(lapply(seq_len(nrow(sportradar_week_plan)), function(i) {
-  wk <- sportradar_week_plan[i, ]
-  # Trial keys are limited to ~1 req/sec; pace requests accordingly. Safe to
-  # keep this pause even on a production key (22 calls/season either way).
-  Sys.sleep(1.1)
-  fetch_sportradar_week_injuries(wk$internal_week, wk$season_type, wk$sr_week)
-}))
-
-message("Sportradar injury rows fetched: ", nrow(raw_sportradar_injuries))
-
-# The nflreadr feed used to have a few data-quality quirks (duplicate
-# player/week rows from mid-week status updates, literal "Note" placeholder
-# values, whitespace-junk strings instead of true blanks). Sportradar's feed
-# is a cleaner official source, but the same defensive handling is kept here
-# since nothing upstream guarantees a single row per player/week (a player
-# could plausibly have more than one injuries[] entry in a week) or that
-# text fields never come back as an empty string instead of null.
-blank_if_junk <- function(x) {
-  x <- trimws(x)
-  dplyr::if_else(x %in% c("", "Note"), NA_character_, x)
-}
-
-injuries <- raw_sportradar_injuries %>%
-  ensure_cols(c("sportradar_id", "week", "date_modified", "report_status",
-                "primary_injury", "practice_status"),
-              fill = NA_character_) %>%
-  mutate(
-    date_modified   = suppressWarnings(as.POSIXct(date_modified, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),
-    report_status   = blank_if_junk(report_status),
-    primary_injury  = blank_if_junk(primary_injury),
-    practice_status = blank_if_junk(practice_status)
-  ) %>%
-  inner_join(sportradar_crosswalk, by = "sportradar_id") %>%
-  group_by(player_id, week) %>%
-  arrange(desc(date_modified), .by_group = TRUE) %>%
-  slice(1) %>%
-  ungroup() %>%
-  transmute(
-    player_id, week,
-    injury_status              = report_status,
-    practice_status,
-    primary_injury,
-    # Not provided as separate fields by Sportradar's documented schema —
-    # see the note above. Left blank rather than fabricated.
-    secondary_injury           = NA_character_,
-    practice_primary_injury    = primary_injury,
-    practice_secondary_injury  = NA_character_
-  )
-
-message("Players matched Sportradar injury -> gsis_id: ", n_distinct(injuries$player_id))
+non_blank_status <- injuries$injury_status[nzchar(injuries$injury_status)]
+message(
+  "Players with a real report_status this season: ", length(non_blank_status),
+  " — breakdown: ",
+  paste(names(table(non_blank_status)), table(non_blank_status), sep = "=", collapse = ", ")
+)
 
 message("Loading snap counts")
 snaps_raw <- nflreadr::load_snap_counts(seasons = season)
@@ -548,6 +430,44 @@ team_week_opponent <- bind_rows(
   schedules_all %>% transmute(week, team = home_team, sched_opponent = away_team),
   schedules_all %>% transmute(week, team = away_team, sched_opponent = home_team)
 ) %>% distinct()
+
+# =====================
+# WEEK COMPLETION LOOKUP (for safe re-export of in-progress weeks)
+# =====================
+# Box-score stats (yards, TDs, etc.) are immutable once a game ends, so
+# skipping re-export of an already-written week's JSON file is a safe and
+# desirable optimization once that week is over (it also avoids re-hitting
+# the ESPN roster endpoints on every run).
+#
+# Injury/practice designations are NOT immutable in the same way: the
+# official report gets updated multiple times across the week (an initial
+# estimate on Wednesday, practice participation Thursday/Friday, a final
+# Friday designation) right up until kickoff. If a week's JSON file already
+# got written earlier in that week — e.g. the pipeline runs right after the
+# previous week's Monday night game, before Wednesday's first injury report
+# for the upcoming week even exists — the old "skip if file exists" logic
+# would leave that file frozen with blank/stale injury data forever, even
+# though `nflreadr::load_injuries()` picks up real designations a day or two
+# later. This is what was producing "injury data is always blank" even for
+# players who were genuinely listed as questionable/doubtful/out.
+#
+# Fix: only treat a week's existing file as safe to skip once EVERY game
+# scheduled for that week has a final score. Otherwise, always regenerate so
+# the latest injury report gets baked in.
+week_completion <- schedules_all %>%
+  group_by(week) %>%
+  summarise(
+    all_games_final = all(!is.na(home_score) & !is.na(away_score)),
+    .groups = "drop"
+  )
+
+week_is_final <- function(w) {
+  hit <- week_completion$all_games_final[week_completion$week == w]
+  # No schedule info at all for this week -> don't risk silently freezing
+  # incomplete data; treat it as not-final so it always regenerates.
+  if (length(hit) == 0) return(FALSE)
+  isTRUE(hit[1])
+}
 
 # =====================
 # OFFENSE PIPELINE
@@ -999,8 +919,8 @@ off_dir <- stats_dir("Offense")
 
 for (w in sort(unique(offense_combined$week))) {
   file_name <- file.path(off_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
-  if (file.exists(file_name)) {
-    message("Skipping (already exists): ", file_name)
+  if (file.exists(file_name) && week_is_final(w)) {
+    message("Skipping (already exists, week is final): ", file_name)
     next
   }
   export_week_json(offense_combined %>% filter(week == w), off_dir, season, w)
@@ -1013,8 +933,8 @@ def_dir <- stats_dir("Defense")
 
 for (w in sort(unique(defense_export$week))) {
   file_name <- file.path(def_dir, sprintf("player_stats_%s_week%02d.json", season, as.integer(w)))
-  if (file.exists(file_name)) {
-    message("Skipping (already exists): ", file_name)
+  if (file.exists(file_name) && week_is_final(w)) {
+    message("Skipping (already exists, week is final): ", file_name)
     next
   }
   export_week_json(defense_export %>% filter(week == w), def_dir, season, w)
