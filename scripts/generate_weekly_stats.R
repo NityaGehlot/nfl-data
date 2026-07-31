@@ -316,7 +316,20 @@ injuries <- injuries_raw %>%
                 "date_modified"), fill = "") %>%
   mutate(gsis_id = trimws(as.character(gsis_id))) %>%
   filter(!is.na(gsis_id), gsis_id != "") %>%
-  mutate(.date_modified_parsed = suppressWarnings(as.POSIXct(date_modified, tz = "UTC"))) %>%
+  mutate(
+    # date_modified from nflverse is consistently ISO-8601
+    # ("2024-09-06T19:05:30Z"), but as.POSIXct() with no explicit format
+    # tries to *auto-detect* the format from the data — and when it can't
+    # confidently settle on one for the whole vector (a stray blank string,
+    # a format change, an NA, etc.) it throws a hard error rather than
+    # returning NA for the offending entries. Passing an explicit format
+    # makes non-matches quietly become NA instead of a fatal error, and the
+    # tryCatch is a safety net in case the source format ever changes again.
+    .date_modified_parsed = tryCatch(
+      as.POSIXct(date_modified, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+      error = function(e) as.POSIXct(rep(NA_character_, length(date_modified)), tz = "UTC")
+    )
+  ) %>%
   arrange(gsis_id, week, desc(.date_modified_parsed)) %>%
   distinct(gsis_id, week, .keep_all = TRUE) %>%
   select(-.date_modified_parsed) %>%
