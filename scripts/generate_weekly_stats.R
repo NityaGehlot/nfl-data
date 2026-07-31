@@ -289,72 +289,16 @@ players <- nflreadr::load_players() %>%
   select(-espn_position, -position_raw)
 
 message("Loading injury data")
-
-# The nflreadr injury feed has a few known data-quality quirks straight from
-# the source (confirmed against injuries_2021-2025.csv on nflverse-data)
-# that need cleaning BEFORE anything downstream trusts these columns:
-#
-#   1. DUPLICATE (player, week) ROWS. A player's status is sometimes updated
-#      mid-week (e.g. Questionable on Saturday -> Out on Sunday) or a
-#      mid-week trade puts them on two teams' reports the same week. Both
-#      show up as separate rows with the same gsis_id/week but different
-#      report_status and a different date_modified. Left-joining against
-#      this as-is silently fans out that player/week into duplicate rows in
-#      the final export and non-deterministically keeps whichever status
-#      happened to sort first. Fix: keep only the most recently modified
-#      row per (player_id, week).
-#
-#   2. LITERAL "Note" VALUES. When a team issues a coach's/media note
-#      instead of a formal designation, report_status/practice_status can
-#      literally equal "Note", with the real explanation (a full sentence)
-#      dumped into report_primary_injury instead of an injury name (e.g.
-#      "Player was ill this morning. Fully expected to play. No game
-#      status."). Treating "Note" as if it were a real status/injury is
-#      wrong, so it's normalized to NA and falls through to the same
-#      ACTIVE/"" defaults used for players with no report at all.
-#
-#   3. WHITESPACE-ONLY "JUNK" VALUES. practice_status in particular
-#      sometimes comes through as a literal "\n    " (newline + spaces)
-#      rather than a true NA or a real value. A plain coalesce(x, "") does
-#      NOT catch this since it isn't NA — it leaks straight into the
-#      exported JSON as garbage whitespace. Fix: trim and treat blank-after-
-#      trim as NA before any downstream coalesce runs.
-blank_if_junk <- function(x) {
-  x <- trimws(x)
-  dplyr::if_else(x %in% c("", "Note"), NA_character_, x)
-}
-
 injuries <- nflreadr::load_injuries(seasons = season) %>%
-  ensure_cols(c("gsis_id", "week", "date_modified", "report_status", "practice_status",
+  ensure_cols(c("gsis_id", "week", "report_status", "practice_status",
                 "report_primary_injury", "report_secondary_injury",
-                "practice_primary_injury", "practice_secondary_injury"),
-              fill = NA_character_) %>%
-  mutate(
-    # date_modified is normally delivered as a proper timestamp (dttm) by
-    # nflreadr; this guards against it ever coming through as character
-    # (e.g. if file_type = "csv" is forced) so the ordering below is safe.
-    date_modified = if (is.character(date_modified)) {
-      as.POSIXct(date_modified, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
-    } else {
-      date_modified
-    },
-    report_status              = blank_if_junk(report_status),
-    practice_status            = blank_if_junk(practice_status),
-    report_primary_injury      = blank_if_junk(report_primary_injury),
-    report_secondary_injury    = blank_if_junk(report_secondary_injury),
-    practice_primary_injury    = blank_if_junk(practice_primary_injury),
-    practice_secondary_injury  = blank_if_junk(practice_secondary_injury)
-  ) %>%
-  group_by(gsis_id, week) %>%
-  arrange(desc(date_modified), .by_group = TRUE) %>%
-  slice(1) %>%
-  ungroup() %>%
+                "practice_primary_injury", "practice_secondary_injury"), fill = "") %>%
   transmute(
     player_id                 = gsis_id, week,
-    injury_status              = report_status,
+    injury_status             = report_status,
     practice_status,
-    primary_injury              = report_primary_injury,
-    secondary_injury            = report_secondary_injury,
+    primary_injury            = report_primary_injury,
+    secondary_injury          = report_secondary_injury,
     practice_primary_injury, practice_secondary_injury
   )
 
@@ -921,3 +865,5 @@ for (w in sort(unique(defense_export$week))) {
 }
 
 message("✅ All weekly JSON files generated successfully.")
+
+
