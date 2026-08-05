@@ -622,7 +622,12 @@ offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
     snap_count                = coalesce(snap_count, 0L),
-    game_played               = snap_count > 0,
+    # Snap counts are the primary signal, but only available from 2012+ (and
+    # can still be sparse/unreliable even when present). If snap_count is 0,
+    # fall back to checking whether the player recorded any real stat that
+    # week (a completion, a carry, a catch, a made kick, etc.) — if so, they
+    # clearly played regardless of what the snap data says.
+    game_played                = snap_count > 0 | if_any(all_of(off_stat_cols), ~ .x > 0),
     team_status               = coalesce(team_status, "played"),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
@@ -989,7 +994,11 @@ individual_def_df <- expand.grid(player_id = players_def$player_id, week = def_w
   mutate(
     fantasy_points_ppr        = coalesce(fantasy_points_ppr, 0),
     snap_count                = coalesce(snap_count, 0L),
-    game_played               = snap_count > 0,
+    # Same fallback as the offense pipeline: snap_count is the primary
+    # signal, but if it's 0, check whether the player recorded any real
+    # defensive stat that week (a tackle, a sack, an INT, etc.) before
+    # concluding they didn't play.
+    game_played                = snap_count > 0 | if_any(all_of(def_stat_cols), ~ .x > 0),
     team_status               = coalesce(team_status, "played"),
     opponent_team             = coalesce(opponent_team, ""),
     injury_status             = coalesce(injury_status, "ACTIVE"),
