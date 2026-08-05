@@ -91,6 +91,41 @@ normalize_off_position <- function(pos) {
   dplyr::if_else(pos %in% c("K", "PK"), "K", pos)
 }
 
+# Several nflreadr endpoints only cover a subset of seasons — e.g.
+# load_snap_counts() hard-errors with "seasons >= 2012 is not TRUE" for
+# anything older, and other endpoints have their own (undocumented-in-code,
+# sometimes-changing) earliest supported season. Rather than hardcoding a
+# minimum year per endpoint (which drifts out of date as nflverse adds more
+# backfilled history), wrap every season-scoped call: if it errors for any
+# reason, log it and move on with an empty result instead of halting the
+# whole script. Every downstream section is written to tolerate an empty
+# input for its corresponding data source (defaults/coalesces kick in), so
+# whatever endpoints DO cover the requested season still make it into the
+# exported JSON.
+safe_load <- function(expr_fn, label) {
+  tryCatch(
+    expr_fn(),
+    error = function(e) {
+      message(
+        "⚠ ", label, " is not available for season ", season, " (",
+        conditionMessage(e), ") — continuing without this data source."
+      )
+      NULL
+    }
+  )
+}
+
+# Shared empty-result shape for the two load_player_stats() calls (offense
+# stat_type is the default, defense via stat_type = "defense") — just enough
+# columns for the rest of the pipeline to run on 0 rows without erroring;
+# ensure_cols() fills in every position-specific stat column afterward.
+empty_player_stat_shell <- function() {
+  tibble(
+    player_id = character(0), week = integer(0), position = character(0),
+    fantasy_points_ppr = double(0)
+  )
+}
+
 # =====================
 # POSITION COLUMN SCHEMAS
 # =====================
@@ -267,7 +302,13 @@ message("Players matched to ESPN current team: ", nrow(espn_team_lookup))
 # LOAD & PREP SHARED DATA
 # =====================
 message("Loading weekly player stats")
-weekly <- nflreadr::load_player_stats(seasons = season) %>%
+weekly <- safe_load(
+  function() nflreadr::load_player_stats(seasons = season),
+  "Weekly player stats (offense)"
+)
+if (is.null(weekly)) weekly <- empty_player_stat_shell()
+weekly <- weekly %>%
+  ensure_cols(c("player_id", "week", "position", "fantasy_points_ppr"), fill = NA) %>%
   mutate(position = normalize_off_position(position))
 
 message("Loading player metadata")
@@ -306,7 +347,19 @@ players <- nflreadr::load_players() %>%
 #     left_join into duplicate rows. We keep only the most-recently-modified
 #     row per player+week so the join is always 1:1.
 message("Loading injury data")
-injuries_raw <- nflreadr::load_injuries(seasons = season)
+injuries_raw <- safe_load(
+  function() nflreadr::load_injuries(seasons = season),
+  "Injury data"
+)
+if (is.null(injuries_raw)) {
+  injuries_raw <- tibble(
+    gsis_id = character(0), week = integer(0),
+    report_status = character(0), practice_status = character(0),
+    report_primary_injury = character(0), report_secondary_injury = character(0),
+    practice_primary_injury = character(0), practice_secondary_injury = character(0),
+    date_modified = character(0)
+  )
+}
 message("Injury rows loaded from nflreadr: ", nrow(injuries_raw))
 
 injuries <- injuries_raw %>%
@@ -354,7 +407,17 @@ message(
 )
 
 message("Loading snap counts")
-snaps_raw <- nflreadr::load_snap_counts(seasons = season)
+snaps_raw <- safe_load(
+  function() nflreadr::load_snap_counts(seasons = season),
+  "Snap counts (nflreadr only supports 2012+)"
+)
+if (is.null(snaps_raw)) {
+  snaps_raw <- tibble(
+    pfr_player_id = character(0), week = integer(0),
+    team = character(0), opponent = character(0),
+    offense_snaps = integer(0), defense_snaps = integer(0)
+  )
+}
 
 pfr_bridge <- nflreadr::load_players() %>%
   filter(!is.na(gsis_id), !is.na(pfr_id)) %>%
@@ -392,7 +455,17 @@ defense_snaps <- snaps_raw %>%
 # TEAM STATUS LOOKUP (bye-week / played / eliminated)
 # =====================
 message("Loading schedules for team status")
-schedules_all <- nflreadr::load_schedules(seasons = season)
+schedules_all <- safe_load(
+  function() nflreadr::load_schedules(seasons = season),
+  "Schedules"
+)
+if (is.null(schedules_all)) {
+  schedules_all <- tibble(
+    season = double(0), week = integer(0), game_type = character(0),
+    home_team = character(0), away_team = character(0),
+    home_score = double(0), away_score = double(0)
+  )
+}
 
 reg_season_weeks  <- 1:18
 playoff_weeks     <- 19:22
@@ -510,6 +583,13 @@ weekly_off  <- weekly  %>% filter(position %in% offense_positions) %>%
   ))
 
 all_weeks <- sort(unique(weekly_off$week))
+if (length(all_weeks) == 0) {
+  message(
+    "No weekly offense stat rows for season ", season,
+    " — falling back to the season's scheduled weeks so JSON files can still be generated."
+  )
+  all_weeks <- all_weeks_sched
+}
 
 offense_df <- expand.grid(player_id = players_off$player_id, week = all_weeks,
                            stringsAsFactors = FALSE) %>%
@@ -619,7 +699,19 @@ def_teams <- bind_rows(
 )
 
 message("Loading team stats")
-team_weekly <- nflreadr::load_team_stats(seasons = season)
+team_weekly <- safe_load(
+  function() nflreadr::load_team_stats(seasons = season),
+  "Team stats (for DEF)"
+)
+if (is.null(team_weekly)) {
+  team_weekly <- tibble(
+    season = double(0), week = integer(0), team = character(0),
+    def_fumbles_forced = double(0), def_sacks = double(0), def_interceptions = double(0),
+    def_tds = double(0), def_safeties = double(0), fumble_recovery_opp = double(0),
+    passing_yards = double(0), passing_tds = double(0),
+    rushing_yards = double(0), rushing_tds = double(0)
+  )
+}
 
 opponent_stats <- team_weekly %>%
   select(season, week, team, passing_yards, passing_tds, rushing_yards, rushing_tds) %>%
@@ -712,7 +804,11 @@ team_def <- bind_rows(team_def_played, team_def_missing) %>%
 message("Loading individual defensive player stats")
 def_positions <- c("DL", "LB", "CB", "S")
 
-weekly_def_raw <- nflreadr::load_player_stats(seasons = season, stat_type = "defense")
+weekly_def_raw <- safe_load(
+  function() nflreadr::load_player_stats(seasons = season, stat_type = "defense"),
+  "Weekly player stats (defense)"
+)
+if (is.null(weekly_def_raw)) weekly_def_raw <- empty_player_stat_shell()
 
 message("Raw def positions found: ", paste(sort(unique(weekly_def_raw$position)), collapse = ", "))
 
