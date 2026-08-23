@@ -242,7 +242,7 @@ Top-level structure: a **JSON array** of article objects, sorted by impact score
 
 ## Roadmap
 
-- [ ] Add historical seasons (2020–2024) to the data archive
+- [ ] Add historical seasons (2011–2024) to the data archive
 - [ ] Compute season-to-date aggregate stats per player
 - [ ] Add a `POST /draft` endpoint or draft rankings export
 - [ ] Replace Google News RSS with a dedicated NFL news API for richer metadata
