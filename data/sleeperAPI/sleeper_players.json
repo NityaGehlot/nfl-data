@@ -415,7 +415,7 @@
     "position_for_FFHelper": "S",
     "team": "BUF",
     "depth_chart_order": 99,
-    "search_rank": 377,
+    "search_rank": 379,
     "years_exp": 6,
     "status": "Active"
   },
@@ -610,7 +610,7 @@
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "DB",
     "team": "TB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "search_rank": 687,
     "years_exp": 1,
     "status": "Active"
@@ -861,7 +861,7 @@
     "position_listed_on_sleeper": "WR",
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
-    "team": "SF",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 524,
     "years_exp": 8,
@@ -3327,7 +3327,7 @@
     "position_for_FFHelper": "DT",
     "team": "SEA",
     "depth_chart_order": 1,
-    "search_rank": 370,
+    "search_rank": 372,
     "years_exp": 11,
     "status": "Active"
   },
@@ -3844,7 +3844,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "GB",
-    "depth_chart_order": 5,
+    "depth_chart_order": 3,
     "search_rank": 631,
     "years_exp": 4,
     "status": "Active"
@@ -4838,7 +4838,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "WAS",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 156,
     "years_exp": 0,
     "status": "Active"
@@ -6225,7 +6225,7 @@
     "position_for_FFHelper": "DB",
     "team": "KC",
     "depth_chart_order": 1,
-    "search_rank": 345,
+    "search_rank": 343,
     "years_exp": 0,
     "status": "Active"
   },
@@ -6447,7 +6447,7 @@
     "position_listed_on_sleeper": "DL",
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "DL",
-    "team": "MIA",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 1,
@@ -7050,7 +7050,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 572,
     "years_exp": 1,
     "status": "Active"
@@ -7317,7 +7317,7 @@
     "position_for_FFHelper": "WR",
     "team": "MIA",
     "depth_chart_order": 1,
-    "search_rank": 177,
+    "search_rank": 176,
     "years_exp": 2,
     "status": "Active"
   },
@@ -8016,7 +8016,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "PHI",
-    "depth_chart_order": 2,
+    "depth_chart_order": 99,
     "search_rank": 657,
     "years_exp": 15,
     "status": "Active"
@@ -8464,7 +8464,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "GB",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "search_rank": 450,
     "years_exp": 3,
     "status": "Active"
@@ -8646,7 +8646,7 @@
     "position_listed_on_nflreadr": "FB",
     "position_for_FFHelper": "FB",
     "team": "NYJ",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 614,
     "years_exp": 7,
     "status": "Active"
@@ -8926,7 +8926,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "BAL",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 999,
     "years_exp": 10,
     "status": "Active"
@@ -12469,7 +12469,7 @@
     "position_for_FFHelper": "QB",
     "team": "CHI",
     "depth_chart_order": 99,
-    "search_rank": 252,
+    "search_rank": 253,
     "years_exp": 0,
     "status": "Active"
   },
@@ -12874,7 +12874,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "BAL",
-    "depth_chart_order": 4,
+    "depth_chart_order": 5,
     "search_rank": 201,
     "years_exp": 0,
     "status": "Active"
@@ -14135,7 +14135,7 @@
     "position_for_FFHelper": "WR",
     "team": "LAC",
     "depth_chart_order": 1,
-    "search_rank": 34,
+    "search_rank": 36,
     "years_exp": 2,
     "status": "Active"
   },
@@ -14863,7 +14863,7 @@
     "position_for_FFHelper": "QB",
     "team": "DEN",
     "depth_chart_order": 3,
-    "search_rank": 461,
+    "search_rank": 463,
     "years_exp": 5,
     "status": "Active"
   },
@@ -15409,7 +15409,7 @@
     "position_for_FFHelper": "WR",
     "team": "CHI",
     "depth_chart_order": 2,
-    "search_rank": 65,
+    "search_rank": 63,
     "years_exp": 2,
     "status": "Active"
   },
@@ -17117,7 +17117,7 @@
     "position_for_FFHelper": "WR",
     "team": "TB",
     "depth_chart_order": 2,
-    "search_rank": 88,
+    "search_rank": 87,
     "years_exp": 9,
     "status": "Active"
   },
@@ -20463,7 +20463,7 @@
     "position_for_FFHelper": "TE",
     "team": "NYG",
     "depth_chart_order": 1,
-    "search_rank": 105,
+    "search_rank": 106,
     "years_exp": 4,
     "status": "Active"
   },
@@ -21288,7 +21288,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "WAS",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 616,
     "years_exp": 5,
     "status": "Active"
@@ -21610,7 +21610,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "MIA",
-    "depth_chart_order": 5,
+    "depth_chart_order": 6,
     "search_rank": 617,
     "years_exp": 4,
     "status": "Active"
@@ -23486,7 +23486,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 7,
+    "depth_chart_order": 6,
     "search_rank": 596,
     "years_exp": 4,
     "status": "Active"
@@ -23710,7 +23710,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 502,
     "years_exp": 3,
     "status": "Active"
@@ -23766,7 +23766,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 2,
+    "depth_chart_order": 6,
     "search_rank": 171,
     "years_exp": 4,
     "status": "Active"
@@ -25923,7 +25923,7 @@
     "position_for_FFHelper": "TE",
     "team": "SF",
     "depth_chart_order": 99,
-    "search_rank": 426,
+    "search_rank": 428,
     "years_exp": 0,
     "status": "Active"
   },
@@ -26147,7 +26147,7 @@
     "position_for_FFHelper": "TE",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 48,
+    "search_rank": 47,
     "years_exp": 1,
     "status": "Active"
   },
@@ -26371,7 +26371,7 @@
     "position_for_FFHelper": "DE",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 273,
+    "search_rank": 271,
     "years_exp": 2,
     "status": "Active"
   },
@@ -28317,7 +28317,7 @@
     "position_for_FFHelper": "QB",
     "team": "ARI",
     "depth_chart_order": 3,
-    "search_rank": 289,
+    "search_rank": 287,
     "years_exp": 0,
     "status": "Active"
   },
@@ -29563,7 +29563,7 @@
     "position_for_FFHelper": "LB",
     "team": "DEN",
     "depth_chart_order": 1,
-    "search_rank": 489,
+    "search_rank": 491,
     "years_exp": 5,
     "status": "Active"
   },
@@ -30458,7 +30458,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "WAS",
-    "depth_chart_order": 6,
+    "depth_chart_order": 5,
     "search_rank": 620,
     "years_exp": 2,
     "status": "Active"
@@ -30837,7 +30837,7 @@
     "position_for_FFHelper": "RB",
     "team": "SEA",
     "depth_chart_order": 99,
-    "search_rank": 545,
+    "search_rank": 544,
     "years_exp": 0,
     "status": "Active"
   },
@@ -31382,7 +31382,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "WAS",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 679,
     "years_exp": 4,
     "status": "Active"
@@ -31858,8 +31858,8 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 6,
-    "search_rank": 681,
+    "depth_chart_order": 5,
+    "search_rank": 680,
     "years_exp": 5,
     "status": "Active"
   },
@@ -33006,7 +33006,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "DEN",
-    "depth_chart_order": 99,
+    "depth_chart_order": 5,
     "search_rank": 630,
     "years_exp": 7,
     "status": "Active"
@@ -33021,7 +33021,7 @@
     "position_for_FFHelper": "LB",
     "team": "ARI",
     "depth_chart_order": 2,
-    "search_rank": 475,
+    "search_rank": 477,
     "years_exp": 1,
     "status": "Active"
   },
@@ -34112,7 +34112,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "TB",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "search_rank": 602,
     "years_exp": 7,
     "status": "Active"
@@ -37654,7 +37654,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "PHI",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 474,
     "years_exp": 0,
     "status": "Active"
@@ -39867,7 +39867,7 @@
     "position_for_FFHelper": "S",
     "team": "BUF",
     "depth_chart_order": 1,
-    "search_rank": 314,
+    "search_rank": 316,
     "years_exp": 2,
     "status": "Active"
   },
@@ -40693,7 +40693,7 @@
     "position_for_FFHelper": "DB",
     "team": "GB",
     "depth_chart_order": 1,
-    "search_rank": 510,
+    "search_rank": 512,
     "years_exp": 0,
     "status": "Active"
   },
@@ -41197,7 +41197,7 @@
     "position_for_FFHelper": "LB",
     "team": "LV",
     "depth_chart_order": 1,
-    "search_rank": 177,
+    "search_rank": 175,
     "years_exp": 4,
     "status": "Active"
   },
@@ -42204,7 +42204,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "PHI",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "search_rank": 11,
     "years_exp": 8,
     "status": "Active"
@@ -43465,7 +43465,7 @@
     "position_for_FFHelper": "LB",
     "team": "DEN",
     "depth_chart_order": 1,
-    "search_rank": 265,
+    "search_rank": 263,
     "years_exp": 11,
     "status": "Active"
   },
@@ -48057,7 +48057,7 @@
     "position_for_FFHelper": "RB",
     "team": "JAX",
     "depth_chart_order": 2,
-    "search_rank": 125,
+    "search_rank": 127,
     "years_exp": 3,
     "status": "Active"
   },
@@ -48407,7 +48407,7 @@
     "position_for_FFHelper": "WR",
     "team": "BUF",
     "depth_chart_order": 1,
-    "search_rank": 48,
+    "search_rank": 50,
     "years_exp": 8,
     "status": "Active"
   },
@@ -54104,7 +54104,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 4,
+    "depth_chart_order": 7,
     "search_rank": 33,
     "years_exp": 5,
     "status": "Active"
@@ -55015,7 +55015,7 @@
     "position_for_FFHelper": "S",
     "team": "CAR",
     "depth_chart_order": 1,
-    "search_rank": 237,
+    "search_rank": 239,
     "years_exp": 5,
     "status": "Active"
   },
@@ -55308,7 +55308,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 336,
     "years_exp": 6,
     "status": "Active"
@@ -55812,7 +55812,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 2,
+    "depth_chart_order": 5,
     "search_rank": 697,
     "years_exp": 9,
     "status": "Active"
@@ -55882,7 +55882,7 @@
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "WR",
     "team": "NYJ",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 580,
     "years_exp": 0,
     "status": "Active"
@@ -56092,7 +56092,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 685,
     "years_exp": 7,
     "status": "Active"
@@ -56289,7 +56289,7 @@
     "position_for_FFHelper": "CB",
     "team": "PHI",
     "depth_chart_order": 1,
-    "search_rank": 216,
+    "search_rank": 218,
     "years_exp": 2,
     "status": "Active"
   },
@@ -57955,7 +57955,7 @@
     "position_for_FFHelper": "TE",
     "team": "CLE",
     "depth_chart_order": 2,
-    "search_rank": 417,
+    "search_rank": 416,
     "years_exp": 3,
     "status": "Active"
   },
@@ -58851,7 +58851,7 @@
     "position_for_FFHelper": "WR",
     "team": "SEA",
     "depth_chart_order": 3,
-    "search_rank": 195,
+    "search_rank": 197,
     "years_exp": 9,
     "status": "Active"
   },
@@ -62309,7 +62309,7 @@
     "position_for_FFHelper": "DL",
     "team": "DAL",
     "depth_chart_order": 2,
-    "search_rank": 465,
+    "search_rank": 463,
     "years_exp": 0,
     "status": "Active"
   },
@@ -65975,7 +65975,7 @@
     "position_listed_on_sleeper": "RB",
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
-    "team": "WAS",
+    "team": "MIA",
     "depth_chart_order": 99,
     "search_rank": 157,
     "years_exp": 0,
@@ -67125,7 +67125,7 @@
     "position_for_FFHelper": "S",
     "team": "PIT",
     "depth_chart_order": 1,
-    "search_rank": 398,
+    "search_rank": 400,
     "years_exp": 4,
     "status": "Active"
   },
@@ -68692,7 +68692,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "PHI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 666,
     "years_exp": 4,
     "status": "Active"
@@ -69924,7 +69924,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "NYJ",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 696,
     "years_exp": 5,
     "status": "Active"
@@ -70485,7 +70485,7 @@
     "position_for_FFHelper": "LB",
     "team": "DEN",
     "depth_chart_order": 1,
-    "search_rank": 140,
+    "search_rank": 141,
     "years_exp": 4,
     "status": "Active"
   },
@@ -70627,20 +70627,6 @@
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 2,
-    "status": "Active"
-  },
-  {
-    "player_id": "12492",
-    "first_name": "Pat",
-    "last_name": "Bryant",
-    "full_name": "Pat Bryant",
-    "position_listed_on_sleeper": "WR",
-    "position_listed_on_nflreadr": "WR",
-    "position_for_FFHelper": "WR",
-    "team": "DEN",
-    "depth_chart_order": 7,
-    "search_rank": 172,
-    "years_exp": 1,
     "status": "Active"
   },
   {
@@ -72416,8 +72402,8 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "WAS",
-    "depth_chart_order": 2,
-    "search_rank": 105,
+    "depth_chart_order": 6,
+    "search_rank": 103,
     "years_exp": 11,
     "status": "Active"
   },
@@ -73285,7 +73271,7 @@
     "position_for_FFHelper": "FB",
     "team": "LAC",
     "depth_chart_order": 4,
-    "search_rank": 601,
+    "search_rank": 599,
     "years_exp": 7,
     "status": "Active"
   },
@@ -73788,7 +73774,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "CHI",
-    "depth_chart_order": 2,
+    "depth_chart_order": 6,
     "search_rank": 61,
     "years_exp": 1,
     "status": "Active"
@@ -78773,7 +78759,7 @@
     "position_for_FFHelper": "LB",
     "team": "BUF",
     "depth_chart_order": 2,
-    "search_rank": 461,
+    "search_rank": 463,
     "years_exp": 0,
     "status": "Active"
   },
@@ -80131,7 +80117,7 @@
     "position_for_FFHelper": "TE",
     "team": "LV",
     "depth_chart_order": 3,
-    "search_rank": 553,
+    "search_rank": 551,
     "years_exp": 8,
     "status": "Active"
   },
@@ -80411,7 +80397,7 @@
     "position_for_FFHelper": "WR",
     "team": "CHI",
     "depth_chart_order": 5,
-    "search_rank": 377,
+    "search_rank": 375,
     "years_exp": 0,
     "status": "Active"
   },
@@ -80617,10 +80603,10 @@
     "last_name": "Okoronkwo",
     "full_name": "Ogbo Okoronkwo",
     "position_listed_on_sleeper": "LB",
-    "position_listed_on_nflreadr": "LB",
-    "position_for_FFHelper": "LB",
+    "position_listed_on_nflreadr": "DE",
+    "position_for_FFHelper": "DE",
     "team": "SF",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "search_rank": 999,
     "years_exp": 8,
     "status": "Active"
@@ -81376,7 +81362,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 195,
     "years_exp": 1,
     "status": "Active"
@@ -82272,7 +82258,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 676,
     "years_exp": 4,
     "status": "Active"
@@ -82383,7 +82369,7 @@
     "position_listed_on_sleeper": "RB",
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
-    "team": "DAL",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 502,
     "years_exp": 3,
@@ -83057,7 +83043,7 @@
     "position_for_FFHelper": "QB",
     "team": "MIA",
     "depth_chart_order": 1,
-    "search_rank": 119,
+    "search_rank": 120,
     "years_exp": 4,
     "status": "Active"
   },
@@ -84009,7 +83995,7 @@
     "position_for_FFHelper": "DL",
     "team": "TEN",
     "depth_chart_order": 2,
-    "search_rank": 321,
+    "search_rank": 323,
     "years_exp": 0,
     "status": "Active"
   },
@@ -84611,7 +84597,7 @@
     "position_for_FFHelper": "RB",
     "team": "CIN",
     "depth_chart_order": 1,
-    "search_rank": 14,
+    "search_rank": 15,
     "years_exp": 3,
     "status": "Active"
   },
@@ -84765,7 +84751,7 @@
     "position_for_FFHelper": "TE",
     "team": "SEA",
     "depth_chart_order": 3,
-    "search_rank": 454,
+    "search_rank": 456,
     "years_exp": 1,
     "status": "Active"
   },
@@ -85100,7 +85086,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "CLE",
-    "depth_chart_order": 6,
+    "depth_chart_order": 7,
     "search_rank": 670,
     "years_exp": 5,
     "status": "Active"
@@ -85605,7 +85591,7 @@
     "position_for_FFHelper": "LB",
     "team": "MIN",
     "depth_chart_order": 1,
-    "search_rank": 230,
+    "search_rank": 232,
     "years_exp": 7,
     "status": "Active"
   },
@@ -86626,7 +86612,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "PHI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 677,
     "years_exp": 3,
     "status": "Active"
@@ -88167,7 +88153,7 @@
     "position_for_FFHelper": "LB",
     "team": "PHI",
     "depth_chart_order": 1,
-    "search_rank": 137,
+    "search_rank": 135,
     "years_exp": 6,
     "status": "Active"
   },
@@ -88250,7 +88236,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NYJ",
-    "depth_chart_order": 3,
+    "depth_chart_order": 7,
     "search_rank": 162,
     "years_exp": 2,
     "status": "Active"
@@ -89857,9 +89843,9 @@
     "last_name": "Amadi",
     "full_name": "Ugo Amadi",
     "position_listed_on_sleeper": "DB",
-    "position_listed_on_nflreadr": null,
-    "position_for_FFHelper": "DB",
-    "team": null,
+    "position_listed_on_nflreadr": "S",
+    "position_for_FFHelper": "S",
+    "team": "DEN",
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 7,
@@ -90266,7 +90252,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "IND",
-    "depth_chart_order": 7,
+    "depth_chart_order": 6,
     "search_rank": 573,
     "years_exp": 2,
     "status": "Active"
@@ -91610,7 +91596,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "MIA",
-    "depth_chart_order": 6,
+    "depth_chart_order": 5,
     "search_rank": 627,
     "years_exp": 3,
     "status": "Active"
@@ -94508,7 +94494,7 @@
     "position_listed_on_nflreadr": "CB",
     "position_for_FFHelper": "CB",
     "team": "DAL",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 2,
     "status": "Active"
@@ -94915,7 +94901,7 @@
     "position_for_FFHelper": "LB",
     "team": "TEN",
     "depth_chart_order": 1,
-    "search_rank": 229,
+    "search_rank": 230,
     "years_exp": 0,
     "status": "Active"
   },
@@ -95195,7 +95181,7 @@
     "position_for_FFHelper": "WR",
     "team": "BUF",
     "depth_chart_order": 6,
-    "search_rank": 384,
+    "search_rank": 386,
     "years_exp": 0,
     "status": "Active"
   },
@@ -97476,7 +97462,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "CHI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 681,
     "years_exp": 3,
     "status": "Active"
@@ -97785,7 +97771,7 @@
     "position_for_FFHelper": "QB",
     "team": "CHI",
     "depth_chart_order": 2,
-    "search_rank": 20,
+    "search_rank": 22,
     "years_exp": 2,
     "status": "Active"
   },
@@ -103566,7 +103552,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "IND",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 541,
     "years_exp": 7,
     "status": "Active"
@@ -104028,7 +104014,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 502,
     "years_exp": 0,
     "status": "Active"
@@ -105890,7 +105876,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "CLE",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 553,
     "years_exp": 0,
     "status": "Active"
@@ -106268,7 +106254,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "CLE",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "search_rank": 600,
     "years_exp": 0,
     "status": "Active"
@@ -110357,7 +110343,7 @@
     "position_for_FFHelper": "DL",
     "team": "LAC",
     "depth_chart_order": 2,
-    "search_rank": 328,
+    "search_rank": 330,
     "years_exp": 0,
     "status": "Active"
   },
@@ -110905,20 +110891,6 @@
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 0,
-    "status": "Active"
-  },
-  {
-    "player_id": "7639",
-    "first_name": "Rashawn",
-    "last_name": "Slater",
-    "full_name": "Rashawn Slater",
-    "position_listed_on_sleeper": "T",
-    "position_listed_on_nflreadr": null,
-    "position_for_FFHelper": "T",
-    "team": "LAC",
-    "depth_chart_order": 99,
-    "search_rank": 9999999,
-    "years_exp": 5,
     "status": "Active"
   },
   {
@@ -112121,7 +112093,7 @@
     "position_for_FFHelper": "DB",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 313,
+    "search_rank": 311,
     "years_exp": 0,
     "status": "Active"
   },
@@ -112148,7 +112120,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "NYJ",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "search_rank": 27,
     "years_exp": 4,
     "status": "Active"
@@ -113268,7 +113240,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "IND",
-    "depth_chart_order": 6,
+    "depth_chart_order": 5,
     "search_rank": 670,
     "years_exp": 0,
     "status": "Active"
@@ -113730,7 +113702,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "IND",
-    "depth_chart_order": 4,
+    "depth_chart_order": 7,
     "search_rank": 697,
     "years_exp": 7,
     "status": "Active"
@@ -116055,7 +116027,7 @@
     "position_for_FFHelper": "LB",
     "team": "CIN",
     "depth_chart_order": 1,
-    "search_rank": 356,
+    "search_rank": 358,
     "years_exp": 1,
     "status": "Active"
   },
@@ -116362,7 +116334,7 @@
     "position_listed_on_nflreadr": "S",
     "position_for_FFHelper": "S",
     "team": "DAL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 4,
     "status": "Active"
