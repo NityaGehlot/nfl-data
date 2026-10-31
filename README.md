@@ -29,7 +29,7 @@ Fantasy platforms show you stats, but they lock them behind paywalls or propriet
 | File | Updated | Description |
 |------|---------|-------------|
 | `data/player_stats_{season}_week{NN}.json` | Every Tuesday UTC | Per-player stats for a single week (QB/RB/WR/TE/K/DEF). One file per week. |
-| `data/nfl_news.json` | Every 6 hours | Up to 220 recent news articles, player-tagged, impact-scored, deduped. |
+| `data/news/news_{position}.json` | Every 6 hours | Recent articles per position group (`qb`, `rb`, `wr`, `te`, `k`, defense and OL groups). Only articles whose headline names the player; each has a category, impact and short summary. |
 
 These files are deployed to **GitHub Pages** on every push to `main`, making them accessible via a public URL for any front-end.
 
@@ -63,7 +63,7 @@ GitHub Actions (schedule)
         │       └─ scripts/generate_nfl_news.R
         │               ├── Sleeper API  (active players)
         │               └── Google News RSS (per-player queries)
-        │               └─▶ data/nfl_news.json
+        │               └─▶ data/news/news_{position}.json
         │
         └── pages.yml         (on push to main)
                 └─▶ GitHub Pages (serves data/ as public JSON)
@@ -90,6 +90,8 @@ nfl-data/
 ├── scripts/
 │   ├── generate_weekly_stats.R   # Pulls stats from nflreadr, writes per-week JSON
 │   ├── generate_nfl_news.R       # Fetches player news via Google News RSS
+│   ├── news_helpers.R            # Date parsing, relevance + headline classification for news
+│   ├── tests/                    # Offline tests for the news helpers
 │   ├── validate_data.R           # Schema checks for generated JSON files
 │   └── install_packages.R        # Documents and installs all R dependencies
 │
@@ -97,7 +99,7 @@ nfl-data/
 │   ├── player_stats_2025_week01.json  # Week 1 player stats (example)
 │   ├── ...
 │   ├── player_stats_2025_week22.json  # Week 22 player stats
-│   └── nfl_news.json                  # Latest NFL news feed
+│   └── news/news_{position}.json      # Latest NFL news per position group
 │
 ├── .github/
 │   └── workflows/
@@ -142,15 +144,24 @@ Writes `data/player_stats_{year}_week{NN}.json` for every week available in the 
 Rscript scripts/generate_nfl_news.R
 ```
 
-Writes `data/nfl_news.json` with up to 220 recent articles.
+Writes `data/news/news_{position}.json` (up to 2 articles per player).
+
+Test the news parsing/classification logic offline:
+
+```bash
+Rscript scripts/tests/test_news_helpers.R
+Rscript scripts/tests/test_fetch_google.R
+```
 
 ### Validate Output
 
 ```bash
-Rscript scripts/validate_data.R
+Rscript scripts/validate_data.R               # latest season's stats + all news files
+Rscript scripts/validate_data.R --season 2025 # one season
+Rscript scripts/validate_data.R --all         # every season (~1 minute)
 ```
 
-Checks each generated JSON file against the expected schema and prints a pass/fail summary.
+Checks the stats files under `data/Stats/` and the news files under `data/news/` against the expected schema and prints a pass/fail summary. It also warns when every article shares one date (a sign RSS dates failed to parse).
 
 ---
 
@@ -213,25 +224,29 @@ Top-level structure: a **JSON array** of player objects. One object per player p
 
 ---
 
-### News Feed (`nfl_news.json`)
+### News Feed (`data/news/news_{position}.json`)
 
-Top-level structure: a **JSON array** of article objects, sorted by impact score descending.
+Top-level structure: a **JSON array** of article objects, newest first for each player.
 
 | Field | Type | Values |
 |-------|------|--------|
-| `title` | string | Article headline |
-| `summary` | string | Truncated headline (≤ 180 chars) |
+| `title` | string | Article headline (source name removed) |
+| `source` | string | Publisher, e.g. `"ESPN"` (omitted if unknown) |
 | `link` | string | Google News redirect URL |
-| `published` | string | RFC 2822 date (`"Mon, 20 Apr 2026 ..."`) |
-| `source` | string | `"GoogleNews"` |
-| `players_mentioned` | string\[] | `["Patrick Mahomes"]` |
+| `published` | string | `YYYY-MM-DD` (omitted if the feed date can't be parsed) |
+| `player` | string | Player the article is about (the headline names him) |
+| `category` | string | `"injury"` / `"injury_return"` / `"transaction"` / `"suspension"` / `"performance"` / `"fantasy_advice"` / `"general"` |
 | `impact` | string | `"negative"` / `"slightly_negative"` / `"roster_move"` / `"positive"` / `"neutral"` |
+| `summary` | string | One-sentence overview generated from the headline, e.g. `"Saquon Barkley is dealing with an injury (ankle) that could keep him out. Check his status before lineups lock."` |
+
+Impact and category come from whole-word keyword rules in `scripts/news_helpers.R`, applied only to the part of the headline that names the player.
 
 ---
 
 ## Known Limitations
 
-- **Season hard-coding**: `generate_nfl_news.R` has `SEASON_START` set to `2025-09-04`. Update this each year.
+- **News season window**: `generate_nfl_news.R` keeps articles from September 1 of the current NFL season onward (computed automatically).
+- **News summaries**: Summaries are generated from the headline only (Google News links don't expose article text), so they describe what the headline says, not the full article.
 - **Google News rate limiting**: The news script inserts a 1-second delay between queries to avoid throttling; large batches may still time out.
 - **Sleeper API**: The player list is unversioned and may include stale entries; the script filters for `status == "Active"` to mitigate this.
 - **Kicker stats**: The `fg_made_20_29` column in the source data is inconsistently named (`fgm_made_20_29` vs `fg_made_20_29`); the script handles this with a safe-column fallback.

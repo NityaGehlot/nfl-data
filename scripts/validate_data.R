@@ -1,6 +1,8 @@
 # scripts/validate_data.R
 # Schema validation for generated JSON files.
-# Usage: Rscript scripts/validate_data.R
+# Usage: Rscript scripts/validate_data.R            (latest season's stats + all news)
+#        Rscript scripts/validate_data.R --all      (every season)
+#        Rscript scripts/validate_data.R --season 2025
 # Exit code: 0 = all pass, 1 = one or more failures.
 
 library(jsonlite)
@@ -11,7 +13,8 @@ REQUIRED_COMMON_FIELDS <- c(
   "fantasy_points_ppr", "injury_status"
 )
 
-VALID_POSITIONS <- c("QB", "RB", "WR", "TE", "K", "DEF")
+# Offense + team defense, plus individual defensive players (IDP) in the Defense files
+VALID_POSITIONS <- c("QB", "RB", "WR", "TE", "K", "DEF", "DL", "LB", "CB", "S", "DB")
 
 POSITION_FIELDS <- list(
   QB  = c("completions", "attempts", "passing_yards", "passing_tds",
@@ -30,6 +33,10 @@ POSITION_FIELDS <- list(
 
 VALID_NEWS_IMPACT <- c("negative", "slightly_negative", "roster_move", "positive", "neutral")
 
+args <- commandArgs(trailingOnly = TRUE)
+season_arg <- if ("--season" %in% args) args[which(args == "--season") + 1] else NULL
+check_all  <- "--all" %in% args
+
 errors   <- list()
 warnings <- list()
 
@@ -39,13 +46,21 @@ add_warn <- function(file, msg) warnings[[length(warnings) + 1]] <<- paste0("[",
 # =====================
 # VALIDATE STATS FILES
 # =====================
-stats_files <- list.files("data", pattern = "^player_stats_.*\\.json$", full.names = TRUE)
+# Files live at data/Stats/{season} Season/{season} Offense|Defense/player_stats_{season}_weekNN.json
+stats_files <- list.files("data/Stats", pattern = "^player_stats_.*\\.json$", full.names = TRUE, recursive = TRUE)
+file_seasons <- as.integer(sub("^player_stats_(\\d{4})_.*$", "\\1", basename(stats_files)))
+if (!is.null(season_arg)) {
+  stats_files <- stats_files[file_seasons == as.integer(season_arg)]
+} else if (!check_all && length(stats_files) > 0) {
+  stats_files <- stats_files[file_seasons == max(file_seasons, na.rm = TRUE)]
+}
+cat("Checking", length(stats_files), "stats file(s)\n")
 
 if (length(stats_files) == 0) {
-  add_warn("data/", "No player_stats_*.json files found — has the generator been run?")
+  add_warn("data/Stats", "No player_stats_*.json files found — has the generator been run?")
 } else {
   for (f in stats_files) {
-    fname <- basename(f)
+    fname <- sub("^data/Stats/", "", f)
 
     raw <- tryCatch(fromJSON(f, simplifyDataFrame = FALSE), error = function(e) NULL)
     if (is.null(raw)) {
@@ -53,19 +68,23 @@ if (length(stats_files) == 0) {
       next
     }
 
-    # Must be a top-level array
-    if (!is.list(raw) || !is.null(names(raw))) {
-      add_err(fname, paste0(
-        "Expected top-level JSON array but got ",
-        if (!is.null(names(raw))) "named object" else class(raw)
-      ))
-      next
+    # Files are either a plain array of rows or an object of arrays (e.g. {"1": [...], "2": [...]});
+    # flatten the second form so both validate the same way.
+    if (is.list(raw) && !is.null(names(raw))) {
+      if (!all(vapply(raw, function(x) is.list(x) && is.null(names(x)), logical(1)))) {
+        add_err(fname, "Expected an array of rows or an object whose values are arrays of rows")
+        next
+      }
+      raw <- unlist(unname(raw), recursive = FALSE)
     }
 
     if (length(raw) == 0) {
       add_warn(fname, "Array is empty")
       next
     }
+
+    file_season <- as.integer(sub("^player_stats_(\\d{4})_.*$", "\\1", basename(f)))
+    file_week   <- as.integer(sub("^.*_week(\\d+)\\.json$", "\\1", basename(f)))
 
     for (i in seq_along(raw)) {
       player <- raw[[i]]
@@ -92,46 +111,71 @@ if (length(stats_files) == 0) {
         }
       }
 
-      # Season and week must be numeric
-      if (!is.null(player[["season"]]) && !is.numeric(player[["season"]])) {
-        add_err(fname, paste0(prefix, " 'season' should be numeric, got: ", class(player[["season"]])))
+      # Season and week must be numeric and match the file name
+      season <- player[["season"]]
+      if (!is.null(season) && !is.numeric(season)) {
+        add_err(fname, paste0(prefix, " 'season' should be numeric, got: ", class(season)))
+      } else if (!is.null(season) && !is.na(file_season) && season != file_season) {
+        add_err(fname, paste0(prefix, " season ", season, " doesn't match file season ", file_season))
       }
-      if (!is.null(player[["week"]]) && !is.numeric(player[["week"]])) {
-        add_err(fname, paste0(prefix, " 'week' should be numeric, got: ", class(player[["week"]])))
+      week <- player[["week"]]
+      if (!is.null(week) && !is.numeric(week)) {
+        add_err(fname, paste0(prefix, " 'week' should be numeric, got: ", class(week)))
+      } else if (!is.null(week) && !is.na(file_week) && week != file_week) {
+        add_err(fname, paste0(prefix, " week ", week, " doesn't match file week ", file_week))
       }
     }
   }
 }
 
 # =====================
-# VALIDATE NEWS FILE
+# VALIDATE NEWS FILES (data/news/news_{position}.json)
 # =====================
-news_file <- "data/nfl_news.json"
+news_files <- list.files("data/news", pattern = "^news_.*\\.json$", full.names = TRUE)
+news_required <- c("title", "link", "player", "impact")
 
-if (!file.exists(news_file)) {
-  add_warn(news_file, "nfl_news.json not found — has the news generator been run?")
-} else {
+if (length(news_files) == 0) add_warn("data/news", "No news_*.json files found — has the news generator been run?")
+
+for (news_file in news_files) {
+  fname <- basename(news_file)
   raw_news <- tryCatch(fromJSON(news_file, simplifyDataFrame = FALSE), error = function(e) NULL)
   if (is.null(raw_news)) {
-    add_err(news_file, "Could not parse JSON")
-  } else if (!is.list(raw_news) || !is.null(names(raw_news))) {
-    add_err(news_file, "Expected top-level JSON array")
-  } else {
-    news_required <- c("title", "summary", "link", "published", "source", "impact")
-    for (i in seq_along(raw_news)) {
-      article <- raw_news[[i]]
-      prefix  <- paste0("article[", i, "]")
+    add_err(fname, "Could not parse JSON")
+    next
+  }
+  if (length(raw_news) == 0) next
+  if (!is.list(raw_news) || !is.null(names(raw_news))) {
+    add_err(fname, "Expected top-level JSON array")
+    next
+  }
 
-      missing_fields <- setdiff(news_required, names(article))
-      if (length(missing_fields) > 0) {
-        add_err(news_file, paste0(prefix, " missing fields: ", paste(missing_fields, collapse = ", ")))
-      }
+  for (i in seq_along(raw_news)) {
+    article <- raw_news[[i]]
+    prefix  <- paste0("article[", i, "]")
 
-      impact <- article[["impact"]]
-      if (!is.null(impact) && !(impact %in% VALID_NEWS_IMPACT)) {
-        add_warn(news_file, paste0(prefix, " unknown impact value: '", impact, "'"))
-      }
+    missing_fields <- setdiff(news_required, names(article))
+    if (length(missing_fields) > 0) {
+      add_err(fname, paste0(prefix, " missing fields: ", paste(missing_fields, collapse = ", ")))
     }
+
+    impact <- article[["impact"]]
+    if (!is.null(impact) && !(impact %in% VALID_NEWS_IMPACT)) {
+      add_warn(fname, paste0(prefix, " unknown impact value: '", impact, "'"))
+    }
+
+    for (field in c("published", "summary", "source")) {
+      if (is.list(article[[field]])) add_err(fname, paste0(prefix, " '", field, "' is an object instead of text"))
+    }
+  }
+
+  # Every article sharing one date means RSS dates failed to parse and fell back to "today".
+  dates <- unlist(lapply(raw_news, function(a) a[["published"]]))
+  if (length(dates) >= 20 && max(table(dates)) / length(dates) > 0.9) {
+    add_warn(fname, paste0(round(100 * max(table(dates)) / length(dates)), "% of articles share the date ",
+                           names(which.max(table(dates))), " — check RSS date parsing"))
+  }
+  if (length(raw_news) >= 20 && !any(vapply(raw_news, function(a) !is.null(a[["summary"]]), logical(1)))) {
+    add_warn(fname, "No articles have a summary — regenerate with the updated news script")
   }
 }
 

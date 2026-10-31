@@ -10,13 +10,16 @@ library(lubridate)
 library(xml2)
 library(stringdist)
 
+# Date parsing, headline/source split, relevance check and classification
+source("scripts/news_helpers.R")
+
 # =====================
 # CONFIG
 # =====================
 OUTPUT_DIR   <- "data/news"
 MAX_PER_PLAYER <- 2
 REQUEST_DELAY  <- 0.3
-SEASON_START   <- as.Date("2025-09-04")
+SEASON_START   <- current_season_start()  # Sept 1 of the current NFL season
 
 # =====================
 # CHECK FILE
@@ -204,31 +207,12 @@ message("Position groups: ", paste(names(groups), collapse = ", "))
 # =====================
 # RSS HELPERS
 # =====================
-safe_parse_date <- function(x) {
-  tryCatch({
-    parsed <- parse_date_time(
-      x,
-      orders = c("a, d b Y H:M:S z", "Y-m-d"),
-      tz = "UTC"
-    )
-    if (length(parsed) == 0 || all(is.na(parsed))) return(NA)
-    as.Date(parsed[[1]])
-  }, error = function(e) NA)
-}
-
-get_impact <- function(text) {
-  t <- tolower(text)
-  if (grepl("injur|out|ir|surgery", t))      return("negative")
-  if (grepl("signed|trade|cut|released", t)) return("roster_move")
-  if (grepl("breakout|huge|dominant", t))    return("positive")
-  "neutral"
-}
-
 fetch_google <- function(player_name) {
 
+  # Quote the name so Google returns articles about this exact player.
   url <- paste0(
     "https://news.google.com/rss/search?q=",
-    URLencode(paste(player_name, "NFL")),
+    URLencode(paste0('"', player_name, '" NFL'), reserved = TRUE),
     "&hl=en-US&gl=US&ceid=US:en"
   )
 
@@ -240,24 +224,40 @@ fetch_google <- function(player_name) {
 
   for (item in items) {
 
-    title  <- xml_text(xml_find_first(item, "title"))
-    link   <- xml_text(xml_find_first(item, "link"))
-    pub    <- xml_text(xml_find_first(item, "pubDate"))
+    raw_title <- xml_text(xml_find_first(item, "title"))
+    link      <- xml_text(xml_find_first(item, "link"))
+    pub       <- xml_text(xml_find_first(item, "pubDate"))
 
-    parsed <- safe_parse_date(pub)
-    if (is.na(parsed)) parsed <- Sys.Date()
-    if (parsed < SEASON_START) next
+    parts  <- split_title_source(raw_title)
+    source <- parts$source
+    if (is.na(source)) source <- xml_text(xml_find_first(item, "source"))
 
-    articles <- c(articles, list(list(
-      title     = title,
+    # Skip articles whose headline doesn't actually name this player
+    if (!mentions_player(parts$headline, player_name)) next
+
+    parsed <- parse_rss_date(pub)
+    if (!is.na(parsed) && parsed < SEASON_START) next
+
+    info <- classify_headline(parts$headline, player_name)
+
+    article <- list(
+      title     = parts$headline,
+      source    = if (is.na(source) || !nzchar(source)) NULL else source,
       link      = link,
-      published = as.character(parsed),
+      published = if (is.na(parsed)) NULL else as.character(parsed),
       player    = player_name,
-      impact    = get_impact(title)
-    )))
+      impact    = info$impact,
+      category  = info$category,
+      summary   = info$summary
+    )
+    # Drop missing fields (jsonlite would write NULL as {})
+    articles <- c(articles, list(Filter(Negate(is.null), article)))
   }
 
-  articles[1:min(length(articles), MAX_PER_PLAYER)]
+  # Newest first, then keep the top few per player
+  dates <- vapply(articles, function(a) a$published %||% "", character(1))
+  articles <- articles[order(dates, decreasing = TRUE)]
+  articles[seq_len(min(length(articles), MAX_PER_PLAYER))]
 }
 
 build_news <- function(df) {
@@ -285,8 +285,14 @@ if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 for (pos in names(news_by_pos)) {
   # Sanitize position name for filename (e.g. OL_OTHER -> ol_other, OT -> ot)
   safe_pos <- tolower(gsub("[^a-zA-Z0-9]", "_", pos))
+
+  # Drop exact duplicates (the same article saved twice for the same player).
+  articles <- news_by_pos[[pos]]
+  links    <- vapply(articles, function(a) paste(a$link, a$player), character(1))
+  articles <- articles[!duplicated(links)]
+
   write_json(
-    news_by_pos[[pos]],
+    articles,
     file.path(OUTPUT_DIR, paste0("news_", safe_pos, ".json")),
     pretty     = TRUE,
     auto_unbox = TRUE
