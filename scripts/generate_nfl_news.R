@@ -298,4 +298,12 @@ for (pos in names(news_by_pos)) {
   )
 }
 
+# When this run finished, so the app can show how fresh the news is.
+write_json(
+  list(generated_at = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+       articles = sum(vapply(news_by_pos, length, integer(1)))),
+  file.path(OUTPUT_DIR, "news_meta.json"),
+  auto_unbox = TRUE, pretty = TRUE
+)
+
 message("✅ DONE — offense + defense + OL news generated")

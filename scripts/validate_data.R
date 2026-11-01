@@ -134,6 +134,7 @@ if (length(stats_files) == 0) {
 # VALIDATE NEWS FILES (data/news/news_{position}.json)
 # =====================
 news_files <- list.files("data/news", pattern = "^news_.*\\.json$", full.names = TRUE)
+news_files <- news_files[basename(news_files) != "news_meta.json"]  # run timestamp, not articles
 news_required <- c("title", "link", "player", "impact")
 
 if (length(news_files) == 0) add_warn("data/news", "No news_*.json files found — has the news generator been run?")

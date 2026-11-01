@@ -3,15 +3,16 @@ name: Update NFL News
 # Prevent overlapping runs
 concurrency:
   group: nfl-news
-  cancel-in-progress: true
+  # Queue a new run instead of killing one that's still writing files
+  cancel-in-progress: false
 
 on:
   workflow_dispatch:
 
   schedule:
-    # Every 6 hours
-    # 03:00, 09:00, 15:00, 21:00 UTC
-    - cron: '0 */6 * * *'
+    # Every 2 hours at :15 (a full run takes ~30 minutes). Off-the-hour times get
+    # delayed less by GitHub than schedules at minute 0.
+    - cron: '15 */2 * * *'
 
 jobs:
   update-news:
