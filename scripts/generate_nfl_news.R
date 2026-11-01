@@ -17,7 +17,7 @@ source("scripts/news_helpers.R")
 # CONFIG
 # =====================
 OUTPUT_DIR   <- "data/news"
-MAX_PER_PLAYER <- 2
+MAX_PER_PLAYER <- 3
 REQUEST_DELAY  <- 0.3
 SEASON_START   <- current_season_start()  # Sept 1 of the current NFL season
 
@@ -239,6 +239,7 @@ fetch_google <- function(player_name) {
     if (!is.na(parsed) && parsed < SEASON_START) next
 
     info <- classify_headline(parts$headline, player_name)
+    info$score <- NULL
 
     article <- list(
       title     = parts$headline,
@@ -254,10 +255,8 @@ fetch_google <- function(player_name) {
     articles <- c(articles, list(Filter(Negate(is.null), article)))
   }
 
-  # Newest first, then keep the top few per player
-  dates <- vapply(articles, function(a) a$published %||% "", character(1))
-  articles <- articles[order(dates, decreasing = TRUE)]
-  articles[seq_len(min(length(articles), MAX_PER_PLAYER))]
+  # Newest first, keeping up to MAX_PER_PLAYER articles that cover different stories
+  select_diverse(articles, MAX_PER_PLAYER)
 }
 
 build_news <- function(df) {

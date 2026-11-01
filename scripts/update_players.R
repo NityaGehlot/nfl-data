@@ -357,7 +357,12 @@ players_clean <- lapply(players_raw, function(p) {
       if (is.na(ye) || length(ye) == 0) NA_real_ else ye
     },
 
-    status = status
+    status = status,
+
+    # Live injury designation from Sleeper (Questionable / Doubtful / Out / IR / PUP / Sus),
+    # so the app can show injuries for players who haven't played a game this week.
+    injury_status = p$injury_status %||% NA_character_,
+    injury_body_part = p$injury_body_part %||% NA_character_
   )
 })
 

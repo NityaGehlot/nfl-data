@@ -58,6 +58,35 @@ check("benched", classify_headline("Bryce Young benched for Andy Dalton")$impact
 check("suspension", classify_headline("Rashee Rice facing suspension")$category, "suspension")
 check("fantasy advice", classify_headline("Week 9 start/sit: Trust Garrett Wilson")$category, "fantasy_advice")
 
+# Sentiment scoring with negation and mixed signals
+check("not expected to play is bad news", classify_headline("Puka Nacua not expected to play Sunday", "Puka Nacua")$impact, "negative")
+check("no injury designation is good news", classify_headline("Bijan Robinson has no injury designation for Week 9", "Bijan Robinson")$impact, "positive")
+check("questionable but expected to play nets positive",
+      classify_headline("Saquon Barkley questionable but expected to play vs. Giants", "Saquon Barkley")$impact, "positive")
+check("won't return is negative", classify_headline("Chase Brown won't return after ankle injury", "Chase Brown")$impact %in% c("negative", "slightly_negative"), TRUE)
+check("score is reported", is.numeric(classify_headline("Mark Andrews suffers torn ACL")$score), TRUE)
+
+# Diversity: near-duplicate headlines and repeated categories are skipped when possible
+arts <- list(
+  list(title = "Ja'Marr Chase ruled out vs. Steelers with hamstring injury", player = "Ja'Marr Chase", link = "a", published = "2026-10-31", category = "injury"),
+  list(title = "Ja'Marr Chase ruled out vs. Steelers due to hamstring", player = "Ja'Marr Chase", link = "b", published = "2026-10-31", category = "injury"),
+  list(title = "Bengals discuss Ja'Marr Chase contract extension", link = "c", published = "2026-10-30", category = "transaction"),
+  list(title = "Week 9 rankings: where Ja'Marr Chase lands", link = "d", published = "2026-10-29", category = "fantasy_advice"),
+  list(title = "Ja'Marr Chase hamstring injury update from practice", player = "Ja'Marr Chase", link = "e", published = "2026-10-28", category = "injury")
+)
+picked <- select_diverse(arts, 3)
+check("diverse pick count", length(picked), 3L)
+check("diverse picks skip the near-duplicate", vapply(picked, function(a) a$link, character(1)), c("a", "c", "d"))
+check("falls back to same category when needed", length(select_diverse(arts[c(1, 5)], 3)), 2L)
+check("similar headline score", title_similarity(arts[[1]]$title, arts[[2]]$title, "Ja'Marr Chase") >= 0.45, TRUE)
+check("different stories about the same player aren't similar", title_similarity(arts[[1]]$title, arts[[5]]$title, "Ja'Marr Chase") < 0.45, TRUE)
+
+check("activated from IR is good news", classify_headline("Vikings' Ben Yurosek: Activated from IR", "Ben Yurosek")$impact, "positive")
+check("touchdown stories are positive", classify_headline("Romeo Doubs scores twice in win", "Romeo Doubs")$impact, "positive")
+check("DNP is a concern", classify_headline("Jakobi Meyers DNP Friday", "Jakobi Meyers")$impact %in% c("slightly_negative", "negative"), TRUE)
+check("'drops a prediction' is not a dropped pass", classify_headline("Drake London drops USC prediction for big game", "Drake London")$impact, "neutral")
+check("dropped passes count", classify_headline("Drake London drops two passes in loss", "Drake London")$impact %in% c("slightly_negative", "negative"), TRUE)
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

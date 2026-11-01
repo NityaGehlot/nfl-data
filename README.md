@@ -29,6 +29,8 @@ Fantasy platforms show you stats, but they lock them behind paywalls or propriet
 | File | Updated | Description |
 |------|---------|-------------|
 | `data/player_stats_{season}_week{NN}.json` | Every Tuesday UTC | Per-player stats for a single week (QB/RB/WR/TE/K/DEF). One file per week. |
+| `data/injuries/injuries_current.json` | Twice daily | Every fantasy-relevant player with an injury designation right now (Sleeper's live status + the NFL's official game status and practice participation), with this week's day-by-day history. |
+| `data/injuries/history/{season}_week{NN}.json` | Twice daily | Day-by-day injury report for the week (Wed/Thu/Fri practice participation and game status), built up one entry per day. |
 | `data/news/news_{position}.json` | Every 6 hours | Recent articles per position group (`qb`, `rb`, `wr`, `te`, `k`, defense and OL groups). Only articles whose headline names the player; each has a category, impact and short summary. |
 
 These files are deployed to **GitHub Pages** on every push to `main`, making them accessible via a public URL for any front-end.
@@ -91,6 +93,8 @@ nfl-data/
 │   ├── generate_weekly_stats.R   # Pulls stats from nflreadr, writes per-week JSON
 │   ├── generate_nfl_news.R       # Fetches player news via Google News RSS
 │   ├── news_helpers.R            # Date parsing, relevance + headline classification for news
+│   ├── update_injuries.R         # Current injuries + daily practice report history
+│   ├── injury_helpers.R          # Status normalization and history merging for injuries
 │   ├── tests/                    # Offline tests for the news helpers
 │   ├── validate_data.R           # Schema checks for generated JSON files
 │   └── install_packages.R        # Documents and installs all R dependencies
@@ -152,6 +156,15 @@ Test the news parsing/classification logic offline:
 Rscript scripts/tests/test_news_helpers.R
 Rscript scripts/tests/test_fetch_google.R
 ```
+
+### Update Injuries
+
+```bash
+Rscript scripts/update_injuries.R
+Rscript scripts/tests/test_injury_helpers.R   # offline tests
+```
+
+Writes `data/injuries/injuries_current.json` and adds today's entry to `data/injuries/history/{season}_week{NN}.json`. Runs automatically twice a day via `.github/workflows/update-injuries.yml`.
 
 ### Validate Output
 

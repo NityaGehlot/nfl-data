@@ -7,6 +7,8 @@
 
 library(jsonlite)
 
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
 REQUIRED_COMMON_FIELDS <- c(
   "season", "week", "player_id", "player_name",
   "position", "team", "opponent_team",
@@ -176,6 +178,29 @@ for (news_file in news_files) {
   }
   if (length(raw_news) >= 20 && !any(vapply(raw_news, function(a) !is.null(a[["summary"]]), logical(1)))) {
     add_warn(fname, "No articles have a summary — regenerate with the updated news script")
+  }
+}
+
+# =====================
+# VALIDATE INJURIES (data/injuries/injuries_current.json)
+# =====================
+injury_file <- "data/injuries/injuries_current.json"
+if (!file.exists(injury_file)) {
+  add_warn(injury_file, "Not found — has update_injuries.R been run?")
+} else {
+  inj <- tryCatch(fromJSON(injury_file, simplifyDataFrame = FALSE), error = function(e) NULL)
+  if (is.null(inj) || is.null(inj$players)) {
+    add_err(injury_file, "Could not parse JSON or missing 'players'")
+  } else {
+    valid_status <- c("QUESTIONABLE", "DOUBTFUL", "OUT", "IR", "PUP", "SUSPENDED", "NOT_ACTIVE", "")
+    for (i in seq_along(inj$players)) {
+      p <- inj$players[[i]]
+      missing <- setdiff(c("player_id", "full_name", "team", "position", "status"), names(p))
+      if (length(missing) > 0) add_err(injury_file, paste0("player[", i, "] missing: ", paste(missing, collapse = ", ")))
+      if (!is.null(p$status) && !(p$status %in% valid_status)) add_warn(injury_file, paste0("player[", i, "] unknown status: ", p$status))
+    }
+    age_hours <- as.numeric(difftime(Sys.time(), as.POSIXct(sub("Z$", "", inj$generated_at %||% ""), format = "%Y-%m-%dT%H:%M:%S", tz = "UTC"), units = "hours"))
+    if (!is.na(age_hours) && age_hours > 36) add_warn(injury_file, paste0("Last updated ", round(age_hours), " hours ago"))
   }
 }
 
