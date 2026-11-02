@@ -68,10 +68,13 @@ jobs:
       - name: Run stats generator
         run: |
           Rscript scripts/generate_weekly_stats.R "${{ github.event.inputs.season_year }}"
+      - name: Build defense rankings (yards and fantasy points allowed)
+        run: |
+          Rscript scripts/generate_defense_rankings.R "${{ github.event.inputs.season_year }}"
       - name: Commit generated JSON (if changed)
         run: |
           git config --local user.email "github-actions@github.com"
           git config --local user.name "github-actions"
-          git add data/Stats/**/*.json
+          git add data/Stats/**/*.json data/defense/*.json
           git commit -m "Update player stats JSON" || echo "No changes to commit"
           git push
