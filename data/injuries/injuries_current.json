@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T17:40:55Z",
+  "generated_at": "2026-11-02T02:43:18Z",
   "season": 2026,
   "week": 8,
   "season_type": "regular",
@@ -2025,6 +2025,66 @@
       ]
     },
     {
+      "player_id": "13287",
+      "gsis_id": null,
+      "full_name": "Jeremiyah Love",
+      "team": "ARI",
+      "position": "RB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "4454",
+      "gsis_id": "00-0033307",
+      "full_name": "Kendrick Bourne",
+      "team": "ARI",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "notes": "Sprain",
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "8122",
+      "gsis_id": null,
+      "full_name": "Zonovan Knight",
+      "team": "ARI",
+      "position": "RB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Concussion",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "829",
       "gsis_id": "00-0027973",
       "full_name": "Andy Dalton",
@@ -2085,6 +2145,26 @@
       ]
     },
     {
+      "player_id": "13320",
+      "gsis_id": null,
+      "full_name": "Zachariah Branch",
+      "team": "ATL",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hamstring",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "13268",
       "gsis_id": null,
       "full_name": "Elijah Sarratt",
@@ -2114,6 +2194,67 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "4881",
+      "gsis_id": "00-0034796",
+      "full_name": "Lamar Jackson",
+      "team": "BAL",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": "FP",
+      "injury": "Thumb",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "7083",
+      "gsis_id": null,
+      "full_name": "Tyler Huntley",
+      "team": "BAL",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Toe",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "7670",
+      "gsis_id": null,
+      "full_name": "Joshua Palmer",
+      "team": "BUF",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hamstring",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -2345,6 +2486,26 @@
       ]
     },
     {
+      "player_id": "8110",
+      "gsis_id": null,
+      "full_name": "Jake Ferguson",
+      "team": "DAL",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "8917",
       "gsis_id": null,
       "full_name": "KaVontae Turpin",
@@ -2374,6 +2535,46 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Groin",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13577",
+      "gsis_id": null,
+      "full_name": "Dallen Bentley",
+      "team": "DEN",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "7583",
+      "gsis_id": null,
+      "full_name": "Sam Ehlinger",
+      "team": "DEN",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -2605,6 +2806,46 @@
       ]
     },
     {
+      "player_id": "11273",
+      "gsis_id": null,
+      "full_name": "Ben VanSumeren",
+      "team": "KC",
+      "position": "RB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13404",
+      "gsis_id": null,
+      "full_name": "Garrett Nussmeier",
+      "team": "KC",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "13380",
       "gsis_id": null,
       "full_name": "Brenen Thompson",
@@ -2634,6 +2875,66 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Undisclosed",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "12860",
+      "gsis_id": null,
+      "full_name": "Theo Wease Jr.",
+      "team": "LAC",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "6865",
+      "gsis_id": null,
+      "full_name": "Colby Parkinson",
+      "team": "LAR",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ribs",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13275",
+      "gsis_id": null,
+      "full_name": "Ty Simpson",
+      "team": "LAR",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -2690,6 +2991,46 @@
       "full_name": "Malik Benson",
       "team": "LV",
       "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "11056",
+      "gsis_id": null,
+      "full_name": "Jared Wayne",
+      "team": "MIA",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13400",
+      "gsis_id": null,
+      "full_name": "Justin Joly",
+      "team": "MIA",
+      "position": "TE",
       "status": "OUT",
       "game_status": null,
       "practice_status": null,
@@ -2782,6 +3123,46 @@
           "day": "Sun",
           "practice_status": "DNP",
           "game_status": "QUESTIONABLE",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13295",
+      "gsis_id": null,
+      "full_name": "Behren Morton",
+      "team": "NE",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "3214",
+      "gsis_id": "00-0033090",
+      "full_name": "Hunter Henry",
+      "team": "NE",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Foot",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -3287,6 +3668,66 @@
       ]
     },
     {
+      "player_id": "13557",
+      "gsis_id": null,
+      "full_name": "Athan Kaliakmanis",
+      "team": "WAS",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "10232",
+      "gsis_id": null,
+      "full_name": "Michael Wilson",
+      "team": "ARI",
+      "position": "WR",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ribs",
+      "notes": "Fracture",
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "8112",
+      "gsis_id": null,
+      "full_name": "Drake London",
+      "team": "ATL",
+      "position": "WR",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Head",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
       "player_id": "6271",
       "gsis_id": "00-0035208",
       "full_name": "Olamide Zaccheaus",
@@ -3317,7 +3758,7 @@
       "status": "QUESTIONABLE",
       "game_status": "QUESTIONABLE",
       "practice_status": "LP",
-      "injury": "Shoulder",
+      "injury": "Undisclosed",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -3331,15 +3772,55 @@
       ]
     },
     {
-      "player_id": "7526",
+      "player_id": "8138",
       "gsis_id": null,
-      "full_name": "Jaylen Waddle",
-      "team": "DEN",
+      "full_name": "James Cook III",
+      "team": "BUF",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Undisclosed",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "7547",
+      "gsis_id": null,
+      "full_name": "Amon-Ra St. Brown",
+      "team": "DET",
       "position": "WR",
       "status": "QUESTIONABLE",
       "game_status": null,
       "practice_status": null,
       "injury": "Undisclosed",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "11237",
+      "gsis_id": null,
+      "full_name": "Jacob Saylors",
+      "team": "DET",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Neck",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -3413,35 +3894,15 @@
       ]
     },
     {
-      "player_id": "6865",
-      "gsis_id": null,
-      "full_name": "Colby Parkinson",
-      "team": "LAR",
-      "position": "TE",
+      "player_id": "5849",
+      "gsis_id": "00-0035228",
+      "full_name": "Kyler Murray",
+      "team": "MIN",
+      "position": "QB",
       "status": "QUESTIONABLE",
       "game_status": null,
       "practice_status": null,
-      "injury": "Ribs",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-01",
-          "day": "Sun",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "11623",
-      "gsis_id": null,
-      "full_name": "Jordan Whittington",
-      "team": "LAR",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Back",
+      "injury": "Hamstring",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -3553,67 +4014,6 @@
           "date": "2026-11-01",
           "day": "Sun",
           "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "7716",
-      "gsis_id": null,
-      "full_name": "John Bates",
-      "team": "WAS",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Shoulder",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-01",
-          "day": "Sun",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8135",
-      "gsis_id": null,
-      "full_name": "Treylon Burks",
-      "team": "WAS",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Foot",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-01",
-          "day": "Sun",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4881",
-      "gsis_id": "00-0034796",
-      "full_name": "Lamar Jackson",
-      "team": "BAL",
-      "position": "QB",
-      "status": "",
-      "game_status": null,
-      "practice_status": "FP",
-      "injury": "Ankle",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-01",
-          "day": "Sun",
-          "practice_status": "FP",
-          "status": ""
         }
       ]
     },
