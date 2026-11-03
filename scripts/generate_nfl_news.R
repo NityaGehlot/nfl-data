@@ -12,6 +12,8 @@ library(stringdist)
 
 # Date parsing, headline/source split, relevance check and classification
 source("scripts/news_helpers.R")
+# Real article links and cover images (looked up once per article, then reused)
+source("scripts/article_images.R")
 
 # =====================
 # CONFIG
@@ -281,6 +283,11 @@ news_by_pos <- lapply(groups, build_news)
 # =====================
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 
+# Images found in earlier runs (read before the files are overwritten), and how many new
+# articles to look up this run. Override with MAX_NEW_IMAGES.
+previous_images <- previous_image_index(OUTPUT_DIR)
+image_budget <- new_image_budget(as.integer(Sys.getenv("MAX_NEW_IMAGES", "150")))
+
 for (pos in names(news_by_pos)) {
   # Sanitize position name for filename (e.g. OL_OTHER -> ol_other, OT -> ot)
   safe_pos <- tolower(gsub("[^a-zA-Z0-9]", "_", pos))
@@ -289,6 +296,7 @@ for (pos in names(news_by_pos)) {
   articles <- news_by_pos[[pos]]
   links    <- vapply(articles, function(a) paste(a$link, a$player), character(1))
   articles <- articles[!duplicated(links)]
+  articles <- attach_images(articles, previous_images, image_budget)
 
   write_json(
     articles,
