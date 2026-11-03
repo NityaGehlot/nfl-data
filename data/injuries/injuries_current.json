@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:31:33Z",
+  "generated_at": "2026-11-03T04:01:12Z",
   "season": 2026,
   "week": 8,
   "season_type": "regular",
@@ -2907,6 +2907,26 @@
       ]
     },
     {
+      "player_id": "1737",
+      "gsis_id": "00-0028986",
+      "full_name": "Case Keenum",
+      "team": "CHI",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "12534",
       "gsis_id": null,
       "full_name": "Kyle Monangai",
@@ -4311,6 +4331,35 @@
       ]
     },
     {
+      "player_id": "5854",
+      "gsis_id": "00-0035704",
+      "full_name": "Drew Lock",
+      "team": "SEA",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": "QUESTIONABLE",
+      "practice_status": "LP",
+      "injury": "Elbow",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-01",
+          "day": "Sun",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "13047",
       "gsis_id": null,
       "full_name": "Jacardia Wright",
@@ -4665,6 +4714,46 @@
       ]
     },
     {
+      "player_id": "5995",
+      "gsis_id": "00-0034975",
+      "full_name": "Justice Hill",
+      "team": "BAL",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Groin",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "12711",
+      "gsis_id": null,
+      "full_name": "Tyler Loop",
+      "team": "BAL",
+      "position": "K",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Undisclosed",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
       "player_id": "4983",
       "gsis_id": "00-0034827",
       "full_name": "DJ Moore",
@@ -4819,6 +4908,46 @@
       ]
     },
     {
+      "player_id": "12490",
+      "gsis_id": null,
+      "full_name": "Bhayshul Tuten",
+      "team": "JAX",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "10219",
+      "gsis_id": null,
+      "full_name": "Chris Rodriguez Jr.",
+      "team": "JAX",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hand",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
       "player_id": "5947",
       "gsis_id": "00-0034960",
       "full_name": "Jakobi Meyers",
@@ -4857,6 +4986,26 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Hand",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-02",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "421",
+      "gsis_id": "00-0026498",
+      "full_name": "Matthew Stafford",
+      "team": "LAR",
+      "position": "QB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Arm",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -4913,35 +5062,6 @@
         {
           "date": "2026-11-02",
           "day": "Mon",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "5854",
-      "gsis_id": "00-0035704",
-      "full_name": "Drew Lock",
-      "team": "SEA",
-      "position": "QB",
-      "status": "QUESTIONABLE",
-      "game_status": "QUESTIONABLE",
-      "practice_status": "LP",
-      "injury": "Elbow",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-01",
-          "day": "Sun",
-          "practice_status": "LP",
-          "game_status": "QUESTIONABLE",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-02",
-          "day": "Mon",
-          "practice_status": "LP",
-          "game_status": "QUESTIONABLE",
           "status": "QUESTIONABLE"
         }
       ]
