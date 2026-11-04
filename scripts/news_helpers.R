@@ -104,6 +104,12 @@ focus_clause <- function(headline, player_name) {
 # a cue ("not expected to play", "won't return") flip it. Specific phrases are matched first and
 # removed so their words aren't counted twice ("no injury designation" isn't an "injury").
 PHRASE_CUES <- c(
+  # Practice absences first (longer phrases before shorter ones): "remains out of practice"
+  # is a stronger signal than one missed session.
+  "(remains|stays|still|again) (out of|absent from|away from) practice" = -3,
+  "(remains|still) sidelined" = -3,
+  "(out of|absent from|away from) practice" = -2, "not (spotted|seen|present) (at|during|on)" = -2, "not spotted" = -2,
+  "(sits?|sat) out (of )?practice" = -2, "held out( of practice)?" = -2, "limited (in |at )?practice" = -1,
   "activated (off|from) (the )?(ir|injured reserve|pup|nfi)" = 3, "(designated|designates) .{0,20}to return" = 2,
   "drop(ped|s)? (a |two |three |another )?(pass|passes|ball|touchdown|td)" = -1,
   "(not|isn'?t|unlikely to be) expected to (play|return)" = -3, "(won'?t|will not|not) (play|return)" = -3,
@@ -187,10 +193,19 @@ classify_headline <- function(headline, player_name = "") {
     return(out("suspension", "negative", paste0(who, " is facing a suspension. Plan to replace him in your lineup.")))
   }
 
-  injury_words <- has_word(t, c("injury", "injured", "injuries", "hurt", "questionable", "doubtful", "limited",
+  injury_words <- has_word(t, c("spotted", "injury", "injured", "injuries", "hurt", "questionable", "doubtful", "limited",
                                 "expected to (play|return)", "won'?t (play|return)", "will (not )?play",
                                 "ruled out", "ir", "injured reserve", "practice", "status", "activated", "cleared",
                                 "sidelined", "inactive", "game[- ]time decision", "carted off", INJURY_PARTS))
+  # Not practicing is its own kind of injury news: say so plainly.
+  practice_absence <- str_detect(t, "(out of|absent from|away from) practice|not (spotted|seen|present)|(sits?|sat) out|held out|did not practice|miss(es|ed)? practice|dnp")
+  if (practice_absence && score < 0) {
+    still <- str_detect(t, "(remains|stays|still|again) (out of|absent|away)")
+    return(out("injury", if (still || score <= -3) "negative" else "slightly_negative",
+               paste0(who, if (still) " is still not practicing" else " wasn't practicing", part_txt,
+                      ". That's a bad sign for this week: check the final injury report on Friday before you start him.")))
+  }
+
   if (injury_words || has_word(t, c("torn", "tears", "surgery", "season[- ]ending", "returns?", "returning"))) {
     if (score >= 1) {
       return(out("injury_return", "positive",

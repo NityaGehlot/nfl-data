@@ -50,6 +50,10 @@ q <- rows[[which(ids == "300")]]
 check("game status from report", q$game_status, "QUESTIONABLE")
 check("practice status from report", q$practice_status, "DNP")
 check("practice-only player has LP", rows[[which(ids == "200")]]$practice_status, "LP")
+check("official report noted", q$status_note, "From this week's official injury report.")
+carry <- build_injury_rows(list("9" = list(full_name = "Carry Over", position = "RB", team = "JAX", injury_status = "Questionable", gsis_id = "00-9")), report)
+check("status carried over from last game is labeled", grepl("^Carried over from his last game", carry[[1]]$status_note), TRUE)
+check("IR has no carry-over note", is.null(rows[[1]]$status_note), TRUE)
 
 h <- merge_history(list(), rows, "2026-10-28T21:00:00Z") # Wed
 h <- merge_history(h, rows, "2026-10-28T23:30:00Z")      # Wed again -> replaces

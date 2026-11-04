@@ -87,6 +87,18 @@ check("DNP is a concern", classify_headline("Jakobi Meyers DNP Friday", "Jakobi 
 check("'drops a prediction' is not a dropped pass", classify_headline("Drake London drops USC prediction for big game", "Drake London")$impact, "neutral")
 check("dropped passes count", classify_headline("Drake London drops two passes in loss", "Drake London")$impact %in% c("slightly_negative", "negative"), TRUE)
 
+# Practice absences (the Bhayshul Tuten case)
+t1 <- classify_headline("Bhayshul Tuten remains out of practice for the Jaguars", "Bhayshul Tuten")
+check("'remains out of practice' is injury news", t1$category, "injury")
+check("'remains out of practice' is negative", t1$impact, "negative")
+check("summary says he's not practicing", grepl("still not practicing", t1$summary), TRUE)
+t2 <- classify_headline("Tuten (ankle/foot) not spotted on Tuesday", "Bhayshul Tuten")
+check("'not spotted' is injury news", t2$category, "injury")
+check("'not spotted' is at least slightly negative", t2$impact %in% c("slightly_negative", "negative"), TRUE)
+check("'not spotted' keeps the body part", grepl("ankle", t2$summary), TRUE)
+check("back at practice stays positive", classify_headline("Bhayshul Tuten back at practice Wednesday", "Bhayshul Tuten")$impact, "positive")
+check("limited in practice is a mild concern", classify_headline("Bhayshul Tuten limited in practice", "Bhayshul Tuten")$impact, "slightly_negative")
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

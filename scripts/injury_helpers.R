@@ -82,6 +82,14 @@ build_injury_rows <- function(sleeper_players, report, positions = c("QB", "RB",
     practice <- if (!is.null(r)) normalize_practice(r$practice_status) else ""
     if (!nzchar(sleeper_status) && !nzchar(game_status) && !nzchar(practice)) next
 
+    # Sleeper keeps a player's Questionable/Doubtful/Out from his last game until the new week's
+    # report. Say where the status comes from so it isn't read as this week's designation.
+    status_note <- if (nzchar(game_status)) {
+      "From this week's official injury report."
+    } else if (sleeper_status %in% c("QUESTIONABLE", "DOUBTFUL", "OUT")) {
+      "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days)."
+    } else NULL
+
     injury <- p$injury_body_part %||% (if (!is.null(r)) r$report_primary_injury %||% r$practice_primary_injury else NULL) %||% ""
     rows[[length(rows) + 1]] <- list(
       player_id = id,
@@ -94,6 +102,7 @@ build_injury_rows <- function(sleeper_players, report, positions = c("QB", "RB",
       game_status = if (nzchar(game_status)) game_status else NULL,
       practice_status = if (nzchar(practice)) practice else NULL,
       injury = if (nzchar(injury)) injury else NULL,
+      status_note = status_note,
       notes = p$injury_notes %||% NULL,
       injury_start_date = p$injury_start_date %||% NULL
     )
