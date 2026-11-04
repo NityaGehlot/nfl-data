@@ -1490,7 +1490,7 @@
       "day": "Wed",
       "practice_status": "DNP",
       "practice_source": "news",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "11588": [
@@ -1580,7 +1580,7 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
-      "status": "QUESTIONABLE"
+      "status": "DOUBTFUL"
     }
   ],
   "13630": [
@@ -1812,6 +1812,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -1824,6 +1826,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2077,6 +2081,11 @@
       "date": "2026-11-03",
       "day": "Tue",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
     }
   ],
   "11237": [
@@ -2206,6 +2215,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2280,6 +2291,13 @@
     }
   ],
   "8146": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8489": [
     {
       "date": "2026-11-04",
       "day": "Wed",
