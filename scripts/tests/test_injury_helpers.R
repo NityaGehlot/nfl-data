@@ -65,6 +65,32 @@ check("Thursday practice updated", h[["300"]][[2]]$practice_status, "LP")
 withHist <- attach_history(rows, h)
 check("history attached", length(withHist[[which(ids == "300")]]$history), 2L)
 
+# News that comes out before the official report (the Bhayshul Tuten case)
+check("not spotted = DNP", practice_from_headline("Tuten (ankle/foot) not spotted on Tuesday"), "DNP")
+check("remains out of practice = DNP", practice_from_headline("Bhayshul Tuten remains out of practice for the Jaguars"), "DNP")
+check("limited = LP", practice_from_headline("Bhayshul Tuten limited in practice"), "LP")
+check("back at practice = FP", practice_from_headline("Bhayshul Tuten back at practice"), "FP")
+check("no practice info", practice_from_headline("Bhayshul Tuten bringing the explosives"), "")
+news <- list(
+  list(title = "Fantasy Football: Bhayshul Tuten bringing the explosives", player = "Bhayshul Tuten", published = "2026-11-02", category = "fantasy_advice"),
+  list(title = "Tuten (ankle/foot) not spotted on Tuesday", player = "Bhayshul Tuten", published = "2026-11-03", category = "injury", source = "NBC Sports"),
+  list(title = "Old injury note", player = "Bhayshul Tuten", published = "2026-10-01", category = "injury")
+)
+latest <- latest_injury_news(news, "2026-11-03")
+check("latest injury headline picked", latest[["bhayshul tuten"]]$title, "Tuten (ankle/foot) not spotted on Tuesday")
+check("practice read from it", latest[["bhayshul tuten"]]$practice, "DNP")
+tuten <- list(list(player_id = "1", full_name = "Bhayshul Tuten", status = "QUESTIONABLE"))
+with_news <- attach_news(tuten, latest, "2026-11-03")
+check("news attached", with_news[[1]]$latest_news$source, "NBC Sports")
+check("practice from news when no official report", with_news[[1]]$practice_status, "DNP")
+check("marked as from news", with_news[[1]]$practice_source, "news")
+official <- attach_news(list(list(player_id = "1", full_name = "Bhayshul Tuten", status = "QUESTIONABLE", practice_status = "LP")), latest, "2026-11-03")
+check("official report wins over news", official[[1]]$practice_status, "LP")
+stale <- attach_news(tuten, latest, "2026-11-06")
+check("old news doesn't fill today's practice", is.null(stale[[1]]$practice_status), TRUE)
+h2 <- merge_history(list(), with_news, "2026-11-03T21:00:00Z")
+check("history keeps the news source", h2[["1"]][[1]]$practice_source, "news")
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

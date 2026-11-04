@@ -9,10 +9,9 @@ on:
   workflow_dispatch:
 
   schedule:
-    # Twice a day: mid-morning ET (overnight IR moves) and evening ET (after teams post
-    # that day's practice report). Times are UTC.
-    - cron: '0 14 * * *'
-    - cron: '30 23 * * *'
+    # Every 3 hours (at :40, after the news job at :15), so practice news and status changes
+    # show up within a few hours.
+    - cron: '40 */3 * * *'
 
 jobs:
   update-injuries:

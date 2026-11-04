@@ -286,7 +286,9 @@ if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 # Images found in earlier runs (read before the files are overwritten), and how many new
 # articles to look up this run. Override with MAX_NEW_IMAGES.
 previous_images <- previous_image_index(OUTPUT_DIR)
-image_budget <- new_image_budget(as.integer(Sys.getenv("MAX_NEW_IMAGES", "150")))
+image_budget <- new_image_budget(as.integer(Sys.getenv("MAX_NEW_IMAGES", "300")))
+# Newest articles first across all positions, plus earlier misses being retried.
+image_lookups <- plan_image_lookups(news_by_pos, previous_images, image_budget$left)
 
 for (pos in names(news_by_pos)) {
   # Sanitize position name for filename (e.g. OL_OTHER -> ol_other, OT -> ot)
@@ -296,7 +298,7 @@ for (pos in names(news_by_pos)) {
   articles <- news_by_pos[[pos]]
   links    <- vapply(articles, function(a) paste(a$link, a$player), character(1))
   articles <- articles[!duplicated(links)]
-  articles <- attach_images(articles, previous_images, image_budget)
+  articles <- attach_images(articles, previous_images, image_budget, lookups = image_lookups)
 
   write_json(
     articles,

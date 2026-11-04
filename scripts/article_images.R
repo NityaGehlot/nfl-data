@@ -43,7 +43,33 @@ extract_share_image <- function(html, page_url = "") {
       if (grepl("^https://", url)) return(url)
     }
   }
+  other_image(html, page_url)
+}
+
+absolute_https <- function(url, page_url) {
+  url <- decode_entities(trimws(url))
+  if (startsWith(url, "//")) url <- paste0("https:", url)
+  if (startsWith(url, "/")) url <- paste0(sub("^(https?://[^/]+).*", "\\1", page_url), url)
+  url <- sub("^http://", "https://", url)
+  if (grepl("^https://", url)) url else NA_character_
+}
+
+# Fallbacks when there's no og/twitter image: <link rel="image_src">, itemprop="image",
+# then the "image" in the page's JSON-LD (structured data most news sites include).
+other_image <- function(html, page_url) {
+  link <- regmatches(html, regexec("<link[^>]+rel=[\"']image_src[\"'][^>]*href=[\"']([^\"']+)[\"']", html, ignore.case = TRUE))[[1]]
+  if (length(link) >= 2) return(absolute_https(link[2], page_url))
+  ip <- regmatches(html, regexec("itemprop=[\"']image[\"'][^>]*(?:content|src)=[\"']([^\"']+)[\"']", html, ignore.case = TRUE, perl = TRUE))[[1]]
+  if (length(ip) >= 2) return(absolute_https(ip[2], page_url))
+  ld <- regmatches(html, regexec("\"image\"\\s*:\\s*(?:\\{[^}]*?\"url\"\\s*:\\s*)?\\[?\\s*\"(https?:[^\"]+)\"", html, perl = TRUE))[[1]]
+  if (length(ld) >= 2) return(absolute_https(gsub("\\\\/", "/", ld[2]), page_url))
   NA_character_
+}
+
+# YouTube links: the video's thumbnail.
+youtube_thumbnail <- function(url) {
+  id <- regmatches(url, regexec("(?:youtu\\.be/|youtube\\.com/(?:watch\\?v=|shorts/|embed/))([A-Za-z0-9_-]{11})", url, perl = TRUE))[[1]]
+  if (length(id) < 2) NA_character_ else paste0("https://i.ytimg.com/vi/", id[2], "/hqdefault.jpg")
 }
 
 is_google_news_link <- function(url) grepl("^https?://news\\.google\\.com/(rss/)?articles/", url)
@@ -107,12 +133,20 @@ resolve_google_link <- function(url) {
   list(url = if (is.na(res$text)) NA_character_ else parse_batch_response(res$text), rate_limited = FALSE)
 }
 
+# Share image for a publisher page (a YouTube link uses the video thumbnail). Sites that block
+# automated requests simply return no image; the app then shows its placeholder.
+page_image <- function(url) {
+  yt <- youtube_thumbnail(url)
+  if (!is.na(yt)) return(yt)
+  page <- http_text(url)
+  extract_share_image(page$text, page$url %||% url)
+}
+
 # Real URL + share image for one link. NA fields when unknown.
 fetch_article_image <- function(link) {
   real <- if (is_google_news_link(link)) resolve_google_link(link) else list(url = link, rate_limited = FALSE)
   if (is.na(real$url)) return(list(url = NA_character_, image = NA_character_, rate_limited = real$rate_limited))
-  page <- http_text(real$url)
-  list(url = real$url, image = extract_share_image(page$text, page$url %||% real$url), rate_limited = FALSE)
+  list(url = real$url, image = page_image(real$url), rate_limited = FALSE)
 }
 
 `%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a)) b else a
@@ -124,27 +158,52 @@ previous_image_index <- function(dir) {
     if (basename(f) == "news_meta.json") next
     arts <- tryCatch(fromJSON(f, simplifyVector = FALSE), error = function(e) list())
     for (a in arts) {
-      if (!is.null(a$link) && (!is.null(a$image) || !is.null(a$url))) index[[a$link]] <- list(url = a$url, image = a$image)
+      if (!is.null(a$link) && (!is.null(a[["image"]]) || !is.null(a[["url"]]) || !is.null(a[["image_tries"]]))) {
+        index[[a$link]] <- list(url = a[["url"]], image = a[["image"]], image_tries = a[["image_tries"]])
+      }
     }
   }
   index
 }
 
-# Adds `url` (real article link) and `image` to articles. Reuses the previous run's results and
-# looks up at most `budget$left` new ones (shared across files); stops early if Google rate-limits.
-attach_images <- function(articles, previous, budget, delay = 0.4) {
+MAX_IMAGE_TRIES <- 3
+
+# Which links to look up this run: newest articles first (across every position file), those
+# never looked up or whose picture failed before (up to MAX_IMAGE_TRIES attempts).
+plan_image_lookups <- function(article_lists, previous, n) {
+  all <- unlist(unname(article_lists), recursive = FALSE)
+  if (length(all) == 0 || n <= 0) return(character(0))
+  need <- Filter(function(a) {
+    prev <- previous[[a$link]]
+    is.null(prev) || (is.null(prev[["image"]]) && (prev[["image_tries"]] %||% 1) < MAX_IMAGE_TRIES)
+  }, all)
+  if (length(need) == 0) return(character(0))
+  dates <- vapply(need, function(a) a$published %||% "", character(1))
+  links <- unique(vapply(need[order(dates, decreasing = TRUE)], function(a) a$link, character(1)))
+  head(links, n)
+}
+
+# Adds `url` (real article link) and `image` to articles: reuses the previous run's results and
+# looks up the links in `lookups` (from plan_image_lookups; NULL = only never-seen links).
+# Stops new lookups if Google rate-limits (budget$stopped).
+attach_images <- function(articles, previous, budget, delay = 0.4, lookups = NULL) {
   for (i in seq_along(articles)) {
     a <- articles[[i]]
     prev <- previous[[a$link]]
     if (!is.null(prev)) {
-      if (!is.null(prev$url)) a$url <- prev$url
-      if (!is.null(prev$image)) a$image <- prev$image
-    } else if (budget$left > 0 && !budget$stopped) {
+      # [[ ]] not $: R's $ would match "image" to "image_tries".
+      if (!is.null(prev[["url"]])) a$url <- prev[["url"]]
+      if (!is.null(prev[["image"]])) a$image <- prev[["image"]]
+      if (!is.null(prev[["image_tries"]])) a$image_tries <- prev[["image_tries"]]
+    }
+    wanted <- if (is.null(lookups)) is.null(prev) else a$link %in% lookups
+    if (is.null(a[["image"]]) && wanted && budget$left > 0 && !budget$stopped) {
       budget$left <- budget$left - 1
-      got <- fetch_article_image(a$link)
+      # A known real URL only needs the picture; otherwise resolve the Google link first.
+      got <- if (!is.null(a[["url"]])) list(url = a[["url"]], image = page_image(a[["url"]]), rate_limited = FALSE) else fetch_article_image(a$link)
       if (isTRUE(got$rate_limited)) budget$stopped <- TRUE
       if (!is.na(got$url)) a$url <- got$url
-      if (!is.na(got$image)) a$image <- got$image
+      if (!is.na(got$image)) a$image <- got$image else a$image_tries <- (a[["image_tries"]] %||% 0) + 1
       Sys.sleep(delay)
     }
     articles[[i]] <- a

@@ -33,7 +33,27 @@ budget <- new_image_budget(0)
 out <- attach_images(list(list(link = "https://a"), list(link = "https://b")), prev, budget, delay = 0)
 check("reused url", out[[1]]$url, "https://real/a")
 check("reused image", out[[1]]$image, "https://img/a.jpg")
-check("unknown left alone when no budget", is.null(out[[2]]$image), TRUE)
+check("unknown left alone when no budget", is.null(out[[2]][["image"]]), TRUE)
+
+# Fallback image tags when there's no og:image
+check("link rel image_src", extract_share_image('<link rel="image_src" href="/i/a.jpg">', "https://www.usatoday.com/story/x"), "https://www.usatoday.com/i/a.jpg")
+check("itemprop image", extract_share_image('<meta itemprop="image" content="https://cdn.x.com/b.jpg">', "https://x.com"), "https://cdn.x.com/b.jpg")
+check("JSON-LD image object", extract_share_image('<script type="application/ld+json">{"@type":"NewsArticle","image":{"@type":"ImageObject","url":"https:\\/\\/a.espncdn.com\\/photo\\/c.jpg"}}</script>', "https://www.espn.com/nfl/story"), "https://a.espncdn.com/photo/c.jpg")
+check("JSON-LD image list", extract_share_image('{"image":["https://img.x.com/d.jpg"]}', "https://x.com"), "https://img.x.com/d.jpg")
+check("YouTube thumbnail", youtube_thumbnail("https://youtu.be/daWf3JrO7Lw?is=3r7"), "https://i.ytimg.com/vi/daWf3JrO7Lw/hqdefault.jpg")
+check("YouTube watch link", youtube_thumbnail("https://www.youtube.com/watch?v=daWf3JrO7Lw"), "https://i.ytimg.com/vi/daWf3JrO7Lw/hqdefault.jpg")
+check("not YouTube", youtube_thumbnail("https://www.espn.com/x"), NA_character_)
+
+# Lookup plan: newest first, retry misses up to 3 tries, skip ones that already have images
+arts <- list(qb = list(list(link = "old", published = "2026-10-01"), list(link = "new", published = "2026-11-03")),
+             rb = list(list(link = "mid", published = "2026-10-20"), list(link = "done", published = "2026-11-04"),
+                       list(link = "missed", published = "2026-11-02"), list(link = "gaveup", published = "2026-11-02")))
+prev <- list(done = list(image = "x"), missed = list(url = "https://real", image_tries = 1), gaveup = list(url = "https://r2", image_tries = 3))
+check("plan order", plan_image_lookups(arts, prev, 10), c("new", "missed", "mid", "old"))
+check("plan respects budget", plan_image_lookups(arts, prev, 2), c("new", "missed"))
+b0 <- new_image_budget(0)
+kept <- attach_images(list(list(link = "missed")), prev, b0, delay = 0, lookups = character(0))
+check("tries carried over", kept[[1]]$image_tries, 1)
 
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")

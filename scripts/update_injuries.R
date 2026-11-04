@@ -6,8 +6,10 @@
 #   data/injuries/injuries_current.json            every injured / listed fantasy player right now
 #   data/injuries/history/{season}_week{NN}.json   one entry per player per day this week
 #
-# Sources: Sleeper's live player database (IR / Out / Questionable / ... + body part) and the
-# NFL's official weekly injury report via nflreadr (game status + practice participation).
+# Sources: Sleeper's live player database (IR / Out / Questionable / ... + body part), the
+# NFL's official weekly injury report via nflreadr (game status + practice participation), and
+# the latest injury headlines from data/news (beat reports like "not spotted at practice"
+# usually come out before the official report).
 # Runs a few times a day from .github/workflows/update-injuries.yml.
 # =====================
 
@@ -63,6 +65,13 @@ if (season_type %in% c("regular", "post") && week > 0) {
 
 rows <- build_injury_rows(players, report)
 message("Players with a designation: ", length(rows))
+
+# ---- Latest injury news (e.g. "not spotted at practice" comes out before the official report) ----
+news_files <- list.files("data/news", pattern = "^news_.*\\.json$", full.names = TRUE)
+news_files <- news_files[basename(news_files) != "news_meta.json"]
+news <- unlist(lapply(news_files, function(f) tryCatch(fromJSON(f, simplifyVector = FALSE), error = function(e) list())), recursive = FALSE)
+rows <- attach_news(rows, latest_injury_news(news, eastern_date(now_utc)), eastern_date(now_utc))
+message("Players with recent injury news: ", sum(vapply(rows, function(r) !is.null(r$latest_news), logical(1))))
 
 # ---- Day-by-day history for this week ----
 history_file <- file.path(HISTORY_DIR, sprintf("%d_week%02d.json", season, week))

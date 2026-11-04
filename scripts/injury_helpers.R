@@ -126,6 +126,7 @@ merge_history <- function(history, rows, time_utc) {
     entry <- Filter(Negate(is.null), list(
       date = date, day = day,
       practice_status = r$practice_status,
+      practice_source = r$practice_source,
       game_status = r$game_status,
       status = r$status
     ))
@@ -140,6 +141,60 @@ merge_history <- function(history, rows, time_utc) {
 attach_history <- function(rows, history) {
   lapply(rows, function(r) {
     r$history <- history[[r$player_id]] %||% list()
+    r
+  })
+}
+
+# ---------------------
+# Latest injury news (reports that come out before the official injury report)
+# ---------------------
+
+#' Practice participation a headline reports: "DNP", "LP", "FP", or "" (none).
+practice_from_headline <- function(title) {
+  t <- tolower(title %||% "")
+  if (grepl("(out of|absent from|away from|missed|miss(es)?) practice|did not practice|didn't practice|not (spotted|seen|present)|(sits?|sat) out|held out|\\bdnp\\b", t)) return("DNP")
+  if (grepl("limited", t)) return("LP")
+  if (grepl("full practice|full participant|fully participat|back at practice|returns? to practice|practic(ed|es|ing) in full", t)) return("FP")
+  ""
+}
+
+INJURY_NEWS_RX <- "injur|practice|not spotted|sidelined|ruled out|questionable|doubtful|\\bir\\b|out for|ankle|knee|hamstring|concussion|foot|shoulder|groin|calf|back spasms|illness"
+
+#' Newest injury-related article per player (by name) within `max_days` of `now_date`.
+#' news: list of articles (title, player, published "YYYY-MM-DD", source, impact, summary, category).
+latest_injury_news <- function(news, now_date, max_days = 4) {
+  out <- list()
+  for (a in news) {
+    name <- tolower(a$player %||% "")
+    if (!nzchar(name)) next
+    pub <- suppressWarnings(as.Date(a$published %||% NA))
+    if (is.na(pub) || as.numeric(as.Date(now_date) - pub) > max_days || pub > as.Date(now_date) + 1) next
+    is_injury <- (a$category %||% "") %in% c("injury", "injury_return") || grepl(INJURY_NEWS_RX, tolower(a$title %||% ""))
+    if (!is_injury) next
+    prev <- out[[name]]
+    if (is.null(prev) || pub > as.Date(prev$published)) {
+      out[[name]] <- Filter(Negate(is.null), list(
+        title = a$title, source = a$source, published = as.character(pub), impact = a$impact,
+        summary = a$summary, link = a$url %||% a$link,
+        practice = { p <- practice_from_headline(a$title); if (nzchar(p)) p else NULL }
+      ))
+    }
+  }
+  out
+}
+
+#' Attach each injured player's latest injury news, and fill in today's practice from news when
+#' the official report hasn't said anything yet (marked practice_source = "news").
+attach_news <- function(rows, news_by_name, today) {
+  lapply(rows, function(r) {
+    n <- news_by_name[[tolower(r$full_name %||% "")]]
+    if (is.null(n)) return(r)
+    r$latest_news <- n
+    recent <- as.numeric(as.Date(today) - as.Date(n$published)) <= 1
+    if (is.null(r$practice_status) && !is.null(n$practice) && recent) {
+      r$practice_status <- n$practice
+      r$practice_source <- "news"
+    }
     r
   })
 }
