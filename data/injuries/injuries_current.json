@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:23:15Z",
+  "generated_at": "2026-11-04T03:08:41Z",
   "season": 2026,
   "week": 9,
   "season_type": "regular",
@@ -55,6 +55,46 @@
       "practice_status": null,
       "injury": "Foot",
       "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
+      "player_id": "13287",
+      "gsis_id": null,
+      "full_name": "Jeremiyah Love",
+      "team": "ARI",
+      "position": "RB",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "notes": "Sprain",
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
+      "player_id": "4454",
+      "gsis_id": "00-0033307",
+      "full_name": "Kendrick Bourne",
+      "team": "ARI",
+      "position": "WR",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Lower Leg",
+      "notes": "Fracture",
       "injury_start_date": null,
       "history": [
         {
@@ -174,6 +214,26 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Undisclosed",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
+      "player_id": "12711",
+      "gsis_id": null,
+      "full_name": "Tyler Loop",
+      "team": "BAL",
+      "position": "K",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Groin",
       "notes": null,
       "injury_start_date": null,
       "history": [
@@ -974,6 +1034,26 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Hamstring",
+      "notes": "Surgery",
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
+      "player_id": "13315",
+      "gsis_id": null,
+      "full_name": "Dean Connors",
+      "team": "LAR",
+      "position": "RB",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hand",
       "notes": "Surgery",
       "injury_start_date": null,
       "history": [
@@ -1805,6 +1885,26 @@
       ]
     },
     {
+      "player_id": "4219",
+      "gsis_id": "00-0033955",
+      "full_name": "Jeremy McNichols",
+      "team": "WAS",
+      "position": "RB",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Foot",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
       "player_id": "5927",
       "gsis_id": "00-0035659",
       "full_name": "Terry McLaurin",
@@ -2005,36 +2105,16 @@
       ]
     },
     {
-      "player_id": "13287",
+      "player_id": "7597",
       "gsis_id": null,
-      "full_name": "Jeremiyah Love",
+      "full_name": "Kenny Yeboah",
       "team": "ARI",
-      "position": "RB",
+      "position": "TE",
       "status": "OUT",
       "game_status": null,
       "practice_status": null,
-      "injury": "Ankle",
+      "injury": "Undisclosed",
       "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        }
-      ]
-    },
-    {
-      "player_id": "4454",
-      "gsis_id": "00-0033307",
-      "full_name": "Kendrick Bourne",
-      "team": "ARI",
-      "position": "WR",
-      "status": "OUT",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Ankle",
-      "notes": "Sprain",
       "injury_start_date": null,
       "history": [
         {
@@ -3745,26 +3825,6 @@
       ]
     },
     {
-      "player_id": "12711",
-      "gsis_id": null,
-      "full_name": "Tyler Loop",
-      "team": "BAL",
-      "position": "K",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Undisclosed",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "4983",
       "gsis_id": "00-0034827",
       "full_name": "DJ Moore",
@@ -3945,26 +4005,6 @@
       ]
     },
     {
-      "player_id": "13315",
-      "gsis_id": null,
-      "full_name": "Dean Connors",
-      "team": "LAR",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hand",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "421",
       "gsis_id": "00-0026498",
       "full_name": "Matthew Stafford",
@@ -4054,26 +4094,6 @@
       "game_status": null,
       "practice_status": null,
       "injury": null,
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4219",
-      "gsis_id": "00-0033955",
-      "full_name": "Jeremy McNichols",
-      "team": "WAS",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Undisclosed",
       "notes": null,
       "injury_start_date": null,
       "history": [

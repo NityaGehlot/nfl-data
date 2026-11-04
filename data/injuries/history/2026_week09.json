@@ -703,14 +703,14 @@
     {
       "date": "2026-11-03",
       "day": "Tue",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "4454": [
     {
       "date": "2026-11-03",
       "day": "Tue",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "8122": [
@@ -1312,7 +1312,7 @@
     {
       "date": "2026-11-03",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
     }
   ],
   "4983": [
@@ -1382,7 +1382,7 @@
     {
       "date": "2026-11-03",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
     }
   ],
   "421": [
@@ -1424,7 +1424,7 @@
     {
       "date": "2026-11-03",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
     }
   ],
   "6803": [
@@ -1432,6 +1432,13 @@
       "date": "2026-11-03",
       "day": "Tue",
       "status": "DNR"
+    }
+  ],
+  "7597": [
+    {
+      "date": "2026-11-03",
+      "day": "Tue",
+      "status": "OUT"
     }
   ]
 }
