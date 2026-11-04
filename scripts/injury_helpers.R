@@ -158,7 +158,29 @@ practice_from_headline <- function(title) {
   ""
 }
 
-INJURY_NEWS_RX <- "injur|practice|not spotted|sidelined|ruled out|questionable|doubtful|\\bir\\b|out for|ankle|knee|hamstring|concussion|foot|shoulder|groin|calf|back spasms|illness"
+# Headlines about HIS injury or practice status (same pattern as the app's injuryNews.ts).
+# Words like "injuries" alone aren't enough: "...a career day when injuries mounted" is a game story.
+INJURY_NEWS_RX <- "ruled out|\\b(is|listed|remains?|as|considered)\\s+(questionable|doubtful|out)\\b|questionable|doubtful|week-to-week|day-to-day|game-time decision|injured reserve|\\b(placed|lands?|landed|heads?|goes?) on (ir|injured reserve)\\b|\\bto ir\\b|off (ir|injured reserve)|activated|designated to return|did not practice|didn't practice|\\bdnp\\b|(limited|full|no|not) (in )?practice|practice (in full|fully|limited)|(out of|absent from|miss(es|ed)?|sits? out|held out of|returns? to|back at) practice|not spotted|sidelined|(suffer|sustain|aggravat|tweak)\\w* (an? |his )?\\w*\\s?(injury|sprain|strain|tear|fracture|concussion)|(ankle|knee|hamstring|groin|calf|foot|shoulder|back|neck|hip|quad|wrist|hand|toe|rib|chest|elbow|achilles|acl|mcl|oblique)\\s+(injury|sprain|strain|tear|issue|soreness|surgery)|concussion|surgery|\\bmri\\b|x-rays?|carted off|left (the )?game|won't return|will not return|out for (the )?(season|year|game|week|\\d)|expected to (miss|return|play)|(update|news) on .* injury|injury update|\\((ankle|knee|hamstring|groin|calf|foot|shoulder|back|neck|hip|quad|wrist|hand|toe|ribs?|chest|elbow|achilles|concussion|illness|thumb|finger|pectoral|abdomen|heel|shin|personal)[^)]*\\)"
+
+#' Is this headline an update on HIS injury? The injury words must be in the same part of the
+#' headline as his name ("Jeremiah Love placed on IR, Tyler Allgeier becomes RB1" is Love's
+#' injury, not Allgeier's). Headlines that don't name him count only when filed as injury news.
+is_injury_headline <- function(title, player, category = NULL) {
+  title <- tolower(title %||% "")
+  filed_injury <- (category %||% "") %in% c("injury", "injury_return")
+  last <- tolower(player %||% "")
+  last <- sub("\\s+(jr|sr|ii|iii|iv|v)\\.?$", "", last)
+  last <- gsub("[^a-z' -]", "", last)
+  parts <- strsplit(trimws(last), "\\s+")[[1]]
+  last <- if (length(parts)) parts[length(parts)] else ""
+  if (!nzchar(last) || !grepl(last, title, fixed = TRUE)) return(filed_injury)
+  # Dashes and curly quotes become breaks too (works the same in any locale).
+  ascii <- iconv(title, "UTF-8", "ASCII", sub = ",")
+  if (is.na(ascii)) ascii <- title
+  clauses <- strsplit(ascii, "[,;:|]|\\s-\\s|\\band\\b|\\bwhile\\b", perl = TRUE)[[1]]
+  own <- any(vapply(clauses, function(c) grepl(last, c, fixed = TRUE) && grepl(INJURY_NEWS_RX, c, perl = TRUE), logical(1)))
+  own || (filed_injury && !grepl(INJURY_NEWS_RX, title, perl = TRUE))
+}
 
 #' Newest injury-related article per player (by name) within `max_days` of `now_date`.
 #' news: list of articles (title, player, published "YYYY-MM-DD", source, impact, summary, category).
@@ -169,7 +191,7 @@ latest_injury_news <- function(news, now_date, max_days = 4) {
     if (!nzchar(name)) next
     pub <- suppressWarnings(as.Date(a$published %||% NA))
     if (is.na(pub) || as.numeric(as.Date(now_date) - pub) > max_days || pub > as.Date(now_date) + 1) next
-    is_injury <- (a$category %||% "") %in% c("injury", "injury_return") || grepl(INJURY_NEWS_RX, tolower(a$title %||% ""))
+    is_injury <- is_injury_headline(a$title, a$player, a$category)
     if (!is_injury) next
     prev <- out[[name]]
     if (is.null(prev) || pub > as.Date(prev$published)) {

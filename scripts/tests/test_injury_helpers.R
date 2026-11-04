@@ -91,6 +91,19 @@ check("old news doesn't fill today's practice", is.null(stale[[1]]$practice_stat
 h2 <- merge_history(list(), with_news, "2026-11-03T21:00:00Z")
 check("history keeps the news source", h2[["1"]][[1]]$practice_source, "news")
 
+# Only headlines about HIS injury count (round 8)
+check("game story mentioning injuries is not injury news",
+  is_injury_headline("Tyler Allgeier answered the call for a career day when injuries mounted for the Arizona Cardinals", "Tyler Allgeier", "general"), FALSE)
+check("someone else's injury in the same headline doesn't count",
+  is_injury_headline("Fantasy Football Injury Report: Jeremiah Love Placed on IR, Tyler Allgeier Becomes RB1", "Tyler Allgeier", "fantasy_advice"), FALSE)
+check("his practice news counts", is_injury_headline("Bhayshul Tuten not spotted at Jaguars practice", "Bhayshul Tuten"), TRUE)
+check("(ankle) tag counts", is_injury_headline("Jaguars RB Bhayshul Tuten (ankle/foot) questionable for Sunday", "Bhayshul Tuten"), TRUE)
+check("filed as injury without naming him counts", is_injury_headline("Jaguars RB status for Sunday", "Bhayshul Tuten", "injury"), TRUE)
+mixed <- latest_injury_news(list(
+  list(title = "Tyler Allgeier answered the call for a career day when injuries mounted", player = "Tyler Allgeier", published = "2026-11-03", category = "general")
+), "2026-11-03")
+check("no injury news picked for a game story", is.null(mixed[["tyler allgeier"]]), TRUE)
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)
