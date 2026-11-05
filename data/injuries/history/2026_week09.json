@@ -1417,6 +1417,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -1488,8 +1490,6 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
-      "practice_status": "DNP",
-      "practice_source": "news",
       "status": "OUT"
     }
   ],
@@ -1611,6 +1611,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -1781,6 +1783,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -1826,8 +1830,6 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
-      "practice_status": "DNP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2097,6 +2099,8 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2215,8 +2219,6 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
-      "practice_status": "DNP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2301,6 +2303,158 @@
     {
       "date": "2026-11-04",
       "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "13346": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8137": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "10212": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "7568": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11320": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "10229": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "1466": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11623": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "4995": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11643": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "13405": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "13434": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "4035": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "10228": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "12498": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "LP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "4195": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "4866": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "4950": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "7716": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8135": [
+    {
+      "date": "2026-11-04",
+      "day": "Wed",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ]
