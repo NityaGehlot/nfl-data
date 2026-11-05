@@ -14,6 +14,8 @@ library(stringdist)
 source("scripts/news_helpers.R")
 # Real article links and cover images (looked up once per article, then reused)
 source("scripts/article_images.R")
+# Player news with pictures from ESPN's public news feed (no scraping needed)
+source("scripts/espn_news.R")
 
 # =====================
 # CONFIG
@@ -209,7 +211,7 @@ message("Position groups: ", paste(names(groups), collapse = ", "))
 # =====================
 # RSS HELPERS
 # =====================
-fetch_google <- function(player_name) {
+fetch_google_raw <- function(player_name) {
 
   # Quote the name so Google returns articles about this exact player.
   url <- paste0(
@@ -257,17 +259,23 @@ fetch_google <- function(player_name) {
     articles <- c(articles, list(Filter(Negate(is.null), article)))
   }
 
-  # Newest first, keeping up to MAX_PER_PLAYER articles that cover different stories
-  select_diverse(articles, MAX_PER_PLAYER)
+  articles
 }
+
+# Newest first, keeping up to MAX_PER_PLAYER articles that cover different stories
+fetch_google <- function(player_name) select_diverse(fetch_google_raw(player_name), MAX_PER_PLAYER)
 
 build_news <- function(df) {
   result <- list()
 
   for (i in seq_len(nrow(df))) {
     Sys.sleep(REQUEST_DELAY)
-    news   <- fetch_google(df$player_name[i])
-    result <- c(result, news)
+    name <- df$player_name[i]
+    # ESPN stories come with their picture and real link; Google fills in the rest. When both
+    # cover the same story, select_diverse keeps the one with a picture.
+    espn   <- espn_player_articles(espn_by_player, name, SEASON_START)
+    google <- fetch_google_raw(name)
+    result <- c(result, select_diverse(c(espn, google), MAX_PER_PLAYER))
   }
 
   result
@@ -276,6 +284,12 @@ build_news <- function(df) {
 # =====================
 # GENERATE ALL GROUPS
 # =====================
+# ESPN team feeds once per run (32 requests), indexed by the players each story tags.
+espn_by_player <- espn_articles_by_player(tryCatch(fetch_espn_news(), error = function(e) {
+  message("⚠️ ESPN news unavailable: ", conditionMessage(e))
+  list()
+}))
+
 news_by_pos <- lapply(groups, build_news)
 
 # =====================

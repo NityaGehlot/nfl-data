@@ -49,6 +49,11 @@ jobs:
             'stringdist'
           ))"
 
+      - name: Test news helpers
+        run: |
+          Rscript scripts/tests/test_news_helpers.R
+          Rscript scripts/tests/test_espn_news.R
+
       - name: Generate NFL news
         run: |
           Rscript scripts/generate_nfl_news.R

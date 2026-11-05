@@ -220,3 +220,49 @@ attach_news <- function(rows, news_by_name, today) {
     r
   })
 }
+
+# ---------------------
+# Past weeks: the official report for every week of a season (backfill_injury_history.R)
+# ---------------------
+
+#' nflverse practice text -> "DNP" / "LP" / "FP" (NA when not on the practice report).
+practice_code <- function(x) {
+  t <- tolower(ifelse(is.na(x), "", x))
+  ifelse(grepl("did not|not participate", t), "DNP",
+    ifelse(grepl("limited", t), "LP", ifelse(grepl("full", t), "FP", NA_character_)))
+}
+
+#' One season of nflverse injury rows -> list(week -> list(gsis_id -> list(entry))).
+#' Keeps each player's final report for the week (latest date_modified).
+injury_report_weeks <- function(inj) {
+  inj <- as.data.frame(inj, stringsAsFactors = FALSE)
+  inj <- inj[!is.na(inj$gsis_id) & nzchar(inj$gsis_id) & !is.na(inj$week), , drop = FALSE]
+  if (!nrow(inj)) return(list())
+  modified <- as.character(inj$date_modified %||% rep(NA_character_, nrow(inj)))
+  inj <- inj[order(modified, decreasing = TRUE, na.last = TRUE), , drop = FALSE]
+  inj <- inj[!duplicated(paste(inj$week, inj$gsis_id)), , drop = FALSE]
+  modified <- as.character(inj$date_modified)
+  stamp <- as.POSIXct(substr(modified, 1, 19), format = "%Y-%m-%dT%H:%M:%S", tz = "UTC")
+  status <- toupper(trimws(ifelse(is.na(inj$report_status), "", inj$report_status)))
+  practice <- practice_code(inj$practice_status)
+  injury <- ifelse(!is.na(inj$report_primary_injury) & nzchar(inj$report_primary_injury), inj$report_primary_injury, inj$practice_primary_injury)
+  out <- list()
+  for (i in seq_len(nrow(inj))) {
+    has_time <- !is.na(stamp[i])
+    entry <- Filter(function(v) !is.null(v) && !(length(v) == 1 && is.na(v)), list(
+      date = if (has_time) eastern_date(stamp[i]) else NULL,
+      day = if (has_time) weekday_label(stamp[i]) else "Final",
+      practice_status = practice[i],
+      game_status = if (nzchar(status[i])) status[i] else NULL,
+      injury = injury[i],
+      name = inj$full_name[i],
+      team = inj$team[i],
+      position = inj$position[i],
+      source = "official"
+    ))
+    wk <- as.character(as.integer(inj$week[i]))
+    if (is.null(out[[wk]])) out[[wk]] <- list()
+    out[[wk]][[inj$gsis_id[i]]] <- list(entry)
+  }
+  out
+}

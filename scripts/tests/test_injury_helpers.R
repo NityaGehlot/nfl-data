@@ -104,6 +104,28 @@ mixed <- latest_injury_news(list(
 ), "2026-11-03")
 check("no injury news picked for a game story", is.null(mixed[["tyler allgeier"]]), TRUE)
 
+# Past weeks from nflverse's official report (backfill, round 9)
+check("practice codes", practice_code(c("Did Not Participate In Practice", "Limited Participation in Practice", "Full Participation in Practice", NA)), c("DNP", "LP", "FP", NA))
+season_rows <- data.frame(
+  season = 2025, week = c(3, 3, 3, 4),
+  gsis_id = c("00-1", "00-1", "00-2", "00-1"),
+  full_name = c("A Back", "A Back", "B Wide", "A Back"), team = c("JAX", "JAX", "KC", "JAX"), position = c("RB", "RB", "WR", "RB"),
+  report_primary_injury = c("Ankle", "Ankle", NA, NA), practice_primary_injury = c("Ankle", "Ankle", "Rest", NA),
+  report_status = c("Questionable", "Out", NA, NA),
+  practice_status = c("Limited Participation in Practice", "Did Not Participate In Practice", "Did Not Participate In Practice", "Full Participation in Practice"),
+  date_modified = c("2025-09-19T16:00:00Z", "2025-09-20T16:00:00Z", "2025-09-19T16:00:00Z", "2025-09-26T16:00:00Z"),
+  stringsAsFactors = FALSE
+)
+weeks <- injury_report_weeks(season_rows)
+check("weeks split", sort(names(weeks)), c("3", "4"))
+check("latest report wins", weeks[["3"]][["00-1"]][[1]]$game_status, "OUT")
+check("practice from the latest report", weeks[["3"]][["00-1"]][[1]]$practice_status, "DNP")
+check("name kept for matching", weeks[["3"]][["00-1"]][[1]]$name, "A Back")
+check("practice-only player has no game status", is.null(weeks[["3"]][["00-2"]][[1]]$game_status), TRUE)
+check("injury falls back to practice injury", weeks[["3"]][["00-2"]][[1]]$injury, "Rest")
+check("cleared the next week", weeks[["4"]][["00-1"]][[1]]$practice_status, "FP")
+check("day of the report", weeks[["3"]][["00-1"]][[1]]$day, "Sat")
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

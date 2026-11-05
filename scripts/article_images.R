@@ -174,6 +174,7 @@ plan_image_lookups <- function(article_lists, previous, n) {
   all <- unlist(unname(article_lists), recursive = FALSE)
   if (length(all) == 0 || n <= 0) return(character(0))
   need <- Filter(function(a) {
+    if (!is.null(a[["image"]])) return(FALSE) # e.g. ESPN stories already come with one
     prev <- previous[[a$link]]
     is.null(prev) || (is.null(prev[["image"]]) && (prev[["image_tries"]] %||% 1) < MAX_IMAGE_TRIES)
   }, all)

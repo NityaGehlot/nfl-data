@@ -273,8 +273,10 @@ title_similarity <- function(a, b, player_name = "") {
 # same category is only taken if nothing from a new category is left.
 select_diverse <- function(articles, n = 3, max_similarity = 0.45) {
   if (length(articles) == 0) return(list())
-  dates <- vapply(articles, function(a) a$published %||% "", character(1))
-  articles <- articles[order(dates, decreasing = TRUE)]
+  dates <- vapply(articles, function(a) substr(a$published %||% "", 1, 10), character(1))
+  # Newest first; on the same day, articles with a picture first.
+  has_image <- vapply(articles, function(a) !is.null(a[["image"]]), logical(1))
+  articles <- articles[order(dates, has_image, decreasing = TRUE)]
   picked <- list()
   similar_to_picked <- function(a) {
     any(vapply(picked, function(p) title_similarity(p$title, a$title, a$player %||% "") >= max_similarity, logical(1)))

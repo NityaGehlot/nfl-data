@@ -18,7 +18,7 @@ read_xml <- function(url) xml2::read_xml(rss)  # stand-in for the network call
 # Pull just the fetch_google() definition out of the generator script
 exprs <- parse("scripts/generate_nfl_news.R")
 for (e in exprs) {
-  if (is.call(e) && identical(e[[1]], as.name("<-")) && identical(e[[2]], as.name("fetch_google"))) eval(e)
+  if (is.call(e) && identical(e[[1]], as.name("<-")) && as.character(e[[2]]) %in% c("fetch_google", "fetch_google_raw")) eval(e)
 }
 
 out <- fetch_google("CeeDee Lamb")
