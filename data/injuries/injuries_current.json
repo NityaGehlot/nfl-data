@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T01:49:29Z",
+  "generated_at": "2026-11-05T03:51:52Z",
   "season": 2026,
   "week": 9,
   "season_type": "regular",
@@ -3389,6 +3389,27 @@
       ]
     },
     {
+      "player_id": "11299",
+      "gsis_id": null,
+      "full_name": "Zavier Scott",
+      "team": "CHI",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Wrist",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
       "player_id": "13346",
       "gsis_id": null,
       "full_name": "Denzel Boston",
@@ -4774,6 +4795,35 @@
           "day": "Tue",
           "status": "OUT"
         },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "7567",
+      "gsis_id": null,
+      "full_name": "Kenny Gainwell",
+      "team": "TB",
+      "position": "RB",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hip",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Kenny Gainwell (hip) active for Week 8",
+        "source": "FantasyPros",
+        "published": "2026-11-01",
+        "impact": "slightly_negative",
+        "summary": "Kenny Gainwell has an injury note (hip). Monitor practice reports before kickoff.",
+        "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZm15Ty1yRHpLbXdhN1NCRTlnMmZBSHp1RlVSblBKcFJpR0NVQ0lGaHdSMlJGZDVBcy14VU1XZTczR1FCc3VMSjJZWFB3UDUtQlV0US1MU0hESGxsakpTdkFFYTkwNDZQQUVnUDFUWFZWOFd4YjgtMjBwUFk1STNFbWZlY0JLVnfSAYwBQVVfeXFMTV9VWlk5dnlYUWY1TmhaNGxUbzcxM1dtNUtvYWgzWURjSjdKMW5XbXFSUGo5SkFtaHBUTGpnenpnVUg3STdaSzBWN0UzZ0ZHYWxXa1IydkhfS1lpVTEzcl9vOFFnZjVzSEQxM0JhQ2NwUXJzSUNtX0ZVeGNwVl9BU3JXNXB1SlBfRUhjcnI?oc=5"
+      },
+      "history": [
         {
           "date": "2026-11-04",
           "day": "Wed",
