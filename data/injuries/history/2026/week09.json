@@ -2228,7 +2228,7 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "829": [
@@ -2261,7 +2261,7 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13602": [
@@ -2951,7 +2951,7 @@
       "date": "2026-11-06",
       "day": "Fri",
       "practice_status": "DNP",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13295": [
@@ -3006,7 +3006,7 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13277": [
@@ -3030,7 +3030,7 @@
       "day": "Fri",
       "practice_status": "DNP",
       "practice_source": "news",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "12079": [
@@ -3314,6 +3314,8 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3410,6 +3412,11 @@
       "day": "Thu",
       "practice_status": "FP",
       "practice_source": "news",
+      "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-06",
+      "day": "Fri",
       "status": "QUESTIONABLE"
     }
   ],
@@ -4003,9 +4010,7 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "practice_status": "DNP",
-      "practice_source": "news",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "8489": [
@@ -4066,8 +4071,6 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "practice_status": "LP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -4197,7 +4200,7 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
-      "practice_status": "LP",
+      "practice_status": "FP",
       "practice_source": "news",
       "status": "QUESTIONABLE"
     }
@@ -4648,6 +4651,8 @@
     {
       "date": "2026-11-06",
       "day": "Fri",
+      "practice_status": "LP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
