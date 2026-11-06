@@ -55,6 +55,17 @@ b0 <- new_image_budget(0)
 kept <- attach_images(list(list(link = "missed")), prev, b0, delay = 0, lookups = character(0))
 check("tries carried over", kept[[1]]$image_tries, 1)
 
+# Video pages: the cover frame stands in for a share image (round 12)
+ld_video <- '<html><head><script type="application/ld+json">{"@type":"VideoObject","name":"Highlights","thumbnailUrl":["https:\\/\\/cdn.example.com\\/v\\/cover.jpg"]}</script></head></html>'
+check("JSON-LD video thumbnail", extract_share_image(ld_video, "https://www.example.com/video/1"), "https://cdn.example.com/v/cover.jpg")
+poster_page <- '<html><body><video class="player" poster="/img/poster.jpg" src="/v.mp4"></video></body></html>'
+check("<video poster> frame", extract_share_image(poster_page, "https://www.example.com/watch/2"), "https://www.example.com/img/poster.jpg")
+og_and_video <- '<meta property="og:image" content="https://cdn.example.com/og.jpg"><video poster="/p.jpg"></video>'
+check("share image still wins", extract_share_image(og_and_video, "https://www.example.com/x"), "https://cdn.example.com/og.jpg")
+check("video links", c(is_video_link("https://www.youtube.com/watch?v=abc"), is_video_link("https://www.nfl.com/videos/highlights-1"), is_video_link("https://www.espn.com/video/clip?id=1"), is_video_link("https://www.espn.com/nfl/story/_/id/1")), c(TRUE, TRUE, TRUE, FALSE))
+vid <- attach_images(list(list(link = "https://youtu.be/abcdefghijk")), list(), new_image_budget(1), delay = 0, lookups = "https://youtu.be/abcdefghijk")
+check("video flagged and given its thumbnail", c(isTRUE(vid[[1]]$video), vid[[1]]$image), c("TRUE", "https://i.ytimg.com/vi/abcdefghijk/hqdefault.jpg"))
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

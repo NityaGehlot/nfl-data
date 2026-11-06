@@ -63,7 +63,23 @@ other_image <- function(html, page_url) {
   if (length(ip) >= 2) return(absolute_https(ip[2], page_url))
   ld <- regmatches(html, regexec("\"image\"\\s*:\\s*(?:\\{[^}]*?\"url\"\\s*:\\s*)?\\[?\\s*\"(https?:[^\"]+)\"", html, perl = TRUE))[[1]]
   if (length(ld) >= 2) return(absolute_https(gsub("\\\\/", "/", ld[2]), page_url))
+  video_cover(html, page_url)
+}
+
+# Pages built around a video often have no share image, only the video's cover: the JSON-LD
+# VideoObject "thumbnailUrl", or the <video poster="..."> frame shown before it plays.
+video_cover <- function(html, page_url) {
+  th <- regmatches(html, regexec("\"thumbnailUrl\"\\s*:\\s*\\[?\\s*\"(https?:[^\"]+)\"", html, perl = TRUE))[[1]]
+  if (length(th) >= 2) return(absolute_https(gsub("\\\\/", "/", th[2]), page_url))
+  poster <- regmatches(html, regexec("<video\\b[^>]*\\bposter=[\"']([^\"']+)[\"']", html, ignore.case = TRUE, perl = TRUE))[[1]]
+  if (length(poster) >= 2) return(absolute_https(poster[2], page_url))
   NA_character_
+}
+
+#' Is this link a video (so the app can mark the card with a play button)?
+is_video_link <- function(url) {
+  u <- tolower(url %||% "")
+  grepl("youtu\\.be/|youtube\\.com/|vimeo\\.com/|/videos?/|/watch/|espn\\.com/video/|nfl\\.com/videos/", u, perl = TRUE)
 }
 
 # YouTube links: the video's thumbnail.
@@ -207,6 +223,7 @@ attach_images <- function(articles, previous, budget, delay = 0.4, lookups = NUL
       if (!is.na(got$image)) a$image <- got$image else a$image_tries <- (a[["image_tries"]] %||% 0) + 1
       Sys.sleep(delay)
     }
+    if (is_video_link(a[["url"]] %||% a$link)) a$video <- TRUE
     articles[[i]] <- a
   }
   articles

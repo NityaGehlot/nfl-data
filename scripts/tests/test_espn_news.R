@@ -54,6 +54,15 @@ picked <- select_diverse(list(google, mine[[1]]), 3)
 check("picture version wins a duplicate story", picked[[1]]$source, "ESPN")
 check("duplicate dropped", length(picked), 1L)
 
+# ESPN videos with a cover are kept and marked as video
+vfeed <- fromJSON('{"articles":[{"id":9,"type":"Media","headline":"Bhayshul Tuten highlights","published":"2026-11-04T10:00:00Z",
+  "images":[{"url":"https://a.espncdn.com/video/cover.jpg"}],"links":{"web":{"href":"https://www.espn.com/video/clip?id=9"}},
+  "categories":[{"type":"athlete","description":"Bhayshul Tuten"}]}]}', simplifyVector = FALSE)
+vp <- parse_espn_articles(vfeed)
+check("ESPN video kept", length(vp), 1L)
+check("ESPN video marked", isTRUE(vp[[1]]$video), TRUE)
+check("ESPN video flag reaches the player article", isTRUE(espn_player_articles(espn_articles_by_player(vp), "Bhayshul Tuten")[[1]]$video), TRUE)
+
 if (failures > 0) {
   cat("\n", failures, "test(s) failed\n")
   quit(status = 1)

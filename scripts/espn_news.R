@@ -28,7 +28,10 @@ espn_image <- function(images) {
 parse_espn_articles <- function(data) {
   out <- list()
   for (a in data$articles %||% list()) {
-    if (is.null(a$headline) || identical(a$type, "Media")) next
+    # Videos ("Media") are kept: their image is the video's cover, and they're marked as video.
+    if (is.null(a$headline)) next
+    is_video <- identical(a$type, "Media")
+    if (is_video && is.null(espn_image(a$images %||% list()))) next
     link <- a$links$web$href %||% a$links$mobile$href
     if (is.null(link)) next
     cats <- a$categories %||% list()
@@ -41,7 +44,8 @@ parse_espn_articles <- function(data) {
       link = link,
       image = espn_image(a$images %||% list()),
       published = if (nzchar(published)) published else NULL,
-      athletes = as.character(athletes %||% character(0))
+      athletes = as.character(athletes %||% character(0)),
+      video = if (is_video) TRUE else NULL
     )
   }
   out
@@ -99,6 +103,7 @@ espn_player_articles <- function(by_player, player_name, season_start = NULL) {
       link = a$link,
       url = a$link,
       image = a$image,
+      video = a$video,
       published = a$published,
       player = player_name,
       impact = info$impact,
