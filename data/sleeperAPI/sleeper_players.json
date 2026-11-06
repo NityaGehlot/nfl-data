@@ -1369,7 +1369,7 @@
     "position_for_FFHelper": "RB",
     "team": "CLE",
     "depth_chart_order": 3,
-    "search_rank": 692,
+    "search_rank": 694,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -2152,8 +2152,8 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "BAL",
-    "depth_chart_order": 6,
-    "search_rank": 689,
+    "depth_chart_order": 5,
+    "search_rank": 683,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -2617,7 +2617,7 @@
     "position_for_FFHelper": "LB",
     "team": "PIT",
     "depth_chart_order": 2,
-    "search_rank": 373,
+    "search_rank": 374,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -6073,7 +6073,7 @@
     "position_for_FFHelper": "LB",
     "team": "MIN",
     "depth_chart_order": 1,
-    "search_rank": 226,
+    "search_rank": 225,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -8252,8 +8252,8 @@
     "search_rank": 123,
     "years_exp": 6,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Calf"
   },
   {
     "player_id": "2310",
@@ -9737,7 +9737,7 @@
     "position_for_FFHelper": "LB",
     "team": "IND",
     "depth_chart_order": 2,
-    "search_rank": 258,
+    "search_rank": 260,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -10348,8 +10348,8 @@
     "search_rank": 688,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "5495",
@@ -10924,8 +10924,8 @@
     "search_rank": 9999999,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ankle"
   },
   {
     "player_id": "13608",
@@ -11388,8 +11388,8 @@
     "search_rank": 9999999,
     "years_exp": 8,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Shoulder"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8213",
@@ -12761,7 +12761,7 @@
     "position_for_FFHelper": "TE",
     "team": "MIA",
     "depth_chart_order": 3,
-    "search_rank": 482,
+    "search_rank": 484,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -12824,7 +12824,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "BAL",
-    "depth_chart_order": 99,
+    "depth_chart_order": 6,
     "search_rank": 674,
     "years_exp": 2,
     "status": "Active",
@@ -13017,7 +13017,7 @@
     "position_for_FFHelper": "DL",
     "team": "TB",
     "depth_chart_order": 1,
-    "search_rank": 207,
+    "search_rank": 206,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -13081,7 +13081,7 @@
     "position_for_FFHelper": "QB",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 131,
+    "search_rank": 130,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -13288,8 +13288,8 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "NE",
-    "depth_chart_order": 2,
-    "search_rank": 363,
+    "depth_chart_order": 1,
+    "search_rank": 364,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -14680,12 +14680,12 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "BAL",
-    "depth_chart_order": 5,
+    "depth_chart_order": 7,
     "search_rank": 201,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "12535",
@@ -14937,7 +14937,7 @@
     "position_for_FFHelper": "QB",
     "team": "NYJ",
     "depth_chart_order": 1,
-    "search_rank": 212,
+    "search_rank": 211,
     "years_exp": 13,
     "status": "Active",
     "injury_status": null,
@@ -16236,8 +16236,8 @@
     "search_rank": 176,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Knee"
   },
   {
     "player_id": "12475",
@@ -16264,12 +16264,12 @@
     "position_listed_on_nflreadr": "LB",
     "position_for_FFHelper": "LB",
     "team": "BAL",
-    "depth_chart_order": 99,
+    "depth_chart_order": 3,
     "search_rank": 698,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Hamstring"
   },
   {
     "player_id": "8154",
@@ -17577,7 +17577,7 @@
     "position_for_FFHelper": "WR",
     "team": "CHI",
     "depth_chart_order": 2,
-    "search_rank": 65,
+    "search_rank": 63,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -17865,7 +17865,7 @@
     "position_for_FFHelper": "S",
     "team": "SEA",
     "depth_chart_order": 1,
-    "search_rank": 204,
+    "search_rank": 203,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -19596,8 +19596,8 @@
     "search_rank": 322,
     "years_exp": 7,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Groin"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "3176",
@@ -20636,8 +20636,8 @@
     "search_rank": 9999999,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "2372",
@@ -21305,11 +21305,11 @@
     "position_for_FFHelper": "LB",
     "team": "NYJ",
     "depth_chart_order": 1,
-    "search_rank": 231,
+    "search_rank": 230,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Groin"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "12063",
@@ -22953,7 +22953,7 @@
     "position_for_FFHelper": "LB",
     "team": "CAR",
     "depth_chart_order": 1,
-    "search_rank": 212,
+    "search_rank": 211,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -24300,8 +24300,8 @@
     "search_rank": 616,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Calf"
   },
   {
     "player_id": "7688",
@@ -24377,7 +24377,7 @@
     "position_for_FFHelper": "K",
     "team": "CIN",
     "depth_chart_order": 1,
-    "search_rank": 153,
+    "search_rank": 155,
     "years_exp": 5,
     "status": "Active",
     "injury_status": null,
@@ -24537,7 +24537,7 @@
     "position_for_FFHelper": "LB",
     "team": "LAR",
     "depth_chart_order": 1,
-    "search_rank": 228,
+    "search_rank": 227,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -24841,7 +24841,7 @@
     "position_for_FFHelper": "QB",
     "team": "LAC",
     "depth_chart_order": 1,
-    "search_rank": 33,
+    "search_rank": 34,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -25175,7 +25175,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "position_for_FFHelper": "LB",
-    "team": null,
+    "team": "SEA",
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 2,
@@ -25388,8 +25388,8 @@
     "search_rank": 999,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13504",
@@ -26288,6 +26288,22 @@
     "injury_body_part": null
   },
   {
+    "player_id": "11823",
+    "first_name": "C.J.",
+    "last_name": "Hanson",
+    "full_name": "C.J. Hanson",
+    "position_listed_on_sleeper": "OG",
+    "position_listed_on_nflreadr": null,
+    "position_for_FFHelper": "OG",
+    "team": "MIN",
+    "depth_chart_order": 99,
+    "search_rank": 9999999,
+    "years_exp": 2,
+    "status": "Active",
+    "injury_status": null,
+    "injury_body_part": null
+  },
+  {
     "player_id": "14053",
     "first_name": "Jarrod",
     "last_name": "Gray",
@@ -26745,7 +26761,7 @@
     "position_for_FFHelper": "S",
     "team": "ARI",
     "depth_chart_order": 1,
-    "search_rank": 218,
+    "search_rank": 217,
     "years_exp": 9,
     "status": "Active",
     "injury_status": null,
@@ -26872,7 +26888,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "ATL",
-    "depth_chart_order": 4,
+    "depth_chart_order": 3,
     "search_rank": 9999999,
     "years_exp": 4,
     "status": "Active",
@@ -27049,7 +27065,7 @@
     "position_for_FFHelper": "S",
     "team": "KC",
     "depth_chart_order": 1,
-    "search_rank": 213,
+    "search_rank": 212,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -27064,8 +27080,8 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 2,
-    "search_rank": 489,
+    "depth_chart_order": 1,
+    "search_rank": 487,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -27848,7 +27864,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "search_rank": 203,
     "years_exp": 3,
     "status": "Active",
@@ -28072,7 +28088,7 @@
     "position_listed_on_nflreadr": "PK",
     "position_for_FFHelper": "K",
     "team": "BAL",
-    "depth_chart_order": 99,
+    "depth_chart_order": 1,
     "search_rank": 309,
     "years_exp": 3,
     "status": "Active",
@@ -28329,7 +28345,7 @@
     "position_for_FFHelper": "S",
     "team": "WAS",
     "depth_chart_order": 1,
-    "search_rank": 164,
+    "search_rank": 165,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -28425,7 +28441,7 @@
     "position_for_FFHelper": "LB",
     "team": "BAL",
     "depth_chart_order": 1,
-    "search_rank": 223,
+    "search_rank": 222,
     "years_exp": 9,
     "status": "Active",
     "injury_status": null,
@@ -28905,7 +28921,7 @@
     "position_for_FFHelper": "LB",
     "team": "NYJ",
     "depth_chart_order": 1,
-    "search_rank": 161,
+    "search_rank": 159,
     "years_exp": 5,
     "status": "Active",
     "injury_status": null,
@@ -29561,7 +29577,7 @@
     "position_for_FFHelper": "TE",
     "team": "SF",
     "depth_chart_order": 99,
-    "search_rank": 356,
+    "search_rank": 358,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -30089,7 +30105,7 @@
     "position_for_FFHelper": "DE",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 272,
+    "search_rank": 274,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -30396,8 +30412,8 @@
     "search_rank": 444,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Foot"
   },
   {
     "player_id": "12052",
@@ -30428,8 +30444,8 @@
     "search_rank": 672,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Knee"
   },
   {
     "player_id": "5347",
@@ -30921,7 +30937,7 @@
     "position_for_FFHelper": "RB",
     "team": "ARI",
     "depth_chart_order": 99,
-    "search_rank": 283,
+    "search_rank": 282,
     "years_exp": 5,
     "status": "Active",
     "injury_status": null,
@@ -31932,8 +31948,8 @@
     "search_rank": 9999999,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "5659",
@@ -31996,8 +32012,8 @@
     "search_rank": 178,
     "years_exp": 7,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Chest"
   },
   {
     "player_id": "8613",
@@ -32025,7 +32041,7 @@
     "position_for_FFHelper": "DB",
     "team": "HOU",
     "depth_chart_order": 2,
-    "search_rank": 412,
+    "search_rank": 414,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -32361,7 +32377,7 @@
     "position_for_FFHelper": "QB",
     "team": "ARI",
     "depth_chart_order": 3,
-    "search_rank": 289,
+    "search_rank": 287,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -33372,8 +33388,8 @@
     "search_rank": 39,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Foot"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "7605",
@@ -34105,7 +34121,7 @@
     "position_for_FFHelper": "QB",
     "team": "CAR",
     "depth_chart_order": 1,
-    "search_rank": 133,
+    "search_rank": 132,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -36024,7 +36040,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "NYG",
-    "depth_chart_order": 3,
+    "depth_chart_order": 99,
     "search_rank": 655,
     "years_exp": 3,
     "status": "Active",
@@ -36940,8 +36956,8 @@
     "search_rank": 691,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Knee"
   },
   {
     "player_id": "2613",
@@ -39481,7 +39497,7 @@
     "position_for_FFHelper": "LB",
     "team": "PIT",
     "depth_chart_order": 1,
-    "search_rank": 107,
+    "search_rank": 108,
     "years_exp": 9,
     "status": "Active",
     "injury_status": null,
@@ -41596,8 +41612,8 @@
     "search_rank": 9999999,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Back"
   },
   {
     "player_id": "8894",
@@ -41641,7 +41657,7 @@
     "position_for_FFHelper": "RB",
     "team": "IND",
     "depth_chart_order": 2,
-    "search_rank": 377,
+    "search_rank": 378,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -42505,7 +42521,7 @@
     "position_for_FFHelper": "LB",
     "team": "GB",
     "depth_chart_order": 1,
-    "search_rank": 217,
+    "search_rank": 216,
     "years_exp": 8,
     "status": "Active",
     "injury_status": "Questionable",
@@ -42520,7 +42536,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NYJ",
-    "depth_chart_order": 6,
+    "depth_chart_order": 5,
     "search_rank": 573,
     "years_exp": 9,
     "status": "Active",
@@ -42569,7 +42585,7 @@
     "position_for_FFHelper": "LB",
     "team": "DAL",
     "depth_chart_order": 1,
-    "search_rank": 457,
+    "search_rank": 456,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -42617,7 +42633,7 @@
     "position_for_FFHelper": "DB",
     "team": "ATL",
     "depth_chart_order": 2,
-    "search_rank": 411,
+    "search_rank": 412,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -44057,7 +44073,7 @@
     "position_for_FFHelper": "S",
     "team": "CIN",
     "depth_chart_order": 1,
-    "search_rank": 363,
+    "search_rank": 364,
     "years_exp": 3,
     "status": "Active",
     "injury_status": "Questionable",
@@ -44444,8 +44460,8 @@
     "search_rank": 339,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Hip"
   },
   {
     "player_id": "11275",
@@ -44860,8 +44876,8 @@
     "search_rank": 9999999,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ankle"
   },
   {
     "player_id": "3312",
@@ -45577,7 +45593,7 @@
     "position_for_FFHelper": "S",
     "team": "BUF",
     "depth_chart_order": 1,
-    "search_rank": 323,
+    "search_rank": 324,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -45644,8 +45660,8 @@
     "search_rank": 9999999,
     "years_exp": 9,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ribs"
   },
   {
     "player_id": "4171",
@@ -46288,6 +46304,22 @@
     "injury_body_part": null
   },
   {
+    "player_id": "5914",
+    "first_name": "David",
+    "last_name": "Long Jr.",
+    "full_name": "David Long Jr.",
+    "position_listed_on_sleeper": "CB",
+    "position_listed_on_nflreadr": "CB",
+    "position_for_FFHelper": "CB",
+    "team": "LAR",
+    "depth_chart_order": 99,
+    "search_rank": 9999999,
+    "years_exp": 7,
+    "status": "Active",
+    "injury_status": null,
+    "injury_body_part": null
+  },
+  {
     "player_id": "11663",
     "first_name": "Chop",
     "last_name": "Robinson",
@@ -46505,7 +46537,7 @@
     "position_for_FFHelper": "DB",
     "team": "GB",
     "depth_chart_order": 1,
-    "search_rank": 510,
+    "search_rank": 512,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -46552,7 +46584,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "NE",
-    "depth_chart_order": 1,
+    "depth_chart_order": 2,
     "search_rank": 17,
     "years_exp": 7,
     "status": "Active",
@@ -47081,7 +47113,7 @@
     "position_for_FFHelper": "LB",
     "team": "LV",
     "depth_chart_order": 1,
-    "search_rank": 177,
+    "search_rank": 176,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -47820,8 +47852,8 @@
     "search_rank": 9999999,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "6128",
@@ -48841,7 +48873,7 @@
     "position_for_FFHelper": "LB",
     "team": "KC",
     "depth_chart_order": 1,
-    "search_rank": 370,
+    "search_rank": 372,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -49180,8 +49212,8 @@
     "search_rank": 674,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "8080",
@@ -49449,7 +49481,7 @@
     "position_for_FFHelper": "DT",
     "team": "PIT",
     "depth_chart_order": 1,
-    "search_rank": 450,
+    "search_rank": 451,
     "years_exp": 15,
     "status": "Active",
     "injury_status": null,
@@ -49497,7 +49529,7 @@
     "position_for_FFHelper": "RB",
     "team": "SEA",
     "depth_chart_order": 4,
-    "search_rank": 454,
+    "search_rank": 455,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -50236,8 +50268,8 @@
     "search_rank": 9999999,
     "years_exp": 8,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "11809",
@@ -50441,7 +50473,7 @@
     "position_for_FFHelper": "LB",
     "team": "ATL",
     "depth_chart_order": 1,
-    "search_rank": 465,
+    "search_rank": 464,
     "years_exp": 5,
     "status": "Active",
     "injury_status": "Questionable",
@@ -51004,8 +51036,8 @@
     "search_rank": 591,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "7754",
@@ -51080,7 +51112,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "NE",
-    "depth_chart_order": 1,
+    "depth_chart_order": 2,
     "search_rank": 92,
     "years_exp": 10,
     "status": "Active",
@@ -53768,7 +53800,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "SEA",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 150,
     "years_exp": 4,
     "status": "Active",
@@ -53785,7 +53817,7 @@
     "position_for_FFHelper": "WR",
     "team": "NYG",
     "depth_chart_order": 2,
-    "search_rank": 201,
+    "search_rank": 199,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -54905,7 +54937,7 @@
     "position_for_FFHelper": "RB",
     "team": "JAX",
     "depth_chart_order": 2,
-    "search_rank": 125,
+    "search_rank": 127,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -54921,11 +54953,11 @@
     "position_for_FFHelper": "LB",
     "team": "DAL",
     "depth_chart_order": 1,
-    "search_rank": 377,
+    "search_rank": 375,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Hamstring"
   },
   {
     "player_id": "4051",
@@ -55143,7 +55175,7 @@
     "position_listed_on_sleeper": "LB",
     "position_listed_on_nflreadr": "LB",
     "position_for_FFHelper": "LB",
-    "team": "SEA",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 2,
@@ -55321,7 +55353,7 @@
     "position_for_FFHelper": "WR",
     "team": "BUF",
     "depth_chart_order": 1,
-    "search_rank": 48,
+    "search_rank": 50,
     "years_exp": 8,
     "status": "Active",
     "injury_status": "Questionable",
@@ -56505,7 +56537,7 @@
     "position_for_FFHelper": "RB",
     "team": "SF",
     "depth_chart_order": 2,
-    "search_rank": 161,
+    "search_rank": 162,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -58617,7 +58649,7 @@
     "position_for_FFHelper": "WR",
     "team": "DAL",
     "depth_chart_order": 4,
-    "search_rank": 446,
+    "search_rank": 445,
     "years_exp": 4,
     "status": "Active",
     "injury_status": "Questionable",
@@ -59084,8 +59116,8 @@
     "search_rank": 29,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Hamstring"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8881",
@@ -59148,8 +59180,8 @@
     "search_rank": 9999999,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Toe"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "3050",
@@ -60796,8 +60828,8 @@
     "search_rank": 559,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Illness"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8350",
@@ -61881,7 +61913,7 @@
     "position_for_FFHelper": "WR",
     "team": "JAX",
     "depth_chart_order": 1,
-    "search_rank": 103,
+    "search_rank": 104,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -62652,8 +62684,8 @@
     "search_rank": 44,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "3585",
@@ -63465,7 +63497,7 @@
     "position_for_FFHelper": "LB",
     "team": "BAL",
     "depth_chart_order": 1,
-    "search_rank": 97,
+    "search_rank": 96,
     "years_exp": 8,
     "status": "Active",
     "injury_status": null,
@@ -63740,8 +63772,8 @@
     "search_rank": 28,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Undisclosed"
   },
   {
     "player_id": "6658",
@@ -63913,7 +63945,7 @@
     "position_for_FFHelper": "FB",
     "team": "BUF",
     "depth_chart_order": 99,
-    "search_rank": 282,
+    "search_rank": 279,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -63964,8 +63996,8 @@
     "search_rank": 119,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Hip"
   },
   {
     "player_id": "1854",
@@ -64088,7 +64120,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 685,
     "years_exp": 7,
     "status": "Active",
@@ -64313,7 +64345,7 @@
     "position_for_FFHelper": "CB",
     "team": "PHI",
     "depth_chart_order": 1,
-    "search_rank": 214,
+    "search_rank": 213,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -64921,7 +64953,7 @@
     "position_for_FFHelper": "S",
     "team": "CLE",
     "depth_chart_order": 1,
-    "search_rank": 427,
+    "search_rank": 428,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -65369,7 +65401,7 @@
     "position_for_FFHelper": "LB",
     "team": "TB",
     "depth_chart_order": 1,
-    "search_rank": 333,
+    "search_rank": 332,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -65449,7 +65481,7 @@
     "position_for_FFHelper": "LB",
     "team": "TEN",
     "depth_chart_order": 1,
-    "search_rank": 209,
+    "search_rank": 208,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -66496,22 +66528,6 @@
     "injury_body_part": null
   },
   {
-    "player_id": "11299",
-    "first_name": "Zavier",
-    "last_name": "Scott",
-    "full_name": "Zavier Scott",
-    "position_listed_on_sleeper": "RB",
-    "position_listed_on_nflreadr": "RB",
-    "position_for_FFHelper": "RB",
-    "team": "CHI",
-    "depth_chart_order": 4,
-    "search_rank": 691,
-    "years_exp": 3,
-    "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Wrist"
-  },
-  {
     "player_id": "11901",
     "first_name": "Kyle",
     "last_name": "Sheets",
@@ -66713,7 +66729,7 @@
     "position_for_FFHelper": "DE",
     "team": "CHI",
     "depth_chart_order": 1,
-    "search_rank": 468,
+    "search_rank": 470,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -67240,7 +67256,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "SEA",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "search_rank": 195,
     "years_exp": 9,
     "status": "Active",
@@ -67708,8 +67724,8 @@
     "search_rank": 9999999,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Hamstring"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8370",
@@ -67833,11 +67849,11 @@
     "position_for_FFHelper": "TE",
     "team": "HOU",
     "depth_chart_order": 5,
-    "search_rank": 454,
+    "search_rank": 456,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Finger"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13776",
@@ -68808,7 +68824,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LAC",
-    "depth_chart_order": 5,
+    "depth_chart_order": 4,
     "search_rank": 615,
     "years_exp": 3,
     "status": "Active",
@@ -70520,7 +70536,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "NE",
-    "depth_chart_order": 3,
+    "depth_chart_order": 4,
     "search_rank": 345,
     "years_exp": 3,
     "status": "Active",
@@ -72409,7 +72425,7 @@
     "position_for_FFHelper": "LB",
     "team": "LAC",
     "depth_chart_order": 1,
-    "search_rank": 209,
+    "search_rank": 210,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -72600,12 +72616,12 @@
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "DB",
     "team": "JAX",
-    "depth_chart_order": 99,
+    "depth_chart_order": 3,
     "search_rank": 9999999,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "12140",
@@ -73516,8 +73532,8 @@
     "search_rank": 9999999,
     "years_exp": 7,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Knee"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "11653",
@@ -73657,7 +73673,7 @@
     "position_for_FFHelper": "QB",
     "team": "SF",
     "depth_chart_order": 1,
-    "search_rank": 55,
+    "search_rank": 56,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -74076,8 +74092,8 @@
     "search_rank": 677,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Back"
   },
   {
     "player_id": "2913",
@@ -74712,7 +74728,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "SF",
-    "depth_chart_order": 5,
+    "depth_chart_order": 3,
     "search_rank": 999,
     "years_exp": 1,
     "status": "Active",
@@ -76124,8 +76140,8 @@
     "search_rank": 81,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Chest"
   },
   {
     "player_id": "12275",
@@ -77852,8 +77868,8 @@
     "search_rank": 9999999,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Knee"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "12718",
@@ -78380,8 +78396,8 @@
     "search_rank": 394,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Calf"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13115",
@@ -78841,7 +78857,7 @@
     "position_for_FFHelper": "LB",
     "team": "MIA",
     "depth_chart_order": 1,
-    "search_rank": 136,
+    "search_rank": 135,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -79148,8 +79164,8 @@
     "search_rank": 98,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Knee"
   },
   {
     "player_id": "11038",
@@ -79527,7 +79543,7 @@
     "position_listed_on_sleeper": "WR",
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "WR",
-    "team": "SEA",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 655,
     "years_exp": 0,
@@ -80537,7 +80553,7 @@
     "position_for_FFHelper": "LB",
     "team": "DEN",
     "depth_chart_order": 1,
-    "search_rank": 139,
+    "search_rank": 140,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -80647,7 +80663,7 @@
     "position_listed_on_sleeper": "CB",
     "position_listed_on_nflreadr": "CB",
     "position_for_FFHelper": "CB",
-    "team": null,
+    "team": "BUF",
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 4,
@@ -81321,7 +81337,7 @@
     "position_for_FFHelper": "LB",
     "team": "PIT",
     "depth_chart_order": 1,
-    "search_rank": 273,
+    "search_rank": 272,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -81897,7 +81913,7 @@
     "position_for_FFHelper": "S",
     "team": "MIN",
     "depth_chart_order": 1,
-    "search_rank": 385,
+    "search_rank": 386,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -82121,7 +82137,7 @@
     "position_for_FFHelper": "LB",
     "team": "ARI",
     "depth_chart_order": 1,
-    "search_rank": 454,
+    "search_rank": 455,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -82729,7 +82745,7 @@
     "position_for_FFHelper": "WR",
     "team": "WAS",
     "depth_chart_order": 1,
-    "search_rank": 105,
+    "search_rank": 104,
     "years_exp": 11,
     "status": "Active",
     "injury_status": null,
@@ -82764,8 +82780,8 @@
     "search_rank": 86,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Hip"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "12217",
@@ -85097,7 +85113,7 @@
     "position_for_FFHelper": "WR",
     "team": "NO",
     "depth_chart_order": 4,
-    "search_rank": 461,
+    "search_rank": 462,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -85673,7 +85689,7 @@
     "position_for_FFHelper": "WR",
     "team": "JAX",
     "depth_chart_order": 3,
-    "search_rank": 74,
+    "search_rank": 75,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -86537,7 +86553,7 @@
     "position_for_FFHelper": "DT",
     "team": "SEA",
     "depth_chart_order": 1,
-    "search_rank": 366,
+    "search_rank": 367,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -86696,7 +86712,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 4,
+    "depth_chart_order": 2,
     "search_rank": 658,
     "years_exp": 1,
     "status": "Active",
@@ -86889,11 +86905,11 @@
     "position_for_FFHelper": "LB",
     "team": "LAC",
     "depth_chart_order": 1,
-    "search_rank": 205,
+    "search_rank": 204,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Shoulder"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13198",
@@ -87145,7 +87161,7 @@
     "position_for_FFHelper": "DE",
     "team": "JAX",
     "depth_chart_order": 1,
-    "search_rank": 219,
+    "search_rank": 220,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -87180,8 +87196,8 @@
     "search_rank": 9999999,
     "years_exp": 6,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Toe"
   },
   {
     "player_id": "4280",
@@ -87340,8 +87356,8 @@
     "search_rank": 486,
     "years_exp": 0,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Calf"
   },
   {
     "player_id": "5078",
@@ -87372,8 +87388,8 @@
     "search_rank": 167,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Illness"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "4331",
@@ -88375,7 +88391,7 @@
     "position_listed_on_sleeper": "DB",
     "position_listed_on_nflreadr": "CB",
     "position_for_FFHelper": "CB",
-    "team": null,
+    "team": "NE",
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 6,
@@ -88504,7 +88520,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "ATL",
-    "depth_chart_order": 3,
+    "depth_chart_order": 4,
     "search_rank": 539,
     "years_exp": 6,
     "status": "Active",
@@ -89992,7 +90008,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "SF",
-    "depth_chart_order": 3,
+    "depth_chart_order": 5,
     "search_rank": 210,
     "years_exp": 8,
     "status": "Active",
@@ -90028,8 +90044,8 @@
     "search_rank": 9999999,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ankle"
   },
   {
     "player_id": "3150",
@@ -90524,8 +90540,8 @@
     "search_rank": 138,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Back"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13242",
@@ -90665,7 +90681,7 @@
     "position_for_FFHelper": "LB",
     "team": "ARI",
     "depth_chart_order": 1,
-    "search_rank": 416,
+    "search_rank": 415,
     "years_exp": 8,
     "status": "Active",
     "injury_status": null,
@@ -91596,8 +91612,8 @@
     "search_rank": 387,
     "years_exp": 8,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "1064",
@@ -91881,7 +91897,7 @@
     "position_for_FFHelper": "WR",
     "team": "CHI",
     "depth_chart_order": 4,
-    "search_rank": 367,
+    "search_rank": 366,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -92380,8 +92396,8 @@
     "search_rank": 999,
     "years_exp": 6,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ankle"
   },
   {
     "player_id": "8746",
@@ -92793,7 +92809,7 @@
     "position_for_FFHelper": "DB",
     "team": "CHI",
     "depth_chart_order": 1,
-    "search_rank": 216,
+    "search_rank": 215,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -92825,7 +92841,7 @@
     "position_for_FFHelper": "S",
     "team": "ATL",
     "depth_chart_order": 1,
-    "search_rank": 233,
+    "search_rank": 232,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -93800,7 +93816,7 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "MIN",
-    "depth_chart_order": 2,
+    "depth_chart_order": 1,
     "search_rank": 633,
     "years_exp": 10,
     "status": "Active",
@@ -93992,8 +94008,8 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 5,
-    "search_rank": 670,
+    "depth_chart_order": 4,
+    "search_rank": 671,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -94120,7 +94136,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "HOU",
-    "depth_chart_order": 3,
+    "depth_chart_order": 2,
     "search_rank": 502,
     "years_exp": 3,
     "status": "Active",
@@ -94472,7 +94488,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LAC",
-    "depth_chart_order": 6,
+    "depth_chart_order": 7,
     "search_rank": 666,
     "years_exp": 1,
     "status": "Active",
@@ -95836,8 +95852,8 @@
     "search_rank": 206,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Shoulder"
   },
   {
     "player_id": "13224",
@@ -96713,7 +96729,7 @@
     "position_for_FFHelper": "WR",
     "team": "GB",
     "depth_chart_order": 4,
-    "search_rank": 654,
+    "search_rank": 655,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -97036,8 +97052,8 @@
     "search_rank": 643,
     "years_exp": 11,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Illness"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8521",
@@ -98905,7 +98921,7 @@
     "position_for_FFHelper": "S",
     "team": "NYJ",
     "depth_chart_order": 1,
-    "search_rank": 473,
+    "search_rank": 472,
     "years_exp": 8,
     "status": "Active",
     "injury_status": null,
@@ -98920,12 +98936,12 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "PHI",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "search_rank": 677,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ribs"
   },
   {
     "player_id": "3792",
@@ -101641,7 +101657,7 @@
     "position_for_FFHelper": "S",
     "team": "CAR",
     "depth_chart_order": 1,
-    "search_rank": 496,
+    "search_rank": 498,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -102553,7 +102569,7 @@
     "position_for_FFHelper": "S",
     "team": "LAR",
     "depth_chart_order": 1,
-    "search_rank": 384,
+    "search_rank": 383,
     "years_exp": 4,
     "status": "Active",
     "injury_status": null,
@@ -102825,7 +102841,7 @@
     "position_for_FFHelper": "LB",
     "team": "CLE",
     "depth_chart_order": 1,
-    "search_rank": 98,
+    "search_rank": 97,
     "years_exp": 1,
     "status": "Active",
     "injury_status": "Questionable",
@@ -103628,8 +103644,8 @@
     "search_rank": 534,
     "years_exp": 7,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Illness"
   },
   {
     "player_id": "6803",
@@ -104268,8 +104284,8 @@
     "search_rank": 63,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Groin"
   },
   {
     "player_id": "7242",
@@ -105593,11 +105609,11 @@
     "position_for_FFHelper": "DE",
     "team": "CLE",
     "depth_chart_order": 1,
-    "search_rank": 125,
+    "search_rank": 126,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Knee"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "5239",
@@ -105740,8 +105756,8 @@
     "search_rank": 9999999,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Out",
+    "injury_body_part": "Coach's Decision"
   },
   {
     "player_id": "6",
@@ -106472,7 +106488,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "LV",
-    "depth_chart_order": 4,
+    "depth_chart_order": 99,
     "search_rank": 354,
     "years_exp": 1,
     "status": "Active",
@@ -106729,7 +106745,7 @@
     "position_for_FFHelper": "LB",
     "team": "SEA",
     "depth_chart_order": 1,
-    "search_rank": 398,
+    "search_rank": 400,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -107580,8 +107596,8 @@
     "search_rank": 9999999,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Quadriceps"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "7692",
@@ -108040,7 +108056,7 @@
     "position_listed_on_nflreadr": "PK",
     "position_for_FFHelper": "K",
     "team": "LAR",
-    "depth_chart_order": 99,
+    "depth_chart_order": 3,
     "search_rank": 669,
     "years_exp": 2,
     "status": "Active",
@@ -108713,7 +108729,7 @@
     "position_for_FFHelper": "WR",
     "team": "BUF",
     "depth_chart_order": 6,
-    "search_rank": 389,
+    "search_rank": 390,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -109288,7 +109304,7 @@
     "position_listed_on_nflreadr": "RB",
     "position_for_FFHelper": "RB",
     "team": "HOU",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "search_rank": 660,
     "years_exp": 9,
     "status": "Active",
@@ -109607,7 +109623,7 @@
     "position_listed_on_sleeper": "WR",
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
-    "team": null,
+    "team": "KC",
     "depth_chart_order": 99,
     "search_rank": 663,
     "years_exp": 2,
@@ -109657,7 +109673,7 @@
     "position_for_FFHelper": "DT",
     "team": "CIN",
     "depth_chart_order": 1,
-    "search_rank": 391,
+    "search_rank": 392,
     "years_exp": 7,
     "status": "Active",
     "injury_status": null,
@@ -110265,7 +110281,7 @@
     "position_for_FFHelper": "S",
     "team": "LV",
     "depth_chart_order": 1,
-    "search_rank": 276,
+    "search_rank": 277,
     "years_exp": 6,
     "status": "Active",
     "injury_status": null,
@@ -110876,8 +110892,8 @@
     "search_rank": 9999999,
     "years_exp": 6,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Groin"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "7355",
@@ -111673,7 +111689,7 @@
     "position_for_FFHelper": "QB",
     "team": "CHI",
     "depth_chart_order": 1,
-    "search_rank": 20,
+    "search_rank": 22,
     "years_exp": 2,
     "status": "Active",
     "injury_status": null,
@@ -113644,8 +113660,8 @@
     "search_rank": 498,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Hip"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "11766",
@@ -115673,7 +115689,7 @@
     "position_for_FFHelper": "QB",
     "team": "HOU",
     "depth_chart_order": 1,
-    "search_rank": 102,
+    "search_rank": 101,
     "years_exp": 3,
     "status": "Active",
     "injury_status": null,
@@ -116780,8 +116796,8 @@
     "search_rank": 9999999,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Illness"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "5978",
@@ -118140,8 +118156,8 @@
     "search_rank": 89,
     "years_exp": 13,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "11784",
@@ -118263,7 +118279,7 @@
     "position_listed_on_sleeper": "OT",
     "position_listed_on_nflreadr": null,
     "position_for_FFHelper": "OT",
-    "team": "TB",
+    "team": null,
     "depth_chart_order": 99,
     "search_rank": 9999999,
     "years_exp": 3,
@@ -118489,7 +118505,7 @@
     "position_for_FFHelper": "LB",
     "team": "DET",
     "depth_chart_order": 1,
-    "search_rank": 94,
+    "search_rank": 95,
     "years_exp": 3,
     "status": "Active",
     "injury_status": "Doubtful",
@@ -118840,7 +118856,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LV",
-    "depth_chart_order": 4,
+    "depth_chart_order": 5,
     "search_rank": 502,
     "years_exp": 0,
     "status": "Active",
@@ -119096,8 +119112,8 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "SEA",
-    "depth_chart_order": 3,
-    "search_rank": 497,
+    "depth_chart_order": 4,
+    "search_rank": 495,
     "years_exp": 1,
     "status": "Active",
     "injury_status": null,
@@ -119321,11 +119337,11 @@
     "position_for_FFHelper": "LB",
     "team": "SEA",
     "depth_chart_order": 1,
-    "search_rank": 209,
+    "search_rank": 208,
     "years_exp": 5,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Ankle"
   },
   {
     "player_id": "1426",
@@ -119720,7 +119736,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "LAC",
-    "depth_chart_order": 4,
+    "depth_chart_order": 5,
     "search_rank": 649,
     "years_exp": 1,
     "status": "Active",
@@ -121400,7 +121416,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "CLE",
-    "depth_chart_order": 5,
+    "depth_chart_order": 99,
     "search_rank": 600,
     "years_exp": 0,
     "status": "Active",
@@ -123292,8 +123308,8 @@
     "search_rank": 9999999,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Foot"
   },
   {
     "player_id": "3230",
@@ -123788,8 +123804,8 @@
     "search_rank": 9999999,
     "years_exp": 3,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Hamstring"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "5759",
@@ -124076,8 +124092,8 @@
     "search_rank": 999,
     "years_exp": 2,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Neck"
+    "injury_status": "Out",
+    "injury_body_part": "Illness"
   },
   {
     "player_id": "5255",
@@ -124424,7 +124440,7 @@
     "position_listed_on_nflreadr": "TE",
     "position_for_FFHelper": "TE",
     "team": "NE",
-    "depth_chart_order": 6,
+    "depth_chart_order": 3,
     "search_rank": 596,
     "years_exp": 0,
     "status": "Active",
@@ -124972,8 +124988,8 @@
     "search_rank": 340,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ribs"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "10899",
@@ -125724,8 +125740,8 @@
     "search_rank": 9999999,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": null,
-    "injury_body_part": null
+    "injury_status": "Questionable",
+    "injury_body_part": "Hamstring"
   },
   {
     "player_id": "6118",
@@ -126392,8 +126408,8 @@
     "position_listed_on_nflreadr": "QB",
     "position_for_FFHelper": "QB",
     "team": "MIN",
-    "depth_chart_order": 1,
-    "search_rank": 89,
+    "depth_chart_order": 2,
+    "search_rank": 87,
     "years_exp": 7,
     "status": "Active",
     "injury_status": "Questionable",
@@ -128041,7 +128057,7 @@
     "position_for_FFHelper": "DB",
     "team": "IND",
     "depth_chart_order": 1,
-    "search_rank": 313,
+    "search_rank": 312,
     "years_exp": 0,
     "status": "Active",
     "injury_status": null,
@@ -128076,8 +128092,8 @@
     "search_rank": 27,
     "years_exp": 4,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Quadriceps"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "8175",
@@ -129609,7 +129625,7 @@
     "position_for_FFHelper": "DT",
     "team": "LAR",
     "depth_chart_order": 1,
-    "search_rank": 226,
+    "search_rank": 223,
     "years_exp": 12,
     "status": "Active",
     "injury_status": null,
@@ -130937,7 +130953,7 @@
     "position_for_FFHelper": "RB",
     "team": "DAL",
     "depth_chart_order": 1,
-    "search_rank": 31,
+    "search_rank": 30,
     "years_exp": 5,
     "status": "Active",
     "injury_status": null,
@@ -131964,8 +131980,8 @@
     "search_rank": 9999999,
     "years_exp": 1,
     "status": "Active",
-    "injury_status": "Questionable",
-    "injury_body_part": "Ankle"
+    "injury_status": null,
+    "injury_body_part": null
   },
   {
     "player_id": "13072",
@@ -132120,7 +132136,7 @@
     "position_listed_on_nflreadr": "WR",
     "position_for_FFHelper": "WR",
     "team": "PHI",
-    "depth_chart_order": 2,
+    "depth_chart_order": 3,
     "search_rank": 91,
     "years_exp": 0,
     "status": "Active",
