@@ -1,5 +1,17 @@
 [
   {
+    "title": "Raiders injury news: Darien Porter is questionable",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPQUtvYkJVQmFsTVlibmZxX0xNbFBac3BIaThGM3ZuOExJblJHbjE0YXJZLXpQancwdUhfU2pkSmxVOU1KNDVMdi1CZ3RDbUhTUXB1NzFPNll0SDR6THJ6NXRaSk93Mzh0dkFqd25WUlY2ZzFfSElQMFlubE9ZejF4VDN1UHh2NFFOQmc?oc=5",
+    "published": "2026-11-06",
+    "player": "Darien Porter",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Darien Porter has an injury note. Monitor practice reports before kickoff.",
+    "url": "https://sports.yahoo.com/articles/raiders-injury-news-darien-porter-203550408.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/b040a70d987737764705dd9452e2d82e84b7425529f546a3b95ebfe9736c92fe/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2Ff087e23a8bf2846c772f2704925c2098.jpg"
+  },
+  {
     "title": "Darien Porter returns to practice ahead of Las Vegas Raiders-San Francisco 49ers Week 9 matchup",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQN2Z1YXcyUW5pRHBkMF8xQmNjVTR2UC05Y2ZxVjlyS1pkMjRZaEZEaEt3cVAzeU1QdWRBTU1MZElYVThqN0N5bERZZVpKNUgyaG1YZFBFM1ZsaFRpMFBvMkkxUTdaalY4OTg0czBGSVhaNEVvNHo0OHlsOG9UQ2pwVlAzZ3VpUmdPVnE4NUl3?oc=5",
@@ -10,18 +22,6 @@
     "summary": "Positive health update for Darien Porter. He is trending toward playing.",
     "url": "https://sports.yahoo.com/articles/darien-porter-returns-practice-ahead-214428114.html",
     "image": "https://s.yimg.com/lo/mysterio/api/bdba6a156a22bcd36038d09d98131887d78c9d96981697b08dcb6e48e680ddff/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2Fb7f3d44dbac5d144a9aa500d2d81693d.jpg"
-  },
-  {
-    "title": "Raiders injury news: Darien Porter not practicing",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNSVEyMU9DS0huWC1Nd2hMXzBCLXRKejE5cFRob1h0NlRlV2p3RjVSemttRXdXY3JWa2didEhuUEQ0Rk10SURUd0JLQWRESWdDX18wdElMYkhGSVItSXlXV0NEazJ6bWZDVWlEM0xnTS1WT0p6c0JGZjhTck1tdmloN0JoU2psN1haRlE?oc=5",
-    "published": "2026-11-04",
-    "player": "Darien Porter",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Darien Porter has an injury note. Monitor practice reports before kickoff.",
-    "url": "https://sports.yahoo.com/articles/raiders-injury-news-darien-porter-201230577.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/b040a70d987737764705dd9452e2d82e84b7425529f546a3b95ebfe9736c92fe/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2Ff087e23a8bf2846c772f2704925c2098.jpg"
   },
   {
     "title": "Darien Porter definitely a starter again",
@@ -55,7 +55,8 @@
     "category": "performance",
     "summary": "Concerning news about Josh Newton's role or production.",
     "url": "https://www.nfl.com/videos/josh-newton-recovers-the-fumble-knocked-loose-by-dj-turner-ii",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/fgpivwvhqee8axyg7hmk"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/fgpivwvhqee8axyg7hmk",
+    "video": true
   },
   {
     "title": "DJ Turner With The Punch Out, Recovered By Josh Newton | 2026 HIGHLIGHTS",
@@ -67,7 +68,8 @@
     "category": "general",
     "summary": "General news mentioning Josh Newton.",
     "url": "https://www.bengals.com/video/dj-turner-with-the-punch-out-recovered-by-josh-newton-2026-highlights",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/bengals/hjtpquoh5cvisd06dqzb"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/bengals/hjtpquoh5cvisd06dqzb",
+    "video": true
   },
   {
     "title": "Christian Parker Talks About DaRon Bland’s Struggles",
@@ -137,7 +139,8 @@
     "category": "general",
     "summary": "General news mentioning Davison Igbinosun.",
     "url": "https://www.nfl.com/videos/davison-igbinosun-s-first-nfl-interception-comes-against-joe-fagnano-in-week-8",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/u7o4mtcy2woytbnezngd"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/u7o4mtcy2woytbnezngd",
+    "video": true
   },
   {
     "title": "Micah Robinson NFL Stats, Game Log & Bio",
@@ -219,7 +222,8 @@
     "category": "general",
     "summary": "General news mentioning Tarheeb Still.",
     "url": "https://www.chargers.com/video/tarheeb-still-highlight-interception-vs-rams-week-8-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/chargers/nfuacqwjbzpvljpwbvfb"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/chargers/nfuacqwjbzpvljpwbvfb",
+    "video": true
   },
   {
     "title": "ESPN Analyst Makes Promising Prediction for Chargers CB Tarheeb Still",
@@ -242,6 +246,18 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Tarheeb Still."
+  },
+  {
+    "title": "Mike Ford Jr. Game Log - NFL",
+    "source": "FOX Sports",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPU29lanNZcjhnRmRlQTJNUVlESVNSLTJnT0UxcnB1ek5adUlKQjNxdzhHQTdEcnBwZks3WGlBenJQY3A4Y2ZFRzJLU251UmlJNzQ1RW1hMThkcF9VNjRWdDRaQlZhNlhNMXVNelpOeHhNd1hxRDd1Yy00WWZabTFUclZPbVk0dlhKOVVOWFNR?oc=5",
+    "published": "2026-11-06",
+    "player": "Mike Ford Jr.",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Mike Ford Jr..",
+    "url": "https://www.foxsports.com/nfl/mike-ford-player-game-log?category=standard&season=2024",
+    "image": "https://b.fssta.com/uploads/application/nfl/headshots/14617.png"
   },
   {
     "title": "Browns CB Denzel Ward weighs in on sudden turn of events for Shedeur Sanders",
@@ -287,7 +303,8 @@
     "category": "general",
     "summary": "General news mentioning Denzel Burke.",
     "url": "https://www.nfl.com/videos/denzel-burke-picks-off-jameis-winston-to-end-the-giants-drive",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/a6gxfuzuo5juppfqserz"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/a6gxfuzuo5juppfqserz",
+    "video": true
   },
   {
     "title": "Denzel Burke Stats, Props & Recent Performance",
@@ -443,7 +460,8 @@
     "category": "general",
     "summary": "General news mentioning Zyon McCollum.",
     "url": "https://www.buccaneers.com/video/zyon-mccollum-alex-anzlaone-more-on-w-vs-atl-press-conference",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/buccaneers/ceptysgkmoiyoswt3udh"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/buccaneers/ceptysgkmoiyoswt3udh",
+    "video": true
   },
   {
     "title": "Have faith in Josh Wallace",
@@ -482,16 +500,26 @@
     "image": "https://www.ocregister.com/wp-content/uploads/2025/12/AP25353126615273.jpg?w=2993&#038;h=1995"
   },
   {
-    "title": "Zac Taylor Drops Friday Injury Status Update For DJ Turner, Cedric Johnson Ahead of Falcons Spain Game",
-    "source": "Sports Illustrated",
-    "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPcG9XcGNEV0RKckVNRUQ2TEx4UExicWN3M3pjc2ozdXpsNk9Id3VyempmT2dEY1QzRDhjOVdEZlhBRlAzWFRZMWVWZ0d5elBvYk9DRUxadDZWOHUtTkZYNWJQYUxsZW85WjNJbmRjRHpOQnI1SlBsbWxqV0dtRUp2OU5mM0hKMkw1Z3JlcnhhS3VuQ0RDSHBkU0Rhd0djMEVOUjVPVG1rZ1dwM3YyNlhRVGdUdG5fQWNuU0xHMFBNajdETnJpZElvZk1IamR5MzJuNTFlQllWYTdCalYtWkR6aFlDUFM?oc=5",
+    "title": "Riq Woolen Trade Would Let Bengals Slide Dax Hill to Slot as DJ Turner Injury Thins Secondary",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVkZNWW5WSWhfOU5tS25ScHlNcEdGOWp0ZzJsVUxWWVp2aGRnbDRLamt2a3JpTExZLXZEcXpPVkszYlZ5OGdoQ0RyMjZlRzhUN2k5OGUyZE91cTE4Rm80a2lIenFJLUJoeHBUWWo4clhVS3lTeTc1dXBfUUxuSE9NRE5Qbw?oc=5",
     "published": "2026-11-06",
     "player": "DJ Turner II",
     "impact": "slightly_negative",
     "category": "injury",
     "summary": "DJ Turner II has an injury note. Monitor practice reports before kickoff.",
-    "url": "https://www.si.com/nfl/bengals/onsi/zac-taylor-drops-friday-injury-status-update-for-dj-turner-cedric-johnson-ahead-of-falcons-spain-game-01m6r9rdja24",
-    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_1653,y_165,w_3886,h_2185/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bengals/01m6r9yr64txyn288xag.jpg"
+    "url": "https://sports.yahoo.com/articles/riq-woolen-trade-let-bengals-151500595.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/27997fb347facfaccb5b63e1dc3356d537109e328f21238ce101435b8cc8df08/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fathlon_sports_articles_610%2F2a449c445d5df236b580337449dd840f.jpg"
+  },
+  {
+    "title": "Quick Hits | 'Encante Madrid' as Bengals Love Routine; DJ Turner II Hits Field",
+    "source": "Cincinnati Bengals",
+    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNeFBsTXF1LXRzYmJQbHlzdGNzbjYzSER6V0hBV1FhaFdYenZ3RVd3YmRtY1RvTGl6V2haMV9BOUV6Z0U5VmIwSTFVM2FPZGJzREdnRjJPTFpTeTNxaVhPdElCM1MyaVAtLU45SHhJYTBHVWdWMTlYWmxBMDlJaUpDOUF0dnJXYWZiUXhLMklUUmpnOEFoWUxhMktB?oc=5",
+    "published": "2026-11-05",
+    "player": "DJ Turner II",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning DJ Turner II."
   },
   {
     "title": "DJ Turner II (heel) logs full practice Thursday",
@@ -506,19 +534,9 @@
     "image": "https://images.fantasypros.com/images/players/nfl/25262/bust/1200x1200.webp"
   },
   {
-    "title": "How Dexter Lawrence, DJ Turner II and the rest of the Bengals defense graded in Week 8 vs. the Titans",
-    "source": "Cleveland.com",
-    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNUkUtV21ndi1uWFlNeFdpbC1Jd2tzRTl2UlJGNGp4UlFtVjJpUkJvQk1lc3pqdnp3QmZUWlJFeTB2ajhSTVVqaVpuVUI1eFF0LVF4cy14U0tIRTlHVlVSY1RrSmZ2aW5aQVZLcHkyRUJ2cE5YU1BKc1ZXVm9mV1E4QUZGM2txXzdWR1pCem5qMTlkaUZZdVprYU5VWU9pWktyTnBMWWtXc3lwaXRYNjJUUVF6OFhnRlUxOC0yeXZvM3hVTmE0bTB4ZnJOcmwzZjNrTEpFYXUtTlVtZGJjTE9r?oc=5",
-    "published": "2026-11-02",
-    "player": "DJ Turner II",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning DJ Turner II."
-  },
-  {
-    "title": "Pritchett's INT against Purdy gives Seahawks a fresh possession at 49ers' 22-yard line",
-    "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRUhkbzNyT1NPUDBIS0hHb1oxOEpyc0g3ZUFFbFExOVA3aHdZZjA3by1aWVBlanB0UjBqdlZTMXdiajA2VFYwZG9Cd2FiQ0pjR1hxc2V0UERROVp4MXpWUVlWX3BVMHRyRzlpTGEwYzhudmZxZHBBdHJsSVZhSnoxMV9LVFM1T2FOQUV1SHdMQnQzYXZDU004TmpROTU3eUhLR3l2YnZNVENaaXk4QkFjYk53?oc=5",
+    "title": "Nehemiah Pritchett Stats, Props & Recent Performance",
+    "source": "PrizePicks",
+    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5iUmRaajFRcHYxMEhxTURteVdxUVlKOWVSZF9OVGdOWVVNOTRtNHpXN3JKYUlLV3h2Zzc5UEI4ZjUxOWQycGI3aTJXRUpxdXZuek9uMmxfN3QwWW5fdWluZm9iMko4VVpVQnptUTVvQ2M1TnJw?oc=5",
     "published": "2026-10-11",
     "player": "Nehemiah Pritchett",
     "impact": "neutral",
@@ -536,9 +554,9 @@
     "summary": "Good news for Nehemiah Pritchett: a strong performance or bigger role."
   },
   {
-    "title": "Nehemiah Pritchett Stats, Props & Recent Performance",
-    "source": "PrizePicks",
-    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5iUmRaajFRcHYxMEhxTURteVdxUVlKOWVSZF9OVGdOWVVNOTRtNHpXN3JKYUlLV3h2Zzc5UEI4ZjUxOWQycGI3aTJXRUpxdXZuek9uMmxfN3QwWW5fdWluZm9iMko4VVpVQnptUTVvQ2M1TnJw?oc=5",
+    "title": "Nehemiah Pritchett, Sam Darnold Among 4 Winners and 3 Losers in Seahawks Loss to 49ers",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObFZFc0Ffd3Awa19fTENZVW1CU1M1LTBkNndmNXkyYlN5TXgzREFUb1hRTVZEeXF0ZzZoRVVwNGlocWk0cERUUGRLTDBoNlJ5QTBZZmVrTjRZVkNKVmhoZXJmcnpTS2NaVzcwZ0ZZaGdSd01ZX0hGajN2N25ub01UT2hNcXZ3dmN6czU4TENB?oc=5",
     "published": "2026-10-11",
     "player": "Nehemiah Pritchett",
     "impact": "neutral",
@@ -597,13 +615,14 @@
     "category": "performance",
     "summary": "Concerning news about Jamel Dean's role or production.",
     "url": "https://www.nfl.com/videos/jamel-dean-s-peanut-punch-induces-a-fumble-from-shough-near-the-pylon",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/orgn7zqlftkv9gs93rj1"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/orgn7zqlftkv9gs93rj1",
+    "video": true
   },
   {
-    "title": "Steelers Sign Former Super Bowl-Winning CB After Jamel Dean Injury, Joey Porter Jr. Trade",
+    "title": "Pittsburgh Steelers get positive injury update on Jamel Dean",
     "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaEhNT080SnNvT2RQLTZqeGF2RHhETDNOVEVNMjBkWm9WZ2wwcjFTa20xbUdNdUk3ZVNHc1kyNG8xa1hsNUFib2FYNzNucjZkUWJ0d0NoaFBPT2dHd01UWFJZSTFmTnNZSVptM0Fzb0txeGVEZnJTOFV6NWprWlE4c2t1dFU5SkE?oc=5",
-    "published": "2026-10-05",
+    "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPSFZmSzVWcnVvRUo2LUZKZG9YeUlUTjBWWldTWDdzN1R5aHZFZFQ2d25DOFUwQXpZLXhXWE1rOWw5VXA5NEpCLTlpaXFOYlFQY0kwQ3R1TERZeTQyNHozUjhEc29nNXJWemtKOEdfbEppdTk5R0wxWmJNTlVlQ01ERFFWSzNPdmh4RGNhNkpFdGVNR0dN?oc=5",
+    "published": "2026-10-07",
     "player": "Jamel Dean",
     "impact": "slightly_negative",
     "category": "injury",
@@ -666,22 +685,20 @@
     "summary": "Shavon Revel Jr. has an injury note. Monitor practice reports before kickoff."
   },
   {
-    "title": "Rasul Douglas' INT against Tanner McKee essentially seals Commanders' win over Eagles on 'SNF'",
-    "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOcmk5THRPWENkM1FXdjdqR2lHeGxxejdIa3kxLXA4NjBiSG9JU2hOX3kyallHbXJfcUtkbGlhN1AtRmRpa25zNDZtZDFEQUlWT2VJSmx3SFc0YXRqMV9CZXFvYzFfazlwbTgzX1FUVXZhajJnU1M0N1JRMEwya0dOaDFxWEYyYlNUV09INHJ0aUh0ZUd3TTNoVzlDZjVkdk90SS02d1FQTnpJRVpTd01vcEV3dTlZY2NO?oc=5",
-    "published": "2026-11-02",
-    "player": "Rasul Douglas",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Rasul Douglas.",
-    "url": "https://www.nfl.com/videos/rasul-douglas-int-against-tanner-mckee-essentially-seals-commanders-win-over-eagles-on-snf",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/q6jymut7c7b2ctfbubfb"
-  },
-  {
     "title": "Douglas’ pick helps ice game for Commanders",
     "source": "NBC Sports",
     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTDdtYUw5NTM0dEc3MDBfd21leWpFSmxlQ1ZMYk1vTTlJTTI4cXFyX2tnWlBISGx6d0lXTFo1MXpzSldkbjM4SE80a09jeTFUc3BwalhMUm1DNTQzMkl2UkZHSmktczlvekhUSi1hODBQWEoyazdxemF6c1VtVXI3dVFDNE5RQ05ENnRvb1hpNFVOZ2dQd0RyMFdUSkRKc1VkZ3BvbHRxdHgzZw?oc=5",
     "published": "2026-11-02",
+    "player": "Rasul Douglas",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Rasul Douglas."
+  },
+  {
+    "title": "Rasul Douglas",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5jcEs5TGh1UmFaOC1UZy1mb3VxRlhjX3NaaVozVG9FUFNhRk04T1o3TTdxTUFkREt3UUxHTS1ocHVXNmNnTTBfZFFXS1o0bDBPRWtOWWF5RFR5bXI1VlVhTjJMMFo3dUZMajUxWjdTV0VzTncta3NKUw?oc=5",
+    "published": "2026-10-15",
     "player": "Rasul Douglas",
     "impact": "neutral",
     "category": "general",
@@ -785,7 +802,8 @@
     "category": "general",
     "summary": "General news mentioning Cam Lewis.",
     "url": "https://www.nfl.com/videos/cam-lewis-lowers-the-boom-on-hit-stick-pbu-against-tory-horton",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/uexeq6pza89dk8m003iu"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/uexeq6pza89dk8m003iu",
+    "video": true
   },
   {
     "title": "Cam Lewis leaves MNF game with leg injury",
@@ -809,15 +827,15 @@
   },
   {
     "title": "New York Giants open to using CB Deonte Banks as a return man",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB6ODFMUmFhR0NBMjFRWU8yU0hWWEFremNJTHc3NkMwdHY0alI4VjZPMW5IZHN2Unl3dmVkTVp1bzJPMXRmUGNmaXJzWFpOb3AzSXBrRVhZY1o3OUtRNmlNSlFWbjhodXBJaG02aVoyNEN5N01vdmtnOHQ2b3FJOVE?oc=5",
+    "source": "Giants Wire",
+    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxObzFOYmtsRk03VngwWUZfWFYwcUV1QnBUbHZxUVlXSUVaTGE5ejJJZUs2UWZJbjVUNFhxb3JIeTdhSnF2QWVsN0N1aFYteklzQXNiZnZ5SFhVN2RoOVl5YlBNTkttY1R3bDVDS2dEVGVkbF9SUDdJSjlIQTVNOUhxSDl2cXZmSzZhdXBmWkRvWUdrOXhRZ1lzMU5YTFBhRUNmTHFHdkxDYVlxeEZvOF9iclpmckhheEpnNFlzRm4tNEVmN1lVYmRuRE53?oc=5",
     "published": "2026-11-06",
     "player": "Deonte Banks",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Deonte Banks.",
-    "url": "https://sports.yahoo.com/articles/york-giants-open-using-cb-125529512.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/d2c2771145b2fee7d6dbaccbb406aee6d094b36d02a760b220d680843bc1b038/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fnew_york_giants_wire_usa_today_sports_articles_591%2F9856f39e065ba266379173ada7b3b825.jpg"
+    "url": "https://giantswire.usatoday.com/story/sports/nfl/giants/2026/11/06/new-york-giants-open-using-deonte-banks-return-man/92631989007/",
+    "image_tries": 1
   },
   {
     "title": "Giants Mailbag: Run Game Woes, Skattebo’s Fumbles, Deonte Banks’ Contract and More",
@@ -874,19 +892,21 @@
     "summary": "General news mentioning Billy Bowman Jr.."
   },
   {
-    "title": "NFL seems to have a problem with Commanders RB Amik Robertson",
-    "source": "Commanders Wire",
-    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNRkoyTzZxcWtWZkhsaURTZW5VR1lWZUtZM09hdC1PQnNVejh0OGdCU0dsNERyb2p5bGhzX3RBLTVkLTZDaWVoZzNDd0ZtNmN6WXJZeUo1Q3ptZFdOUGlLREEzekRLWFJ2aFRXdEh6M0RlYzRuZmJRaGRzMW1kWWVMdkNZNWFmWHVwZHp5b3VuLVpqYnM5eVhCTFJ2azVyTXM4RHoxZDNsQkNDa2Q4VVdGdk1OcFZNcGd3S2J4SWJUZVU5ZHRkTlE?oc=5",
-    "published": "2026-10-18",
+    "title": "CBS Sports Floats Amik Robertson Return to Lions as Detroit’s Realistic Deadline Move",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQT0JWVTd4WGl3dXU4em5HMFRLRXh4OHdLdFFRZnZfa2ZzSjNoQlZucjRrT0U5aHBrVUhuaHYzU0RYRG9CbnRad2JWYmR5RnZkX21RaFFBR3ptV24wOE1PMmtBREVaWVBocU85bnpKMEE5V0U5TWkyQ0FVdE9XcGNXZGd4dWZMU1ZH?oc=5",
+    "published": "2026-11-06",
     "player": "Amik Robertson",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Amik Robertson."
+    "summary": "General news mentioning Amik Robertson.",
+    "url": "https://sports.yahoo.com/articles/cbs-sports-floats-amik-robertson-163000422.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/ba6a027b3acb357909c431e642561a7d64aa88712b933304d91d971a1bfb481a/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fathlon_sports_articles_610%2Fff9ea402dfcb2ca30d419b7e30b20ed0.jpg"
   },
   {
     "title": "Commanders CB Amik Robertson slams NFL officials after latest questionable calls",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZ2hRWUR5b01XUmFGSTFVUFEtcko3Sk5FbHJTdDlROTRVeTBNUkFkcWp4ZkNCT1dBVHBTSmNfVTFyaEo5clJud2FlellwX0xEVUMycGlXUlVrakNEUmh6N0FvM3hzdnRIY2RGNkotalA0b3JCc0t2R05aUm1ybzZZZTFyd1dEaE1TSjZ3?oc=5",
+    "source": "Commanders Wire",
+    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQOGpEVnNrYjhKTkZ0Wk1XMXhONTlhRF9na2ZjR3cwa25ueU5tQjc2VFd0Q0lnSW9FR2VEMGQ4eDNjX05RZl9tR2IyNzN0UGYzQUJ2TDhlTVc0WlJGM1pVejJBV1NBZGhxYjlCT0ZBSmVxTjRtdlhaNFNTWFdZcHVCTXdHTkVXY1Y3UTQzRUNTbjROcE9DNjN4WDNFSnZtMHQwcUNMaUhyLUJtNndFU0JITXNYd3hFckZmRmxTQWMzS3c4ZnNTTmhxdGtDcGQ0UHB2aEtFal9qaThTZGtB?oc=5",
     "published": "2026-10-12",
     "player": "Amik Robertson",
     "impact": "slightly_negative",
@@ -894,10 +914,10 @@
     "summary": "Amik Robertson has an injury note. Monitor practice reports before kickoff."
   },
   {
-    "title": "Amik Robertson Looked Like Another Slot Corner. Washington Got More — Commanders Daily",
-    "source": "Sports Illustrated",
-    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQcFJMbjBZMl9FSGloMi1ZYzIzU294bS1RWVhGRHY3cTdxdnRTamx1Mkxwbms4S0VWOGRrc1NoNzdPaDJrQ2x2X0tGUU45ZFQtMzdlMkx2WkJXd3FvVU9BRUk4LTVWNjRYRzJ6WmRPUkxYNVRnbEJwYnVmb3gyZVIxOUxwLWY3WEYtSTViSQ?oc=5",
-    "published": "2026-10-15",
+    "title": "Commanders CB Amik Robertson backed up his big guarantee",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNUEY4bmh2U2ZuVHJkUmdydlByOWdYR2hCSzRMODNaVXowd2lFTU1OLXhKcDE4M1BSUVl2RTc2b3ZBVnRkejRSZ0JjU280cjhpUE9GYmxqRUVXRHNjT3IwcXR6SlI0cDFXby1sbzZ3NERXZ0Y0TFM0bXZFQW45M1h6ZzB6R0FTRFg2emVVNQ?oc=5",
+    "published": "2026-11-04",
     "player": "Amik Robertson",
     "impact": "neutral",
     "category": "general",
@@ -1356,7 +1376,8 @@
     "category": "general",
     "summary": "General news mentioning Tyson Campbell.",
     "url": "https://www.nfl.com/videos/tyson-campbell-rips-out-the-ball-from-carnell-tate-for-a-browns-recovery",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/nn2af429og68fay6gdh5"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/nn2af429og68fay6gdh5",
+    "video": true
   },
   {
     "title": "Tyson Campbell Injury Looms, But Ward and Harden Are Keeping Browns’ Secondary Elite",
@@ -1474,19 +1495,17 @@
     "category": "injury",
     "summary": "Keisean Nixon wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
     "url": "https://packerswire.usatoday.com/story/sports/nfl/packers/2026/11/05/packers-make-2-updates-to-week-9-injury-report-keisean-nixon-dnp/92633893007/",
-    "image_tries": 2
+    "image_tries": 3
   },
   {
-    "title": "Green Bay Packers starting cornerback Keisean Nixon misses Nov. 5 practice",
-    "source": "PackersNews.com",
-    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPLWpZVzVNMFg4ZG9pV3ZfTThvZVFhQm44VVowcS1mOEJPYk1UUENwOHQ0ekEwc09OZVdQbmNyVGNvSm1SM3RjOG5tVF95Qk9TVkNuMlNBTGVYRTVtajk3dnBNSWpjcVNwTjBpUDlkdFNodVhMcmhBVGlrRjhFR0FsUTBIVVNmUlltYWZvVEIwTFRxM0pYalkweEx3VEtlMWRScjM4dDNvZ1lRU0Q3WmJLVU83WmdSU2NjT09RNkNQSFhHU0tXQmRfMmJvZWdnbzJWSWx2dWExMGl1NWN0eU9N?oc=5",
-    "published": "2026-11-05",
+    "title": "Matthew Golden, Keisean Nixon both ACTIVE for Packers vs. Panthers",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOeFFDTHhZSVZvUzBfeklWM3d5VXpsejZoMGhlUWF6Q3VZV204eXc5QWNqVDNXanFqcXVpVmJRUXFRdTVLbnZCLUd4LVV6WHY3VVJxRVJ6UHJhVDgyUkRhemg1MkFCVG1ENmZFeWVmbzFiNnNRaWJ2UlNqbVZsV2RZYzlyaVMxYXc1WXc?oc=5",
+    "published": "2026-10-29",
     "player": "Keisean Nixon",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Keisean Nixon.",
-    "url": "https://www.packersnews.com/story/sports/nfl/packers/2026/11/05/green-bay-packers-corner-keisean-nixon-four-other-miss-nov-5-practice/92623335007/",
-    "image_tries": 2
+    "summary": "General news mentioning Keisean Nixon."
   },
   {
     "title": "Green Bay Packers: Keisean Nixon believes the NFL has it out for Jordan Love after 20-17 loss to Detroit Lions",
@@ -1501,10 +1520,10 @@
     "image": "https://s.yimg.com/lo/mysterio/api/44d3f158ee2bb27982717c25b0671979980d88ecc785e1b20f8b0c0b18c47b1f/lightyear_networkapi/resizefill_w1148_h1707%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fwi_sports_heroics_971%2Fe326a69bf06839e6b69446b6ed7b54d3.jpg"
   },
   {
-    "title": "Josh Jobe 2026 Situational Stats",
+    "title": "Josh Jobe 2024 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBkQXBIMEJydWdGaUloTGVsWEU5QkZraktpa2xTZDhPTUZQanc2SlpkQm5xYnBzd1JaS01vTU52bU16NWNnSUtZSURjelFPX0luWDI3bFNEeHlxT2lhVmFKRWxOVldDeV9ZYzRrZzR6SzVmN1prNUE?oc=5",
-    "published": "2026-10-17",
+    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9sVDlsZmk5N2pJb3U3ZnNaV28zc3ktY0xkOHhncklIVjFSeXctSkRNODk1SmtBOGo0OUFvOGNJdXhMS0x2Y1hoOHBQMV9ORlFwUVpTc1pld3plWTdZQWd1SW1HUDhmTWE2dWl1N2VLbnhsZG1qSjVV?oc=5",
+    "published": "2026-10-15",
     "player": "Josh Jobe",
     "impact": "neutral",
     "category": "general",
@@ -1520,7 +1539,8 @@
     "category": "injury",
     "summary": "Josh Jobe has an injury note (toe). Monitor practice reports before kickoff.",
     "url": "https://www.nfl.com/videos/can-t-miss-play-jobe-finishes-the-job-with-game-sealing-toe-tap-int-vs-maye",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/gmwbnhpv7dwgxhk55dxc"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/gmwbnhpv7dwgxhk55dxc",
+    "video": true
   },
   {
     "title": "Seattle Seahawks might be regretting their big Josh Jobe investment",
@@ -1554,7 +1574,8 @@
     "category": "general",
     "summary": "General news mentioning Mike Reid.",
     "url": "https://www.neworleanssaints.com/video/mike-reid-safety-interview-9-1-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/hflf1bdsh2u8mylorg58"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/hflf1bdsh2u8mylorg58",
+    "video": true
   },
   {
     "title": "Brandon Stephens 2023 Situational Stats",
@@ -1784,7 +1805,8 @@
     "category": "general",
     "summary": "General news mentioning Montaric Brown.",
     "url": "https://www.nfl.com/videos/montaric-brown-s-first-2026-int-gives-jaguars-prime-field-position",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/dmke1yxp7raa0rykep5s"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/dmke1yxp7raa0rykep5s",
+    "video": true
   },
   {
     "title": "Montaric Brown (hamstring) out for Jaguars",
@@ -1939,6 +1961,16 @@
     "image_tries": 3
   },
   {
+    "title": "Reese Taylor NFL Stats, Game Log & Bio",
+    "source": "Pro Football Network",
+    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9OOWp5S19NUlZldlV5ZUVsUlgyV2xVck5HV1V3NVNsTHJMWHVYRm1FeUotRzlDSlhBY2lVcHhTdGs2SEF5V1lOTWZxN0czQVUwZ1hmRG8xTUZudUtGaE5oNlJlbl91WEF0SjU4?oc=5",
+    "published": "2026-11-05",
+    "player": "Reese Taylor",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Reese Taylor."
+  },
+  {
     "title": "Reese Taylor Stats, Props & Recent Performance",
     "source": "PrizePicks",
     "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9jLUZ3eWZWTmNUYzBQWjhxTk5DQ2RfYXFvMUphc0dqenFLRE5WaDE0eUlQcmVveUFnb3g5S1ctQlpaOHBpVlFOdFJ6WFhnR0U3RFFQeTlWY0ZXbUgwTkZ6RHY1M2pybEFweEFQNA?oc=5",
@@ -1987,10 +2019,10 @@
     "image": "https://sportsfly.cbsistatic.com/fly-876/bundles/sportsmediacss/images/fantasy/default-article-image-large.png"
   },
   {
-    "title": "Philadelphia's Michael Carter II Selected as Week 8 NFLPA Community MVP",
-    "source": "NFL Players Association",
-    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOWjFRU2MxQXVfTHRjcklyRnBRTXdYNEN3aGFaajFzc1JYS2VlRHJlMXowSXhYVEt4OUgtVE52U0ZRVnF5MG1EdWpuS2FMOERUWTRLS0YzR3dobmh6MkRESzl2WFo3UmhsOHVFelJMZ0h1T2FkR3NXUl9HYTBGUXNzT0JGNTBsdlJZa2JxQndselV3a1ZvdjhuUzFR?oc=5",
-    "published": "2026-10-30",
+    "title": "NFLPA names Michael Carter II as the Week 8 Community MVP",
+    "source": "Philadelphia Eagles",
+    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVjV3UVl5NHZuMlJKcnJxTDh2ZGphUmhYdTJYVjZMYWkyX3NnTHpyRUlGRmJrSERVNTIyM2hpdHN0V19Cam1ySlJVOHlaZDhtVnVBQkxxOWNfaFA5dWNQV2JqVEZLa0FmSEUtaFltYXZ6SlNlbUlwM1cySW9xS3hjd1dSaDRBakhoSVY4RXZaUldlQzdMZDVtcERPZXlsdw?oc=5",
+    "published": "2026-10-31",
     "player": "Michael Carter II",
     "impact": "neutral",
     "category": "general",
@@ -2017,16 +2049,6 @@
     "summary": "General news mentioning Michael Carter II."
   },
   {
-    "title": "\"Need to Break Up With Her Immediately\": Shannon Sharpe Gives Cooper DeJean Blunt Relationship Advice After SNF Loss to Commanders",
-    "source": "College Sports Network",
-    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNOFJ6Wkl0OXhQdEpTS1dYY3E2T0hJSVRtLTd4dVdiOHNvcDF5SUhSMWFWR3B5dElLWTM5U3Z2Z3JHeGo1MElYUGZhZlVtTzUzZzBDR2xWSjBWbTY3bjRxNWFSem9VRkNER1NyZ0hxaWFXYUNkcGhWblVaMW9IcW5pQ291Ujg5SHNtV3UycHVBLXFpenU4TjVlbDM5Q2dNZzFmN1E?oc=5",
-    "published": "2026-11-03",
-    "player": "Cooper DeJean",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Cooper DeJean."
-  },
-  {
     "title": "Eagles Trade Pitch Sends Cooper DeJean to AFC Contender",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPaWFoVkd3TGRuWVF6UkRTVHFlWW9KTktwYWVrQnhkdENzNXhVMjUtLV9GNmdqWlFlTWwxUUVvUXlWVmFHV19jMkp1S0FvaF9kdHdNbDFNWHVFNWNSZkR0Tk1FX25UMktiT0xER2hBYnJaaWNyLUVGTVhNOXNGemtvXzRpUlpadGc?oc=5",
@@ -2037,10 +2059,20 @@
     "summary": "Roster move involving Cooper DeJean. His role and fantasy value could change with it."
   },
   {
-    "title": "Cooper DeJean Opens Up About Eagles’ Brutal Losing Streak",
-    "source": "Athlon Sports",
-    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSWRYU1ZJOWdkMVU2Wko5SE5uQ0pVOHdwM1FDYjhLWXFTbFdHYXpSWlFhTlZtMUNwMkVseTNhb202UnJoTWtJS0U1YncxajIzaWl5VHduZVhFMEpTMVREaWFGazNfSHZ1MGs0YVNpSUtQSUcwNXdBR2tuZlFEanFfQkpranRrVlhyX0w3eUF0UEVXb1RjblVLYUhxYTMxdkdRbDZIY2ExWEc?oc=5",
-    "published": "2026-10-27",
+    "title": "NFL Star Cooper DeJean Makes Mindset Clear After Shocking Eagles Moves",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQSk55NDM4MmQzdFFaV09HT1RvSFJiMFpveHVIbHNabmpHZ09PVjkydFpVX1phcmRxbnIyLWlWYnBndTE5YTN4eWFQd3dWS2R1RG54aDNzcnNiUTFsQWZmS0Y1amVYNWYyOFBBRUJRSTY4Rkp5cl85ZUZsdlFnMjlxR2lTUQ?oc=5",
+    "published": "2026-10-09",
+    "player": "Cooper DeJean",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Cooper DeJean."
+  },
+  {
+    "title": "Cooper DeJean's INT against Stafford places Eagles in field goal range before halftime",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPNG55M25iVk9wRjRHR1FkeW1PTFYtWGhYYXEwRVoyREJUMmxCZlUybFV4YzF2anljcHhIRzBHcHFwcHV0WjBIOS1WR3QtSDYzSzkyWEczelZ1VnBKZ2lVYVdYNktibm9LVlhwZmVVMURORjFpTDhPMGIxTFdvQlNQdXBuZ3ZCZE1zbXVLVVR0MkFvRDJQZTduNDBIbkFGVXRpTTJQSHRTTUNlY2FNbk9xMXlrOA?oc=5",
+    "published": "2026-10-04",
     "player": "Cooper DeJean",
     "impact": "neutral",
     "category": "general",
@@ -2160,6 +2192,16 @@
     "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/thjrm2uaouvuxeund75u"
   },
   {
+    "title": "Browns cornerback Myles Harden leaves game vs. Titans with hamstring injury, returns in fourth quarter",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNG11WDVLbkdiempOdDR2NjJpdE1WSEgzN28xd3VjM1BzSVh3SE1xUXBvWkhMeGhpckFZWm1HRm14Q1RJbE5aWGlYaUZWWlFPbktHREVuWHRfd21mZHVCUW9iZEhfV25NR0Zzdl9nbmJLT0pnSzl4czFXSDc4ZHM0VG11aUMzbjY5cWdJQUoxcw?oc=5",
+    "published": "2026-10-25",
+    "player": "Myles Harden",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Myles Harden has an injury note (hamstring). Monitor practice reports before kickoff."
+  },
+  {
     "title": "Baker Mayfield's throw is snagged by a leaping Myles Harden for the interception",
     "source": "Cleveland Browns",
     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbXJhbm1tXzBNRENoYVhwaHVzMkNkU2otRUNGb05WaVY5Q3NQTm54T2FxdnlWRDNVNGIyUXZabWdDc0tydnl4aFdnVUpzeVpMQnRRREIyWEY3azI1SWNkQkpXRXkyaFkzQW5abWtHblBId3JLOGV4Uk1CQVYzRHE5MndrOEV3cUpxQzJwLXkxbjVzeV91TEZlUEhNaU9aRzN6a0VQakdGOTE4dTVLdGFtMWhzNk5rdWs2ZlgzekJqOEdrRkdu?oc=5",
@@ -2169,19 +2211,8 @@
     "category": "general",
     "summary": "General news mentioning Myles Harden.",
     "url": "https://www.clevelandbrowns.com/video/baker-mayfield-s-rainbow-throw-is-snagged-by-a-leaping-myles-harden-for-the-interception",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/browns/sacramcecgtmxrjn0f55"
-  },
-  {
-    "title": "Myles Harden Stats, Props & Recent Performance",
-    "source": "PrizePicks",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VQzdPN0hrenFWbFVPVENVM2piWER3WEdoZGRCaVZlWS1GNkJmX1ZUOUxnUUpHTGY2bWNOVzJfSWZFOHlibzV3bjRYaFJMVmFWVDJZVWRVQ1F2cmdqbGY3dnFCeTZ1bEtmOG1hUw?oc=5",
-    "published": "2026-10-08",
-    "player": "Myles Harden",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Myles Harden.",
-    "url": "https://www.prizepicks.com/research/nfl/players/myles-harden",
-    "image": "https://static.prizepicks.com/images/teams/nfl/NFL_team_5r8eFixYBWLzlglBChK8D7Wy/26.webp"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/browns/sacramcecgtmxrjn0f55",
+    "video": true
   },
   {
     "title": "Buccaneers' Jacob Parrish: Secures interception in win",
@@ -2196,18 +2227,6 @@
     "image": "https://sportsfly.cbsistatic.com/fly-887/bundles/sportsmediacss/images/fantasy/default-article-image-large.png"
   },
   {
-    "title": "Jacob Parrish Picks Off Michael Penix Jr. | Falcons vs. Bucs Highlights",
-    "source": "Tampa Bay Buccaneers",
-    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNcUlaUmN4TTBiRzBiaXhIR1paVEZybDBkNlIxZDlBTlM1dFl3YnJyS0ZrX3NMbGRvWFE4ZGFUWlNYMV8tbXdnLTFhWDFVeW1mNFVkZERVcUw5c1FVekQ0cEk0RzBmVlNWd29DQUNrOTJNT3JmYlJ5ak1PS0xTSVM3LU9qaDVlbXV5Uk9wS0lqb3lwVlU?oc=5",
-    "published": "2026-11-06",
-    "player": "Jacob Parrish",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Jacob Parrish.",
-    "url": "https://www.buccaneers.com/video/parrish-int-falcons-bucs-nfl-season-week-8-big-play-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/buccaneers/rw67gtdsv84v010sgcov"
-  },
-  {
     "title": "Comparing Jacob Parrish and Zyon McCollum To The \"Gravediggers\"",
     "source": "JoeBucsFan.com",
     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeUxHUlZPRk11V0hfS0dYTGVaSUhlZGxMaTVQZ0Y1MXcxa1RiNUdaZ0dJRURyMmlxd2QzMk5XVG1MbXhpckdPTTMtQlByMy12RXdCY3E2WnZBVEtYd09ZbXFlZU8tS0FtX1REZFUxNlJtcEpBZnBBeHhqaFh6c0VqaHQtc3c0cWZWTWM0bU9pMnpmM2p6OGUtN0h1bk9lZw?oc=5",
@@ -2218,6 +2237,16 @@
     "summary": "General news mentioning Jacob Parrish.",
     "url": "https://www.joebucsfan.com/2026/11/comparing-jacob-parrish-and-zyon-mccollum-to-the-gravediggers/",
     "image_tries": 3
+  },
+  {
+    "title": "Jacob Parrish grading among NFL's best corners",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT3lTaGptVllVZGhGa2VGRUVIT2t2S0l6aUZBYzVBUnVPVlNla0hUb1lHd0dUNVhKaThCM3d1Q0pUeDFfS2hNTjVNMHFqZnI5eTJUQkl5MUdMRFdhVjBMQ3VOeGZyeVIxZ3d4Q0NEY0pHMGYxTGd4YmpxcXphaVh3aTRlNGR4MWVr?oc=5",
+    "published": "2026-11-05",
+    "player": "Jacob Parrish",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jacob Parrish."
   },
   {
     "title": "‘Marlon Humphrey Should Be the Last Person Talking About the Fans’ — Ravens Podcaster Calls Out $97.5M CB Over ‘Tone-Deaf’ Comments",
@@ -2232,16 +2261,6 @@
     "image": "https://s.yimg.com/lo/mysterio/api/4a42ed934e5c020378a1452895ed26bd58bc576ad2971dddebaea2d1a20abc14/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fpro_football_network_512%2Ffdbf27ee910ed7a981397f4461d9003b.jpg"
   },
   {
-    "title": "Ravens’ Marlon Humphrey questions criticism, says fans ‘always freaking out’",
-    "source": "Baltimore Sun",
-    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQejRCNGRWTEVPVHVIZTZia1RwaHVReUJVSWQ4M1p4Wm55ZTlrSHVKcTlqODFha0hsVWt2NmRLckZVbnQxUWxldy0ySlBOenVxWmZuSjBSV0NXbTlSRXR2WFRkRlBWdDhPN1dOZmJfUXZtY1ZRSEtTSVhqSEZETFFLYzNjbUdOb1BFbE1vNmdtUnNGUQ?oc=5",
-    "published": "2026-11-04",
-    "player": "Marlon Humphrey",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Marlon Humphrey."
-  },
-  {
     "title": "‘What an Embarrassment,’ ‘Get This Man off My Team’ — Ravens Fans Fed Up With Marlon Humphrey After CB’s Latest Controversial Comments",
     "source": "Pro Football Network",
     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9lV1Z0a3U2eG4wMy05ZlNnVE1vRlpYTXZ3YUFLSThJLVBuSVN3UVpLczZiTHltRXpacFl4cVljWlNOYWNaT0U4S2pNaUkyQ2ZVOXZHMkp0a19mX3AtM04wcUphcDBOX084MFo4aUUyN2hvekxOQmN2cXdiZDZvdw?oc=5",
@@ -2252,9 +2271,19 @@
     "summary": "General news mentioning Marlon Humphrey."
   },
   {
-    "title": "Christian Benford 2026 Situational Stats",
+    "title": "Ravens’ Marlon Humphrey questions criticism, says fans ‘always freaking out’",
+    "source": "Baltimore Sun",
+    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQejRCNGRWTEVPVHVIZTZia1RwaHVReUJVSWQ4M1p4Wm55ZTlrSHVKcTlqODFha0hsVWt2NmRLckZVbnQxUWxldy0ySlBOenVxWmZuSjBSV0NXbTlSRXR2WFRkRlBWdDhPN1dOZmJfUXZtY1ZRSEtTSVhqSEZETFFLYzNjbUdOb1BFbE1vNmdtUnNGUQ?oc=5",
+    "published": "2026-11-04",
+    "player": "Marlon Humphrey",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Marlon Humphrey."
+  },
+  {
+    "title": "Christian Benford 2022 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0tVXE5N0pIRGdCS3lmOGRVSmxpZF92VWhNT21XNlE1YTRNTHMxRzI2ZE51dWU1U21GY2JYM3dZQ0h0bkxwQXk1YXBiQ2d6NGgtWncxVFpCUWpoaFc5QlZzSk0tS3JxZ3dQZldsUDRRUDZQaDBXZ3l1OTNJM2RFZw?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9MOVotcXE1Y19FVzZWazZSRmliQV9EYXRld3RpM3pwT2VSZkxnbHQ5TUpGMWdlZ3c0NkhaMmVXUl9Ebmx3NjZsVUJqLVJRNkxNd1lMejhUWmRBZXdDUkRtOWF0RUgxNWdtejFiZUp1cURfZFVsLXcyaWh1Rjh2MWs?oc=5",
     "published": "2026-10-19",
     "player": "Christian Benford",
     "impact": "neutral",
@@ -2371,7 +2400,8 @@
     "category": "general",
     "summary": "General news mentioning Cam Hart.",
     "url": "https://www.chargers.com/video/cam-hart-highlight-interception-vs-chiefs-week-6-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/chargers/x4deiglz2fmlcyesdofb"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/chargers/x4deiglz2fmlcyesdofb",
+    "video": true
   },
   {
     "title": "Cam Hart's INT renders Mahomes' deep pass as punt",
@@ -2383,7 +2413,8 @@
     "category": "general",
     "summary": "General news mentioning Cam Hart.",
     "url": "https://www.nfl.com/videos/cam-hart-s-int-renders-mahomes-deep-pass-as-punt",
-    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/bptagrdqocx0kyfmnsrf"
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/bptagrdqocx0kyfmnsrf",
+    "video": true
   },
   {
     "title": "Tyrique Stevenson Sr. (hip) officially inactive for Week 6",
@@ -2484,14 +2515,16 @@
     "image": "https://s.yimg.com/lo/mysterio/api/76fd01b8e483bfface4f37b76ac78992dcd5421b0a700f1f75c38efc1e5874d5/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fkmsp_fox_local_articles_990%2F77966f78271572f3f07f057da992a937.jpg"
   },
   {
-    "title": "Houston Texans cornerback Kamari Lassiter grabs first NFL sack on Giants quarterback J.J. McCarthy",
-    "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQck5HVExKdTRtNVdweXRVWC13dVFKYjdDUzBqaHJzTUdJNTJGOVJPMzdkbjVzOWU4WUl6ZXpyS2NzbU9zYXV5a3dKZnItUGJMMzB5RlJyU1dxUTdCSGR6b1JodkV4SmxNQURCYWRzN29VZEM4WGhyeU5HdUoyLWtBdg?oc=5",
-    "published": "2026-10-25",
+    "title": "Can Kamari Lassiter Flash an Interception? Texans CB Could Be Targeting Chargers' 32nd-Ranked Offense",
+    "source": "Athlon Sports",
+    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWmZ3Z1I4UTVxaTMzNm1EaFBRZXpXUWVEcEpmNVZsY0hIV3JDWEhidUxuMGg1UDRuQW96MExLNzFXSVNBeUdqcFcxakpPMUVnLTFhOFNTZE9FM0NNTjM1cDdxZXp1WER2blBKRVZmUl9PejExLVVhU3piRHUwWU00UHMtNmFDdm43OFBMcWFqMEdyMlNGbS1XTHFzOA?oc=5",
+    "published": "2026-11-06",
     "player": "Kamari Lassiter",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Kamari Lassiter."
+    "summary": "General news mentioning Kamari Lassiter.",
+    "url": "https://athlonsports.com/nfl/houston-texans/texans-kamari-lassiter-chargers-justin-herbert-eson",
+    "image_tries": 1
   },
   {
     "title": "Texans May Have Just Gained Clarity on Kamari Lassiter's Future Contract",
@@ -2504,14 +2537,26 @@
     "summary": "Roster move involving Kamari Lassiter. His role and fantasy value could change with it."
   },
   {
-    "title": "The Best Postgame Quotes From NFL Week 1: Kamari Lassiter Takes the Blame",
-    "source": "Sports Illustrated",
-    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0wWVZvazZsYWFmQlJNSkI4VVdscHQwaXBRU2xtZ2V2Rng3ZTJ5VDMwcGVsT1NEYjdXY3VFZUFLbHgtTVlmcjFWei1nenl1cC1KUXNNaGxzRTAxa2VOOWdMclcySUdwN1lkbVZqU2R6MGpuVWFscjNUME9saw?oc=5",
-    "published": "2026-09-14",
+    "title": "Kamari Lassiter grabs first NFL sack on McCarthy",
+    "source": "Houston Texans",
+    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQNUVRaWFpOTFDanZZSTJwMXloZWFCbEIxQkVQem9GQ3NkYkpYRVMybUFuLUppWVJLUi1fNG9ONjEyRnlCUVdJSkpkYWhteTBFc0pEWE9XWGlMZ290dklzWWJuWDZBSW9mcTduVVlMYjkwN0NYRk1rcDdCcGdkRkFiOGR4dWd1ck5pQWxYUw?oc=5",
+    "published": "2026-10-25",
     "player": "Kamari Lassiter",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Kamari Lassiter."
+  },
+  {
+    "title": "The Bengals Need to Trade for Carrington Valentine",
+    "source": "TWSN",
+    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbUJqRUQ4c3AyMVhrUGFZWTE4Zy04RDZ5c2kwOTFPOHFqSThfejdlTFYxX3dCLWVCWnJTS1lZVG43a2J3OTFHVXU3X3pEa2g4T1JSb0swQjBXS3djUXlKTEpOekZUYVkyQTRUYlZjMkYxWk4xVFY0a3AybFNhRFBJZUcydWw?oc=5",
+    "published": "2026-11-06",
+    "player": "Carrington Valentine",
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Carrington Valentine. His role and fantasy value could change with it.",
+    "url": "https://twsn.net/2026/11/06/the-bengals-need-to-trade-for-carrington-valentine",
+    "image_tries": 1
   },
   {
     "title": "BBNFL Week 6: Carrington Valentine makes big impact off the bench",
@@ -2538,20 +2583,20 @@
   },
   {
     "title": "Riq Woolen Trade Would Let Bengals Slide Dax Hill to Slot as DJ Turner Injury Thins Secondary",
-    "source": "Athlon Sports",
-    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNZUVIREpSVUs2RlUzZ3BBa1N2dVh5Ry1DaE1wcmlfNFc0VHRXMnhXOHpRdlhEaHVPSXVfV2lCQkFTVEt6UDNQdkJCUUJUODI5aDEtT3FBQU5GMVhDYzJUVDFSVmNBTFF2NmY2dlFxVEltU2ZockxJa1RUbmZBcHZ3TWRnZWRoVnNRX242V196aFpIc1NkSmNUT2wxcWo?oc=5",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVkZNWW5WSWhfOU5tS25ScHlNcEdGOWp0ZzJsVUxWWVp2aGRnbDRLamt2a3JpTExZLXZEcXpPVkszYlZ5OGdoQ0RyMjZlRzhUN2k5OGUyZE91cTE4Rm80a2lIenFJLUJoeHBUWWo4clhVS3lTeTc1dXBfUUxuSE9NRE5Qbw?oc=5",
     "published": "2026-11-06",
     "player": "Riq Woolen",
     "impact": "roster_move",
     "category": "transaction",
     "summary": "Roster move involving Riq Woolen. His role and fantasy value could change with it.",
-    "url": "https://athlonsports.com/nfl/cincinnati-bengals/bengals-riq-woolen-trade-dax-hill-slot-dj-turner",
-    "image_tries": 1
+    "url": "https://sports.yahoo.com/articles/riq-woolen-trade-let-bengals-151500595.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/27997fb347facfaccb5b63e1dc3356d537109e328f21238ce101435b8cc8df08/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fathlon_sports_articles_610%2F2a449c445d5df236b580337449dd840f.jpg"
   },
   {
-    "title": "Bears Trade Rumors: Mack, Wright, Woolen Are 3 Names to Watch",
-    "source": "Bleacher Nation",
-    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1DMFBMSnJNMHRvektTdjVMaGxkSzZvVTlSbnFwZmJpSWkxMTVaV2xtUzMyMU9RVUpwTE8xdTFIdTJCa19SdEI5SEg0NUxFTlZ2YnZ5dW1UNFMwakh4RVBqN2VXN0laTEY5T2dFUlBneXRUSGt2NkNPSg?oc=5",
+    "title": "Riq Woolen, Landon Dickerson Among Players Eagles Could Trade",
+    "source": "roundtable.io",
+    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWER6U3RFMTlXc0ZockE3LVY0YU11YzdkTktVNFhhWlh1am5KRE1PTTVkZUN6dW1zOFBLa2pWQ2dwNENZUFFSbkhuWVJzZ252YlBDTm8xNElOQzRpN3FhNDhIMFBkOVMzTDJWMURKQUljZXdrSG45RFVzX0RIZE9TVDBDbGkwSGk4SnZPUWFYTHByc3VOZEw2TmJTMVJJci1LYVZCelZwN0w?oc=5",
     "published": "2026-11-03",
     "player": "Riq Woolen",
     "impact": "neutral",
@@ -2590,7 +2635,8 @@
     "category": "general",
     "summary": "General news mentioning Quincy Riley.",
     "url": "https://www.neworleanssaints.com/video/kool-aid-mckinstry-quincy-riley-devaugh-vele-justin-reid-isaiah-stalbird-press-conference-saints-vs-steelers-2026-nfl-week-7-october-21-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/gt5xs1oamw8txfwywpwd"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/gt5xs1oamw8txfwywpwd",
+    "video": true
   },
   {
     "title": "Quincy Riley Stats, Props & Recent Performance",
@@ -2767,9 +2813,9 @@
     "summary": "General news mentioning Kristian Fulton."
   },
   {
-    "title": "Lions Linked to Chiefs' Kristian Fulton as a Cornerback Fix After Missing on Joey Porter Jr.",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPR2x2U0FQMFRLT0pJVGpTNDlXQkc1UWxhbjRlYWoyLUptQ185QlJnc1VLRTV6UkwzSGlxZzUxYlVnMFNTVnp3LS1LTmR3NXllTGExVl9od2hCeXJvQjJXLVdNYmhWRHp6OXFDcWY2MU9TRTktOE5idzdyRkphSUlxTXZXSU44dDZodm5nWg?oc=5",
+    "title": "Lions Linked to Chiefs’ Kristian Fulton as a Cornerback Fix After Missing on Joey Porter Jr.",
+    "source": "Athlon Sports",
+    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPLTU4VWFiU0NJZGg4TGpSNWpPeEp4VkxmcVVfUy1mVFdsTVpnMHEzTzk0cHN4eHZQbzV6cWZsRTRMaWpjd3gtaGxZYjBNMk5oTy1Xb2l4cUJicnE0d3BjQjhFTFdNM1F4ay1XQkFaeG1VQ0xmZ1lJenNfVEg2cEliazhuOHRpNGFXQmc?oc=5",
     "published": "2026-10-07",
     "player": "Kristian Fulton",
     "impact": "neutral",
@@ -2909,16 +2955,6 @@
     "image": "https://s.yimg.com/lo/mysterio/api/d49545945cddf7660c2eff1b5acdcf12130a0752e463aa5a1043b6cf3f6a158a/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fcincinnati_bengals_wire_usa_today_sports_articles_393%2F5ad00c253c339219f750c10fdbd0c239.jpg"
   },
   {
-    "title": "Jalen Ramsey dealing with broken wrist",
-    "source": "NBC Sports",
-    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOTXBDR3QtZVNXU0JwU0dFY3NobzNyNFA1NkNqb3hOb2xETXFVRm5ULWtRd0dfUUcwdnBXSXB3cXQyTE5ORzV4YTczUkNnazVNVlU0QmtPZVYwS3JfeFhhcTZSVDQtNmJsd0pKdWNVUkFmOE85QVNQVEE4WDZmZjNkZDc2SmdyMVpzdlBvYUNXRXdVWklTT2ZUU3FHQ0phZFlZRE9lRm0zUQ?oc=5",
-    "published": "2026-09-29",
-    "player": "Jalen Ramsey",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Jalen Ramsey has an injury note (wrist). Monitor practice reports before kickoff."
-  },
-  {
     "title": "Jalen Ramsey Believes Steelers Can Win Super Bowl",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPVHZtYk9VM3o4T3dsaS1ENHMxb29jUHZRdGptRG1LYW5WMS1TSUNwaGtLZEd5aHdWU2pGbmhyclg3Z1JtMGk1YUFWSUZIM1BFT0JNNmhqbTJPUk9fZ2NBUC03Vzh5M3FzT2VDdTdlMk1vcnlTbjV6a0s4N1R5ajk2NHZGaVdWY3RmTHg4?oc=5",
@@ -2929,6 +2965,16 @@
     "summary": "General news mentioning Jalen Ramsey.",
     "url": "https://sports.yahoo.com/articles/jalen-ramsey-believes-steelers-win-200715223.html",
     "image": "https://s.yimg.com/lo/mysterio/api/6e25c140688920242e0bc32e673c330595b47515ac63e2aa9dd339375d84a10c/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsteelers_now_articles_971%2Fab833244436caf666b1008ec7b0f0b55.jpg"
+  },
+  {
+    "title": "Steelers' Jalen Ramsey Pushes Back On A Polarizing Aaron Rodgers Narrative Before His Final Goodbye",
+    "source": "Steeler Nation",
+    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZ3diaDZLdGo5X3dZd2V2NmdXY3J6WGRHaW0tRWpjZnlHTXVVdXA4QkZlNVpMNWJYYzU4UjF5NWtpd3NBQzJ1TVAybmNCY0tXcUl0bG9DMFBtXy1uSUFIZ1k0SEtKaS1UWHFGUXZ0cHFlQzhoOGs1d3ZLQ3JIUUktZi1qVzU2czI1OU5INTZ0cWI?oc=5",
+    "published": "2026-11-05",
+    "player": "Jalen Ramsey",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jalen Ramsey."
   },
   {
     "title": "DJ Ivey NFL Stats, Game Log & Bio",
@@ -2962,6 +3008,18 @@
     "summary": "General news mentioning DJ Ivey.",
     "url": "https://www.prizepicks.com/research/nfl/players/dj-ivey",
     "image": "https://static.prizepicks.com/images/teams/nfl/NFL_team_nKNYBBiDn2oFyQquNuchfVd1/38.webp"
+  },
+  {
+    "title": "Chau Smith-Wade Game Log - NFL",
+    "source": "FOX Sports",
+    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSm9INkg1UHp4bzRkUjBWWFpnZi1kNE1pci13UFV4VDV2NmkxU0NUUFhKTlYzRkRMS1lzSFdMVnlYaVdUc2FtWlJpNnRfeEMxem53eS10b3pVTndqSGlhWTJab2UyUURYMjdiZ2V6ZWM2ZDNoaG14SmEyaGZvWkp4aHFYNzdhOC1zT21JYTdpVEJxMjR3WHc?oc=5",
+    "published": "2026-11-06",
+    "player": "Chau Smith-Wade",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Chau Smith-Wade.",
+    "url": "https://www.foxsports.com/nfl/chau-smith-wade-player-game-log?category=standard&season=2024",
+    "image": "https://b.fssta.com/uploads/application/nfl/headshots/327844.png"
   },
   {
     "title": "Chau Smith-Wade Stats, Props & Recent Performance",
@@ -3018,24 +3076,22 @@
     "summary": "General news mentioning Sauce Gardner."
   },
   {
-    "title": "Colts' Sauce Gardner on how he blocks out undue pressure, fan disappointment from Jets trade",
-    "source": "IndyStar",
-    "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPNzhUZXFsaldnWW9vdTBXVU9nWG5oaW5uZS1ESnlfTndoNFJEVjZVWjgzeE5udmdWc2c3aGJpOEVmNzgyaEFvbmhLb3VMWGVuWkZNNjFNY1hySzZab3MydS12SkZ0RzNGSU0zX2piRnhUWXJacmRFaGhETndERjBBaENEdHIwQmNuaElEMEpYaHQzNm1SM01NRmpyR0J6TEZqUlM2U240SngzSkFjc3FaX0p4bVI4cXdMb1BUbnN1cXNfQk5sU0o0UWsyOTVfVVlKU1g4Tkg3dVZkUTMxZE0tU1RFem9JUEhrV2Y0UFE1Zw?oc=5",
-    "published": "2026-11-06",
-    "player": "Sauce Gardner",
-    "impact": "roster_move",
-    "category": "transaction",
-    "summary": "Roster move involving Sauce Gardner. His role and fantasy value could change with it.",
-    "url": "https://www.indystar.com/story/sports/nfl/colts/2026/11/06/colts-sauce-gardner-explains-blocking-out-pressure-criticism-one-year-after-jets-trade/92631635007/",
-    "image_tries": 1
-  },
-  {
     "title": "How the Jets trading stars Quinnen Williams and Sauce Gardner looks a year later",
     "source": "ESPN",
     "link": "https://www.espn.com/nfl/story/_/id/50360565/trade-deadline-quinnen-sauce-jets-cowboys-colts",
     "url": "https://www.espn.com/nfl/story/_/id/50360565/trade-deadline-quinnen-sauce-jets-cowboys-colts",
     "image": "https://a.espncdn.com/photo/2026/1101/2hours_trade_deadline_608x342.png",
     "published": "2026-11-06",
+    "player": "Sauce Gardner",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Sauce Gardner."
+  },
+  {
+    "title": "Colts' Sauce Gardner relishes in first victory on US soil in more than 650 days",
+    "source": "Fox News",
+    "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPX1VXRHZiclJ6bjZJS1B4d0N4NkNEU1I4ZzdKc3htekkwRUxkZGZQUENNRkJ3YTR5MVRLLWFMN2FCaHBDLTB1eXdMOGNzRGx5X3c1UW5TNDh5MDBsR0JteGstZFc3YVdkclQ1UjZUWjdyN3VkMzdDRnoxVnJicENLME1LdlZ5MGxONjhuelMtQk13dWZseS1XRnBfXzlEeGc?oc=5",
+    "published": "2026-09-28",
     "player": "Sauce Gardner",
     "impact": "neutral",
     "category": "general",
@@ -3074,18 +3130,6 @@
     "image": "https://heavy.com/wp-content/uploads/2026/10/GettyImages-2295428182-e1790861747356.jpg?quality=65&strip=all"
   },
   {
-    "title": "Steelers' Joey Porter Jr Trade Carries A Hidden Risk Behind Pittsburgh's Winning Streak",
-    "source": "Steeler Nation",
-    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkRWcDFLbldFeUVwbi1VUmtpY0tvSHJiaHZaMkE1d1poMFNUNmczNFBXMDdBUlZGVW4xUGhjNEtNTUx4a3VMbDVWRi1qVjMwdjJwTC1UV2V2RFFJQXkzZjNWa0kxNVBBLVJfQ0Myd05KZVJWWjFURWRPYUtOX2RKREZ3?oc=5",
-    "published": "2026-11-05",
-    "player": "Joey Porter Jr.",
-    "impact": "roster_move",
-    "category": "transaction",
-    "summary": "Roster move involving Joey Porter Jr.. His role and fantasy value could change with it.",
-    "url": "https://www.steelernation.com/2026/11/05/steelers-joey-porter-jr-hidden-risk",
-    "image": "https://www.steelernation.com/img/2026-jordan-training-camp/2d8a6213-1600x900.jpg"
-  },
-  {
     "title": "Steelers' biggest cornerback regret has nothing to do with Joey Porter Jr.",
     "source": "Still Curtain",
     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPX0k0STdIT3hFRi1JVTV5cFZNNWVhdFU2eEJBSjBGSUdORUlWelBVWGNXMU9EbFN4WG1jTWxoRkI0aFprXzlzb3V4QXVXcWY2YzV5aDJSd3pWNTlWc2VCVlhONGhzc1RieDNQYktpbi1DY3BwYzlBN0g0OUtXdVNoUWlfbFhuRzhkMzRtUDF0UGwzbWZkUHNTX1JpdGNxT21CREhSN0NGZkxkSlJPN0tSOS1CcUhYN0dadG50U29n?oc=5",
@@ -3096,6 +3140,18 @@
     "summary": "General news mentioning Joey Porter Jr..",
     "url": "https://stillcurtain.com/pittsburgh-steelers-biggest-cornerback-regret-has-nothing-to-do-with-joey-porter-jr-01m6h6400sa7",
     "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_419,y_69,w_5724,h_3219/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/GettyImages/mmsport/58/01m6h9g1gt0y1v8p158e.jpg"
+  },
+  {
+    "title": "Steelers' Joey Porter Jr Trade Carries A Hidden Risk Behind Pittsburgh's Winning Streak",
+    "source": "Steeler Nation",
+    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkRWcDFLbldFeUVwbi1VUmtpY0tvSHJiaHZaMkE1d1poMFNUNmczNFBXMDdBUlZGVW4xUGhjNEtNTUx4a3VMbDVWRi1qVjMwdjJwTC1UV2V2RFFJQXkzZjNWa0kxNVBBLVJfQ0Myd05KZVJWWjFURWRPYUtOX2RKREZ3?oc=5",
+    "published": "2026-11-05",
+    "player": "Joey Porter Jr.",
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Joey Porter Jr.. His role and fantasy value could change with it.",
+    "url": "https://www.steelernation.com/2026/11/05/steelers-joey-porter-jr-hidden-risk",
+    "image": "https://www.steelernation.com/img/2026-jordan-training-camp/2d8a6213-1600x900.jpg"
   },
   {
     "title": "Broncos-Panthers Matchups: Pat Surtain II vs. Tet McMillan Looms Large",
@@ -3110,9 +3166,9 @@
     "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_171,w_5085,h_2860/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mile_high_huddle/01m6mcfqj3vh3pfazym8.jpg"
   },
   {
-    "title": "Pat Surtain II Reacts to Jaylen Waddle’s Post After Broncos Beat Chiefs",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdEZ1aVBoaV95eEtJQVNoeFh5MVJEd3VsN0NhMUVXNnotOVJpRmN1T05VQUNodXp4bWxjVlJmbHlwQVZIajJqUi1wd1VlY3pYRWcySkRaYVQ1WkNPUmlhdFNfb1lPQnJKZlgtRndyS1N0cmxuUVFwNTJhNFFvc3JJUWc4dw?oc=5",
+    "title": "Pat Surtain II offers strong endorsement of Bo Nix, 'he shows up when it matters' – Denver Sports",
+    "source": "Denver Sports 104.3 The Fan",
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONEwxRUM5NnI4YzVCUmQ0VU9XaWVqZWVXeERoOUxGaXZfa2hJWTA5d3VSLVA1UFJzb3llUlNiclhQZ1ZOdHdlMi0zOWRzV0F4ZFJZNGlweTJXSHFuWk9abHJYcE5qZnBIa0l3d2ZiWGR1LUQ4ZUt3T0N0a1k4d2lzbms1cTRadnRRZUZqVTZRMjlzTzE3U1AwSnNlZkJnNWFvcEEtWGk3ckhRYUZPMkFoZ0dTN3BkS3E4TVRlbjNOZw?oc=5",
     "published": "2026-11-04",
     "player": "Pat Surtain II",
     "impact": "neutral",
@@ -3212,7 +3268,7 @@
   {
     "title": "Tacario Davis 2026 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBIRkNFYlFBaEpac09qVFNQZEZaaHZHZ3NCS00xRlNWMVM4NmRWdHNxRFgwU3hnNUxGbEstbWpfUk9ua0dSdlFjTWZlc3ZyTDFTSGNBUi05QTc4R1lmY2Z1M2NPMlBOSTRoeDlhNWxtUF9yQW96cVUtZg?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1HeGdmOGJqbjFadFRrLVd3VlNxYkF5VUhScHJJVUJaSGtXR2xzM09CTHkxa0wwLVVqd1FSTGJzdHhxeWxEM3F4cGh4eERyZGUzcWQtNFdHN3NpUVBEalpPVUJhNWYyZ2dydllFUmI2TlZoSHpjWmYtbQ?oc=5",
     "published": "2026-10-28",
     "player": "Tacario Davis",
     "impact": "neutral",
@@ -3240,26 +3296,14 @@
     "summary": "General news mentioning Kei'Trel Clark."
   },
   {
-    "title": "NFL Fines Cardinals Backup Cornerback Kei’Trel Clark $6,651 for Writing ‘Glory Be 2 God’ on His Eyeblack",
-    "source": "Yahoo News Singapore",
-    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNTZ5cWlJM2Z5Y0hCOXktRHJBMnI4bmpJTlhzcGZIV2hGM1JLZXRVcFJWZDFqRUlzajVWbENLM0RjeGVIT3hQcTJBamUwMzlRQzFVdnNJYlpETXAzY01xUU5HSVk2X2x0YmszVU9ic2p3ZkJHOTc3UGc4MUR1QzNnSzVqcWo?oc=5",
-    "published": "2026-09-20",
+    "title": "Cardinals Kei’Trel Clark fined for using eye black message",
+    "source": "Revenge of the Birds",
+    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaWRZZVdldWdWaU5ZX3IyZUxDTThJYXo3cTFKWUs1dG5Zc1dFYkw2M3hCRjFnOWNrcGRRVmNvTjk1dUUxYTBrTmdjZzIyU1NBd3dFTmtSQnRRekQycThDT09fdnpaRXRqSDBZNjZkS0V3NDhScUx1Yy11blBvaHNtZ1dXNV9EX1dPQ2tLbHM0d2hhbHhBdm1JeHZOclhKYWM5OVpnTkh2OW9OM3NiM3dvbmpZOTZIdzRFaVVyVg?oc=5",
+    "published": "2026-09-26",
     "player": "Kei'Trel Clark",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Kei'Trel Clark."
-  },
-  {
-    "title": "Bears rookie Malik Muhammad has strong words regarding Jaylon Johnson",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQVXJhX0s0SDJzNUV1NHF6aXNlLUl4NW1wdVJmaDBMaVo0UW54Q1d3Znl3RzR6MFVtMFZ5ZmR3UmhUWV9lVDN2VzE3bDVLRjBCX3FzNnhoZ2UyX0IxeGRfaGN6eXJCVzVad1NCSUdOUjlfblhpaTdSWDVHX2VwQU9tcnZXTnhsZktJTFlj?oc=5",
-    "published": "2026-11-06",
-    "player": "Jaylon Johnson",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Jaylon Johnson.",
-    "url": "https://sports.yahoo.com/articles/bears-rookie-malik-muhammad-strong-142029464.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/9c8a65f96f954cb0d8692d1d93a5fd28bbff756ee78a85ea29ae7e7cad0fb034/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fchicago_bears_wire_usa_today_sports_articles_533%2Fd49325ff471b0ef8ab05b86fa03177c5.jpg"
   },
   {
     "title": "Bears’ Malik Muhammad Doesn’t Hold Back on Jaylon Johnson Amid Struggles",
@@ -3274,14 +3318,28 @@
     "image": "https://heavy.com/wp-content/uploads/2026/11/GettyImages-2299695911-e1793928005114.jpg?quality=65&strip=all"
   },
   {
-    "title": "Ben Johnson Sets Hard Line On Jaylon Johnson And Trade Talk",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQY1BYUkE3czhqVC1ybnExVFBZNjdWZElpLTZsOG95SDYxcjBIOHNJaEJKZUlaY1FqR1M3Y2FvMlFKUzFsZHB0Z2JQNEVGbms4SXRfQ3BxcWJRWjdTVTQ4SWpXM0lSRUNaUDNqcTU3WVZvMFRsbWJpX3hSMFBRT1B1eg?oc=5",
-    "published": "2026-11-02",
+    "title": "Bears rookie Malik Muhammad has strong words regarding Jaylon Johnson",
+    "source": "Bears Wire",
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQN1Q4Q3pOeFE2YURrVTVYcEN0MGQySjREZmNfelhNSkVYc2dRVGNuWWRmSEdDSFRXTVZwYmRKZzgtLVprRXVsYVFHeUNZVWVKOFhTbXNKSlRING56N09HdWVhME94d2NWcDRld0FHTV9Ic1IzTVBkakFONEc5REF1a0pTX25ULWp0WWNNOXpsdGhiR3RpeFZQQnQwcE0wWGRmMG83VVBqbTZLN1QzcUNVY0N1N0lRQk1PYlM2dGQ2bw?oc=5",
+    "published": "2026-11-06",
+    "player": "Jaylon Johnson",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jaylon Johnson.",
+    "url": "https://bearswire.usatoday.com/story/sports/nfl/bears/2026/11/06/bears-malik-muhammad-jaylon-johnson-comments/92636263007/",
+    "image_tries": 1
+  },
+  {
+    "title": "Ryan Poles should trade Jaylon Johnson to (almost) any taker before the deadline",
+    "source": "Bear Goggles On",
+    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQT0FyeE8xUnp0N1BxVFFyeGw1TzBIQU5iSzQwal9maEhJZ2FqSjJENklRSmVQWGhENWo1VG9Nalc0al91VkJ2S2I1NWZxYmI0eEJiQkJuT2hkVHZfUmlidEJUSmo5YlpZRC1WZ19rU1ktOFE2eWJGRUVCeUVQbGhHVmdxSkRLWGN4RnRYX095RU1Oa2Z0bzZOSTJUR2VLaXV5U0lncERIWQ?oc=5",
+    "published": "2026-11-06",
     "player": "Jaylon Johnson",
     "impact": "roster_move",
     "category": "transaction",
-    "summary": "Roster move involving Jaylon Johnson. His role and fantasy value could change with it."
+    "summary": "Roster move involving Jaylon Johnson. His role and fantasy value could change with it.",
+    "url": "https://beargoggleson.com/ryan-poles-should-trade-jaylon-johnson-to-almost-any-taker-before-the-deadline",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_0,w_1614,h_907/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/shape/cover/sport/Screenshot-2026-11-05-134954-bb35eb66517a29c1264a5ec35f5f1f07.png"
   },
   {
     "title": "Cowboys Snap Counts Show Ameer Speed and Cobie Durant Are Next Up in a Banged-Up Secondary",
@@ -3407,8 +3465,8 @@
   },
   {
     "title": "Former Tennessee Star Alontae Taylor Makes Titans Rethink His Role After Big Day",
-    "source": "Sports Illustrated",
-    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZG9kbzl4SE1zSHJqZmpia1pEU1FGYUI0dFFOYjV0Z1VqajVWN3FNS1Y1WE0xcjVyX3V5UVh2Q0dMeXVyV1I2TmtONTRCMkNfbEthNTJlUjEzQkVONHJIR3FpMGFfMk5wX09hVkZvdXNzNW93U1d1cXpaWXBVSkkwd1BPWGtLLWVRZkliOEFBc2ZlcnlpZXBoRWI5a0NWUi1MVW5lNTExNmw0NVhaVFY4eEMyOE9hcmhVSU1JeVU1SnZiR2JRRjhHMGNCVHR0RlBINnlRMS13?oc=5",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbmgwTlpZcDFobzh6WDVrWGMtQU5ZVllnbXdfOERXQlkzNTMtZXh0dUF4VEVHazhVOXVhM0Y0X0dHVnBGb3pLZUZDckpDRmp6TEJCRkNsMXkwT1hsTTBzLTJMN2dHRDBISlZvSTAzZk1OQ1g2ZUdSaHBMbE9fUTByTC1NLTJLMmo2TllodG1B?oc=5",
     "published": "2026-11-04",
     "player": "Alontae Taylor",
     "impact": "neutral",
@@ -3468,16 +3526,6 @@
     "summary": "Roster move involving Christian Gonzalez. His role and fantasy value could change with it."
   },
   {
-    "title": "Giants activating Paulson Adebo from IR ahead of Week 7 vs. Texans",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWjgxX0o4Q29ZVEhRWUpBcEN4RFYwYzltMU5adTY5a2QyMVprM2NpSnhoclhsTnk0cThXY0NOT3laTi1UTzVDaDRkYUFodHR4YjFpTmtVa1c5dHZES2taSG5NTXdwVjZPWHdrWmdlZXVjWHJWMnRNbkxoSGExaGRCRGJsNEpZMUc2UV9j?oc=5",
-    "published": "2026-10-24",
-    "player": "Paulson Adebo",
-    "impact": "negative",
-    "category": "injury",
-    "summary": "Paulson Adebo is dealing with an injury that could keep him out. Check his status before lineups lock."
-  },
-  {
     "title": "Giants Activate Paulson Adebo, Place Tremaine Edmunds on IR Ahead of Texans Game",
     "source": "Sports Illustrated",
     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE04SUhvR2p4b1c1MVFmMW9HSEpfazZ1UjRVTl8tZDI3ZzMyUGI3ZXh5MlA2UFdIZ05nT0E5a3hHZGxJa29id3ZmbENwYjA2UVBZMml1b05LcWZuUDVzd1A1R1VrUlUwTUVkSGctTVpnUW9vMWhUdnM2eDU0YmZEMUk?oc=5",
@@ -3486,6 +3534,16 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Paulson Adebo."
+  },
+  {
+    "title": "Giants activating Paulson Adebo from IR ahead of Week 7 vs. Texans",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWjgxX0o4Q29ZVEhRWUpBcEN4RFYwYzltMU5adTY5a2QyMVprM2NpSnhoclhsTnk0cThXY0NOT3laTi1UTzVDaDRkYUFodHR4YjFpTmtVa1c5dHZES2taSG5NTXdwVjZPWHdrWmdlZXVjWHJWMnRNbkxoSGExaGRCRGJsNEpZMUc2UV9j?oc=5",
+    "published": "2026-10-24",
+    "player": "Paulson Adebo",
+    "impact": "negative",
+    "category": "injury",
+    "summary": "Paulson Adebo is dealing with an injury that could keep him out. Check his status before lineups lock."
   },
   {
     "title": "Giants' Paulson Adebo Receives New Update Amid Cut Speculation",
@@ -3732,20 +3790,20 @@
     "summary": "General news mentioning Chris Roland-Wallace."
   },
   {
+    "title": "Chris Roland-Wallace Fantasy Football News, Rankings, Projections | Kansas City Chiefs",
+    "source": "FantasyPros",
+    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZEdVNjJsZzdIb1I0TEx6M1VLYUx4VU9HMzJYSGJkNTB2UC1oLVVsQWxod2lfclhfMEdNQ0dfQzM0RXBobkVOeGNVcTlOczdZdVFSVG0ydGFFZUl5QTBabzRYT3NadkdPSGJ5UU9rWFd5YVRSVXk4UXFJQmxKa1R3Ym5Nb2w?oc=5",
+    "published": "2026-09-19",
+    "player": "Chris Roland-Wallace",
+    "impact": "neutral",
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Chris Roland-Wallace."
+  },
+  {
     "title": "NFL Fines Chris Roland-Wallace for Punching Alex Harkey After Late Hit",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOdzVVN1pKMUlyclppWEF0bDR2NV92c2czWWRUR0Z3ZEdud3h6U3NaakNFYXlhUVNtN1VVdU4tR19xTW9zdmhmN1cydVlzQWI1blV2TW5zaGRNYlhqY1ZfeE84Y2NEVWxTeEpPSmFWWWltTEtSb25mX3pXWjRLcEJTR0llY2lEdw?oc=5",
     "published": "2026-10-26",
-    "player": "Chris Roland-Wallace",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Chris Roland-Wallace."
-  },
-  {
-    "title": "Chiefs News: Chris Roland-Wallace fined for punch from Week 6",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxObzVYSjhSSVRzWUk4dVFnNFBZVV85c3BaX2tLeDBSMmZjZ3pkcEJjMmd5bDVYZnVkajFOWTBnTHNOODhkOXV5WndjNU9oeVotbTR5MkNEcFp6NW9HXzJoXzM5cmlKNy1yVURlUzZ1NDgtUzZDVFVScU9oOEZGcmY2b3BHN0I0UDBB?oc=5",
-    "published": "2026-10-25",
     "player": "Chris Roland-Wallace",
     "impact": "neutral",
     "category": "general",
@@ -3792,16 +3850,6 @@
     "summary": "General news mentioning Benjamin St-Juste."
   },
   {
-    "title": "Mike Hughes Must Stop The Bleeding In Atlanta",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNempSekhuRTRHcW1RdnAzOG5SdS0zMUVPR0tteUtyVTVOeVRfSTJyMndyMUpFc2hvTjl3cGJaX0VVd1VlbVFucV8xUzZEZ3I0U1p1LVpxc0JIOExaaXBicENUZVBOZFNhNUhKQ1FBTDNEQXNTMms5Nk13Q0ozRlJCdUpJal8xUQ?oc=5",
-    "published": "2026-10-21",
-    "player": "Mike Hughes",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Mike Hughes."
-  },
-  {
     "title": "Falcons' Mike Hughes Struggles as Secondary Needs Reinforcements",
     "source": "Sports Illustrated",
     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPR19TLVprdnR5OXZ0akJDcEp3NlZhM1htRUVjeXVwdGJicDJGaXRhcmw5ejhqVDBlWWk1TjN2Szl3emZQbHlfTC1ZYVEzSVFRTmxEdkE2bl9iZWFWdVJYSkJUcWl1Zm1qMGdLWC02QmV1aDV6Y2RubVpJekY2ZXItZzBmazMzV3NKSEFEeTVBaFlWQ0N3d09Ibkc2S3BlX2pr?oc=5",
@@ -3810,6 +3858,16 @@
     "impact": "slightly_negative",
     "category": "performance",
     "summary": "Concerning news about Mike Hughes's role or production."
+  },
+  {
+    "title": "Mike Hughes Must Stop The Bleeding In Atlanta",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNempSekhuRTRHcW1RdnAzOG5SdS0zMUVPR0tteUtyVTVOeVRfSTJyMndyMUpFc2hvTjl3cGJaX0VVd1VlbVFucV8xUzZEZ3I0U1p1LVpxc0JIOExaaXBicENUZVBOZFNhNUhKQ1FBTDNEQXNTMms5Nk13Q0ozRlJCdUpJal8xUQ?oc=5",
+    "published": "2026-10-21",
+    "player": "Mike Hughes",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Mike Hughes."
   },
   {
     "title": "New Bern's Mike Hughes signs with another NFL team, this one closer to home",
@@ -3854,6 +3912,18 @@
     "summary": "Roster move involving Ja'Quan McMillian. His role and fantasy value could change with it."
   },
   {
+    "title": "Carlton Davis Resurfaces in Lions Cornerback Trade Talk",
+    "source": "Detroit Sports Nation",
+    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOanBWRGhmRDRNQm5NSktDTG92aHNZcE4zY1ljQVJnVkIzcEJXVGcwVGFVVFhMem9SQU9lbnBMd2RibVJFRDcyQTQ2ZlpfUjV4Vm5UT1g2VFJzeE1CaDNXaTl2bEQxbU5qc29HREVTOGdUMzZSYkROSktaMWFJSERTWmo0S0IyQjYzOEdzdS1UUG5tTVk3M3hxM3FBTHhrVGEtS0FmRUc0bFkyUndEQ2g2dDFTODYydzNS?oc=5",
+    "published": "2026-11-06",
+    "player": "Carlton Davis III",
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Carlton Davis III. His role and fantasy value could change with it.",
+    "url": "https://detroitsportsnation.com/carlton-davis-lions-trade-reunion-idea/richardknight/detroit-lions/11/06/2026/505305/",
+    "image": "https://detroitsportsnation.com/wp-content/uploads/2026/11/dsn-visual-857d719528c2917b36aa57ca395de6f87c4ef987cd88c38e09be27718a793bcd.jpg"
+  },
+  {
     "title": "Patriots Get A Timely Defensive Boost With Carlton Davis III Back",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOY2d4bTd4MkV6ZnVyYjkzYkV5MEpvTlAzdDdqTDFDUlUzY3o3ZDZaTGkxMENOem5PTkFpTkxsU3ZCejJFNnZSNTVJM3k0ZkpCUDk2RWZqTmVZaUJtZWhXRUl1UFVSNHhRWUdVQ2FzeDVQdzl3VVBFUkNNdVl3OHhxeXo4RUk1UGszQjdodEJ0cFJ5Zw?oc=5",
@@ -3872,16 +3942,6 @@
     "impact": "slightly_negative",
     "category": "injury",
     "summary": "Carlton Davis III has an injury note. Monitor practice reports before kickoff."
-  },
-  {
-    "title": "Carlton Davis Has Stern Message for 'CB1' Talk With Christian Gonzalez Out vs. Bills",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUnh2RGV1OVJ2QklZa0pJanR0SW9fUjNjbDNqSUVXLVVGSjV6dW9nTUtuajRHdS1WckIyUlNuVHlLRkxOT3F3SnB4eDRwczZZQ2FMeDhFa3A2Zl9DOGZTeURlODRNWFlwSUVRbDNyVEVBLXdTQVUyQkoxdmp1VzA2OHJ1MnJRR3M?oc=5",
-    "published": "2026-10-02",
-    "player": "Carlton Davis III",
-    "impact": "negative",
-    "category": "performance",
-    "summary": "Concerning news about Carlton Davis III's role or production."
   },
   {
     "title": "NFL Analyst Breaks Down Why Targeting Taron Johnson Makes Sense for Texans’ Playoff Push",
@@ -4039,8 +4099,8 @@
   },
   {
     "title": "Texans Activate Ja’Marcus Ingram and Henry To’oTo’o",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFFFNEtYdXVablV5czRmLS1RZDRkQ3p3dFRDYnVsLWpEdWZmeXY3dktGUVRxa3JfMXF4V1luQjNIZTk2MGFkYzdReVltdUZGT1VSZ1lVcmdTc2oxajJ6X3Q3QzNxZXNnM0Vsa3lnV05WQkRnMW54ZG54c2dxdGV3eHFhdzFLZHRy?oc=5",
+    "source": "roundtable.io",
+    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRng1bzlFdWQxVXZGMnpGNmNHZl9ULUs4YWxLWk5WM2Q5bEh0VFl6TFhxUWl2T3VfWjNpZlRrZWhsV25SUnM3RU5MVUhITWF2YWRmeVNkcFZOcW1Nc29CWmhULVVzT2h2a1BBY1hkUlZ5S1FMazVkcXZiY2dlTEZBYWJhd3NVV0NjV2JfeWd4YUdpeDRqeTdyYjB0MzY?oc=5",
     "published": "2026-10-18",
     "player": "Ja'Marcus Ingram",
     "impact": "neutral",
@@ -4178,6 +4238,18 @@
     "summary": "D.J. Reed has an injury note (hip). Monitor practice reports before kickoff."
   },
   {
+    "title": "Raiders Rookie Hezekiah Masses Ranks No. 1 Among NFL's Day 3 Draft Picks",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNc1pXNi1pZUJrMk1rQk4wdEhuaXJTWDZFdmQwRm4xb3Q5Q1VoNVRxN1RLRFdCWVNDcDU1MGttOWZQc2RBTDFKQnhZMk1kQ2lBelNnZ0JNZXU1bnZQT0paVGlUY0RydmRIckFIWUw4NUR4dzBpQ2hEVXJ0RXR6LWczQ2pqVWphQTA5dUpRNGln?oc=5",
+    "published": "2026-11-06",
+    "player": "Hezekiah Masses",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Hezekiah Masses.",
+    "url": "https://sports.yahoo.com/articles/raiders-rookie-hezekiah-masses-ranks-200038840.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/c5927bba8ce68517a58895eb4f0b38f64ac55523df6f86b4f98a5e119fc414d7/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Froundtable_sports_las_vegas_raiders_494%2Ffc20d6db62bdb7c98c882b0b100daf61.jpg"
+  },
+  {
     "title": "Hezekiah Masses Is the Player to Watch Against the Patriots 🔥 #hezekiahmasses #raiders #nfl",
     "source": "Central Oregon Daily",
     "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxQbUlmLTZPLTRISUhydU1uOWRNd21SZ3pENlJRNVdGdi1YbGRMZ3ZhZTF0cjd6R1JMUU5pSmdUUUpQMEgyR21PcGZqWm9PUkJHd0thYzVxX3Qta3pSTFFJMDNiUHkzeW1pTTZfQUZEaXpkSHJKeGJxRF90Nm9iYmM0YjFJZDdMbFFZYV9iU3lTOWw2bEFpWTd0R1dhV0gxWExaT3FFS1Vxb0JKNmdsTHRuQnAtOFQ0eXo3ekVnTGF5ZEthWWZFa3F0ZDFKUW44NmtLSkl1X1JGb0prMExkTGV2cUFrVFp4NmJmeUFYQUdrV2kwdGFLXzRjdzFuVG83SWRuX2M1cXVjdlVBYVpxelljTEI3Y3U4THBsUFB6YU83dw?oc=5",
@@ -4192,16 +4264,6 @@
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVldFbzlxV3JyN0VTZ1hWdHpOVVJuLWpYb2k2TzdjVVI3WEdtSzJqY0d3bVRBVnQ1NTVyZ3dIWktMOHJ0ZktQeUkxaGZCTU5wWXBNNlprWGhZOFM4c1ZUeW1TeC1kRzJFd25qaGtMenQ3cUlBR0RIdFdka1BpYWZUbFNyUHVxRVEw?oc=5",
     "published": "2026-10-02",
-    "player": "Hezekiah Masses",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Hezekiah Masses."
-  },
-  {
-    "title": "Hezekiah Masses Gets Big Update Following Impressive Start",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcVVQMjBBb1VTbHQ4MzVlTDM2RDV0a3o5VGR6QzlLV21DcmM4djhwSl9CZHg2d3FNbG9UZ1duNVBqb1JubE5sRmpHOVpVa2cyX2JXVXNTZmIycjZacVFZRVE5bjNjb3ZqY3p2NGpTVTNDNkc3dU9Lbm5qUWx5alBlV2RkNzRyalBlQUFj?oc=5",
-    "published": "2026-10-01",
     "player": "Hezekiah Masses",
     "impact": "neutral",
     "category": "general",
@@ -4374,6 +4436,28 @@
     "summary": "General news mentioning Keyon Martin."
   },
   {
+    "title": "Colts rule out CB Justin Walley, LB Akeem Davis-Gaither",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQYjFuVmlKVks2ZElNSG9IQ0hlQjhjU0t1LVVKUF84T04wMGlVLTZuWlphX2g5aXdNb1BkdTBfN25wWExLdzUzQU5ULVVMWjkwMHB6M2NiVXJGMURCWlE0LVRtdkZ1em1uU1diMjh3LUpwSll1ZlVtelJLakFUdFJNMjZB?oc=5",
+    "published": "2026-11-06",
+    "player": "Justin Walley",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Justin Walley.",
+    "url": "https://sports.yahoo.com/articles/colts-rule-cb-justin-walley-210338487.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/2f41431eaf8ba64645a312b6e7f8994126422c44f7270ac166fc3f166cc718d0/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fprofootballtalk.nbcsports.com%2F17c2a8fae7446c83f53e29eb21c7072b.jpg"
+  },
+  {
+    "title": "Justin Walley Fantasy Football News, Rankings, Projections | Indianapolis Colts",
+    "source": "FantasyPros",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE41UG54MzFGYkVYTkVkRFhxTWFvUGYzemctYkF4S3FoN2dxbmdzTXlBaXV4dlFWeFNndWEtY0w3dGxCVDNpRm5oSUlvMFVxcHFOd0p5ZTVRVDFVWVliVklKY0IzQ0IzcTZoTDhCOHRBbVZJWTlGcUE?oc=5",
+    "published": "2026-09-19",
+    "player": "Justin Walley",
+    "impact": "neutral",
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Justin Walley."
+  },
+  {
     "title": "Practice Notebook: Drew Ogletree returns, Akeem Davis-Gaither and Justin Walley remain out",
     "source": "Colts.com",
     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPd212T25wT3F3WXhJTFhRTS1VZ2pQbm5uSFVrUDIxalpBMnlMSHFGZGlFUU1aWTBlTDkyUEZORjNFQXliTDgxWF9jS3QwUm40MDFYRHhfTFJwU05hX3pKVlVXMmc4NEF3NXh6dkdQU3VLeVFIaE9sbktHdHM2Z2hmWmdjRWUtWE5uTnJTaDEyZFRWUGdGXzJiMEVKMjZzMi1zWFZJVzcwNW1SdWc4OUpjMVNhUjRVUQ?oc=5",
@@ -4384,26 +4468,6 @@
     "summary": "General news mentioning Justin Walley.",
     "url": "https://www.colts.com/news/practice-notebook-drew-ogletree-returns-akeem-davis-gaither-and-justin-walley-remain-out",
     "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/colts/e9v9lqrseyomm2rbbpga"
-  },
-  {
-    "title": "Justin Walley Stats, Props & Recent Performance",
-    "source": "PrizePicks",
-    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vdVJ0cWRTM0pqWExwUDEwX3AwLU1WdjlacURvZlpRYkJRVTcxRXR4ZkYyX2RHWXFPVGhCRlZaeTlLWUNLV0o1VWx1eFkzTFF5d084U2hjQTBaeDFNZ1BCMEZwYi1XajNYbnRvb0tB?oc=5",
-    "published": "2026-10-11",
-    "player": "Justin Walley",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Justin Walley."
-  },
-  {
-    "title": "Justin Walley | Indianapolis Colts CB",
-    "source": "PFF",
-    "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBGWm94QUI5eWxqM1ZCUzN0bG5VWXRSaWpfZDREMVEtY0JSLXZ3cTVaSXhQYzBCN3hZT29BRFZRX2JLTVhNQnpORTZFY2NSd1lYZkFaVjNzNDZpel9hOGhXMG0zTG8?oc=5",
-    "published": "2026-10-05",
-    "player": "Justin Walley",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Justin Walley."
   },
   {
     "title": "Should the Broncos trade CB Riley Moss before NFL's deadline?",
@@ -4453,7 +4517,7 @@
     "title": "Trent McDuffie (back) DNP Wednesday",
     "source": "NBC Sports",
     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZGFJcnZTay1vbVFFNERja3otSmg5QzlKZ2l5YVFDZ21kQjhaclFITDdVZWdzdThtMU80dGwyYjZpVm1GbGJvVUFPV2dpY0ZIOUEyZTlLajN5azU4ZlJEc211bGkwa3AxN2R5QlY2ZG1kdWpuQm1rM3I1Wm9hWkdkN2NwYkIybmpGWmRjUFNPWFZyWjZ1Vi1IZU5nTFI1T0cx?oc=5",
-    "published": "2026-11-05",
+    "published": "2026-11-04",
     "player": "Trent McDuffie",
     "impact": "slightly_negative",
     "category": "injury",
@@ -4502,6 +4566,16 @@
     "summary": "Roster move involving Cam Lampkin. His role and fantasy value could change with it."
   },
   {
+    "title": "Zemaiah Vaughn 2026 NFL Splits",
+    "source": "ESPN Singapore",
+    "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE10R0xBbGJxRGJwWXUtWDZSUGZUM3FFMmc2ZEJldlNpQTczWktOMjRRYzB2d2FLeDZLdW5aSkRBcTF3LU9aNG90dVl5VWcxSUtweFMwT2hJazFfSGtmQlFCYzdmVDE?oc=5",
+    "published": "2026-11-04",
+    "player": "Zemaiah Vaughn",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Zemaiah Vaughn."
+  },
+  {
     "title": "Zemaiah Vaughn Career Stats - NFL",
     "source": "ESPN Singapore",
     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBKY0k0TEEyQi0zVGpZRnpLUDRsazIxTkxWQjUxNzlBTkxGZkMzdGJkYlNXTU84dVJHbUpPektKM3FmOTRkUWVmSW5lam8tRUVFZUhEQ0w4RzExX216TGhaNA?oc=5",
@@ -4517,16 +4591,6 @@
     "title": "Zemaiah Vaughn's perfectly timed tackle ends Dolphins' punt return in the blink of an eye",
     "source": "NFL.com",
     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM3YtZ1BlU1NpNHRIb3ByOGxvY1poelpDLVlZUDQ0LUFoR0t0aEF5S0kzb2MwVWw1cG1rbnhuRkZxX3A2SnNzVm01bW1pbHdqYUc2SHQ3bmtHZ0lYV1pGUkNVVzlkUkVkR1Y5VEtzN1MxVnFWRnlyWHlURGYtT2h2TUtyV19mUkJpVlpLYmVUTWVrTHZ2VUx5OVZoc1pnd2ZiaV9MMmg1M3pNSzZ2SVdBWUhIdEx1UQ?oc=5",
-    "published": "2026-10-04",
-    "player": "Zemaiah Vaughn",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Zemaiah Vaughn."
-  },
-  {
-    "title": "Zemaiah Vaughn With A Huge Hit on Special Teams",
-    "source": "Minnesota Vikings",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQYVZ3MUlZUnNRWUhEOUE4TElCcjNreWd4ZHB1a29QX0lmbVp1VlR5d0RsVGRtSGR0UUN4UGFiZkFtWUZtR0NkQmI4MGNwYnh2dWVJNUg5TEVfcWp1bW5QTnFwc0NxaWxiTDZqRXhQanNIUEFBRmxBZklCWDVUOUdBVXlSRQ?oc=5",
     "published": "2026-10-04",
     "player": "Zemaiah Vaughn",
     "impact": "neutral",
@@ -4585,7 +4649,8 @@
     "category": "general",
     "summary": "General news mentioning Kool-Aid McKinstry.",
     "url": "https://www.neworleanssaints.com/video/kool-aid-mckinstry-quincy-riley-devaugh-vele-justin-reid-isaiah-stalbird-press-conference-saints-vs-steelers-2026-nfl-week-7-october-21-2026",
-    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/gt5xs1oamw8txfwywpwd"
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/gt5xs1oamw8txfwywpwd",
+    "video": true
   },
   {
     "title": "Kool-Aid McKinstry Football Stats | New Orleans Saints",
