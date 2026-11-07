@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T19:43:12Z",
+  "generated_at": "2026-11-07T01:13:08Z",
   "season": 2026,
   "week": 9,
   "season_type": "regular",
@@ -2817,42 +2817,6 @@
       ]
     },
     {
-      "player_id": "8129",
-      "gsis_id": null,
-      "full_name": "Dameon Pierce",
-      "team": "PHI",
-      "position": "RB",
-      "status": "IR",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Undisclosed",
-      "status_note": null,
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "IR"
-        }
-      ]
-    },
-    {
       "player_id": "6904",
       "gsis_id": null,
       "full_name": "Jalen Hurts",
@@ -4040,6 +4004,73 @@
       ]
     },
     {
+      "player_id": "8917",
+      "gsis_id": null,
+      "full_name": "KaVontae Turpin",
+      "team": "DAL",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ribs",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "10212",
+      "gsis_id": null,
+      "full_name": "Josh Whyle",
+      "team": "GB",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Concussion",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "5892",
       "gsis_id": "00-0035685",
       "full_name": "David Montgomery",
@@ -4266,12 +4297,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Schefter: A.J. Brown’s Knee Could End Patriots Era",
-        "source": "Yahoo Sports",
+        "title": "Patriots list eight players as questionable after ruling out A.J. Brown, TreVeyon Henderson",
+        "source": "NBC Sports",
         "published": "2026-11-06",
         "impact": "slightly_negative",
-        "summary": "A.J. Brown has an injury note (knee). Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/schefter-j-brown-knee-could-162119994.html"
+        "summary": "A.J. Brown has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQZVdnNTBvY1luZWVMU0lVanhnN2NNdUU5VjJjWTgtVkszV1RtOS1RY3BtMUxKeXc3a0t0MWlOMzRYMHdCSnNBRzhrV3ZIR0E1QnU0emhwSUNPTmMxY2gzMENPekZKSElONy15UUxJVmUyZlp3LXBMN1pRVFJUMFBmZEI3V2ttZzJveU1fVjE2ZnZDSFJWNzNTZHNMZU02cmhycmo1LXdXeFd5emdPcWdJaDV0ejVBeVJ6Q3R0RDl5d29zdjdVQUp4b2kxejhiSS0zekJZQjgzd0ljU3BfUFU2X0Z6SmJFSEVEY0p4cThaeHc?oc=5"
       },
       "history": [
         {
@@ -4311,14 +4342,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Henderson’s illness may be related to ‘adversity’",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "TreVeyon Henderson has an injury note (illness). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/hendersons-illness-may-be-related-to-adversity"
-      },
       "history": [
         {
           "date": "2026-11-03",
@@ -4404,14 +4427,132 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Garrett Wilson Ruled Out for Week 9 with Concussion - NFL News | Fantasy Football",
-        "source": "RotoBaller",
+        "title": "Jets WR Garrett Wilson (concussion) ruled out Sunday vs. the Chiefs",
+        "source": "ESPN",
         "published": "2026-11-06",
         "impact": "negative",
         "summary": "Serious injury news for Garrett Wilson (concussion). Expect him to miss significant time.",
-        "link": "https://www.rotoballer.com/player-news/garrett-wilson-concussion-ruled-out-vs-sunday/1985392"
+        "link": "https://www.espn.com/nfl/story/_/id/50400158/jets-wr-garrett-wilson-concussion-ruled-vs-chiefs"
       },
       "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "8414",
+      "gsis_id": null,
+      "full_name": "Britain Covey",
+      "team": "PHI",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Knee",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "7525",
+      "gsis_id": null,
+      "full_name": "DeVonta Smith",
+      "team": "PHI",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hamstring",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Eagles Get Injury News on DeVonta Smith & Dontayvion Wicks for Giants",
+        "source": "Heavy.com",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "DeVonta Smith has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOd3lwLTZGbS0zV09PMWdhNWtjMS1BWTBPNGg0UWRFR19zSHFmRVpqdkhMSEl2dVVodDBLNTZQZF9iYzNNYXZrM0plLWV6UUJhaDlsbFg2MURSeHpNOHk0SHFsODBxWEtJblA2cFNLcWE2NTFBY2VWZEtpOEJKSjlFbFM1d3lVZmx5VzgtbnlhT2pjUExKaHF3?oc=5"
+      },
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "9486",
+      "gsis_id": null,
+      "full_name": "Dontayvion Wicks",
+      "team": "PHI",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Ankle",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
         {
           "date": "2026-11-04",
           "day": "Wed",
@@ -4610,6 +4751,56 @@
       ]
     },
     {
+      "player_id": "8676",
+      "gsis_id": null,
+      "full_name": "Rashid Shaheed",
+      "team": "SEA",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": "DNP",
+      "injury": "Knee",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Rashid Shaheed (knee) sits out again on Thursday",
+        "source": "NBC Sports",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Rashid Shaheed wasn't practicing (knee). That's a bad sign for this week: check the final injury report on Friday before you start him.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/rashid-shaheed-knee-sits-out-again-on-thursday",
+        "practice": "DNP"
+      },
+      "practice_source": "news",
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "4943",
       "gsis_id": "00-0034869",
       "full_name": "Sam Darnold",
@@ -4623,12 +4814,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "How Many Games Could Seahawks QB Sam Darnold Miss Due to Injury?",
-        "source": "Sports Illustrated",
+        "title": "Seahawks’ Sam Darnold Handed Discouraging Injury Status Ahead of Arizona Clash",
+        "source": "Yahoo Sports",
         "published": "2026-11-06",
         "impact": "slightly_negative",
         "summary": "Sam Darnold has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.si.com/nfl/seahawks/onsi/how-many-games-could-seahawks-qb-sam-darnold-miss-due-to-injury"
+        "link": "https://sports.yahoo.com/articles/seahawks-sam-darnold-handed-discouraging-120434522.html"
       },
       "history": [
         {
@@ -4640,6 +4831,132 @@
           "date": "2026-11-05",
           "day": "Thu",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "DNP",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "4950",
+      "gsis_id": "00-0034775",
+      "full_name": "Christian Kirk",
+      "team": "SF",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": "DNP",
+      "injury": "Knee - Meniscus",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Christian Kirk (knee) limited Wednesday",
+        "source": "NBC Sports",
+        "published": "2026-11-05",
+        "impact": "slightly_negative",
+        "summary": "Christian Kirk has an injury note (knee). Monitor practice reports before kickoff.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-04/christian-kirk-knee-limited-wednesday",
+        "practice": "LP"
+      },
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "LP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "DNP",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "5872",
+      "gsis_id": "00-0035719",
+      "full_name": "Deebo Samuel Sr.",
+      "team": "SF",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": "DNP",
+      "injury": "Hamstring",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "DNP",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "2216",
+      "gsis_id": "00-0031408",
+      "full_name": "Mike Evans",
+      "team": "SF",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": "DNP",
+      "injury": "Achilles",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": "Tendinitis",
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "49ers GM Raises Concern Over Injury Update on WR Mike Evans",
+        "source": "Heavy.com",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Mike Evans has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://heavy.com/sports/nfl/san-francisco-49ers/49ers-gm-raises-concern-over-injury-update-on-wr-mike-evans/"
+      },
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "status": "QUESTIONABLE"
         },
         {
           "date": "2026-11-06",
@@ -4758,6 +5075,83 @@
       ]
     },
     {
+      "player_id": "7587",
+      "gsis_id": null,
+      "full_name": "Dyami Brown",
+      "team": "WAS",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Calf",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Dyami Brown (calf) unavailable for Sunday",
+        "source": "FantasyPros",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Dyami Brown has an injury note (calf). Monitor practice reports before kickoff.",
+        "link": "https://www.fantasypros.com/nfl/news/618234/dyami-brown-calf-unavailable-sunday.php"
+      },
+      "history": [
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "8135",
+      "gsis_id": null,
+      "full_name": "Treylon Burks",
+      "team": "WAS",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Foot",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Treylon Burks (foot) won't play Sunday",
+        "source": "FantasyPros",
+        "published": "2026-11-06",
+        "impact": "negative",
+        "summary": "Treylon Burks is dealing with an injury (foot) that could keep him out. Check his status before lineups lock.",
+        "link": "https://www.fantasypros.com/nfl/news/618232/treylon-burks-foot-wont-play-sunday.php"
+      },
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "13380",
       "gsis_id": null,
       "full_name": "Brenen Thompson",
@@ -4794,28 +5188,26 @@
       ]
     },
     {
-      "player_id": "10232",
+      "player_id": "12481",
       "gsis_id": null,
-      "full_name": "Michael Wilson",
-      "team": "ARI",
-      "position": "WR",
-      "status": "QUESTIONABLE",
+      "full_name": "Cam Skattebo",
+      "team": "NYG",
+      "position": "RB",
+      "status": "DOUBTFUL",
       "game_status": null,
-      "practice_status": "LP",
-      "injury": "Ribs",
+      "practice_status": null,
+      "injury": "Hamstring",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": "Fracture",
+      "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Michael Wilson Stays limited in practice",
-        "source": "Fantasy Footballers Podcast",
+        "title": "Giants RB Cam Skattebo is doubtful vs. Eagles with hamstring injury",
+        "source": "Yahoo Sports",
         "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Michael Wilson has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.thefantasyfootballers.com/news/646154/michael-wilson-stays-limited-in-practice/",
-        "practice": "LP"
+        "impact": "negative",
+        "summary": "Cam Skattebo is dealing with an injury (hamstring) that could keep him out. Check his status before lineups lock.",
+        "link": "https://sports.yahoo.com/articles/giants-rb-cam-skattebo-doubtful-210952984.html"
       },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -4835,49 +5227,7 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "10236",
-      "gsis_id": null,
-      "full_name": "Dalton Kincaid",
-      "team": "BUF",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Chest",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Kincaid (chest) sports non-contact jersey, limited",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Dalton Kincaid has an injury note (chest). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/kincaid-chest-sports-non-contact-jersey-limited",
-        "practice": "LP"
-      },
-      "practice_source": "news",
-      "history": [
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
+          "status": "DOUBTFUL"
         }
       ]
     },
@@ -5009,33 +5359,6 @@
       ]
     },
     {
-      "player_id": "6039",
-      "gsis_id": "00-0035537",
-      "full_name": "Ty Johnson",
-      "team": "BUF",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Illness",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "12534",
       "gsis_id": null,
       "full_name": "Kyle Monangai",
@@ -5043,19 +5366,21 @@
       "position": "RB",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": null,
+      "practice_status": "FP",
       "injury": "Toe",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": "Sprain",
       "injury_start_date": null,
       "latest_news": {
-        "title": "Kyle Monangai (thumb/toe) doesn’t practice Thursday",
+        "title": "Kyle Monangai returns to practice, questionable to play Sunday",
         "source": "NBC Sports",
         "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Kyle Monangai has an injury note (thumb). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/kyle-monangai-thumb-toe-doesnt-practice-thursday"
+        "impact": "positive",
+        "summary": "Positive health update for Kyle Monangai. He is trending toward playing.",
+        "link": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kyle-monangai-returns-to-practice-questionable-to-play-sunday",
+        "practice": "FP"
       },
+      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -5075,52 +5400,7 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "13346",
-      "gsis_id": null,
-      "full_name": "Denzel Boston",
-      "team": "CLE",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Calf",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Denzel Boston a limited participant Thursday",
-        "source": "Yahoo Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Denzel Boston has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZ1RvSEZ4VkFEM3dEMmtXZFgtY1FMMW53ZTY5T3BkNmFvWHowdDlNc2JFcHhYZXpaQXBIWHMwdFIzWTdQdTVlbGVLTU5LZTVnUnN5dUx2LTlXZ2U3b19lbjA2LXpqdTkzeFpSWFpVR1Fka25VVDhLak1XQ0tIaWpBdlpWMXJCcldYN3NtZTVjZVg0aGs2TlE?oc=5",
-        "practice": "LP"
-      },
-      "practice_source": "news",
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
+          "practice_status": "FP",
           "practice_source": "news",
           "status": "QUESTIONABLE"
         }
@@ -5139,6 +5419,14 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
+      "latest_news": {
+        "title": "What Deshaun Watson injury update means for Shedeur Sanders",
+        "source": "Yahoo Sports",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Deshaun Watson has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://sports.yahoo.com/articles/deshaun-watson-injury-means-shedeur-183400505.html"
+      },
       "history": [
         {
           "date": "2026-11-04",
@@ -5160,40 +5448,6 @@
       ]
     },
     {
-      "player_id": "12506",
-      "gsis_id": null,
-      "full_name": "Harold Fannin Jr.",
-      "team": "CLE",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Groin",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Could injury halt Harold Fannin Jr.'s best stretch with Browns?",
-        "source": "Akron Beacon Journal",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Harold Fannin Jr. has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.beaconjournal.com/story/sports/pro/browns/2026/11/06/browns-harold-fannin-jr-steelers-saints/92595252007/"
-      },
-      "history": [
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "8137",
       "gsis_id": null,
       "full_name": "George Pickens",
@@ -5207,12 +5461,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Cowboys HC shares 'hopeful' George Pickens injury update for Week 9 vs. Colts",
+        "title": "Caleb Downs has no injury designation, George Pickens listed as questionable",
         "source": "Yahoo Sports",
         "published": "2026-11-06",
         "impact": "slightly_negative",
         "summary": "George Pickens has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/cowboys-hc-shares-hopeful-george-150603176.html"
+        "link": "https://sports.yahoo.com/articles/caleb-downs-no-injury-designation-204251132.html"
       },
       "history": [
         {
@@ -5244,21 +5498,19 @@
       "position": "TE",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": "DNP",
+      "practice_status": null,
       "injury": "Ankle",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": "Sprain",
       "injury_start_date": null,
       "latest_news": {
-        "title": "Jake Ferguson (ankle) gets another DNP Thursday",
-        "source": "NBC Sports",
+        "title": "Jake Ferguson Listed as questionable for Sunday",
+        "source": "Fantasy Footballers Podcast",
         "published": "2026-11-06",
         "impact": "slightly_negative",
-        "summary": "Jake Ferguson wasn't practicing (ankle). That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/jake-ferguson-ankle-gets-another-dnp-thursday",
-        "practice": "DNP"
+        "summary": "Jake Ferguson has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://www.thefantasyfootballers.com/news/646267/jake-ferguson-listed-as-questionable-for-sunday/"
       },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -5277,44 +5529,6 @@
           "day": "Thu",
           "practice_status": "DNP",
           "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8917",
-      "gsis_id": null,
-      "full_name": "KaVontae Turpin",
-      "team": "DAL",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Ribs",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
           "status": "QUESTIONABLE"
         },
         {
@@ -5368,21 +5582,11 @@
       "position": "WR",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": "LP",
+      "practice_status": null,
       "injury": "Ribs",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Amon-Ra St. Brown Limited Again in Thursday's Practice - NFL News | Fantasy Football",
-        "source": "RotoBaller",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Amon-Ra St. Brown has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.rotoballer.com/player-news/amon-ra-st-brown-limited-again-in-thursdays-practice-ttwentyman/1985046",
-        "practice": "LP"
-      },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -5404,8 +5608,6 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "practice_status": "LP",
-          "practice_source": "news",
           "status": "QUESTIONABLE"
         }
       ]
@@ -5458,73 +5660,19 @@
       ]
     },
     {
-      "player_id": "8167",
+      "player_id": "11729",
       "gsis_id": null,
-      "full_name": "Christian Watson",
-      "team": "GB",
-      "position": "WR",
+      "full_name": "Sione Vaki",
+      "team": "DET",
+      "position": "RB",
       "status": "QUESTIONABLE",
       "game_status": null,
       "practice_status": null,
-      "injury": "Undisclosed",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Mike Evans, Cam Skattebo, Christian Watson & more fantasy football injury updates for Week 9",
-        "source": "Yahoo Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Christian Watson has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/mike-evans-cam-skattebo-christian-135000804.html"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "10212",
-      "gsis_id": null,
-      "full_name": "Josh Whyle",
-      "team": "GB",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Concussion",
+      "injury": "Ankle",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
       "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
         {
           "date": "2026-11-06",
           "day": "Fri",
@@ -5546,12 +5694,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "MarShawn Lloyd Dealing with knee issue",
+        "title": "MarShawn Lloyd Questionable for Week 9",
         "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-05",
+        "published": "2026-11-06",
         "impact": "slightly_negative",
-        "summary": "MarShawn Lloyd has an injury note (knee). Monitor practice reports before kickoff.",
-        "link": "https://www.thefantasyfootballers.com/news/646102/marshawn-lloyd-dealing-with-knee-issue/"
+        "summary": "MarShawn Lloyd has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://www.thefantasyfootballers.com/news/646277/marshawn-lloyd-questionable-for-week-9/"
       },
       "history": [
         {
@@ -5567,51 +5715,15 @@
       ]
     },
     {
-      "player_id": "11762",
+      "player_id": "11320",
       "gsis_id": null,
-      "full_name": "Anthony Gould",
-      "team": "IND",
+      "full_name": "Nikko Remigio",
+      "team": "KC",
       "position": "WR",
       "status": "QUESTIONABLE",
       "game_status": null,
       "practice_status": null,
-      "injury": "Concussion",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8489",
-      "gsis_id": null,
-      "full_name": "Drew Ogletree",
-      "team": "IND",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Knee",
+      "injury": "Hip",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
@@ -5641,21 +5753,19 @@
       "position": "TE",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": "DNP",
+      "practice_status": null,
       "injury": "Ribs",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Colby Parkinson Remains DNP on Wednesday",
-        "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-05",
+        "title": "Trent McDuffie, Colby Parkinson listed as questionable for the Rams",
+        "source": "NBC Sports",
+        "published": "2026-11-06",
         "impact": "slightly_negative",
-        "summary": "Colby Parkinson wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.thefantasyfootballers.com/news/645951/colby-parkinson-remains-dnp-on-wednesday/",
-        "practice": "DNP"
+        "summary": "Colby Parkinson has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/trent-mcduffie-colby-parkinson-listed-as-questionable-for-the-rams"
       },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -5679,8 +5789,6 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "practice_status": "DNP",
-          "practice_source": "news",
           "status": "QUESTIONABLE"
         }
       ]
@@ -5717,37 +5825,6 @@
       ]
     },
     {
-      "player_id": "12541",
-      "gsis_id": null,
-      "full_name": "Dont'e Thornton Jr.",
-      "team": "LV",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Back",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "11643",
       "gsis_id": null,
       "full_name": "Jaylen Wright",
@@ -5755,21 +5832,19 @@
       "position": "RB",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": "FP",
+      "practice_status": null,
       "injury": "Quadriceps",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Jaylen Wright (quad) back at practice on Thursday",
+        "title": "Jaylen Wright (quad) questionable to face Lions",
         "source": "NBC Sports",
         "published": "2026-11-06",
-        "impact": "positive",
-        "summary": "Positive health update for Jaylen Wright (quad). He is trending toward playing.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/jaylen-wright-quad-back-at-practice-on-thursday",
-        "practice": "FP"
+        "impact": "slightly_negative",
+        "summary": "Jaylen Wright has an injury note (quad). Monitor practice reports before kickoff.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/jaylen-wright-quad-questionable-to-face-lions"
       },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-04",
@@ -5786,8 +5861,6 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "practice_status": "FP",
-          "practice_source": "news",
           "status": "QUESTIONABLE"
         }
       ]
@@ -5802,37 +5875,6 @@
       "game_status": null,
       "practice_status": null,
       "injury": "Quadriceps",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "13434",
-      "gsis_id": null,
-      "full_name": "Will Kacmarek",
-      "team": "MIA",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hamstring",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
@@ -5983,14 +6025,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Hunter Henry (foot) absent again on Thursday",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Hunter Henry has an injury note (foot). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/hunter-henry-foot-absent-again-on-thursday"
-      },
       "history": [
         {
           "date": "2026-11-03",
@@ -6014,84 +6048,6 @@
           "date": "2026-11-06",
           "day": "Fri",
           "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4035",
-      "gsis_id": "00-0033906",
-      "full_name": "Alvin Kamara",
-      "team": "NO",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Back",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Alvin Kamara Returns to practice Thursday",
-        "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-05",
-        "impact": "positive",
-        "summary": "Positive health update for Alvin Kamara. He is trending toward playing.",
-        "link": "https://www.thefantasyfootballers.com/news/646080/alvin-kamara-returns-to-practice-thursday/",
-        "practice": "FP"
-      },
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "12481",
-      "gsis_id": null,
-      "full_name": "Cam Skattebo",
-      "team": "NYG",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hamstring",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6128,253 +6084,37 @@
       ]
     },
     {
-      "player_id": "11632",
+      "player_id": "8129",
       "gsis_id": null,
-      "full_name": "Malik Nabers",
-      "team": "NYG",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Undisclosed",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Malik Nabers Misses Practice on Thursday With Knee Injury - NFL News | Fantasy Football",
-        "source": "RotoBaller",
-        "published": "2026-11-06",
-        "impact": "negative",
-        "summary": "Malik Nabers wasn't practicing (knee). That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.rotoballer.com/player-news/malik-nabers-misses-practice-with-knee-injury-dan_salomone/1985043",
-        "practice": "DNP"
-      },
-      "practice_source": "news",
-      "history": [
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8414",
-      "gsis_id": null,
-      "full_name": "Britain Covey",
-      "team": "PHI",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Knee",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "7525",
-      "gsis_id": null,
-      "full_name": "DeVonta Smith",
-      "team": "PHI",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hamstring",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "When Is DeVonta Smith Coming Back - Week 9 Fantasy Football Injury Return Update (2026)",
-        "source": "RotoBaller",
-        "published": "2026-11-05",
-        "impact": "slightly_negative",
-        "summary": "DeVonta Smith has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.rotoballer.com/when-is-devonta-smith-coming-back-week-9-fantasy-football-injury-return-update-2026/1983314"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "9486",
-      "gsis_id": null,
-      "full_name": "Dontayvion Wicks",
-      "team": "PHI",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Ankle",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Dontayvion Wicks (ankle) sidelined again on Thurs.",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Dontayvion Wicks has an injury note (ankle). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/dontayvion-wicks-ankle-sidelined-again-on-thurs"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4195",
-      "gsis_id": "00-0033787",
-      "full_name": "Jake Elliott",
-      "team": "PHI",
-      "position": "K",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Ankle",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Jake Elliott (ankle) limited again on Thursday",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Jake Elliott has an injury note (ankle). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/jake-elliott-ankle-limited-again-on-thursday",
-        "practice": "LP"
-      },
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4866",
-      "gsis_id": "00-0034844",
-      "full_name": "Saquon Barkley",
+      "full_name": "Dameon Pierce",
       "team": "PHI",
       "position": "RB",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": "LP",
-      "injury": "Hamstring",
+      "practice_status": null,
+      "injury": "Undisclosed",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Saquon Barkley (hamstring/back) back at practice",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "positive",
-        "summary": "Positive health update for Saquon Barkley (hamstring). He is trending toward playing.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/saquon-barkley-hamstring-back-back-at-practice",
-        "practice": "FP"
-      },
       "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        },
         {
           "date": "2026-11-04",
           "day": "Wed",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
+          "status": "IR"
         },
         {
           "date": "2026-11-05",
           "day": "Thu",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
+          "status": "IR"
         },
         {
           "date": "2026-11-06",
           "day": "Fri",
-          "practice_status": "LP",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6406,319 +6146,6 @@
       ]
     },
     {
-      "player_id": "5854",
-      "gsis_id": "00-0035704",
-      "full_name": "Drew Lock",
-      "team": "SEA",
-      "position": "QB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Elbow",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Seahawks' Lock says elbow feeling 'better' ahead of start vs. Cardinals",
-        "source": "ESPN",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Drew Lock has an injury note (elbow). Monitor practice reports before kickoff.",
-        "link": "https://www.espn.com/nfl/story/_/id/50393350/seahawks-drew-lock-says-elbow-feeling-better-ahead-start-vs-cardinals"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8676",
-      "gsis_id": null,
-      "full_name": "Rashid Shaheed",
-      "team": "SEA",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Knee",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Rashid Shaheed (knee) sits out again on Thursday",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Rashid Shaheed wasn't practicing (knee). That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/rashid-shaheed-knee-sits-out-again-on-thursday",
-        "practice": "DNP"
-      },
-      "practice_source": "news",
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8223",
-      "gsis_id": null,
-      "full_name": "Velus Jones Jr.",
-      "team": "SEA",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hamstring",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4950",
-      "gsis_id": "00-0034775",
-      "full_name": "Christian Kirk",
-      "team": "SF",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Knee",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Christian Kirk (knee) limited Wednesday",
-        "source": "NBC Sports",
-        "published": "2026-11-05",
-        "impact": "slightly_negative",
-        "summary": "Christian Kirk has an injury note (knee). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-04/christian-kirk-knee-limited-wednesday",
-        "practice": "LP"
-      },
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "4034",
-      "gsis_id": "00-0033280",
-      "full_name": "Christian McCaffrey",
-      "team": "SF",
-      "position": "RB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Calf",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Christian McCaffrey limited at Thursday's practice",
-        "source": "Yahoo Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Christian McCaffrey has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/christian-mccaffrey-limited-thursdays-practice-032026915.html",
-        "practice": "LP"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "5872",
-      "gsis_id": "00-0035719",
-      "full_name": "Deebo Samuel Sr.",
-      "team": "SF",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Hamstring",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Deebo Samuel Sr. DNP on Thursday",
-        "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Deebo Samuel Sr. wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.thefantasyfootballers.com/news/646127/deebo-samuel-dnp-on-thursday/",
-        "practice": "DNP"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "2216",
-      "gsis_id": "00-0031408",
-      "full_name": "Mike Evans",
-      "team": "SF",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "DNP",
-      "injury": "Achilles",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": "Tendinitis",
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Unlikely that Evans or Deebo will play in Week 9",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "positive",
-        "summary": "Positive health update for Mike Evans. He is trending toward playing.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/unlikely-that-evans-or-deebo-will-play-in-week-9"
-      },
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "12514",
       "gsis_id": null,
       "full_name": "Emeka Egbuka",
@@ -6726,19 +6153,21 @@
       "position": "WR",
       "status": "QUESTIONABLE",
       "game_status": null,
-      "practice_status": null,
+      "practice_status": "FP",
       "injury": "Foot",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Will Emeka Egbuka play for the Buccaneers against the Bears on Sunday Night Football? Tampa Bay WR injury stat",
-        "source": "Diario AS",
+        "title": "Egbuka (foot) gets full practice, questionable vs. Bears",
+        "source": "NBC Sports",
         "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Emeka Egbuka has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://en.as.com/nfl/will-emeka-egbuka-play-for-the-buccaneers-against-the-bears-on-sunday-night-football-tampa-bay-wr-injury-status-f202611-n/"
+        "impact": "positive",
+        "summary": "Positive health update for Emeka Egbuka (foot). He is trending toward playing.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/egbuka-foot-gets-full-practice-questionable-vs-bears",
+        "practice": "FP"
       },
+      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-03",
@@ -6760,6 +6189,8 @@
         {
           "date": "2026-11-06",
           "day": "Fri",
+          "practice_status": "FP",
+          "practice_source": "news",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6801,118 +6232,6 @@
       ]
     },
     {
-      "player_id": "7587",
-      "gsis_id": null,
-      "full_name": "Dyami Brown",
-      "team": "WAS",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": "LP",
-      "injury": "Calf",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Commanders' Dyami Brown: Limited at practice Thursday",
-        "source": "CBS Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Dyami Brown has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.cbssports.com/fantasy/football/news/commanders-dyami-brown-limited-at-practice-thursday/",
-        "practice": "LP"
-      },
-      "practice_source": "news",
-      "history": [
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "practice_status": "LP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "7716",
-      "gsis_id": null,
-      "full_name": "John Bates",
-      "team": "WAS",
-      "position": "TE",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Shoulder",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "8135",
-      "gsis_id": null,
-      "full_name": "Treylon Burks",
-      "team": "WAS",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Foot",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Treylon Burks (foot) misses another practice",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Treylon Burks has an injury note (foot). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/treylon-burks-foot-misses-another-practice"
-      },
-      "history": [
-        {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "3257",
       "gsis_id": "00-0033119",
       "full_name": "Jacoby Brissett",
@@ -6926,12 +6245,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Jacoby Brissett Traded to Ravens Amid Lamar Jackson Injury, Latest NFL Rumors on Deal With Cardinals",
-        "source": "Bleacher Report",
+        "title": "Ravens’ Week 9 injury report vs. Jaguars: Is Jacoby Brissett playing on TNF after trade?",
+        "source": "Yahoo Sports",
         "published": "2026-11-05",
         "impact": "slightly_negative",
         "summary": "Jacoby Brissett has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://bleacherreport.com/articles/25529362-jacoby-brissett-traded-ravens-amid-lamar-jackson-injury-latest-nfl-rumors-deal-cardinals"
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNOG53dk82WWw3VG96bU9TLTBEb0xEYWdsc1RmYms0enZoNE1ic3RCc01xT0J5YlFHYXVhZVJid0lFclk1dU8tZE1KY0JTTDB2eXUyNFlhb1BIWnQzZ2Q5aFEwdTBRbVRMSUV4QkpENDZUa0NlSDRHVEdHRklpWFQyWHd3?oc=5"
       },
       "history": [
         {
@@ -7025,6 +6344,33 @@
           "date": "2026-11-06",
           "day": "Fri",
           "practice_status": "FP",
+          "status": ""
+        }
+      ]
+    },
+    {
+      "player_id": "6039",
+      "gsis_id": "00-0035537",
+      "full_name": "Ty Johnson",
+      "team": "BUF",
+      "position": "RB",
+      "status": "",
+      "game_status": null,
+      "practice_status": "DNP",
+      "injury": "Illness",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "DNP",
           "status": ""
         }
       ]
@@ -7166,12 +6512,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Chiefs give injury status updates for TE Travis Kelce, WR Rashee Rice",
-        "source": "Yahoo Sports",
+        "title": "Travis Kelce’s Chances of Playing Week 9 Improve After Injury Report",
+        "source": "Heavy.com",
         "published": "2026-11-06",
         "impact": "slightly_negative",
         "summary": "Travis Kelce has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/chiefs-injury-status-updates-te-132516104.html"
+        "link": "https://heavy.com/sports/nfl/kansas-city-chiefs/travis-kelce-upgraded-full-participant-practice/"
       },
       "history": [
         {
@@ -7209,12 +6555,13 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Rams Midweek Report: A Concerning Trend on Offense, Matthew Stafford's Elbow, and Trade Buzz",
-        "source": "Sports Illustrated",
+        "title": "Matthew Stafford (right elbow) practicing in full",
+        "source": "NBC Sports",
         "published": "2026-11-06",
         "impact": "slightly_negative",
         "summary": "Matthew Stafford has an injury note (elbow). Monitor practice reports before kickoff.",
-        "link": "https://www.si.com/nfl/rams/onsi/rams-midweek-report-offensive-concerns-matthew-stafford-arm-soreness-trade-rumors"
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/matthew-stafford-right-elbow-practicing-in-full",
+        "practice": "FP"
       },
       "history": [
         {
@@ -7275,6 +6622,48 @@
       ]
     },
     {
+      "player_id": "4035",
+      "gsis_id": "00-0033906",
+      "full_name": "Alvin Kamara",
+      "team": "NO",
+      "position": "RB",
+      "status": "",
+      "game_status": null,
+      "practice_status": "LP",
+      "injury": "Not injury related - resting player",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Alvin Kamara Returns to practice Thursday",
+        "source": "Fantasy Footballers Podcast",
+        "published": "2026-11-05",
+        "impact": "positive",
+        "summary": "Positive health update for Alvin Kamara. He is trending toward playing.",
+        "link": "https://www.thefantasyfootballers.com/news/646080/alvin-kamara-returns-to-practice-thursday/",
+        "practice": "FP"
+      },
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "LP",
+          "status": ""
+        }
+      ]
+    },
+    {
       "player_id": "5022",
       "gsis_id": "00-0034351",
       "full_name": "Dallas Goedert",
@@ -7298,6 +6687,127 @@
           "date": "2026-11-06",
           "day": "Fri",
           "practice_status": "FP",
+          "status": ""
+        }
+      ]
+    },
+    {
+      "player_id": "4195",
+      "gsis_id": "00-0033787",
+      "full_name": "Jake Elliott",
+      "team": "PHI",
+      "position": "K",
+      "status": "",
+      "game_status": null,
+      "practice_status": "LP",
+      "injury": "Ankle",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Jake Elliott (ankle) upgrades to full, will play",
+        "source": "NBC Sports",
+        "published": "2026-11-06",
+        "impact": "positive",
+        "summary": "Positive health update for Jake Elliott (ankle). He is trending toward playing.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/jake-elliott-ankle-upgrades-to-full-will-play"
+      },
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "LP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "LP",
+          "status": ""
+        }
+      ]
+    },
+    {
+      "player_id": "4866",
+      "gsis_id": "00-0034844",
+      "full_name": "Saquon Barkley",
+      "team": "PHI",
+      "position": "RB",
+      "status": "",
+      "game_status": null,
+      "practice_status": "LP",
+      "injury": "Hamstring",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "LP",
+          "status": ""
+        }
+      ]
+    },
+    {
+      "player_id": "5854",
+      "gsis_id": "00-0035704",
+      "full_name": "Drew Lock",
+      "team": "SEA",
+      "position": "QB",
+      "status": "",
+      "game_status": null,
+      "practice_status": "LP",
+      "injury": "Elbow",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Seahawks' Lock says elbow feeling 'better' ahead of start vs. Cardinals",
+        "source": "ESPN",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Drew Lock has an injury note (elbow). Monitor practice reports before kickoff.",
+        "link": "https://www.espn.com/nfl/story/_/id/50393350/seahawks-drew-lock-says-elbow-feeling-better-ahead-start-vs-cardinals"
+      },
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "LP",
           "status": ""
         }
       ]
@@ -7335,6 +6845,52 @@
           "date": "2026-11-06",
           "day": "Fri",
           "status": "DNR"
+        }
+      ]
+    },
+    {
+      "player_id": "4034",
+      "gsis_id": "00-0033280",
+      "full_name": "Christian McCaffrey",
+      "team": "SF",
+      "position": "RB",
+      "status": "",
+      "game_status": null,
+      "practice_status": "LP",
+      "injury": "Hamstring",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Christian McCaffrey Injury: Practicing Friday",
+        "source": "RotoWire",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Christian McCaffrey has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://www.rotowire.com/football/headlines/christian-mccaffrey-injury-practicing-friday-646279"
+      },
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "practice_status": "DNP",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "practice_status": "LP",
+          "status": ""
         }
       ]
     },
