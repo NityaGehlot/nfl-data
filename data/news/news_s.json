@@ -116,16 +116,6 @@
     "image_tries": 3
   },
   {
-    "title": "How Your Local School Can Get a Free AED From Damar Hamlin’s Foundation",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNVDhvZWhwY0RtbDNGOFk4aW5ZVmpPSGpRODZFalNXdldYRkl5bG8zcUN4U0RLbTVwQ091cnRNeVBPNnZILU0yaHU4bGpVcnJfVVRVb2xEVGIwOTJ4aFA1Q1dHZ0k5NkQ2Qm1UbFdMRTNqTzdfTVBCY1FKUGFGZ2RvTW5R?oc=5",
-    "published": "2026-11-02",
-    "player": "Damar Hamlin",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Damar Hamlin."
-  },
-  {
     "title": "M.J. Stewart Game Log - NFL",
     "source": "FOX Sports",
     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdU44Z0U1UVdrUHhWTDd2MTBjU0FtWTNOeTRaMHQ4RDRWV1Zuc0h4bEplMEczXzExQ3ZabmRhdUtnRTRGU1U3eHNtSEZZSHNPRy1FdHg1RVUyOWRsejBhWUdmSHNRd05xZFE0YTE3VUczQWd5UFhwZEVvRjUyWC1sMXlZQXVCV1o4SmpPb1hfUQ?oc=5",
@@ -229,8 +219,8 @@
   },
   {
     "title": "Lions injury updates: Branch limited, Wonnum out with concussions",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZE1fdV9CYmp4SVZQZ19GRWhNeG8yVURiYXlqQlhzSkY5UXlRSUZ6aDVDVko5WlhsUVdUVjdfMnEwTjJmRXdaVnRyR2N2bEtIZjVKbVRRZmhneFlOSHE3eHFSaU5jRkdfU2NLQzJTd01Sc3JBdU9kLUg4TnhKMzFXdEFLbDNvdUloMFJWTw?oc=5",
+    "source": "Detroit Free Press",
+    "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPX0dzUUZfTThnYkhQWE5ocEpDWVNZcnpjOUlWN29ZOHotTHJTRlFpR2piYS1QNGEwbHczNTNmSTJnbGFMZFltSHk1NnM5TmR0R09xUTVJbmIzUEZ6Ukd5MzJmbVVxTlV4ZnVRR19RaHZxT202azgxWDJiQnNHY2UxOUxmbUxyU2VjRnV3UlB3dWtTRzFmX2tGeXkwalpvSUZqSU05dlZXVEZxWmFQX2gyaC1WTE1iWWVHdlUzekROYWtfMlFSaEdUc3lwcFVIUQ?oc=5",
     "published": "2026-11-04",
     "player": "Brian Branch",
     "impact": "slightly_negative",
@@ -402,14 +392,16 @@
     "summary": "General news mentioning Lathan Ransom."
   },
   {
-    "title": "Elijah Hicks Stats, Props & Recent Performance",
-    "source": "PrizePicks",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43cW5nSG8tQmRyZzk1dnoweThtbW5vUk9jaXVRemprSGowOUpNYVoxM3JVbmNRTm1Va2tCTUppVkhMQnhCQm43NXFVaWR0YU5LX1M4d29HbHpVWGxGMlhCTUFNUzZDLTZoMlFSZA?oc=5",
-    "published": "2026-10-13",
+    "title": "Elijah Hicks 2024 Situational Stats",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1ldFZsRXRnQm42Z3F4Z2I1NUtEWGlaVmtwamhGWkpMQVhNLXdQUjdUR0NMb0RTemdjSmhoN3BXQjhfMThCWHFLcDZFeW1RdWlQcEZnblkwYTVsSjJfenV3V2oycjBBWUJ5Nmlxckkxa0tmZlVJZldN?oc=5",
+    "published": "2026-11-08",
     "player": "Elijah Hicks",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Elijah Hicks."
+    "summary": "General news mentioning Elijah Hicks.",
+    "url": "https://www.nfl.com/players/elijah-hicks/stats/situational/2024/pre/",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/xvnpcaoyqaitzluq6hor"
   },
   {
     "title": "Bears' Elijah Hicks: Not on injury report",
@@ -420,6 +412,16 @@
     "impact": "positive",
     "category": "injury_return",
     "summary": "Positive health update for Elijah Hicks. He is trending toward playing."
+  },
+  {
+    "title": "Elijah Hicks Stats, Props & Recent Performance",
+    "source": "PrizePicks",
+    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43cW5nSG8tQmRyZzk1dnoweThtbW5vUk9jaXVRemprSGowOUpNYVoxM3JVbmNRTm1Va2tCTUppVkhMQnhCQm43NXFVaWR0YU5LX1M4d29HbHpVWGxGMlhCTUFNUzZDLTZoMlFSZA?oc=5",
+    "published": "2026-10-13",
+    "player": "Elijah Hicks",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Elijah Hicks."
   },
   {
     "title": "Kevin Winston Jr. injury update, Tennessee Titans vs Cincinnati Bengals NFL Week 8",
@@ -606,6 +608,18 @@
     "summary": "General news mentioning Jordan Howden."
   },
   {
+    "title": "Bills' Roadblocks for Amani Hooker, Budda Baker, Jessie Bates Trades Laid Out By NFL Insider",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRGhXbjBjd2lRWkZPLWt6Z1pSVFdxWXdGOVQ0dnNJcjBNaTJiT25DOG5QRDRCaXhkY0h1aFVxYlFzR2c1aDhTS2xoLWFlc0FkY2loVlhPUFdYZnowTE5SdDN1TFlhRHYySmMyZE5TeldOaVU2NGJTTWd5Ym5sNzZadlNGd1ZhcmJFQUtGZjZ0dTJEQ0FSNEZPazNuRlNKTVd2TVFRbTJzQld0bHNzR0J4UGtITHBJNXFyWnc3YUV3TnJjcGpjaWphdFRB?oc=5",
+    "published": "2026-11-08",
+    "player": "Budda Baker",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Budda Baker.",
+    "url": "https://www.si.com/nfl/bills/onsi/trade-deadline-bills-roadblocks-for-amani-hooker-budda-baker-jessie-bates-aid-out-by-nfl-insider",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_173,w_6000,h_3375/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/bills_central/01m6vqx5vebxfpxt7pss.jpg"
+  },
+  {
     "title": "NFL trade rumors: 10 players most likely to be traded at the 2026 deadline, from Jonathan Taylor to Budda Baker",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZEFhN1lxSkVJR1dXaDkxNklKVzMxWUZpT1lfeHZPaXpNU3hjSG9WRkRZcS1tTWVNSmswaWdVZkkzdEhEd1c4X1hTVzFPbDdNSktrTVlsQjZVYUt4M0JMQzdFR3Rfd0paYVhtYnV4N3JpTGtDN3htLXh2NjJtUElPall3?oc=5",
@@ -616,18 +630,6 @@
     "summary": "Roster move involving Budda Baker. His role and fantasy value could change with it.",
     "url": "https://sports.yahoo.com/articles/nfl-trade-rumors-10-players-100001548.html",
     "image": "https://s.yimg.com/lo/mysterio/api/3892780e7b59bf7c088738a9c7f96bc6851d46a275325a80f90cc671d1022211/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fthe_sporting_news_articles_584%2F53f51baeface57a53566cb0d9d93c7a5"
-  },
-  {
-    "title": "NFL Trade Deadline: Breece Hall, Budda Baker and Patriots Moves",
-    "source": "BVM Sports",
-    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPY0E2YzZqTkY5VEpuY1F0NHFXRU9icHVPM3Noc0h0UndWZDBZcDFuaVNWMlQwbEdQXy1GNEYwS2lRUFNKUWh4X0RpRkM2aHZFOVVFMzFUU2t2ZGJzWWpHOXphZFZmUzZTX2lablEtemFFRnZFZlJCM2RlaVFLd3NFMVdmZmpfeGk1Umk3bmZoVy1uc0pab05Od1IxQQ?oc=5",
-    "published": "2026-11-04",
-    "player": "Budda Baker",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Budda Baker.",
-    "url": "https://bvmsports.com/2026/11/04/nfl-trade-deadline-breece-hall-budda-baker-and-patriots-moves/",
-    "image": "https://i0.wp.com/nfltraderumors.co/wp-content/uploads/2022/08/USATSI_18876530_168383805_lowres.jpg?fit=1620%2C1080&ssl=1"
   },
   {
     "title": "Bills trade deadline candidate: Cardinals safety Budda Baker",
@@ -670,6 +672,18 @@
     "summary": "Chamarri Conner has an injury note. Monitor practice reports before kickoff."
   },
   {
+    "title": "Nick Cross (S, Commanders) Contract & Cap Hit 2026",
+    "source": "Spotrac",
+    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE10WmlvTzAtVVN6TXNNR1JaU0NGVVRYOTdESEJDV0RHUjI5cU9DM1I4Y3gwLVI5YlRUM210dk9RT3I3TmxhaUYzUkJHbmZ0al9Bc010ZDQ1Q3VVUUJqdDVRRU5nRkJPRWpxOWNOYm1KRkRhbmM?oc=5",
+    "published": "2026-11-08",
+    "player": "Nick Cross",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Nick Cross.",
+    "url": "https://www.spotrac.com/nfl/player/injuries/_/id/76972/nick-cross",
+    "image_tries": 1
+  },
+  {
     "title": "Bills trade deadline candidate: Commanders safety Nick Cross",
     "source": "Buffalo Rumblings",
     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdVdJSGxQRGRKMDhoRl9EMXZFMlFSeFZpaS1HY0lRMldsQVdYa19mQTYxLXZxYzhxZ2VwUVJMeC1UNTZBU2RFekFiMGw4aENMWkhSZ19nT0dpWVhPVDJ0N2MzY3hfY3I4MGpLYW1kUzRKcnhGckFaZHh1LVYzQWYyYUlyTWJoV2RMdGpsZ0JISlpfa1F3eWJ4RmpDQmpnc253NWNZYXF6NTZOdzZkU05pSmJid00yaWdCUUlWWDhNYw?oc=5",
@@ -680,18 +694,6 @@
     "summary": "Roster move involving Nick Cross. His role and fantasy value could change with it.",
     "url": "https://www.buffalorumblings.com/buffalo-bills-analysis/144674/nfl-trade-deadline-buffalo-bills-trade-candidate-nick-cross",
     "image": "https://platform.buffalorumblings.com/wp-content/uploads/sites/51/2026/11/gettyimages-2301575464.jpg?quality=90&strip=all&crop=0%2C2.9006398987413%2C100%2C78.540522365874&w=1200"
-  },
-  {
-    "title": "Commanders safety Nick Cross has greater alignment diversity than any NFL defender - Daily Slop",
-    "source": "Hogs Haven",
-    "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNU08wbUlxRlJBQXFvMi1yMzRyRW5MMi1ZVy1ubGNhWFF1NzVjaTFkSWt3TDlMSktiWlVJWURUSi1DSWkzUUJWamwxSUdveGJyX2tJc2g3VmNZeU0zNUpTVGxvM0x3TzlXeTFqa0k5aFE1VVBGeHlyYWtoaHpOMzZOQ2NsVlRrcUlJcm1GMW5NLXB0eW4zQWw5U0FwRURtOEFzemhBQ3dTbmhPSVVxT2FMOHN2bmNxd3RVbGZFQ2NkeGs3ZmJZQUpHRnBkd2pmTW1GMlFFanUxQmV5ZHhUTldvYnRWLVFFcGEzUDh5dzNjX3dWbWo3SFlCd1BWUQ?oc=5",
-    "published": "2026-11-05",
-    "player": "Nick Cross",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Nick Cross.",
-    "url": "https://www.hogshaven.com/washington-commanders-news/453250/nick-cross-greatest-defensive-alignment-diversity-in-nfl-robert-henry-jr-tim-settle-shy-tuttle-ricky-barber",
-    "image": "https://platform.hogshaven.com/wp-content/uploads/sites/92/2026/11/gettyimages-2301575468.jpg?quality=90&strip=all&crop=0%2C3.5718250346186%2C100%2C78.544217409905&w=1200"
   },
   {
     "title": "Commanders' Nick Cross: Ruled out for Sunday",
@@ -900,6 +902,16 @@
     "summary": "General news mentioning Alohi Gilman."
   },
   {
+    "title": "Alohi Gilman Football Stats | Kansas City Chiefs",
+    "source": "FantasyPros",
+    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBCZXZBYkNXekFpaEpMU195c0s2d055dFJEVDFrMFdvSzFVM2xFVnFEUGdPbDFsaGNSbUNNM1NWTlpUWXQ2bzBzM3QtMXZWenhJeXh4dGI5LVJDTUFGNjZZdjdFY1Q3cFJWVS02UFczOFZKMVRy?oc=5",
+    "published": "2026-10-07",
+    "player": "Alohi Gilman",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Alohi Gilman."
+  },
+  {
     "title": "Need help? Call 1-800-Jordan-Clarkson. Knicks coach Mike Brown does",
     "source": "The New York Times",
     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUW4xNHhnWEFjQV9ScW04cnE3Q3lkckJsYkMyNndlR09TLVRXMEZYNXc5VjdrS3JJLUFGLUhQXzNnYTRiYU5oUjFzYlJhaWxwZm9tNkxYRU9uOER3bmQ0TlpGWWFOWms5T3ZBeDYtcUVFd2xQY3NKdnBHWlQzM1R1UEp4RHlfaUdCMm91V1BpMVlaNGc?oc=5",
@@ -1003,14 +1015,14 @@
     "video": true
   },
   {
-    "title": "Malaki Starks",
-    "source": "PFF",
-    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1Wemc3M0VqREhTeThkMmF3NWFEQ2dEd2pUYVFnLXAySk5LeXFyZTB1ZVB1MVZxTjZ3TVFmYXdEekl0M2hJMjlNMXVGY2VvYzcyWFZOY3JnUXlsUF9CLTQwZGRn?oc=5",
-    "published": "2026-11-05",
+    "title": "Baltimore Ravens safety Malaki Starks previews Week 6 matchup vs. Browns | 'GMFB'",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPOHgzaXBEdTRvMUI3Q2V4REZkMWhMaC0zUjR4cVJxbHVsSENZV05KQkExYzJ3bE5CMUczV2NkTm9FUkplalJDVzZMUUZYVjdmNG5tYWV0NGZHbFFINUNNbklMUDNxWUQ5Mmc4bGxzanZCZzRNc0pVeWl5LW9LRWw1NzdoR29SNGI3WFhQMWJSWVhQQk05UXhhUg?oc=5",
+    "published": "2026-10-16",
     "player": "Malaki Starks",
     "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Malaki Starks."
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Malaki Starks."
   },
   {
     "title": "'That's Just The Media' - Jordan Battle Backs Up Comments Against Miami With One of Best Bengals Outings",
@@ -1023,16 +1035,6 @@
     "summary": "General news mentioning Jordan Battle."
   },
   {
-    "title": "Bengals' Jordan Battle warns Dolphins QB Malik Willis that he's been tipping passes ahead of Sunday's matchup",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFdhWlhfWGpjODhxWnhrYmZsWUlSaFJXQ19JUVN0MFI3TG5xYXFtVjVQVkJRRGdOWkdWcVJMU1FRR0YxTDNRMXFmX3RaZlNQWWgzVXNROFlsaDI2bEZGSVU3bGdtTTNiS2ZwMnNpZ1FvZWZzT0kzQ0l4VkN3M2tpeHk0VEhzZzR3TmRVNHFMUzRuSDQ1WGd6Y1JOMm1WUmxQVGc1S3B1NHVJaFQ1OUNCZEFnajNXN3pGdFU0QS1tMlJIRE9BQ0JNYVFtMC1Hek1HUnJMQTNQd2JxbUFIZjFYUkROaFZGV0g4ZFM0VVMzRS0zd000NDkxWV9yM3JMZTQzRmc?oc=5",
-    "published": "2026-10-08",
-    "player": "Jordan Battle",
-    "impact": "neutral",
-    "category": "fantasy_advice",
-    "summary": "Fantasy advice article that mentions Jordan Battle."
-  },
-  {
     "title": "Quick Hits | Joe Burrow Pace Mirroring Career Year; At safety, Jordan Battle Go With Bryan Cook Questionable",
     "source": "Cincinnati Bengals",
     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPN05jV2pYMmdaR1pQeTJDZ3ZtTks0TGIwRWpNbXVLQWJZVWFtVmVjMGdsWEJEX0c4SDQ3REhINkpzdm5BRnAtb1VjejRXY1dFWDFFOFpYLTdoQUV1WWxNVFRrRk43SXV5U045R2FGdTROVlIwU254NXBLRFl5NFFaR2FqQW1kdTJVLU8xVmlkemVUdTVScjRQRlNXdkpLaGxNR2VKelJhUzdDa0lFM2tlTExUMnNBYzdlNnk1TDRlTzJZOHF5bTJ1QmNFdGJaQQ?oc=5",
@@ -1043,6 +1045,16 @@
     "summary": "Jordan Battle has an injury note. Monitor practice reports before kickoff."
   },
   {
+    "title": "Jordan Battle, Dalton Risner And More Pop With Strong Pro Football Focus Grades Against Dolphins",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNMFQ0Tjl3RGlYMmVtQ0xueVA2WmUxNS1rTm0wOEpXaE5aMzVTRVFRTTlJbkdIWUFhQVRnQ1p0eWtpaldRc0ZJemVGOGNuMjYzMjJ6aDZJcFdJaTFXMnQxbTVwN3FLWUVDMkNoOHIyMGpOOXF5NXhrLUExeEFHWUYwUVRaUWlHOHJneUxOQU9PMzZ3WF96TVFxM0YzbDRzQm56cXRHN0VXNEZ1THFIRE5TNTY1Z1RLWWZfV0g1N0R4TERjUFlOQldOa2dqWXlNOFcwbkpiMmJwTmhBOFcx?oc=5",
+    "published": "2026-10-12",
+    "player": "Jordan Battle",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jordan Battle."
+  },
+  {
     "title": "Cole Bishop",
     "source": "NFL.com",
     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBlLXU3enZIbGRpWXJncHlFVXNsRjJndVlEQWR6bjVZX3NHQkZjRDNDWEdGZkZZLVNJZ2NjLV9hVVg5YVg4SDA3S1YzQUFUQy1DbFZBRmgwalhYQ1hpcWVveVY1c2tzY3VFbWZ4RFJzRmo5ZW8zQnc?oc=5",
@@ -1051,6 +1063,16 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Cole Bishop."
+  },
+  {
+    "title": "Cole Bishop injury update: Bills safety returns after knee injury vs. Texans",
+    "source": "Democrat and Chronicle",
+    "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPX200RDM5SVdySHYtaXdtdGg1ZEhwa2pxSjFjZGx4WGVZLXRWX1M1TEJhY2N2V1VZeEYtVW5vNkFmY3l6YjZLaWlMWGNINU5ycHBvUDY2WDYyVkFuSC1CNHRrWExnVmxXaGpnQUk2b2NBYlM3cWk5UXYxbVJpS21qUFVKLXBiSERmaVBDNWJ5bWNrTTN6cFNETXdVODluVWlmQjRTVlVHYmFPcDFDTWFOSS1ONVplbDRiQVAweE9ZXzBpb3lzelVJSkE5ODZ0bWNUMzNUNkFB?oc=5",
+    "published": "2026-09-13",
+    "player": "Cole Bishop",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Cole Bishop has an injury note (knee). Monitor practice reports before kickoff."
   },
   {
     "title": "Buffalo Bills safety Cole Bishop reflects on playing high school football in Georgia",
@@ -1298,14 +1320,17 @@
     "summary": "General news mentioning Isaiah Simmons."
   },
   {
-    "title": "Falcons free agent check-in: Olamide Zaccheus slips, Sydney Brown impresses, and more",
-    "source": "Blogging Dirty",
-    "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNd0xrMUV2NjZpWENjR3drbU9EQUI5U0ZHcHAtaTQwVy00OUZhRUhXTG0zQWpOSFVlME1IV1h1WVRxMlRkd2o3cnNZdWp3eEYxV2ZhZkxtMkFSTzdQejM5U19NRU5VNmlGNGZDbFlyYlVjX1lrSlBKSXdNcVFTSU85NzdXbmFsSFZ5bm8yMHQ3WjUyVGxSWC1JdUY4d0dPWHg3WGVCbzZELTMwdzdYZmo5NDBtaU5FM2JVN29HdDBR?oc=5",
-    "published": "2026-10-22",
+    "title": "Brother vs. brother! Chase and Sydney Brown collide in Madrid",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQSzNjMUMwdzNFYkRnMmRYREx1VXpETWw3TmVLZ1hvaE5QWkFYU2tPTi12YVVZZ1JvaWwwU1NnQ2FSSXJUaFg4VkpfWmtscF9GRFJlSGJhRnRVVURnejc4eWNzWm5HQWRVTDItUlRjRC14aHhjYVVlUV91bWJhX1ZYNTJnUWdvLTRiRURBUG9QNA?oc=5",
+    "published": "2026-11-08",
     "player": "Sydney Brown",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Sydney Brown."
+    "summary": "General news mentioning Sydney Brown.",
+    "url": "https://www.nfl.com/videos/brother-vs-brother-chase-and-sydney-brown-collide-in-madrid",
+    "image": "https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/j1bidftpht9yujt9gotu",
+    "video": true
   },
   {
     "title": "Sydney Brown is making the Atlanta Falcons look smart after offseason trade",
@@ -1316,6 +1341,19 @@
     "impact": "roster_move",
     "category": "transaction",
     "summary": "Roster move involving Sydney Brown. His role and fantasy value could change with it."
+  },
+  {
+    "title": "Atlanta Falcons vs Cincinnati Bengals - Sydney Brown tackles twin brother Chase in Madrid",
+    "source": "Sky Sports",
+    "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQd3FzaTNYY09Sdm9hMjQ3M1MxRFlVRVdPQVFmWjljelpPYV9rc1R6YngtRUhiOGJiT0VySEVTUTlEUlo5MU1MLWZvcnViWk8wTFdXN25wUmNKVnhCY3ZfZ3hqV29TVjl2dld0TGZRbmdyNjFsTDZuY1N5UHZ0Q3pvdlZJWF9xem9rVFI3ZFlRalNuSk4xRUNtSDBxZDItby1ZOF9tejJmalNpWnZPYlhuYUpneWdVbGt0Yl9KU2djdXl0eDMxY0JIQ1FZYTc?oc=5",
+    "published": "2026-11-08",
+    "player": "Sydney Brown",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Sydney Brown.",
+    "url": "https://www.skysports.com/nfl/video/13609761/atlanta-falcons-vs-cincinnati-bengals-sydney-brown-tackles-twin-brother-chase-in-madrid",
+    "image": "https://e0.365dm.com/26/11/1600x900/skysports-nfl-brown-falcons_7401029.jpg?20261108153344",
+    "video": true
   },
   {
     "title": "Giants S Jevón Holland, CB Greg Newsome DNP Wed.",
@@ -1338,10 +1376,10 @@
     "summary": "General news mentioning Jevón Holland."
   },
   {
-    "title": "Jevón Holland Game Log - NFL",
-    "source": "FOX Sports",
-    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPUzh0d0JENUhxWXhLTlI5SDdlV1loRWxnYWY5WUlldW1fM3hidzlvZFF4UnVzeHkyWFdNSTRhSllUR0UyYk1jT3pHT01RZ1FBc0swTnlqUHVMSVFQdkJPNlI0SkZNTG9PUGtJd0I4SEdSLW9rZVN0SVA3OXJXdnExaHRKZVp2RzBuTXNxaVZlajRQc3M?oc=5",
-    "published": "2026-10-06",
+    "title": "Jevón Holland named NFC Defensive Player of the Month",
+    "source": "Giants.com",
+    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQY2MtZ0ZDUzlScWdRckZ0OUlUTk1QZzZXUmI2MFM5Sno1NkZLVVNJUm55YWpWb2djQjhCN1ptNU12UVVCTVNNVUlTT2p2ZTNPQU1yOXhQVHhsVDMzbEhvcWxxbjJiWnBSYkRTcUZudUo2OVJ0ZGZYWFJwRC03d3BoVWc3aE9UcTZadkVWMGI4Wjk?oc=5",
+    "published": "2026-10-04",
     "player": "Jevón Holland",
     "impact": "neutral",
     "category": "general",
@@ -1392,16 +1430,6 @@
     "image": "https://s.yimg.com/lo/mysterio/api/e3cb55d1c8cfb4daed4a136b1f933955e4c279a7a7cdabdc46f772ffda0a8108/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fathlon_sports_articles_610%2F5f73baac0973d3bb28bad296821c9299.jpg"
   },
   {
-    "title": "Jakobi Meyers Questionable, Antonio Johnson Out as the Jaguars Return From Their Bye",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPX25oYVFOczJ0UDBZOUp1U2o1eGI1Z21CVkFPLXlzdFFCWk5rczJaZFRmaFNwLTlOU1pqWVZsZUVUdFZOcFFwUlBzUUFHVU5PNHh5d3hLcFkxLVRKNTlfeFNZWTNpdVB2emozM0gwcXc2Q0RWMGxTOVBCZmxFMXNTUWY2ZWJFeGxZU3JHbFhaZVdCMG9yT0E?oc=5",
-    "published": "2026-10-30",
-    "player": "Antonio Johnson",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Antonio Johnson."
-  },
-  {
     "title": "Jaguars injury report: Antonio Johnson (ankle) misses practice",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNeEhiUHF4VWlGMC1vUk9iRml0b1ZuTTlja29ZNnJYOWhUdVRmdGpQUkUtZEJnMW8wNjQ4MjV3UUU2UjJhWmZwMjhna2FPLXFIVFlDZFJwdnRCVFZ3eW5CWUFmVEVSeXRyVWJiTGhOV2p0anRPaXpWOHZJUTdyZ2VqQzRLbk95bTBLYTE3Nlhpbw?oc=5",
@@ -1410,6 +1438,16 @@
     "impact": "negative",
     "category": "injury",
     "summary": "Antonio Johnson wasn't practicing (ankle). That's a bad sign for this week: check the final injury report on Friday before you start him."
+  },
+  {
+    "title": "Antonio Johnson's TFL of Brown goes for a 5-yard loss",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxORFlneE1IczA4MnZENkxqZ3d2YVVtUGFrTjNTNWtRQmVVTC11UnF6RnprR1hHdmJEUVZpRHdTeWhBMGRubzhDNlRqenFaQXpWR1daT2pwUTZiczhDVTl6Yy1zN3ZUUXA1cmdiN1dVZDhzZXZ1VDBKRkY1NTJZVGdKRklwYlpnT1E?oc=5",
+    "published": "2026-10-04",
+    "player": "Antonio Johnson",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Antonio Johnson."
   },
   {
     "title": "NFL suspends Panthers' Tre'von Moehrig one game for low blow",
@@ -1447,16 +1485,14 @@
     "image": "https://s.yimg.com/lo/mysterio/api/756f744bac27c0741cb69bc34cef3b2128687ca908f09dd8d27b75202f3126c0/lightyear_networkapi/resizefill_w1200_h673%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fclutchpoints_articles_939%2F62866198e62ae7d9b78ce91693d239c0.jpg"
   },
   {
-    "title": "Ravens' Kyle Hamilton exits Jaguars game with hip injury",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQy1MZEZCcHFBNjZqc09ZSHlvcFlGNlVlbVhnLWZmMVFsMU1TVnMwcTJ5ZndlS25pMFRZcVVsbDlabDIybjR1UGF1REt4ZHdYTE9wbFJKSDRFcWFkTW1LWUwyMlZMaWpJT18tUzBKTnhkc0c2bEpnWV9LbXRsYnpsVmgyWlNWSklwVG1FM0RmaDhtSDI2SjlzVkhTM0RxcXpnaVp2WkhxZnhYY2s?oc=5",
-    "published": "2026-11-06",
+    "title": "Ravens All-Pro Kyle Hamilton signs endorsement deal with New Balance",
+    "source": "Ravens Wire",
+    "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPMXBOVEZoUzhEOVQyaElJQWlCcTh4MjM0Z0w3UWt6el9tSnFFSGs3cldsT2duNUNLbldMOUo5NVJROHcxSXItWGxiRHBKUzY0UlRhMWZjMEljRGYtVVJaZXotUWlQdml3RUdLSWhtdG9Kc2xiNmd5dHk3c21DRWpheTg3a1ZoemtPZ21lWmNaY0xNY2FkQ19zLVo2ZXdhSU1RaS14eFhkN240dmpMRVRrY3JHZjJqTWRLV1AyVGhsRlpleTNGaUVKX0sxcEl2VWs?oc=5",
+    "published": "2026-11-05",
     "player": "Kyle Hamilton",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Kyle Hamilton has an injury note (hip). Monitor practice reports before kickoff.",
-    "url": "https://sports.yahoo.com/nfl/article/ravens-kyle-hamilton-exits-jaguars-game-with-hip-injury-045220919.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/0e16cdfdd7fa5a18dabf529fcca454e1074dd9a6779cdaae58b62ce5463fbcd3/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-11%2F1f59913a-4e6a-44ca-bb0e-764d89e6f1c5"
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Kyle Hamilton. His role and fantasy value could change with it."
   },
   {
     "title": "Carson Schwesinger, Grant Delpit both back at Browns practice before Titans game",
@@ -1531,9 +1567,9 @@
     "summary": "General news mentioning Malik Hooker."
   },
   {
-    "title": "Report: Malik Hooker Fractured Bone in Forearm Stream of National Football League",
-    "source": "CBS Sports",
-    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTjhkVG1tRmZCdVgtaVMyaEc2dU9FeW56MXpkT04xTGdVTUw3UUZGR2E3dWl3bTlLcklxMHZYdFMzMWwtY0h2Nm5UWTFvZWRxcGRpdXpwWE9SQUszT3lLZVM1MEVSdmZ1SHRqc0VPb0pwMVlYbFNBZi1CYnJmUktITGVuSjd3SVJmdDV5WC14dTk?oc=5",
+    "title": "Cowboys S Malik Hooker Has Fractured Forearm",
+    "source": "NFLTradeRumors.co",
+    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBfSUY0UF9ncGFMQktDbElxTE9oVlh2ZFpLTGc0WFZibnVUWGk1UEs4R2FKblJYRExqTk9ab1gtUjJRQ3RJS0dtVktVemZEQmJod1RHZTBKRXJ2eDdDeFozU25CbUdUQWlJZTBFYUtqQU5vWVJGajZucXpsYw?oc=5",
     "published": "2026-09-14",
     "player": "Malik Hooker",
     "impact": "neutral",
@@ -1710,7 +1746,7 @@
     "category": "general",
     "summary": "General news mentioning Jaquan Brisker.",
     "url": "https://sports.ndtv.com/us/nfl/why-did-the-nfl-fine-jaquan-brisker-17-911-after-his-hit-on-deshaun-watson-12298828",
-    "image_tries": 1
+    "image_tries": 2
   },
   {
     "title": "NFL fines Jaquan Brisker, two others for illegal Week 8 hits that placed opponents in concussion protocol",
@@ -1725,40 +1761,38 @@
     "image": "https://sportshub.cbsistatic.com/i/r/2026/11/07/8617e682-ffc7-4e53-a98e-dab218184730/thumbnail/1200x675/b473ade377c6a81b9d51ad5956eea56d/gettyimages-2303014445-1.jpg"
   },
   {
-    "title": "Steelers S Jaquan Brisker Fined Hefty Amount For Hit On Browns Quarterback",
-    "source": "Steelers Depot",
-    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOczdUUUs4eHBxOGVPaVR5Y2M1QWl3LWNwb2kwZDRZNi04emVMZnBvYjZmQzh3czhDeGxZMDJoS0xPR19KdjFDX2p4Q2ljUkNMSXNDRzVOelJjdGh2bXZnbDRmXzRsUVlNRmp6bFd6cGFDYWRRLXpNQXNTb0trR3AxTkRwazUyUzkyYWdFUndyNmltNmQ0MmFGREJzSi1lamhCVnRYaEFva2J4aHhNYnc?oc=5",
-    "published": "2026-11-07",
+    "title": "Steelers' Jaquan Brisker Gets Big Fine For Hit That Opened The Door For Shedeur Sanders",
+    "source": "Steeler Nation",
+    "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9tZkJ5UEhzXzZKcEQ1cUtWOFZRdHUwazRnTDBuYlZXTS1KMDhCY3A2ZEkxck5iSzBUMlN6b0JZUVVpbmxDUVhwWlpmb2VKNFh5T2FsVmM2Z1o3akVIajZoWk81TnZzSDRZZG9EbzhpaF9sT21IbW5pUWVQZTlOQQ?oc=5",
+    "published": "2026-11-08",
     "player": "Jaquan Brisker",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Jaquan Brisker.",
-    "url": "https://steelersdepot.com/2026/11/steelers-s-jaquan-brisker-fined-hefty-amount-for-hit-on-browns-quarterback/",
-    "image_tries": 3
+    "url": "https://www.steelernation.com/2026/11/08/steelers-jaquan-brisker-big-fine",
+    "image": "https://www.steelernation.com/img/parker/jaquanbrisker0822200002466080862424242448400-1600x900.jpg"
   },
   {
-    "title": "Bengals face Falcons S Jessie Bates III, evoking mixed emotions",
-    "source": "ESPN",
-    "link": "https://www.espn.com/nfl/story/_/id/50402286/jessie-bates-falcons-bengals",
-    "url": "https://www.espn.com/nfl/story/_/id/50402286/jessie-bates-falcons-bengals",
-    "image": "https://a.espncdn.com/photo/2026/1025/r1736110_608x342_16-9.jpg",
-    "published": "2026-11-07",
+    "title": "Bills' Roadblocks for Amani Hooker, Budda Baker, Jessie Bates Trades Laid Out By NFL Insider",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRGhXbjBjd2lRWkZPLWt6Z1pSVFdxWXdGOVQ0dnNJcjBNaTJiT25DOG5QRDRCaXhkY0h1aFVxYlFzR2c1aDhTS2xoLWFlc0FkY2loVlhPUFdYZnowTE5SdDN1TFlhRHYySmMyZE5TeldOaVU2NGJTTWd5Ym5sNzZadlNGd1ZhcmJFQUtGZjZ0dTJEQ0FSNEZPazNuRlNKTVd2TVFRbTJzQld0bHNzR0J4UGtITHBJNXFyWnc3YUV3TnJjcGpjaWphdFRB?oc=5",
+    "published": "2026-11-08",
     "player": "Jessie Bates III",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Jessie Bates III."
+    "summary": "General news mentioning Jessie Bates III.",
+    "url": "https://www.si.com/nfl/bills/onsi/trade-deadline-bills-roadblocks-for-amani-hooker-budda-baker-jessie-bates-aid-out-by-nfl-insider",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_173,w_6000,h_3375/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/bills_central/01m6vqx5vebxfpxt7pss.jpg"
   },
   {
     "title": "Bills-Falcons Trade Proposal Sends Jessie Bates to Buffalo",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNzFINEdxTDVQbnJkTV9pUDNwU25uQnA4SzNUY3N5VXFtc21FS0p2Wk1yM2JCVlpKcEpqak1rQU9wVGwxWkE0N0VnOTMyWFpPZkd4aGt2bnVrYTFaSmZWMFgyd19TSWNubUNMVlVoTlJ3dkVzdzNobXp5OUZKaGxaV3NfRmZoSXNxX3dJ?oc=5",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNeHF6c2ExR18yUnN4bFNxX2twM1hnU3JvNnk5OUpQS195T1dSd05TVGJwblNXZmlzaDJGWlE5ZE55Z3REUDlVbG95RU4xYVI4eTBKM2pHTWk5dnlGQVhFdk4xXzhVTzZpajJjYm1KLVB0c3NqMjdRUWo1YUVnRmdEa01YSVdmSVZlR0JkWE5IS2VvTDhY?oc=5",
     "published": "2026-11-07",
     "player": "Jessie Bates III",
     "impact": "roster_move",
     "category": "transaction",
-    "summary": "Roster move involving Jessie Bates III. His role and fantasy value could change with it.",
-    "url": "https://sports.yahoo.com/articles/bills-falcons-trade-proposal-sends-194000597.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/9c7c5e57b81ffa55e0107c8180502b1947761c2a7fe72a2e680dd36ab172b38d/lightyear_networkapi/resizefill_w912_h513%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbuffalo_bills_on_si_544%2F726b0364217ecef324d5ac9699960f12.jpg"
+    "summary": "Roster move involving Jessie Bates III. His role and fantasy value could change with it."
   },
   {
     "title": "Can't-Miss Play: Jessie Bates III's toe-tap interception gives Falcons a red-zone takeaway vs. Purdy",
@@ -2080,14 +2114,16 @@
     "summary": "General news mentioning Kitan Crawford."
   },
   {
-    "title": "Terrell Burgess 2023 Situational Stats",
+    "title": "Terrell Burgess 2022 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE42ZVhIU3AwMjh3ZFluYkxGWW95b0p0VEw1S0N3cDBwSG1GT0R2UzczWU1wcGdhUmZEYUlUN0ltWnREVkd2N01LMnZHb2dxbkpwVHdwR3ZBQzhNUHcxdk00T0ZJZWpVbExLOTY5UEJsUmlDOW9KRDNRSzdXQQ?oc=5",
-    "published": "2026-11-02",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBDMklEd1ZvM1VpbjRiUzdGWnJBU1hLUVZaWWppRmpnSUF3MXdMSDBaYThNQjZnNXRiak1VQjdWR3hSa3Z0c0E1V1N4d1BQc0s1NkhQejBrVno2aWM5YlFMNE15X2JGeTVGdFo3T3l4SW1haml3Ul8yd25hVUk?oc=5",
+    "published": "2026-11-08",
     "player": "Terrell Burgess",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Terrell Burgess."
+    "summary": "General news mentioning Terrell Burgess.",
+    "url": "https://www.nfl.com/players/terrell-burgess/stats/situational/2022/post/",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/qxwxyritvbyjdd8t6q7q"
   },
   {
     "title": "Terrell Burgess Stats, Props & Recent Performance",
@@ -2222,7 +2258,7 @@
   {
     "title": "Quan Martin talks growth, Marcus Mariota & the Seahawks + Anthony Armstrong's NFL journey",
     "source": "Washington Commanders",
-    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSlNXbnBZblJocHRURFJxUktwb3ZMb2NVdWZXOEkxM0s1di1xTFN6Qm5GOW5lbTR3WDZudV9FNW9zM2NUSlpEMWlwSEhad2s5M21DcFBLekxBRUlwazFHaTZCZ2hUejQzS0UwdFNOLTl5VmJ5Q1Y5d0VpenZsYTJraHFkZmh4cGgzRkt4QmpOMEdsN2tNMmRKOTB4cHZQNTlXSVh4cWxfN1RfTnNrUER5aU5YV2Z1MF9y?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRkhxU2NtQXl6d3B3eWxEM2dfMmFqVzJVXzVSSjVpRV8tX1NNQnNjbjZJdW1pTnE3QndOYnAzUVFsMWpSaDhGVl9GejRFZXd0cFNRV2h2WEpuUkFWSUxaMjVVcC1BVUlDekhCcjFKU0QwamhDMVRSSDdjUmxjZDRJQUNqNzNLSi1YSFJoRGNlRnljQ2c3dEN5UTF4MkdfSlVsc2Q0SU1XUm1SVmxaWHg3TW5BTExkdFdn?oc=5",
     "published": "2026-09-25",
     "player": "Quan Martin",
     "impact": "neutral",
@@ -2230,10 +2266,20 @@
     "summary": "General news mentioning Quan Martin."
   },
   {
+    "title": "Texans rule out S Reed Blankenship, RB David Montgomery",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNN2swa1BENWl6R2xLZUlrbEgtbDBLNFNmcEVnN0FsSVhGS05WV3NMRjdkX1c1V1o0ZGZGX05BTE54Tk43czRaa0xmZVF2aV9MdEJxbEFWRllkWmFvaHduODlJcFV3TTcwS1ppZXdiMk5OS0hYYVlMSHhmTGNKTU8tV1h0Y0ZMaTA?oc=5",
+    "published": "2026-11-06",
+    "player": "Reed Blankenship",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Reed Blankenship."
+  },
+  {
     "title": "Texans rule out Reed Blankenship (consussion/hand)",
     "source": "NBC Sports",
     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY1Zub3pmeFBnR08zRTRQTHZjYUdHT3NZbTJlV3BRdVNkY3BEN28tZXZWWGdBaXRsdmRFNjJnWndVckdPZ25SY2oxZ2haaGQ5LWNndnUtZkJhaksxZzkyVUtBWXZreVNwMzlxV2s3TThzcFB5cmt6cHEtZVdRVlZyWWM2WVN4M3A4UldYU3RTd3hmUlZjcHRQb2VLWnJvS09kak4wdGNxNzdWaG5kanBZYmtOUTg?oc=5",
-    "published": "2026-11-07",
+    "published": "2026-11-06",
     "player": "Reed Blankenship",
     "impact": "slightly_negative",
     "category": "injury",
@@ -2242,26 +2288,14 @@
     "image": "https://nbcsports.brightspotcdn.com/dims4/default/e0d70a4/2147483647/strip/true/crop/100x56+0+39/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F34%2F7f%2Fc6cbf8b34197a06c736d99c29350%2Fblankenship-reed.jpg"
   },
   {
-    "title": "Reed Blankenship Stats, Props & Recent Performance",
-    "source": "PrizePicks",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5EdkZOSS1lSlBCZUFLNXhUa3p2aDZfZElrZjFDM0JFSWFSRVl6aUJxdFlMN2NWMW1DZHhxd0lUYUsxQW9VTUFyUDlEQTRaSnpjMFl1ajNwODhhN2VQSnBaT0s4RlllQUwybG9HY2JJMS05Zw?oc=5",
-    "published": "2026-10-13",
+    "title": "Reed Blankenship (concussion/hand) DNP Wednesday",
+    "source": "NBC Sports",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNVTlhTUt5OHFTUFB1LTh0UmV2bkhoX2pjUms2dTdBWUNvRmIyMFJRbVVTUGpSUjNDSHB5bVlvR2RQNmxEOGRINGVzX0hhOVVQSTdSUUdRMXBrWU55bjh1UlU5X3pKeXZmeEZPRl9TTjdqdkRVczlHdURsNUtRSGZkTHFxUWJKN0taeDZkQTdSSDRvYlRpTVM0bjNudV93bGNFNmhWMGhXYTZuU1BJdVBjcGZn?oc=5",
+    "published": "2026-11-05",
     "player": "Reed Blankenship",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Reed Blankenship."
-  },
-  {
-    "title": "Texans safety Reed Blankenship suffers concussion vs. Jaguars in London",
-    "source": "ESPN",
-    "link": "https://www.espn.com/nfl/story/_/id/50210735/texans-safety-reed-blankenship-suffers-concussion-london",
-    "url": "https://www.espn.com/nfl/story/_/id/50210735/texans-safety-reed-blankenship-suffers-concussion-london",
-    "image": "https://a.espncdn.com/photo/2026/1018/r1732456_1296x729_16-9.jpg",
-    "published": "2026-10-18",
-    "player": "Reed Blankenship",
-    "impact": "slightly_negative",
+    "impact": "negative",
     "category": "injury",
-    "summary": "Reed Blankenship has an injury note (concussion). Monitor practice reports before kickoff."
+    "summary": "Reed Blankenship wasn't practicing (concussion). That's a bad sign for this week: check the final injury report on Friday before you start him."
   },
   {
     "title": "Percy Butler Stats, Props & Recent Performance",
@@ -2482,16 +2516,6 @@
     "summary": "General news mentioning Nick Scott."
   },
   {
-    "title": "Abdomen injury for Nick Scott",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1nSVhTaWNGRWkxNl9ZQm1IV3dIOHkyYno2SFNmeDBCbS1scDRkd2JKRXFtbnphWFdHelJtVDdEeUJPSVNFcnpKbEUxTnVONmdWbHItbFF0LUdTRElFWGtBaFdudkxCcXdpaGNPbzdtQXR6OVdTYU5GSk5kYnJ0ZWc?oc=5",
-    "published": "2026-09-20",
-    "player": "Nick Scott",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Nick Scott has an injury note (abdomen). Monitor practice reports before kickoff."
-  },
-  {
     "title": "Nick Scott Stats, Props & Recent Performance",
     "source": "PrizePicks",
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LT2VrXy1vZ1RFQ3NCQWFsWTFjQnNqUmpvNVpOMXI1SGYwUWtQRWZpbjFDU285LVpzY3N5TU1TTzM3Vm9lekJESlkzUmM0OVVtb25sYklxam9hX3ZERkdSV0FZUjVpME5EekE?oc=5",
@@ -2522,6 +2546,18 @@
     "summary": "General news mentioning Kitan Oladapo."
   },
   {
+    "title": "Bills' Roadblocks for Amani Hooker, Budda Baker, Jessie Bates Trades Laid Out By NFL Insider",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRGhXbjBjd2lRWkZPLWt6Z1pSVFdxWXdGOVQ0dnNJcjBNaTJiT25DOG5QRDRCaXhkY0h1aFVxYlFzR2c1aDhTS2xoLWFlc0FkY2loVlhPUFdYZnowTE5SdDN1TFlhRHYySmMyZE5TeldOaVU2NGJTTWd5Ym5sNzZadlNGd1ZhcmJFQUtGZjZ0dTJEQ0FSNEZPazNuRlNKTVd2TVFRbTJzQld0bHNzR0J4UGtITHBJNXFyWnc3YUV3TnJjcGpjaWphdFRB?oc=5",
+    "published": "2026-11-08",
+    "player": "Amani Hooker",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Amani Hooker.",
+    "url": "https://www.si.com/nfl/bills/onsi/trade-deadline-bills-roadblocks-for-amani-hooker-budda-baker-jessie-bates-aid-out-by-nfl-insider",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_173,w_6000,h_3375/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/bills_central/01m6vqx5vebxfpxt7pss.jpg"
+  },
+  {
     "title": "Titans' Amani Hooker Trade Comes With Costly Catch for Buyers",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQY1dyVXc2anRETGMxc3JBajdkY3AxdWlDX1k0Ujd0bmdSVzRNSVFqVldHVzhhVGJ3Wnp1cjNxTXB3UFg0emZ6Y1hiOFo5SXR2WHlBeTlCakJGeTJvNnZzY0VJRUlheUdXc3MyNUNFdEQ3Y0NjZnRjdzAxWk9zRGFKd0tSLWZfb1U?oc=5",
@@ -2544,26 +2580,26 @@
     "summary": "General news mentioning Amani Hooker."
   },
   {
-    "title": "Amani Hooker dominates against Bengals with three-interception day",
-    "source": "Sportsnet.ca",
-    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNTW5DeVRPTVF1c0ZjeC11TnVlbHNPa1JFZmFBY1hlMFVIU2RGNTg2RDZqU2RMU1VwcnRqNnZnbExIOC0yR3NLU1NQNzlHcWItMUlVSXJjbXU5d2VtZFNadTRHdW8tbWlzTTJJSHVKc3h6OTZXMHdzNjhwd3dwZlBpSVd0bWlUQWduVjQzUVphajF2X2tPRlVHYUVrNWdPTmpQY2lKSA?oc=5",
-    "published": "2026-11-01",
-    "player": "Amani Hooker",
-    "impact": "positive",
-    "category": "performance",
-    "summary": "Good news for Amani Hooker: a strong performance or bigger role."
-  },
-  {
-    "title": "Rams’ Quentin Lake Walks Back Bold Comments About Justin Herbert",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZ2VvUkZYTmxJREZWdklGaGJVTVFtS2JUNWtGUFZNSXFadXl3blJRYXVWLWkwd1A0Y2FrbDc2NmRtN2JkQkZSRFpJcHRtTXcyb1V2ZWpRUVRkbWlNUEtiRUowYkFYaW5pZjRwNlZkSUhIUlllT2IzdGoyZXJ3bHlrUUozOA?oc=5",
-    "published": "2026-11-07",
+    "title": "‘That’s Not an Apology,’ ‘Somebody Had to Say It’ — NFL Fans Take Notice as Quentin Lake Walks Back Slanderous Take on Justin Herbert",
+    "source": "Pro Football Network",
+    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQN0VjcTFISWFWZ3J4SnZBUENVZ3dtLWQxNXZDZzdQQlRPb1NMWXVtaW51cGMySElYdEFaRlJ2VktpMnFPMmdKWGpYTG5VZUtVR3RXQUg0eFQ5SjdMYTNDTEp1cnhPX0hJc1FzbXNoNjVtaW1DTFpfN0l4YTQtV1FwLWFwcUk?oc=5",
+    "published": "2026-11-08",
     "player": "Quentin Lake",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Quentin Lake.",
-    "url": "https://sports.yahoo.com/articles/rams-quentin-lake-walks-back-191000013.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/d1f52a8edac5716c57fae642dc94017f916e7243927988540e0afc92445e6263/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fathlon_sports_articles_610%2Fd565032b8e7f58b9f03bfbfdda4dad6d.jpg"
+    "url": "https://www.profootballnetwork.com/quentin-lake-justin-herbert-apology-fans-2/",
+    "image_tries": 1
+  },
+  {
+    "title": "Rams' Quentin Lake apologizes to Justin Herbert for 'deli meat' remarks, Chargers not moving QB via trade",
+    "source": "CBS Sports",
+    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOa2FlNEtra09aZVVURHZoYlJYMzZWbmhXOFFVNmN5eDFVS25SZUxmS0djcUlrU3poV0pFV3I5SHVXSi1VSXE3TnZPbGVtblRKalRPcDA5MC0za0pVNi03TWVmR0dJZTFoeXFQOVJxdDdTOGhMOWtmSThlOUx1MERaLVd4cjZGek9YVlJIem9UcHFnVDItQVJiYzJrRFR2c0tselBsankyT2dGdw?oc=5",
+    "published": "2026-11-07",
+    "player": "Quentin Lake",
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Quentin Lake. His role and fantasy value could change with it."
   },
   {
     "title": "Justin Herbert Responds to Rams' Quentin Lake's 'Deli Meat' Comments Amid Chargers QB's Struggles",
@@ -2576,16 +2612,28 @@
     "summary": "Concerning news about Quentin Lake's role or production."
   },
   {
-    "title": "Rams Star Quentin Lake Apologizes To Justin Herbert After Insulting Comments",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdTNkSF9kMk45NGJ4UWtrMktjc3V0MmwzOGM2U0NiT2pESnBYNEpEamhmTmRwMXlWQm4xTWlSS01mQndRb1hwNDMwdFQ3WUxLUDdFOWNPWWNPbXI5MVZFWm1feWp4OUw5MVlBaVFlbEo0T0dIMnpHYzBoZ0lyLXdXeGhpS2dmbFJYdkE?oc=5",
-    "published": "2026-11-07",
-    "player": "Quentin Lake",
+    "title": "Broncos' Talanoa Hufanga: Inactive versus Carolina",
+    "source": "CBS Sports",
+    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZjREZFdsTi1JQkhDZ2wyQzY3T2F3ZTV2OTJMNlhQX3VFQ1BsSW9uRjdkcXVOLXNLTWRhTGZ0NUl6TklNYVI3NU84Rm5KdGJMXzNRMURnZDdDbGlVeW81QzFlcVVqR0dxSy1MUFV3SFJNdkc0SFFadFRHeF9pTXFhNVFJMDl1d2lyN1lHUTI2S0VFaFlzdko5a0tJaXlRdw?oc=5",
+    "published": "2026-11-08",
+    "player": "Talanoa Hufanga",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Talanoa Hufanga has an injury note. Monitor practice reports before kickoff.",
+    "url": "https://www.cbssports.com/fantasy/football/news/broncos-talanoa-hufanga-inactive-versus-carolina/",
+    "image": "https://sportsfly.cbsistatic.com/fly-887/bundles/sportsmediacss/images/fantasy/default-article-image-large.png"
+  },
+  {
+    "title": "Broncos' Talanoa Hufanga: Game-time call Sunday",
+    "source": "CBS Sports",
+    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQRFlIR2VzNmFncHVtUTNBbVljSVdySlNEUkN3SnRadHdrdmVCcEVfMmtZSHF0dnNEQk85SW1kUGJGZ0NNb0MwdWE0TnFZMnZHQUliTlk1bngwRFBvNW1ZYjBoT2RfZHM1SzliTGpFNVpWREV4VEprdlV5TVJfS3RzNk80X3Z0TFk4SUtYUWtXNzRnb0Y4VjVNM3RR?oc=5",
+    "published": "2026-11-08",
+    "player": "Talanoa Hufanga",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Quentin Lake.",
-    "url": "https://sports.yahoo.com/articles/rams-star-quentin-lake-apologizes-162124604.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/d5259988410ea294bdcfc1a5ea07dafe197cfb67ce6bbcbfea3f0b342f5ece27/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fthe_spun_articles_751%2Fd4c43a68bd83dd9c666803f41a9adc46.jpg"
+    "summary": "General news mentioning Talanoa Hufanga.",
+    "url": "https://www.cbssports.com/fantasy/football/news/broncos-talanoa-hufanga-game-time-call-sunday/",
+    "image": "https://sportsfly.cbsistatic.com/fly-887/bundles/sportsmediacss/images/fantasy/default-article-image-large.png"
   },
   {
     "title": "Broncos Roster Move Spells Excellent Sign for Talanoa Hufanga",
@@ -2598,30 +2646,6 @@
     "summary": "Roster move involving Talanoa Hufanga. His role and fantasy value could change with it.",
     "url": "https://sports.yahoo.com/articles/broncos-roster-move-spells-excellent-012608884.html",
     "image": "https://s.yimg.com/lo/mysterio/api/c7bbec6715691698f66dae1da1bf72c3d34ab18021421e5c38d6502e62731050/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fheavy_214%2F53fe9cdd4b6fb9d98472097b20791616.jpg"
-  },
-  {
-    "title": "Broncos injury report: Talanoa Hufanga and Brandon Jones statuses for Sunday",
-    "source": "Broncos Wire",
-    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYWlfVGNrcl9ITnpaNlozc29ubGhzT29zU0VVTE9BZk5Uam5WUEhEQ2RpTFVTQno3bHE4QXNPNzlWUlFxcmljdFlIZVQ1b0I4N3dOdW53V1l4TTk4dERZNmh3Y09PVVA0aUVTeE5xWVRUZXhfTjVjLWE4TWdMOWU0MDhKSDFfeVNkTjExV1hudmRPcVI1VTlhdVhrVTJfelgxM3EyOC1JWkRMcmZzYy1fMGJWeEpjSnBWeERucW9faTluRjlkV3JvMjN0RzBVdllIVGxTZEpRY3ZmU05ZaUR6SzhvRQ?oc=5",
-    "published": "2026-11-06",
-    "player": "Talanoa Hufanga",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Talanoa Hufanga has an injury note. Monitor practice reports before kickoff.",
-    "url": "https://broncoswire.usatoday.com/story/sports/nfl/broncos/2026/11/06/denver-broncos-injury-report-talanoa-hufanga-brandon-jones-statuses/92630882007/",
-    "image_tries": 3
-  },
-  {
-    "title": "Broncos star safety Talanoa Hufanga returns to practice after missing 3 weeks with ankle injury",
-    "source": "ClutchPoints",
-    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOUXFVMFVydmpBNGpzWl9DTEtPZFJjZ1hPaURlTkp6dXpPNmpEZ1NGWk9Mdl9JdjltcDBpT3dzOXVXejFkZVZ2RGhJMzhDOVNaMjB1UThNZnRDNnJIbHZqTTlxQXlhVGx3Q19CaE1YYzNjaENkalptSlFZNUFDODRGbGxvNFZLZFlHVXR2TXhfbHd5UFpLX3F3SA?oc=5",
-    "published": "2026-11-06",
-    "player": "Talanoa Hufanga",
-    "impact": "positive",
-    "category": "injury_return",
-    "summary": "Positive health update for Talanoa Hufanga (ankle). He is trending toward playing.",
-    "url": "https://clutchpoints.com/nfl/denver-broncos/broncos-news-talanoa-hufanga-3-weeks-ankle-injury",
-    "image": "https://wp.clutchpoints.com/wp-content/uploads/2026/11/Denver-Broncos-safety-Talanoa-Hufanga-9-on-the-field-prior-to-a-game-against-the-San-Francisco-49ers-at-Levis-Stadium.jpg"
   },
   {
     "title": "Isaiah Pola-Mao NFL Stats, Game Log & Bio",
@@ -2652,18 +2676,6 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Isaiah Pola-Mao."
-  },
-  {
-    "title": "PJ Jules Career Stats - NFL",
-    "source": "ESPN Singapore",
-    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1zdzBvOW56UDY2SVEtQUtsTHY5aENQSVVoZjRXRWZycXRXRm1jd1VvZ0JPNWhtbVhFMGk4NmFSNzdsOTh3UlhvWXJDMUhYOVZrUWVjQ1k4UEFENWpEXzE3bEJLWQ?oc=5",
-    "published": "2026-11-03",
-    "player": "PJ Jules",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning PJ Jules.",
-    "url": "https://www.espn.com.sg/nfl/player/stats/_/id/4429946",
-    "image_tries": 3
   },
   {
     "title": "PJ Jules Stats, Props & Recent Performance",
@@ -2790,14 +2802,14 @@
     "summary": "General news mentioning Justin Reid."
   },
   {
-    "title": "Phil Galiano on Justin Reid kicking off, Barion Brown | Saints vs. Falcons 2026 NFL Week 4",
-    "source": "New Orleans Saints | NewOrleansSaints.com",
-    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcFZzTm9PWERzNVc3ZFptb0IyRVBFUG5ZaW02dVlNZ2RaZllzNFRHREQ1TTFaczlXOWplbUxETC15eEtBaUUxSHJSTHM3VGw1bG5VYjBRMFdIcW1Za1Q5eE9lM1RGMVRUTkhCWGtoeDZlYnQyOHR1TFVJT1c4TG0wWERWNVdKN0lRQU9Fam9GV2RUQURmNi1PVWdXd05KR0xyYkw3SXJ4S19nQlBwSnpV?oc=5",
-    "published": "2026-10-02",
+    "title": "Breaking Down What a Justin Reid Trade Could Look Like",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSzZOUnVOMzdpaDFRSGVmSDhXanQyT3VudUZQQ3JVcVFreEhTZHRXdkRGOUYwNlBqeWNmYU83UUZ4MVNQNjl1MlpQQlRiSVp0R2swcVVieXFfZVRULXljVDF4NFdMaWlzMnN1bW43cndGdDZWb3djMzR5bzRhclBqeGJaSDNaSkU?oc=5",
+    "published": "2026-11-02",
     "player": "Justin Reid",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Justin Reid."
+    "impact": "roster_move",
+    "category": "transaction",
+    "summary": "Roster move involving Justin Reid. His role and fantasy value could change with it."
   },
   {
     "title": "Raiders’ Jeremy Chinn Handed Punishment After Brutal Garrett Wilson Hit",
@@ -2836,7 +2848,7 @@
   {
     "title": "Tyler Owens 1939 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBXTWVXVVVGY2RJb2tKRTB4TDljZDMwRWdkZmtWNW5FMGJtLXZCRUhQZVJiQVQxQm1NUUZiYW1XN3FwU1VTM1JoYkVsdDluVzBzNWRGa0RwRUxaVWYzQ2lPdUx1TTczY3ZudXNfWVpUVnNvUlNkV0E?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5BWk9pa3JUYkhldWJzeWQtdEQ0eFVydHBmTWdfZWtYaWhaamZjUVZ1YVViZVNuY2dsMzhodE9leXJnZ0ROUUtOYUw0TFduOURlbnVMWjBNYnpnTWJOblI5dTNwOWdWSGZ4Y05tUEZIVlhXWXFa?oc=5",
     "published": "2026-10-30",
     "player": "Tyler Owens",
     "impact": "neutral",
@@ -2986,9 +2998,9 @@
     "summary": "Concerning news about Siran Neal's role or production."
   },
   {
-    "title": "Siran Neal Saddles Up on Special Teams",
-    "source": "San Francisco 49ers",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9MQ2o1QmVPSTdTd09RWXhBR0JGRHBHS0x0QVo1MjYtS1laRjgwQ0hmYW9fYWFKNTJjUmRiZmJjTkNoejlUbktKMzBpRFp2S1BQdWZzVUx0X2VTb0M4OVdHN2M4WlpkSE5wcFBxWg?oc=5",
+    "title": "Why the 49ers think Siran Neal delivered play of the game in win over Broncos",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZlF3Y0gxZFdqaDZ6MTE0Q3RpZzM0VVM0cktWdXN0Z0xQTlJ4ZTVmU3luejNkZXk2U3FqOUpHTzRZRkkzQjFlYWZaYWxZcFByT0JGa1M0TG9HWS15aDVUcXZjcHVvam1wRlZscEdhSWs3WkpsemRkVHdmUTNVYVFwSg?oc=5",
     "published": "2026-10-05",
     "player": "Siran Neal",
     "impact": "neutral",
@@ -3119,7 +3131,7 @@
   },
   {
     "title": "The Voyage: Harrison Smith & Blake Cashman's Performances, Win Over Colts, Week 8 in Detroit & More",
-    "source": "Vikings.com",
+    "source": "Minnesota Vikings",
     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdmNmOUZrcjE0eFNfTGpwTFdDTHVKRDUydkRMTFFveUllck1Md3htWDRTRHlOSlV4NDBEVzdmVGpqcHNhMmlDMEFRVWwycy1NVU9aaXFWU2kxdWNVVnBaX0dtdzN0Zm9BRWNJc0VtUWR6eGRLRkowQWd3OEx5RGhPT2gxTm1ubHJFTDcyWVM3UTNEdkI2QVdpSmtEY3hzRDlmXzhlWGZuZElWREUya3NuX0RSMVlYTUtUM1I5MEJYdw?oc=5",
     "published": "2026-11-05",
     "player": "Harrison Smith",
@@ -3132,7 +3144,7 @@
   },
   {
     "title": "Vikings Officially Sign Harrison Smith, Make More Roster Moves",
-    "source": "Vikings.com",
+    "source": "Minnesota Vikings",
     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoYV95V20xSWVWNzJXdjQtNUd6eFFtenV3U1VUTkJtYnhKRmVpQV9yZ05abnJWbGtXQy0wUjlpdXl2UFZLaVkxanA1VU50R2xOdVQ4Ql80RmtUY0lzR2czOUd6NWhtWHRrZDlFTHVaZVlBSE1vRlJJ?oc=5",
     "published": "2026-09-08",
     "player": "Harrison Smith",
@@ -3243,6 +3255,16 @@
     "image": "https://nbcsports.brightspotcdn.com/dims4/default/79a6cbe/2147483647/strip/true/crop/3500x1969+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F05%2F73%2F05d125354e729646770ecec02e0e%2F2241877935.jpg"
   },
   {
+    "title": "Kyle Dugger Is Out for the Bengals Against the Titans as Budda Baker Trade Talk Lingers",
+    "source": "Athlon Sports",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNUkRQVFdYM1dUS2ZMUVlqU1BNSVA1NlJRbHE2R0xLTFNYYzZlNUN2b29xWEwyWkgyM2xjMldNNlA1dVIxd3ltWXg4R3Q0bFkwdTllVEFQbk5USlpYdEI5dUhjdlhGMDFOY1R4S0xnZGtJUXJwbDU3ZU56Ml9kN3JCb3ZydkVTUHNnX014UzBn?oc=5",
+    "published": "2026-10-30",
+    "player": "Kyle Dugger",
+    "impact": "negative",
+    "category": "performance",
+    "summary": "Concerning news about Kyle Dugger's role or production."
+  },
+  {
     "title": "Bengals safety Kyle Dugger injured vs Ravens in NFL Week 7",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTWVvbnl3MmRNSDh4QW42aXZDck1yc3Z6WUVqcFJHcVFpUjVPNlp4Yk1VdFZpVzhsd3pNN3dmbEszUFR0UTVqUXhTc2NaaXRKREZUeEhTTnIzYU9adGJsRjNERHkyRHpXNm9EYnFSMndIbjBWU1k1WVNVSGJ0SXhTVDgtbkJVYXlReWFn?oc=5",
@@ -3263,19 +3285,19 @@
     "summary": "General news mentioning Xavier McKinney."
   },
   {
-    "title": "Green Bay Packers: Xavier McKinney drops 30 spots in ESPN’s ranking of the top 100 NFL players",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQV0R1QVhrcWtCSGo0b0ZNMUViOHB4bUYydXl5c09XZW9uWk1Ic3dVWFluY2dIZHRsLXJhQVNIOS1LRThDdDZTNHBJRGJ4R3ZWc01IX2FzZlI0NVRXMTZWSnRKeFc0VFAyZVpPdlFIZTBvRXpTcHQ1NGFZMEpvWVg0VUFkU184Z2xMalE?oc=5",
-    "published": "2026-09-01",
-    "player": "Xavier McKinney",
-    "impact": "neutral",
-    "category": "fantasy_advice",
-    "summary": "Fantasy advice article that mentions Xavier McKinney."
-  },
-  {
     "title": "Packers Safety Xavier McKinney Hit With $25,000 NFL Fine After Harsh Post-Game Referee Rant",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPMnBzWmh5RU9pS0lvUHlDQ2VGcl9xQWJIckp2SVd4WmtyX2x4ai10QU5DVjlmVXYtNVZPSXZHcURDLUE0QUltN3pENnRtUk9hQ1VkZXJLcHZNVE05M3QzX2tCZEh3RG54bHRYdFFsVGtvNW1RWDFXM0VSZHZDcWhGbnJ3YUpHLVdwMHNN?oc=5",
+    "published": "2026-10-31",
+    "player": "Xavier McKinney",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Xavier McKinney."
+  },
+  {
+    "title": "Packers’ Xavier McKinney fined $25,000 for NSFW rant criticizing refs",
+    "source": "ClutchPoints",
+    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOR3pWNTJvLXVsaU1hcEVmRmdqcmExVUJFV1pDNEoteXFDZkFMWmxfRkJYN0Y1VHBMMkxtdE5lYUhGRzhnUHotLUQ4aElrMWVpdVJ1S0NJS1N6QjVmMHNrYlRrcl9Fa19pcUE5OUhobVBHcl8wTkJvX0U4empUOEh1S05SaERFYkw2NFNEbC1MSllVeDItdUt6M1BteXA2MG5Nc1c4eHpSRTh4ZDl5RlVGcXprNFA?oc=5",
     "published": "2026-10-31",
     "player": "Xavier McKinney",
     "impact": "neutral",
