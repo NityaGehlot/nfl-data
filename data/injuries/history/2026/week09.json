@@ -3238,6 +3238,11 @@
       "date": "2026-11-03",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-08",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "8154": [
@@ -3280,6 +3285,11 @@
     {
       "date": "2026-11-03",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-08",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -3760,6 +3770,7 @@
       "date": "2026-11-08",
       "day": "Sun",
       "practice_status": "DNP",
+      "game_status": "OUT",
       "status": "OUT"
     }
   ],
@@ -4815,8 +4826,6 @@
     {
       "date": "2026-11-08",
       "day": "Sun",
-      "practice_status": "FP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -5330,6 +5339,7 @@
       "date": "2026-11-08",
       "day": "Sun",
       "practice_status": "DNP",
+      "game_status": "OUT",
       "status": "OUT"
     }
   ],
