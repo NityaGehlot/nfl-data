@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T22:19:30Z",
+  "generated_at": "2026-11-08T06:42:40Z",
   "season": 2026,
   "week": 9,
   "season_type": "regular",
@@ -42,6 +42,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -82,6 +87,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -124,6 +134,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -164,6 +179,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -206,6 +226,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -247,46 +272,10 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
-        }
-      ]
-    },
-    {
-      "player_id": "12889",
-      "gsis_id": null,
-      "full_name": "Beaux Collins",
-      "team": "ATL",
-      "position": "WR",
-      "status": "IR",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Undisclosed",
-      "status_note": null,
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-03",
-          "day": "Tue",
-          "status": "IR"
         },
         {
-          "date": "2026-11-04",
-          "day": "Wed",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-05",
-          "day": "Thu",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-06",
-          "day": "Fri",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-07",
-          "day": "Sat",
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -333,6 +322,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -373,6 +367,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -415,6 +414,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -455,6 +459,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -504,6 +513,13 @@
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "IR"
         }
       ]
     },
@@ -544,6 +560,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -586,6 +607,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -626,6 +652,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -668,6 +699,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -708,6 +744,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -750,6 +791,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -790,6 +836,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -832,6 +883,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -872,6 +928,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -914,6 +975,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -949,6 +1015,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -991,6 +1062,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1031,6 +1107,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1073,6 +1154,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1113,6 +1199,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1155,6 +1246,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1195,6 +1291,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1237,6 +1338,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1277,6 +1383,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1319,6 +1430,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1359,6 +1475,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1401,6 +1522,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1441,6 +1567,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1483,6 +1614,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1523,6 +1659,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1565,6 +1706,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1605,6 +1751,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1647,6 +1798,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1687,6 +1843,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1729,6 +1890,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1769,6 +1935,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1811,6 +1982,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1851,6 +2027,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1893,6 +2074,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -1933,6 +2119,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -1975,6 +2166,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2015,6 +2211,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2057,6 +2258,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2097,6 +2303,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2143,6 +2354,13 @@
           "practice_status": "LP",
           "game_status": "DOUBTFUL",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "LP",
+          "game_status": "DOUBTFUL",
+          "status": "IR"
         }
       ]
     },
@@ -2183,6 +2401,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2225,6 +2448,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2265,6 +2493,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2307,6 +2540,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2347,6 +2585,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2389,6 +2632,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2429,6 +2677,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2471,6 +2724,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2511,6 +2769,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2553,6 +2816,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2593,6 +2861,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2635,6 +2908,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2675,6 +2953,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2717,6 +3000,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2757,6 +3045,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2799,6 +3092,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2839,6 +3137,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2881,6 +3184,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -2921,6 +3229,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -2963,6 +3276,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3003,6 +3321,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3045,6 +3368,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3085,6 +3413,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3127,6 +3460,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3167,6 +3505,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3209,6 +3552,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3249,6 +3597,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3291,6 +3644,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3331,6 +3689,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3373,6 +3736,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3413,6 +3781,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3455,6 +3828,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3472,12 +3850,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "49ers rule out Christian Kirk (knee) vs. Raiders",
-        "source": "NBC Sports",
-        "published": "2026-11-07",
+        "title": "49ers Receive Bad Injury News on Veteran WR Christian Kirk",
+        "source": "Yahoo Sports",
+        "published": "2026-11-08",
         "impact": "slightly_negative",
-        "summary": "Christian Kirk has an injury note (knee). Monitor practice reports before kickoff.",
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRElyVTJ3cDAwaXYyQXQ2d0lJV1hzd19sSnE1RV96QkVjVEVVSzJ6WFhxOFBiVlczX3dKTWV1VmF1bHhiNlE1cTJ4QlllVVc5cDFEYlVTY1pYRnFxeE5XOG5XQVpaVWswVUZ3a0E2X3NEcHVkNzBOcHVtU0piSnBoV3RNalBDNHF6dzNrc2Z3ZlJ3U0hFQmRwSy1PRWtBaTNLbzFJNFlmNVVfRTN2RlpyVQ?oc=5"
+        "summary": "Christian Kirk has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://sports.yahoo.com/articles/49ers-receive-bad-injury-news-004030237.html"
       },
       "history": [
         {
@@ -3500,6 +3878,13 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "IR"
@@ -3544,6 +3929,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3584,6 +3974,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3626,6 +4021,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3666,6 +4066,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3708,6 +4113,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3725,12 +4135,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Game Status | Treylon Burks, Dyami Brown ruled out vs. Rams",
-        "source": "Washington Commanders",
-        "published": "2026-11-07",
+        "title": "Commanders Roster Moves: Jer'Zhan Newton activated, Dyami Brown to IR",
+        "source": "Yahoo Sports",
+        "published": "2026-11-08",
         "impact": "negative",
         "summary": "Dyami Brown is dealing with an injury that could keep him out. Check his status before lineups lock.",
-        "link": "https://www.commanders.com/news/game-status-commanders-rams-treylon-burks-dyami-brown"
+        "link": "https://sports.yahoo.com/articles/washington-commanders-roster-moves-jer-190937968.html"
       },
       "history": [
         {
@@ -3746,6 +4156,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3788,6 +4203,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3828,6 +4248,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3870,6 +4295,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "IR"
         }
       ]
     },
@@ -3910,6 +4340,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "IR"
         }
       ]
@@ -3952,6 +4387,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "PUP"
         }
       ]
     },
@@ -3992,6 +4432,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "PUP"
         }
       ]
@@ -4034,6 +4479,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "PUP"
         }
       ]
     },
@@ -4074,6 +4524,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "PUP"
         }
       ]
@@ -4116,6 +4571,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "PUP"
         }
       ]
     },
@@ -4156,6 +4616,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "PUP"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "PUP"
         }
       ]
@@ -4198,6 +4663,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "NOT_ACTIVE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "NOT_ACTIVE"
         }
       ]
     },
@@ -4238,6 +4708,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4280,6 +4755,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4321,6 +4801,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4357,6 +4842,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4388,6 +4878,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4405,13 +4900,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Bills injury report: Dion Dawkins, Joshua Palmer miss practice again",
-        "source": "Democrat and Chronicle",
-        "published": "2026-11-05",
-        "impact": "slightly_negative",
-        "summary": "Joshua Palmer wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQN1E1R2MtWXBhSGpjZldFUHpBUjVGc3hyRHE3Q3ZZSmZ3dEVTRGFoQk5yV2x3cHBpdF8wbnJMaGRpX0pVb1lDY0l2SEhIb1EwYTlYdG5YY1FoU3pvSF9NOHpIcXhTZmJNa0JFV3ZEYTNMUUJVSlQ1TERTZ1VEZlRzZFRSOXhzTmRsUmFaUkFpbEJLYnJoZ2VuVUlySjRDRUQxdUtqUkdpd2RvbDVMWmg4WnN6RVp5d1RnRFcyRTkweHpUX0IzRGtCYjJOYWc5SXNNaWFEWlBZT2Q1X2xhcjJ1VFF5NUJoMVpxV2JBSUhxX1hSWGxNZG1PeGdEd0F6SUtDZ0pyaExadw?oc=5",
-        "practice": "DNP"
+        "title": "Joshua Palmer Won't play in Week 9",
+        "source": "Fantasy Footballers Podcast",
+        "published": "2026-11-07",
+        "impact": "negative",
+        "summary": "Joshua Palmer is dealing with an injury that could keep him out. Check his status before lineups lock.",
+        "link": "https://www.thefantasyfootballers.com/news/646424/josh-palmer-wont-play-in-week-9/"
       },
       "history": [
         {
@@ -4441,6 +4935,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4482,6 +4981,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4532,6 +5036,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4567,6 +5076,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4612,6 +5126,12 @@
           "day": "Sat",
           "practice_status": "DNP",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "DNP",
+          "status": "OUT"
         }
       ]
     },
@@ -4652,6 +5172,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4694,6 +5219,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4729,6 +5259,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4771,6 +5306,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4807,6 +5347,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4818,21 +5363,11 @@
       "position": "WR",
       "status": "OUT",
       "game_status": null,
-      "practice_status": "DNP",
+      "practice_status": null,
       "injury": "Calf",
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Jauan Jennings DNP Friday",
-        "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-07",
-        "impact": "slightly_negative",
-        "summary": "Jauan Jennings wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://www.thefantasyfootballers.com/news/646364/jauan-jennings-dnp-friday/",
-        "practice": "DNP"
-      },
-      "practice_source": "news",
       "history": [
         {
           "date": "2026-11-05",
@@ -4853,6 +5388,11 @@
           "day": "Sat",
           "practice_status": "DNP",
           "practice_source": "news",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -4905,6 +5445,12 @@
           "day": "Sat",
           "practice_status": "DNP",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "DNP",
+          "status": "OUT"
         }
       ]
     },
@@ -4946,6 +5492,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -4963,12 +5514,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Patriots Get Hopeful A.J. Brown Injury Update as Return Timeline Emerges",
-        "source": "Heavy.com",
-        "published": "2026-11-07",
+        "title": "Patriots Announce Big News on Key Wide Receiver Amid A.J. Brown Injury",
+        "source": "Yahoo Sports",
+        "published": "2026-11-08",
         "impact": "slightly_negative",
         "summary": "A.J. Brown has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://heavy.com/?p=6550290"
+        "link": "https://sports.yahoo.com/articles/patriots-announce-big-news-key-002559055.html"
       },
       "history": [
         {
@@ -4996,6 +5547,13 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "OUT"
@@ -5040,6 +5598,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5083,6 +5646,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5100,12 +5668,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Jets WR Garrett Wilson (concussion) ruled out Sunday vs. the Chiefs",
-        "source": "ESPN",
-        "published": "2026-11-06",
+        "title": "Jets WR Garrett Wilson (concussion) out vs. Chiefs",
+        "source": "Raleigh News & Observer",
+        "published": "2026-11-07",
         "impact": "negative",
         "summary": "Serious injury news for Garrett Wilson (concussion). Expect him to miss significant time.",
-        "link": "https://www.espn.com/nfl/story/_/id/50400158/jets-wr-garrett-wilson-concussion-ruled-vs-chiefs"
+        "link": "https://www.newsobserver.com/sports/nfl/article317962039.html"
       },
       "history": [
         {
@@ -5126,6 +5694,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5167,6 +5740,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5219,6 +5797,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5268,6 +5851,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5308,6 +5896,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5350,6 +5943,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5390,6 +5988,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5432,6 +6035,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5473,6 +6081,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5490,12 +6103,13 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Rashid Shaheed ruled out for Week 9",
-        "source": "Yahoo Sports",
-        "published": "2026-11-07",
-        "impact": "negative",
-        "summary": "Rashid Shaheed is dealing with an injury that could keep him out. Check his status before lineups lock.",
-        "link": "https://sports.yahoo.com/articles/rashid-shaheed-ruled-week-9-014806256.html"
+        "title": "Rashid Shaheed (knee) sits out again on Thursday",
+        "source": "NBC Sports",
+        "published": "2026-11-06",
+        "impact": "slightly_negative",
+        "summary": "Rashid Shaheed wasn't practicing (knee). That's a bad sign for this week: check the final injury report on Friday before you start him.",
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-05/rashid-shaheed-knee-sits-out-again-on-thursday",
+        "practice": "DNP"
       },
       "history": [
         {
@@ -5525,6 +6139,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5573,6 +6192,13 @@
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "OUT"
         }
       ]
     },
@@ -5615,6 +6241,13 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "OUT"
@@ -5671,6 +6304,13 @@
           "practice_status": "DNP",
           "game_status": "OUT",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "DNP",
+          "game_status": "OUT",
+          "status": "OUT"
         }
       ]
     },
@@ -5711,6 +6351,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5753,6 +6398,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5794,6 +6444,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "OUT"
         }
       ]
     },
@@ -5833,6 +6488,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "OUT"
         }
       ]
@@ -5874,6 +6534,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "DOUBTFUL"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "DOUBTFUL"
         }
       ]
@@ -5924,6 +6589,57 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "DOUBTFUL"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "DOUBTFUL"
+        }
+      ]
+    },
+    {
+      "player_id": "12889",
+      "gsis_id": null,
+      "full_name": "Beaux Collins",
+      "team": "ATL",
+      "position": "WR",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hip",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-03",
+          "day": "Tue",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-04",
+          "day": "Wed",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-05",
+          "day": "Thu",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-06",
+          "day": "Fri",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-07",
+          "day": "Sat",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -5940,14 +6656,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": "Sprain",
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Kyle Monangai (thumb/toe) Questionable vs. Bucs",
-        "source": "NBC Sports",
-        "published": "2026-11-07",
-        "impact": "slightly_negative",
-        "summary": "Kyle Monangai has an injury note (thumb). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/kyle-monangai-thumb-toe-returns-to-practice-friday"
-      },
       "history": [
         {
           "date": "2026-11-03",
@@ -5975,6 +6683,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -5992,13 +6705,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Deshaun Watson back at practice, Browns announce starting QB vs. Saints",
-        "source": "Saints Wire",
-        "published": "2026-11-06",
-        "impact": "positive",
-        "summary": "Positive health update for Deshaun Watson. He is trending toward playing.",
-        "link": "https://saintswire.usatoday.com/story/sports/nfl/saints/2026/11/06/browns-deshaun-watson-injury-shedeur-sanders-saints/92644965007/",
-        "practice": "FP"
+        "title": "Deshaun Watson Clears concussion protocol, questionable",
+        "source": "Fantasy Footballers Podcast",
+        "published": "2026-11-08",
+        "impact": "negative",
+        "summary": "Deshaun Watson is dealing with an injury (concussion) that could keep him out. Check his status before lineups lock.",
+        "link": "https://www.thefantasyfootballers.com/news/646422/deshaun-watson-clears-concussion-protocol-questionable/"
       },
       "history": [
         {
@@ -6024,6 +6736,13 @@
           "practice_status": "LP",
           "game_status": "QUESTIONABLE",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6041,12 +6760,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Cowboys WR George Pickens questionable for game vs. Colts",
+        "title": "Cowboys Elevate WR Jordan Hudson After George Pickens Injury News",
         "source": "Yahoo Sports",
         "published": "2026-11-07",
         "impact": "slightly_negative",
         "summary": "George Pickens has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/cowboys-wr-george-pickens-questionable-012436711.html"
+        "link": "https://sports.yahoo.com/articles/cowboys-elevate-wr-jordan-hudson-203527369.html"
       },
       "history": [
         {
@@ -6071,6 +6790,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6125,6 +6849,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6165,6 +6894,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6207,6 +6941,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6223,14 +6962,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Detroit Lions rule 5 out, Amon-Ra St. Brown questionable vs Dolphins",
-        "source": "Lions Wire",
-        "published": "2026-11-07",
-        "impact": "slightly_negative",
-        "summary": "Amon-Ra St. Brown has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://lionswire.usatoday.com/story/sports/nfl/lions/2026/11/06/detroit-lions-friday-injury-report-vs-miami-dolphins/92649873007/"
-      },
       "history": [
         {
           "date": "2026-11-03",
@@ -6257,6 +6988,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6274,15 +7010,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Jacob Saylors (neck) limited participant Wednesday",
-        "source": "FantasyPros",
-        "published": "2026-11-04",
-        "impact": "slightly_negative",
-        "summary": "Jacob Saylors has an injury note (neck). Monitor practice reports before kickoff.",
-        "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNalJTbWx4dTVpYlNiTDg5OG9nR1RkQ2dWbXB3Zzd1Z1l1MTBzLU5HdkZFMFVEMjNteF9XLUpsalBBVm8zT0pWSlRmcGEzTVVVUmh2cC1ObF92N2s0Z0J1ZGMwS09yc0VLR3hXcEJuMGp0c2czaXZaNEM4U1ItZnZoWTNWUGp1bjVEMzBic1VyaVZiaWx5bFBCWUxTdjHSAaIBQVVfeXFMTzlPRnF2d1FZLW10aWNuSVRmT0hWRXpJYm96OUtrUXZ4S0hwbVRXUHJyeExYNElxcHB2WXY2NVNYcGFNNExqbnNLTHFZM19JaDFYamRadWFDaU5Xd280VUlicGp6TmxfSmZLR0lVVWFKcjVtQ1VTazQxeGpUSTl1RlMxZ19MZ2tmQzVhVkVULVVrZVo3Nlp1TkRLMFVXRFl6TnVn?oc=5",
-        "practice": "LP"
-      },
       "history": [
         {
           "date": "2026-11-03",
@@ -6309,6 +7036,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6335,6 +7067,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6375,6 +7112,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6410,6 +7152,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6464,6 +7211,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6480,14 +7232,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Jordan Whittington (back) questionable for Week 9",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Jordan Whittington has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/jordan-whittington-back-questionable-for-week-9"
-      },
       "history": [
         {
           "date": "2026-11-04",
@@ -6507,6 +7251,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6554,6 +7303,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6589,6 +7343,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6645,6 +7404,13 @@
           "practice_status": "LP",
           "game_status": "QUESTIONABLE",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6690,6 +7456,13 @@
           "practice_status": "LP",
           "game_status": "QUESTIONABLE",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6731,6 +7504,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6767,6 +7545,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6797,6 +7580,11 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "status": "QUESTIONABLE"
         }
       ]
@@ -6840,6 +7628,13 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "LP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "LP",
           "game_status": "QUESTIONABLE",
           "status": "QUESTIONABLE"
@@ -6900,6 +7695,13 @@
           "practice_status": "FP",
           "practice_source": "news",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6941,6 +7743,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "QUESTIONABLE"
         }
       ]
     },
@@ -6981,6 +7788,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "status": ""
         }
@@ -7028,6 +7841,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7044,15 +7863,6 @@
       "status_note": null,
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Mark Andrews (hand) practices in full Monday",
-        "source": "NBC Sports",
-        "published": "2026-11-03",
-        "impact": "slightly_negative",
-        "summary": "Mark Andrews has an injury note (hand). Monitor practice reports before kickoff.",
-        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaHRKVGQ5SDFOck5IMFAyOG5JNG1VaFZWWXBoQkFTRTNyLTRuNXR0ZE1US0s0OW5WQ0ZhUWQzb1hrTlEycXVXY2hmSWlIQWd3UzdOZk02QlNjRUw3UzZvMWg5ZExWaTR4MU1NTVdzNDZiNWpyMEFJNVpDN0R2U05hcnNCNXBNYUtPZ29FNzljTzFxSkZRT1BCWmtlTVBLelZxbGNsU2VqMXdReER4?oc=5",
-        "practice": "FP"
-      },
       "history": [
         {
           "date": "2026-11-04",
@@ -7077,6 +7887,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7094,13 +7910,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "DJ Moore (shoulder) limited again on Friday",
-        "source": "NBC Sports",
+        "title": "DJ Moore not on Week 9 injury report",
+        "source": "Yahoo Sports",
         "published": "2026-11-07",
         "impact": "slightly_negative",
-        "summary": "DJ Moore has an injury note (shoulder). Monitor practice reports before kickoff.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/dj-moore-shoulder-limited-again-on-friday",
-        "practice": "LP"
+        "summary": "DJ Moore has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://sports.yahoo.com/articles/dj-moore-not-week-9-195548066.html"
       },
       "history": [
         {
@@ -7127,6 +7942,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "LP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "LP",
           "status": ""
         }
@@ -7160,6 +7981,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7196,6 +8023,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7230,6 +8063,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7246,6 +8085,14 @@
       "status_note": null,
       "notes": null,
       "injury_start_date": null,
+      "latest_news": {
+        "title": "Jakobi Meyers (hamstring/ankle) off injury report for Thursday",
+        "source": "FantasyPros",
+        "published": "2026-11-04",
+        "impact": "positive",
+        "summary": "Positive health update for Jakobi Meyers (hamstring). He is trending toward playing.",
+        "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdVpIUktHajBacmFlZFc5ZGlVM09fWHJPM3RWTENMOE0yb0ZSS1Jwemluc0haUVRHNlBpaFFYdml4M3FOLWl3OXlNMFBqVm9XTmxvUXoxY3pBVVlOQ1RLWmQ5TG5wNVRkTTRjSkd5X3RqamNKa3RhVUR2SFJ3TXlqNmZqVUZycW9hb2JHV0RKZHN3Y3pmRmVtQ1lYdGh1QkdpcmlSSzVn0gGrAUFVX3lxTE9GdldtTGVINnlkTlBhRGdpbDVrMy1NRXhsZkFyM2Y5dWVoVUpqS2FzV1MyQVhsUFgzWDdGTHN2dUViWFRneDgtRnR1S0JIMkV0Y2hORlBYZnVDRDc0djFnVWJvZU53dlRGWUtoZmpGS3ZMTFlmUHJwNGRZRG56bHktVmxHNmdnTUpuX05iQmVkelFDT1BpWDRRaF9SOEhFQjk3TGdhSEtTclJLVQ?oc=5"
+      },
       "history": [
         {
           "date": "2026-11-03",
@@ -7273,6 +8120,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "LP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "LP",
           "status": ""
         }
@@ -7317,6 +8170,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7334,12 +8193,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Travis Kelce’s Chances of Playing Week 9 Improve After Injury Report",
-        "source": "Heavy.com",
+        "title": "Chiefs give injury status updates for TE Travis Kelce, WR Rashee Rice",
+        "source": "Yahoo Sports",
         "published": "2026-11-06",
         "impact": "slightly_negative",
         "summary": "Travis Kelce has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://heavy.com/sports/nfl/kansas-city-chiefs/travis-kelce-upgraded-full-participant-practice/"
+        "link": "https://sports.yahoo.com/articles/chiefs-injury-status-updates-te-132516104.html"
       },
       "history": [
         {
@@ -7364,6 +8223,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7418,6 +8283,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7438,6 +8309,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "status": ""
         }
@@ -7479,6 +8356,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7496,12 +8379,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "No injury designation for Alvin Kamara for Week 9",
-        "source": "NBC Sports",
-        "published": "2026-11-06",
-        "impact": "positive",
-        "summary": "Positive health update for Alvin Kamara. He is trending toward playing.",
-        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-06/no-injury-designation-for-alvin-kamara-for-week-9"
+        "title": "Saints Star Alvin Kamara Gets Injury Update Before Browns Game",
+        "source": "Heavy.com",
+        "published": "2026-11-07",
+        "impact": "slightly_negative",
+        "summary": "Alvin Kamara has an injury note. Monitor practice reports before kickoff.",
+        "link": "https://heavy.com/sports/nfl/new-orleans-saints/alvin-kamara-injury-update-browns/"
       },
       "history": [
         {
@@ -7526,6 +8409,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7542,14 +8431,6 @@
       "status_note": null,
       "notes": null,
       "injury_start_date": null,
-      "latest_news": {
-        "title": "Dallas Goedert expected to play in Week 9",
-        "source": "Yahoo Sports",
-        "published": "2026-11-07",
-        "impact": "positive",
-        "summary": "Positive health update for Dallas Goedert. He is trending toward playing.",
-        "link": "https://sports.yahoo.com/articles/dallas-goedert-expected-play-week-004206819.html"
-      },
       "history": [
         {
           "date": "2026-11-05",
@@ -7566,6 +8447,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7585,13 +8472,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Jake Elliott Limited again Thursday",
+        "title": "Jake Elliott Will play Sunday",
         "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-06",
-        "impact": "slightly_negative",
-        "summary": "Jake Elliott has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://www.thefantasyfootballers.com/news/646156/jake-elliott-limited-again-thursday/",
-        "practice": "LP"
+        "published": "2026-11-07",
+        "impact": "positive",
+        "summary": "Positive health update for Jake Elliott. He is trending toward playing.",
+        "link": "https://www.thefantasyfootballers.com/news/646339/jake-elliott-will-play-sunday/"
       },
       "history": [
         {
@@ -7614,6 +8500,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7665,6 +8557,12 @@
           "day": "Sat",
           "practice_status": "LP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "LP",
+          "status": ""
         }
       ]
     },
@@ -7682,12 +8580,12 @@
       "notes": null,
       "injury_start_date": null,
       "latest_news": {
-        "title": "Seahawks QB Drew Lock Battling Elbow Injury Ahead of Cardinals Game: Report",
-        "source": "Heavy.com",
+        "title": "Pelissero: Drew Lock (elbow) has severe tendonitis",
+        "source": "NBC Sports",
         "published": "2026-11-07",
         "impact": "slightly_negative",
         "summary": "Drew Lock has an injury note (elbow). Monitor practice reports before kickoff.",
-        "link": "https://heavy.com/sports/nfl/seattle-seahawks/seahawks-drew-lock-severe-elbow-tendinitis/"
+        "link": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-07/pelissero-drew-lock-elbow-has-severe-tendonitis"
       },
       "history": [
         {
@@ -7714,6 +8612,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "LP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "LP",
           "status": ""
         }
@@ -7757,6 +8661,11 @@
           "date": "2026-11-07",
           "day": "Sat",
           "status": "DNR"
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "status": "DNR"
         }
       ]
     },
@@ -7775,11 +8684,11 @@
       "injury_start_date": null,
       "latest_news": {
         "title": "Christian McCaffrey Injury Update: 49ers RB’s Week 9 Status Revealed",
-        "source": "Yahoo Sports",
+        "source": "Last Word On Sports",
         "published": "2026-11-07",
         "impact": "slightly_negative",
         "summary": "Christian McCaffrey has an injury note. Monitor practice reports before kickoff.",
-        "link": "https://sports.yahoo.com/articles/christian-mccaffrey-injury-49ers-rb-124252089.html"
+        "link": "https://lastwordonsports.com/nfl/2026/11/07/christian-mccaffrey-injury-wk9/"
       },
       "history": [
         {
@@ -7807,6 +8716,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7843,6 +8758,12 @@
           "day": "Sat",
           "practice_status": "FP",
           "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
+          "practice_status": "FP",
+          "status": ""
         }
       ]
     },
@@ -7869,6 +8790,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "FP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "FP",
           "status": ""
         }
@@ -7903,6 +8830,12 @@
         {
           "date": "2026-11-07",
           "day": "Sat",
+          "practice_status": "DNP",
+          "status": ""
+        },
+        {
+          "date": "2026-11-08",
+          "day": "Sun",
           "practice_status": "DNP",
           "status": ""
         }
