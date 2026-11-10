@@ -1375,7 +1375,7 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
     }
   ],
   "13434": [
@@ -1426,6 +1426,8 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "practice_status": "LP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -1441,6 +1443,20 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "DNR"
+    }
+  ],
+  "7559": [
+    {
+      "date": "2026-11-10",
+      "day": "Tue",
+      "status": "OUT"
+    }
+  ],
+  "11623": [
+    {
+      "date": "2026-11-10",
+      "day": "Tue",
+      "status": "QUESTIONABLE"
     }
   ]
 }
