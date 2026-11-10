@@ -5,15 +5,11 @@
 
 PROJECTION_POSITIONS <- c("QB", "RB", "WR", "TE", "K", "DEF")
 
-# The projected stats worth showing on a player page (the rest of Sleeper's ~60 fields are
-# buckets, ADP and other things the app doesn't use).
-PROJECTION_STATS <- c(
-  "pass_att", "pass_cmp", "pass_yd", "pass_td", "pass_int",
-  "rush_att", "rush_yd", "rush_td",
-  "rec_tgt", "rec", "rec_yd", "rec_td",
-  "fgm", "fga", "xpm",
-  "def_sack", "def_int", "def_fum_rec", "def_td", "pts_allow"
-)
+# Fields that aren't stats (draft position, ranks, the PPR / half / standard totals Sleeper already
+# scored). Points-allowed buckets for defenses (pts_allow_7_13...) ARE stats and are kept.
+# Everything else is kept: the app scores the full stat line with each league's own settings
+# (yards, catches, FGs by distance, bonuses...), the way Sleeper's app shows projections.
+NOT_STATS_RX <- "^(adp_|pos_adp|pts_ppr$|pts_half_ppr$|pts_std$|rank|pos_rank|gp$|gs$|gms_active)"
 
 #' Sleeper's projections for one week. Tries the newer endpoint (with each player's team and
 #' opponent) and falls back to the classic /v1 one. `get_json(url)` returns parsed JSON or NULL.
@@ -38,9 +34,10 @@ slim_projections <- function(rows) {
     p <- r[["player"]] %||% list()  # [[ ]]: $ would partial-match "player_id"
     name <- trimws(paste(p$first_name %||% "", p$last_name %||% ""))
     stats <- list()
-    for (k in PROJECTION_STATS) {
+    for (k in names(s)) {
+      if (grepl(NOT_STATS_RX, k, perl = TRUE)) next
       v <- suppressWarnings(as.numeric(s[[k]] %||% NA))
-      if (!is.na(v) && v != 0) stats[[k]] <- round(v, 2)
+      if (length(v) == 1 && !is.na(v) && v != 0) stats[[k]] <- round(v, 2)
     }
     out[[as.character(r$player_id)]] <- Filter(Negate(is.null), list(
       name = if (nzchar(name)) name else NULL,

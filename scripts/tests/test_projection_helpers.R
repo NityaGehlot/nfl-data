@@ -29,8 +29,10 @@ check("players without projected points left out", sort(names(slim)), c("6130", 
 check("name", slim[["6130"]]$name, "Devin Singletary")
 check("opponent", slim[["6130"]]$opp, "WAS")
 check("ppr / half / std", c(slim[["6130"]]$ppr, slim[["6130"]]$half, slim[["6130"]]$std), c(8.2, 7.3, 6.4))
-check("only the stats worth showing", sort(names(slim[["6130"]]$stats)), c("rec", "rush_att", "rush_yd"))
+check("the full stat line minus ranks / ADP / pre-scored totals", sort(names(slim[["6130"]]$stats)), c("rec", "rec_0_4", "rush_att", "rush_yd"))
 check("defense stats", slim[["KC"]]$stats$def_sack, 2.4)
+dpts <- slim_projections(list(list(player_id = "NE", stats = list(pts_ppr = 7.6, pts_std = 7.6, pts_allow_14_20 = 1, sack = 2.5))))
+check("points-allowed buckets kept, pre-scored totals dropped", sort(names(dpts[["NE"]]$stats)), c("pts_allow_14_20", "sack"))
 
 # Classic /v1 fallback: { player_id: stats }.
 classic <- list("4046" = list(pts_ppr = 18.4, pts_half_ppr = 18.4, pts_std = 18.4, pass_yd = 251.3))
