@@ -3988,13 +3988,18 @@
     {
       "date": "2026-11-09",
       "day": "Mon",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "13402": [
     {
       "date": "2026-11-03",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
       "status": "OUT"
     }
   ],
@@ -4208,7 +4213,7 @@
     {
       "date": "2026-11-09",
       "day": "Mon",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "8917": [
@@ -4855,7 +4860,7 @@
     {
       "date": "2026-11-09",
       "day": "Mon",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "12775": [
@@ -5863,6 +5868,11 @@
       "practice_status": "LP",
       "practice_source": "news",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "OUT"
     }
   ],
   "8112": [
@@ -7086,6 +7096,11 @@
       "date": "2026-11-08",
       "day": "Sun",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
     }
   ],
   "12498": [
@@ -7969,7 +7984,7 @@
     {
       "date": "2026-11-09",
       "day": "Mon",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "5850": [
@@ -7981,7 +7996,7 @@
     {
       "date": "2026-11-09",
       "day": "Mon",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "4054": [
@@ -8056,6 +8071,34 @@
     }
   ],
   "8161": [
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "6011": [
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "7090": [
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8210": [
+    {
+      "date": "2026-11-09",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11942": [
     {
       "date": "2026-11-09",
       "day": "Mon",
