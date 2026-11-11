@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-10T21:27:56Z",
+  "generated_at": "2026-11-11T01:31:04Z",
   "season": 2026,
   "week": 10,
   "season_type": "regular",
   "players": [
+    {
+      "player_id": "6011",
+      "gsis_id": "00-0035289",
+      "full_name": "Gardner Minshew II",
+      "team": "ARI",
+      "position": "QB",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Elbow",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
     {
       "player_id": "7535",
       "gsis_id": null,
@@ -101,6 +122,35 @@
       "status_note": null,
       "notes": "Fracture",
       "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
+      "player_id": "10232",
+      "gsis_id": null,
+      "full_name": "Michael Wilson",
+      "team": "ARI",
+      "position": "WR",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Neck",
+      "status_note": null,
+      "notes": "Fracture",
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Sources: Cardinals' Gardner Minshew has UCL injury; Michael Wilson out for year",
+        "source": "ESPN",
+        "published": "2026-11-10",
+        "impact": "negative",
+        "summary": "Concerning news about Michael Wilson's role or production.",
+        "link": "https://www.espn.com/nfl/story/_/id/50435608/cardinals-wr-michael-wilson-neck-miss-rest-season"
+      },
       "history": [
         {
           "date": "2026-11-10",
@@ -1181,6 +1231,35 @@
       ]
     },
     {
+      "player_id": "11623",
+      "gsis_id": null,
+      "full_name": "Jordan Whittington",
+      "team": "LAR",
+      "position": "WR",
+      "status": "IR",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Back",
+      "status_note": null,
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Jordan Whittington Could require IR stint",
+        "source": "Fantasy Footballers Podcast",
+        "published": "2026-11-10",
+        "impact": "negative",
+        "summary": "Jordan Whittington is dealing with an injury that could keep him out. Check his status before lineups lock.",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNV3FOQlFWbEloeTZjNHFwQ3FEMGhhVkxodHhKWG9pTHpLaFhIdU9ha1RoRjRER0gyY2RYUjhWWV8yT2s3VWZKSndSb3piTzFmS3JfTUVsemxCUzF1UlhhMWlfTXJoLWdLQ2p0TW9hX01xcE9NVU4tR1c2TVFwZUE1aXFlb0YycG5HdVZWeEN2cE9WbGlnOFlF?oc=5"
+      },
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "IR"
+        }
+      ]
+    },
+    {
       "player_id": "13597",
       "gsis_id": null,
       "full_name": "Matthew Caldwell",
@@ -2209,35 +2288,6 @@
       "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
       "notes": null,
       "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-10",
-          "day": "Tue",
-          "status": "OUT"
-        }
-      ]
-    },
-    {
-      "player_id": "10232",
-      "gsis_id": null,
-      "full_name": "Michael Wilson",
-      "team": "ARI",
-      "position": "WR",
-      "status": "OUT",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Neck",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": "Fracture",
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Sources: Cardinals' Gardner Minshew has UCL injury; Michael Wilson out for year",
-        "source": "ESPN",
-        "published": "2026-11-10",
-        "impact": "negative",
-        "summary": "Concerning news about Michael Wilson's role or production.",
-        "link": "https://www.espn.com/nfl/story/_/id/50435608/cardinals-wr-michael-wilson-neck-miss-rest-season"
-      },
       "history": [
         {
           "date": "2026-11-10",
@@ -3532,6 +3582,27 @@
       ]
     },
     {
+      "player_id": "8583",
+      "gsis_id": null,
+      "full_name": "Stone Smartt",
+      "team": "NO",
+      "position": "TE",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Undisclosed",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "7538",
       "gsis_id": null,
       "full_name": "Zach Wilson",
@@ -4047,27 +4118,6 @@
       ]
     },
     {
-      "player_id": "6011",
-      "gsis_id": "00-0035289",
-      "full_name": "Gardner Minshew II",
-      "team": "ARI",
-      "position": "QB",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Elbow",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-10",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
       "player_id": "6271",
       "gsis_id": "00-0035208",
       "full_name": "Olamide Zaccheaus",
@@ -4287,35 +4337,6 @@
         "impact": "slightly_negative",
         "summary": "Ladd McConkey has an injury note. Monitor practice reports before kickoff.",
         "link": "https://sports.yahoo.com/articles/injury-kept-ladd-mcconkey-sunday-170000102.html"
-      },
-      "history": [
-        {
-          "date": "2026-11-10",
-          "day": "Tue",
-          "status": "QUESTIONABLE"
-        }
-      ]
-    },
-    {
-      "player_id": "11623",
-      "gsis_id": null,
-      "full_name": "Jordan Whittington",
-      "team": "LAR",
-      "position": "WR",
-      "status": "QUESTIONABLE",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Back",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Jordan Whittington Could require IR stint",
-        "source": "Fantasy Footballers Podcast",
-        "published": "2026-11-10",
-        "impact": "negative",
-        "summary": "Jordan Whittington is dealing with an injury that could keep him out. Check his status before lineups lock.",
-        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNV3FOQlFWbEloeTZjNHFwQ3FEMGhhVkxodHhKWG9pTHpLaFhIdU9ha1RoRjRER0gyY2RYUjhWWV8yT2s3VWZKSndSb3piTzFmS3JfTUVsemxCUzF1UlhhMWlfTXJoLWdLQ2p0TW9hX01xcE9NVU4tR1c2TVFwZUE1aXFlb0YycG5HdVZWeEN2cE9WbGlnOFlF?oc=5"
       },
       "history": [
         {

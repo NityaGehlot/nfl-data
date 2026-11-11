@@ -731,7 +731,7 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "8122": [
@@ -1298,7 +1298,7 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
     }
   ],
   "6271": [
@@ -1456,7 +1456,14 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
-      "status": "QUESTIONABLE"
+      "status": "IR"
+    }
+  ],
+  "8583": [
+    {
+      "date": "2026-11-10",
+      "day": "Tue",
+      "status": "OUT"
     }
   ]
 }
