@@ -3385,7 +3385,7 @@
       "day": "Sat",
       "practice_status": "FP",
       "game_status": "QUESTIONABLE",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "11588": [
@@ -3470,7 +3470,7 @@
     {
       "date": "2026-11-14",
       "day": "Sat",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13554": [
@@ -4395,7 +4395,7 @@
       "day": "Sat",
       "practice_status": "DNP",
       "game_status": "OUT",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "4046": [
@@ -5596,7 +5596,7 @@
     {
       "date": "2026-11-14",
       "day": "Sat",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "9756": [
@@ -5617,6 +5617,13 @@
       "day": "Fri",
       "status": "QUESTIONABLE"
     },
+    {
+      "date": "2026-11-14",
+      "day": "Sat",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "7600": [
     {
       "date": "2026-11-14",
       "day": "Sat",
