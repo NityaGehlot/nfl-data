@@ -1,17 +1,5 @@
 [
   {
-    "title": "Cowboys giving Brandon Aubrey 'benefit of the doubt' amid uncharacteristic struggles",
-    "source": "Dallas News",
-    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPYVFJRHlyYzNKeE05Y2VwV0l2VzgtLWdTaDlqRElaMDZMTldMMlNFR1ViVTdYVUpCNVR1V195NmoxZkppb1NoMFFiaFd5SlJfTElJLWlUbjVHUnVyclpZWXA2SV9nYktveEdtUkk1VFNTRmp5ZXhFc24yV0RIZnp2d0xpRVFRSV9CZF9WTnJ4eW5Jc2VGOGNDS0pmRlpoZHpUR29tTXhjQm1oZw?oc=5",
-    "published": "2026-11-13",
-    "player": "Brandon Aubrey",
-    "impact": "slightly_negative",
-    "category": "performance",
-    "summary": "Concerning news about Brandon Aubrey's role or production.",
-    "url": "https://www.dallasnews.com/sports/cowboys/article/cowboys-brandon-aubrey-field-goal-struggles-22527239.php",
-    "image_tries": 1
-  },
-  {
     "title": "The Cowboys have a serious problem with Brandon Aubrey: What is it?",
     "source": "MARCA",
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQzdCdEVnTE5QRmFIRjFoMU1zSUxiNzdwVWVvVHljT1ZQOFE0RVlTdjVKX25hOVpIU3V5YktPLWllb00yLVRlS05xVS1IYkxsbEJ6U0pfM1V1MjBoU2xRU2hPVHdEMEg5VG5ldm1XcDZERW1aajhlWU9ZbjVsVVBJSWJOTzN4OG1wcFJLd2ZjbjkwLVZlbzJCQkZva3N4Z01Dc0FJQzRUR3M1c2k1RFhfblVXekplU095cVluVTZ4MjA?oc=5",
@@ -24,6 +12,18 @@
     "image": "https://e00-xlk-ue-marca-en.uecdn.es/files/article_main_microformat/uploads/2026/04/28/17767244749960.jpeg"
   },
   {
+    "title": "Cowboys giving Brandon Aubrey 'benefit of the doubt' amid uncharacteristic struggles",
+    "source": "Dallas News",
+    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPYVFJRHlyYzNKeE05Y2VwV0l2VzgtLWdTaDlqRElaMDZMTldMMlNFR1ViVTdYVUpCNVR1V195NmoxZkppb1NoMFFiaFd5SlJfTElJLWlUbjVHUnVyclpZWXA2SV9nYktveEdtUkk1VFNTRmp5ZXhFc24yV0RIZnp2d0xpRVFRSV9CZF9WTnJ4eW5Jc2VGOGNDS0pmRlpoZHpUR29tTXhjQm1oZw?oc=5",
+    "published": "2026-11-13",
+    "player": "Brandon Aubrey",
+    "impact": "slightly_negative",
+    "category": "performance",
+    "summary": "Concerning news about Brandon Aubrey's role or production.",
+    "url": "https://www.dallasnews.com/sports/cowboys/article/cowboys-brandon-aubrey-field-goal-struggles-22527239.php",
+    "image_tries": 2
+  },
+  {
     "title": "Week 10 Fantasy Football Kicker Rankings: Brandon Aubrey Leads The Way",
     "source": "Sports Illustrated",
     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZkhRRkVNeHVSc0k2SGVic3lKNTNJcHFvMXNlaHRHX0s3anRSZVBqTjZoanIxX09PQ2ZGX3QtX2tpQWpSNF9zZkRvTHZPb0x3U0dTSERWM3pCcGdlcXNGNy1CZERET1lqM1V4bGZ4MV9Dajd0am1TSUs3bHlYN18wMS1WX1psZjUtYjBFZjExV1JyMmp0allIYUpFcXFRRW42VktBb19GZDdtVml1bzcw?oc=5",
@@ -34,16 +34,28 @@
     "summary": "Fantasy advice article that mentions Brandon Aubrey."
   },
   {
-    "title": "Chiefs STs coordinator Dave Toub: We’re confident Harrison Butker will come through it",
-    "source": "NBC Sports",
-    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNQjJJUzBkLXo2NUR4VnVaZjJxaC03QVFMeFlTRFVXYlhrWXNjSHpfd1pTdDEySG1tZHRLbzFwVlp1WXJzRm12QzlvejJDTGY4dzdDd3ZidFhBVVpMVHQ3S3loU2RMYmhuT1liNVdDRTNaaDVJSURiTFFWTmdaaW9oMHdUUVdzQy1RVW1oYThCeEY3bUxScjV0VnFCajJvSnBmNmozZFpMa2g0Q1c3OE9DTUdZdlE0OVNHLXNHOXgxdGxLVW14X0ZPWHlZV3gyRjhXTWE2RzZLMUNaUVk3Y3NR?oc=5",
+    "title": "Harrison Butker Week 10 Outlook for Fantasy Football (2026)",
+    "source": "RotoBaller",
+    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQb2FVSFBncHVsNmpiM3lESVJlQmthUkFXYUNwTFpIS1dhZmw3MHp5NFRhV1o1SmNzZGkxT195d3RmUXlMMjE3RkFKODBLbTlqVzl4bFBHblowOEFDMFNQLVF5dG9mVnBRbFlMandKMEhIN2NlbF90T2ZabENtYkZoNTVQOHNDVTZlUFhnbkFwd2x0d2tRVmFJd3QwR1JkeGNSdXc?oc=5",
+    "published": "2026-11-13",
+    "player": "Harrison Butker",
+    "impact": "neutral",
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Harrison Butker.",
+    "url": "https://www.rotoballer.com/player-news/harrison-butker-may-not-be-a-viable-option-in-week-10/1992949",
+    "image": "https://www.rotoballer.com/wp-content/uploads/2022/01/harrison-butker-fantasy-football-rankings-kickers-streamers-NFL-news-icon-rotoballer-1220x795.jpeg"
+  },
+  {
+    "title": "Is Andy Reid right to give Harrison Butker another chance for Chiefs?",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOUVVkSzNDVjBnYVlSY1RoQy1LTm40b1AyanRHQ2FPeTlTdGI4bnI0c1RVWmdRWG1HWGl6b1VsbVVoclE3M3J5Ry0ySzVSN3FSclA2Z0hJNEt5VVpLUzlJZ0tKZGVrR1FaVWViN1d2bE12WGdfTGtjLWM2RnJEMXZMdE1RaUxiWFptZUE?oc=5",
     "published": "2026-11-13",
     "player": "Harrison Butker",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Harrison Butker.",
-    "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/chiefs-sts-coordinator-dave-toub-were-confident-harrison-butker-will-come-through-it",
-    "image": "https://nbcsports.brightspotcdn.com/dims4/default/5230dc2/2147483647/strip/true/crop/5594x3147+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F9b%2F59%2F8d44473c4e36a6e447339670205c%2F2304478069.jpg"
+    "url": "https://sports.yahoo.com/articles/andy-reid-harrison-butker-another-151500233.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/21a5ed82a915bc6802e7f5a3f199c8c416389087b49e22884761a44c8a30dc28/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2F17847032d4d79c2fcbcbb5b487fc2ea2.jpg"
   },
   {
     "title": "Chiefs Keep Harrison Butker Over Justin Tucker For Falcons Game Despite Kicking Struggles",
@@ -55,19 +67,7 @@
     "category": "performance",
     "summary": "Concerning news about Harrison Butker's role or production.",
     "url": "https://sports.ndtv.com/us/nfl/chiefs-keep-harrison-butker-over-justin-tucker-for-falcons-game-despite-kicking-struggles-12320842",
-    "image_tries": 1
-  },
-  {
-    "title": "Here is a closer look at Chiefs kicker Harrison Butker’s contract details",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxORmlTV3BPVWoyZTgyQ0hUQi1lY0xaeldneUhZLS1EdWEzMGJTcTNqNXd6Y1hCUmpqOWVuczc2TmwwVFdRbERIS0lzNWJwR25HY3FtZVFwQkV4QnRVeHN5NjEyZkVXNVM3QkdwNWo1Y0kzckhIMm9lTENRX0hlZFdlejdYWXdTWGRnOHpj?oc=5",
-    "published": "2026-11-12",
-    "player": "Harrison Butker",
-    "impact": "roster_move",
-    "category": "transaction",
-    "summary": "Roster move involving Harrison Butker. His role and fantasy value could change with it.",
-    "url": "https://sports.yahoo.com/articles/closer-look-chiefs-kicker-harrison-173403905.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/e92e3b77cd54769ddab0c61e11d8326f7660bc23cafb4fcc5594f4d0d703afcb/lightyear_networkapi/resizefill_w1140_h761%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fkansas_city_star_mcclatchy_articles_677%2F6864d67bd20f3896c58efb5dec1dcd03.jpg"
+    "image_tries": 2
   },
   {
     "title": "Ryan Fitzgerald gives Panthers an NFL-leading edge with one flaw to fix",
@@ -80,20 +80,20 @@
     "summary": "General news mentioning Ryan Fitzgerald."
   },
   {
-    "title": "Carolina Panthers kicker Ryan Fitzgerald's 47-yard field goal opens scoring in Philly",
-    "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMVZVYWJsa1VjalY1MHdQWkVHTklyRS1mNm5xRmxYdThkVWxBTmZlZDdoUW5qQlFZY0VEcldHMmkwc3p1dEVSMEJZVUZhRjYxbXVPdmJRVE9WbUpHMm5jREEwXy1SYm1DZ3kyMWhGQ19FV2ZlS0F3eEZWQTBRbjl1RExWdnQxUQ?oc=5",
-    "published": "2026-10-18",
+    "title": "Panthers K Ryan Fitzgerald Hasn't Missed a Field Goal — So Explain This",
+    "source": "Sports Illustrated",
+    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQNWl0cW9oeFhzcjBEMVgtNEF0ei03WU40N0dqS3M1Si1ESktDR2tMSll4VFRkZ0Q3cTJsMF9zX3hLNmVkZHZ6WW1vVHY5V1g1Ti1oUUFwa012Z3FnalBNbklPbTg1LTl3dTFlWmNrXzNfWnl1MHFHSDdfS0RwWC1UVU1IeFdQMnRsQkhBUVFuTWVCcF9QY0ZIcWdwZU9YbkRhd0E?oc=5",
+    "published": "2026-10-12",
     "player": "Ryan Fitzgerald",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Ryan Fitzgerald."
   },
   {
-    "title": "Panthers K Ryan Fitzgerald Hasn't Missed a Field Goal — So Explain This",
-    "source": "Sports Illustrated",
-    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQNWl0cW9oeFhzcjBEMVgtNEF0ei03WU40N0dqS3M1Si1ESktDR2tMSll4VFRkZ0Q3cTJsMF9zX3hLNmVkZHZ6WW1vVHY5V1g1Ti1oUUFwa012Z3FnalBNbklPbTg1LTl3dTFlWmNrXzNfWnl1MHFHSDdfS0RwWC1UVU1IeFdQMnRsQkhBUVFuTWVCcF9QY0ZIcWdwZU9YbkRhd0E?oc=5",
-    "published": "2026-10-12",
+    "title": "Why Ryan Fitzgerald is Panthers’ Kicker Amid Missed Extra Points",
+    "source": "Heavy.com",
+    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNY3JNMXIycDhYZEtMSmhoNUdpanNHTUN1cjJ0RXA1OTZ3Y2tuVEFiSTNXQkROMWNkUFZlU1l0QWI5aUxIc1VjM0Z5UVpNUEhyb0piNFRmOGdCRE51NEFCaWd4UFRlVzRjUEpQWnFmWFQ5WUVZMlhEVVFrUkJ4LXJXZlBNVDZtbUZaODUtOF9CVnhqQUgxMUh5YWhTZU5sQ2VGOW12aFpn?oc=5",
+    "published": "2026-10-04",
     "player": "Ryan Fitzgerald",
     "impact": "neutral",
     "category": "general",
@@ -143,10 +143,10 @@
     "video": true
   },
   {
-    "title": "Matt Gay's 48-yard FG gives Raiders a 13-10 lead over Chiefs before halftime",
+    "title": "Las Vegas Raiders kicker Matt Gay nails 59-yard FG attempt before the first half vs. Chargers comes to an end",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUmhmbFl0LWNNMHBIYmYtVHpkekhxcndLenliNEtUWHZvblN6VEhOajFYemFKYXplazRxcjlMN21YNFhNREVVdDZYbk9seEt3N3E1c05GcFdEcmFqMDBfOGVOTFRWRnlKRlgtUEx6c19iaDBLSjhGUElrcEp5V1pxdWRKOXliSC1vRTk3b3NPNlNkN0JheEVpRkdtRHJackoyUlBYN2xB?oc=5",
-    "published": "2026-10-04",
+    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZWlYaUJjbDBPZUdPMHJ0LVB5NUtuWllMYVJ6NUhRbENfRXZZR0o1MU9iV1R5Qms3SkxLRzlyUnJBTEpyajNUNWJRSHNNdzAzN0Yya0pIMV9HWlpGM29DRjdTUWd5STU1RU5ubUJtbUFwZ2RsNWNtQVpnaU1kbFdqandPemY0RFlBV2hHRi1WaWJlZHg1cXBZVTZKaHIzSnBseE9DX0xjakFLZjIxcGVF?oc=5",
+    "published": "2026-09-20",
     "player": "Matt Gay",
     "impact": "neutral",
     "category": "general",
@@ -165,26 +165,28 @@
     "image": "https://nbcsports.brightspotcdn.com/dims4/default/e5ec966/2147483647/strip/true/crop/5870x3302+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F5e%2F24%2Faecbeaf8493bbfdce2f6b5a6dfe5%2F2304859933.jpg"
   },
   {
-    "title": "Giants remain confident in Dominic Zvada amid struggles, don't plan on working out new kickers",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYWY0OUdINk9zYTFUeGJ3dk93MDZiOVZ6UFBkNWQ4MlN6VEZudy1VdWsyLUZiY3FtZWNrTjE2THhkalhYSFRhcng2cmJ1dWd4NDJNTTVvQ2g4OW14dENjWVNYN2I0ak02Sll5ODdzRVlPeTBRUUx2M3ZEbGo0Zm1GWWVBNjlHYVFES2pHZ0hkRQ?oc=5",
-    "published": "2026-10-26",
+    "title": "John Harbaugh defends NY Giants rookie kicker Dominic Zvada after Week 10 struggles vs Commanders",
+    "source": "Bolavip US",
+    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQVXM1bk05X3U0YUpyUFJXSnpEQnRWd1p5eXFnZnJ0NWN2UENVWFRWekozYzI4X3NjRzRyTlJlNUIzb3pESWFha2lXbkNDOURFZVViZWtWc0JDYndRYmkxSkgxbmp3dndCMUg2MDd2eTBDcFFldV9Kay11aDlnYUgxMFl5eG1JbWVQSkd3cm5sRGxfQVdDZ1ZXRjRfN2hCdTd5M29meDJybk1uN2xFQ2VPcDVRZ2tZWDh0UXl6RFh0Nm1XUdIBxwFBVV95cUxPeVVxcFV3UWV0OTVTX2pqU3JKdmpJVVhXWHk3TENMQVEwRmdoX0p4Wm5oOFJra1V3ck84U3RvMWU0ZFRwaGp5QlVyRG5EemJONDdtdTQxT21fell1bUY3Y2ZGeFdkbTZmYmxrenlPWTkyYmI1Q2dmR1dzZFBOdDA3bFRSMkhWNDVpUEtJMlBLU2N5dVVjcncyQ0RKNVNuZzJ4Snl3YVZTRWlncnJiTWRLUFhuZkctd0lBcmlPOEdCVk12RU5lMElz?oc=5",
+    "published": "2026-11-13",
     "player": "Dominic Zvada",
     "impact": "slightly_negative",
     "category": "performance",
-    "summary": "Concerning news about Dominic Zvada's role or production."
+    "summary": "Concerning news about Dominic Zvada's role or production.",
+    "url": "https://bolavip.com/en/nfl/john-harbaugh-defends-ny-giants-rookie-kicker-dominic-zvada-after-week-10-struggles-vs-commanders",
+    "image": "https://media.bolavip.com/wp-content/uploads/sites/10/2026/11/04145512/john-harbaugh-preseason-1200x740.webp"
   },
   {
-    "title": "John Harbaugh stands by Dominic Zvada after rookie costs Giants another game",
-    "source": "Giants Wire",
-    "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOcGRob1BiVjBLTFcwSDJDU01Sdlh0dUFMcGkxV3VzakhwcmJKaEVpQThUMlYtZ1Bpbnc2WXoyTmtMdmVCODZ6ZTFZeUQ4WWU3VGk1djUzSTR2OUVBOEhWb0JTSjJ1RlZNazVTUzdFajk2SlNsMzhaYjdodTFrYjlVNXNvZTlyVEJuaVUtX1h3eWU2eFB5dWdxU01ybGZIakhMa3lvdmRZbldRaHdPOFZ1OVdkdHE4RjB4c1MyNDZNOGJ2TE9TMTBNeV81dHNFQm9sLWpFRUYyQ2JnUmd0RXJ6Q3lPV1VlU2FzWWd0QQ?oc=5",
+    "title": "Dominic Zvada still looking for consistency after another Giants blunder",
+    "source": "New York Post",
+    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOOExNWjNNd0NzWU9nNEhtUjJ5Yk9BanU3RmdiQlhaQnAzeGlLVk4xQlEtaWExY3dWTFVuQXEwQ0p4ZWh3ZXZmVWp4Vm96U0RxQW92REZQTEU1YUJlV3BBTmRpZFU3ejNnNHV5LTRtNXVlT0Z4TGtNRFJrWjdHU201elQ4bkVVaThIUkctUF91SFlFd2ppNmZ2OQ?oc=5",
     "published": "2026-11-13",
     "player": "Dominic Zvada",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Dominic Zvada.",
-    "url": "https://giantswire.usatoday.com/story/sports/nfl/giants/2026/11/13/john-harbaugh-stands-by-dominic-zvada-after-rookie-costs-giants-another-game/92755506007/",
-    "image_tries": 1
+    "url": "https://nypost.com/2026/11/13/sports/dominic-zvada-still-looking-for-consistency-with-giants/",
+    "image": "https://nypost.com/wp-content/uploads/sites/2/2026/11/newspress-collage-ofkazlcjh-1794546218362.jpg?quality=75&#038;strip=all&#038;1794528295&#038;w=1200"
   },
   {
     "title": "Cameron Dicker Highlight: 40-Yard Field Goal",
@@ -195,6 +197,18 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Cameron Dicker."
+  },
+  {
+    "title": "Evan McPherson Week 10 Outlook for Fantasy Football (2026)",
+    "source": "RotoBaller",
+    "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSmNzMGpfQlBPSUp2VE8tQ2N4WTlnSWVhWWdGUTlRNGFtY2ttc1MxdFN0b0xlS0l2MGh4YVUwbm5JWjJnaExYd25uX1FXWFktejhVdE5Fa0JpTXZSNWhXdEFIenhTTi1kcnhVNHFrTEhiNHBFU0ZxVFJIUXVfRVExRWkxVjh1MnNPTjRjSGdEZUVteDIyNlZz?oc=5",
+    "published": "2026-11-13",
+    "player": "Evan McPherson",
+    "impact": "neutral",
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Evan McPherson.",
+    "url": "https://www.rotoballer.com/player-news/evan-mcpherson-could-extend-streak-in-week-10/1992988",
+    "image": "https://www.rotoballer.com/wp-content/uploads/2022/11/Evan-McPherson-Fantasy-Football-Rankings-Kicker-Streamers-Waiver-Wire-Pickups-icon-rotoballer-1220x834.jpeg"
   },
   {
     "title": "Evan McPherson's 57-yard field goal boosts Bengals' lead to 24-10 in Madrid",
@@ -220,28 +234,6 @@
     "summary": "General news mentioning Evan McPherson."
   },
   {
-    "title": "Evan McPherson Beats Out Top NFL Talents For First Weekly Award of 2026 Season",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNQWhvaTl2bDlmVTB5Y0lRZEJnMnpSNG5rUWwtRUtTWE1JblVpMkROSGhEQ0V0MUJFbmRBb281YlNubTRWSmdxUUlTM01zZzItemlzLUJFc21NNDB0MDBQc1pCOXpiSGpZXzY5M0ZQdUZ6c2xXLTNLN1BFQ3NxZUNlMnZlOA?oc=5",
-    "published": "2026-09-16",
-    "player": "Evan McPherson",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Evan McPherson."
-  },
-  {
-    "title": "Falcons replace Nick Folk with Jake Moody; Corey Levin takes over at center",
-    "source": "Howl.Link",
-    "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE9ydElXVUVEREhROVBmYmR5a0xNOUFIZWdWV3J5RjBGRHZEc2dDR2JiNWpaZjEtWUpybTRj?oc=5",
-    "published": "2026-11-13",
-    "player": "Jake Moody",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Jake Moody.",
-    "url": "https://t.co/hcsPq0eBpk",
-    "image_tries": 3
-  },
-  {
     "title": "Report: Ravens Sign Two Kickers Following Loss Of Jake Moody",
     "source": "Sports Illustrated",
     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNW9iek5UZzZtNVFQS0pQaHJDbkNhRmRQTTB0Y0t6TXNybWJCYV9fMWJKaEk4YThPVzVWVHgzRjJib0FWTUpENFo3UW13VzEyQ0hQaDk1aUpGOE1PaDNLTUQ1MWUwY2Nxb2NEeTduNWxQSlRQQVE0OXozdFdiSUl3Wi1Dd1FweFY1WHktc1pOd2pfdWlLd3hPVmNBV2ViNUpZajQtMTBIRWkxRjA?oc=5",
@@ -252,6 +244,16 @@
     "summary": "Roster move involving Jake Moody. His role and fantasy value could change with it.",
     "url": "https://www.si.com/nfl/ravens/onsi/report-ravens-sign-two-kickers-following-loss-of-jake-moody-01m77cpcwpb6",
     "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_373,w_6618,h_3722/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/raven_country/01m77d280jyf9r9jveq2.jpg"
+  },
+  {
+    "title": "Report: After losing Jake Moody, Ravens sign K Riley Patterson",
+    "source": "National Football Post",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMHg0emlzeFV3aW50NzBMOGw0TC0wVTJFOXZ0cnJxa1JLbURlZW84U21XenNWTW44ekhPUENVVjVqeU5IamhpSjY1eXp2UUlQcElzT1BmX3pwMTRYQUdnQWJUYkhWMFRUY3k3NXRCamFKZFF3WTRGZnFuVHd2N3ZHRGkweHViT0lBXzViVmhkQUxKaDBjYU56RUZ2WEtOY0N4TExmX0c2LUZHNERn?oc=5",
+    "published": "2026-11-12",
+    "player": "Jake Moody",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jake Moody."
   },
   {
     "title": "Ravens lose Jake Moody to Falcons with Tyler Loop on injured reserve",
@@ -275,23 +277,23 @@
     "category": "general",
     "summary": "General news mentioning Chase McLaughlin.",
     "url": "https://athlonsports.com/nfl/chase-mclaughlin-pff-midseason-all-pro-buccaneers-kicker",
-    "image_tries": 1
+    "image_tries": 2
+  },
+  {
+    "title": "Bucs add K Chase McLaughlin to their injury report",
+    "source": "Yahoo Sports",
+    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPQlhOQW5uYWR3aTZHR01uZnk3Z1pfcXRueWhtM3EtSXRSb0IzT09kdG9IZUk4YmdWaW9fVGQ0S3ZnbWgxVDhLaW0wdzdTQkJkNVFWMFBnQ3h0WDNLWGJ3T29mRGVtMUtxSkZTSWxJLWZfWXVfWFFHMkxlUWFqZ0M4LWRB?oc=5",
+    "published": "2026-10-06",
+    "player": "Chase McLaughlin",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Chase McLaughlin has an injury note. Monitor practice reports before kickoff."
   },
   {
     "title": "Chase McLaughlin named NFC Special Teams Player of the Month",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOYWt6ZkoyN0tFdFBKajdRSlphbmlYenNxRHJtdGJWSXlqRjJQTENfc0x2V3BCNmJWTGtHM2RnMjBUdXpaVGtPanhGcGI0RUtUdEk1R3drTkplSHdjQ1hKcnpPUXZaM3B5Z1pRbGFPaWhzRF9qbkRTa1R6eGU3Tmo3UW5HVElSdzJ5THBv?oc=5",
     "published": "2026-11-06",
-    "player": "Chase McLaughlin",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Chase McLaughlin."
-  },
-  {
-    "title": "Buccaneers have the NFL’s best kicker in Chase McLaughlin",
-    "source": "The Pewter Plank",
-    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5pQXM4WERfZTJSdDczMFduZGFmc0hWTW9vanNaMWE2ZXhtS3NOMElvZWNzUUxlbUNFMUVjd2s1TzJmb0NJVDF3VVpkVVFlRWhrdUVJYzNfMjdNbDJSanBBUTUtZlc0RmpyUU9na2dVTmdaQWhOQmhZZHdB?oc=5",
-    "published": "2026-11-03",
     "player": "Chase McLaughlin",
     "impact": "neutral",
     "category": "general",
@@ -326,16 +328,6 @@
     "impact": "positive",
     "category": "performance",
     "summary": "Good news for Andre Szmyt: a strong performance or bigger role."
-  },
-  {
-    "title": "Jake Elliott (ankle) limited again on Thursday",
-    "source": "NBC Sports",
-    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOTkR6VWpPdlFoSDVfNThaZUJmNzVZVVN2LUdFbk43Y3h3RnBoWDlGdEE5STR4M3AzYlMyYW5hMGxxVWdKRmdEUWUxdC1oR0NqSDRnRUQ5VThrcjBBcEpvVHZoc19vSVRQQTVxdDBPUGN1T2JYNHJUM2pVc2syNmYyMktQQ1QwclE2aEpBajVQWl9zeTI2WFJ6YkxRX0ZqVHQ4RE5RazJGb3NqemNPYVRF?oc=5",
-    "published": "2026-11-05",
-    "player": "Jake Elliott",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Jake Elliott has an injury note (ankle). Monitor practice reports before kickoff."
   },
   {
     "title": "Jake Elliott's 40-yard FG opens the scoring in Eagles-Commanders on 'SNF'",
@@ -413,16 +405,6 @@
     "summary": "General news mentioning Jason Sanders."
   },
   {
-    "title": "Will Reichard Supplies Minnesota's points in Week 9 loss",
-    "source": "Fantasy Footballers Podcast",
-    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPMk1qT0h4NW5PQ3U2X1lzYVlyOHdrS1hQcmNXdWU0aUxHZXBSMnhkUnpveG1IZk55ald2aXR0MFJmeGN6U1F5Nnhhbi1EZmVmQWk0eU5FVFNVRnpYTnZXQ0JOTFlONklkay1acS1ILWk1Smk1dUM0cVE3UjFhOFhUb3NqUTctdU9sc29SOFViRHZEUnc0aE03dzAzaElwWmdOc3NRc2V6VzVRUQ?oc=5",
-    "published": "2026-11-11",
-    "player": "Will Reichard",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Will Reichard."
-  },
-  {
     "title": "Grover Stewart blocks Reichard's FG attempt keeping Indy within three",
     "source": "NFL.com",
     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPY2tHRzZFYUU0Tm43YnZTc1A1MTdTdlVqS2Q0WWlVdV9VV2ZJWXJIbGQydWpvanJQNVJoSENDMy1wQVh4R2RWMFgxakJTdjRGTVZ2VWhxTVlLWTJQZjhjdEZzc0kyUkk5ZTZ0YmlaamhZZGJwbHEyejdJSTl5U1JpWTJhb01FNXdPcXQxSnpKX2xwOVpyb3JrRlVQUGE?oc=5",
@@ -443,6 +425,16 @@
     "summary": "General news mentioning Will Reichard."
   },
   {
+    "title": "How Vikings kicker Will Reichard became one of the NFL’s most dangerous weapons",
+    "source": "Star Tribune",
+    "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOEd6b2NDYUZOSklKSlJoNHpqbWF0Tm1UZkEzM2w5dWlWYUtXWm9LckZHU3Jxb2JMN0MtbE4wTFBRN0JGcmh5cFNTd3NWOFdmT09DZ19kQW80Z3JNc2R0MmNIMnRHcHRwNTZEMlNuQ1BhYVlCdUpmaEJ4T0hnakxFQlFQMHVISFlxZ1M1Z0tidlBOZmdMRVpfQy0zblFoSGdPQkRrclU0YzdsQ1Rpdk0tZVNkOVplTGZnUW9la0l0VV9pcnhJRF9pQkJNdklKWWRabnJ2dQ?oc=5",
+    "published": "2026-10-10",
+    "player": "Will Reichard",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Will Reichard."
+  },
+  {
     "title": "Chris Boswell Tops the 3 Best Kicker Streamers in Week 10 Fantasy Football",
     "source": "Sports Illustrated",
     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxONnE2WmYwSG13OXYxXzQzV3VsaThfRHJKSnVJYkRrR2IwMHBYRjhBaXlrTlpORk52ajI0d2M0UzFZaUxTaEI3ZXdfRUJ2cVZnUFI1TXRHYVdvSlZuQ281ZUh2VUVPNEo3cUhCdW1rLTBfWURPLXBMVXo1R0FYRHhnWkEwa1pfLTc5VWNzU2k5Z1diMFg4T0ZvV09vamxvbERJ?oc=5",
@@ -455,10 +447,10 @@
     "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_0,w_7102,h_3994/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/fantasy_sports_on_si/01m76nyp0akgg1sj06gv.jpg"
   },
   {
-    "title": "Boswell's 39-yard FG boosts Steelers' lead to 16-10",
+    "title": "Chris Boswell converts a 37-yard FG vs. Browns",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOalVpTUFwOXNfVWZMSDA0dExxQVo4VU9Iek5IMFVnQ0xXX3RvWTFocXhaMjRaaXIzNWpmTkU4NXA2b1VxaUNCU2xqekZWckcxUE94N2ViamsyOE9hV3BCXzhtUmQzY1ROX0RCS0s3NHBuRDR2WV80cE41VG02dEEzN0FmMA?oc=5",
-    "published": "2026-10-25",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1tNXl6allhamJhTzkzQjFHQWt1elJWS1kzZVQ2NjMtX095YVRXLTJGRmRXN2Q5cUlOS2dhM1NnSExsV2xTcWVDQktHUThtVW9IUFdfNXlPeTkwemppSTBoSmdEY0tKeUVEZ2RsZ0VCOGVXUGU0c1V1cElHMHg?oc=5",
+    "published": "2026-11-01",
     "player": "Chris Boswell",
     "impact": "neutral",
     "category": "general",
@@ -541,9 +533,9 @@
     "summary": "General news mentioning Trey Smack."
   },
   {
-    "title": "Wil Lutz extends Broncos' lead to 13-7 with 48-yard FG",
+    "title": "Wil Lutz's 26-yard field goal opens scoring in Broncos-Panthers game",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOLTJYdzMwZFIwcUk4ZTY4TWVUaXpjVnJWNUdpYUJZRE1mWWkzdGkxSndCdkdVYnBMckZZSUtYRkZrMmIyaFRfOUk5Vmg0MFF4WElIQkY2VDB1ZS03dVlXUW5ySFRkbVk1cW1pLUMyZ3lYdTNMVjZRc05mN3ktYlJZVll3bDdPMlU?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWWs4U0VRa3hXM0NJbHBrcjd1eFg4cTFvOEVfa0pOQ3plUkJFOHVXSTh0YlhRRVBDbjRTbFZHel90NVdPdER1Wm9vNWExaVc5bk10TTc4M293aVBISDlXVWRHd284RVcxc1pselNWS0xoTHZGSXF6ZWNaYVhfd0lLVmRIb0JSVmp5SFRDSUYzaDhVMkkwbGtGQlM1UQ?oc=5",
     "published": "2026-11-08",
     "player": "Wil Lutz",
     "impact": "neutral",
@@ -622,7 +614,7 @@
   },
   {
     "title": "Andy Borregales 45-yard FG is good!",
-    "source": "New England Patriots",
+    "source": "Patriots.com",
     "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBlMEdkV2pkekhKdXMtXzh5WFhERmM0U1Z1akxfbFNMbHhWdU1nY1ZNdS1naWtNczFZREsxb2MxNXBpLV9VX21FdkVlenktSTlJU25EWk9BTjZ0aXI2TkFCMmtpYlJ1YXNVUVFvbUVDbFB6Rk0?oc=5",
     "published": "2026-09-20",
     "player": "Andy Borregales",
@@ -653,10 +645,10 @@
     "summary": "General news mentioning Joey Slye."
   },
   {
-    "title": "Tennessee Titans kicker Joey Slye's 29-yard FG ties score in Browns-Titans with 8:41 left in regulation",
+    "title": "Joey Slye's 37-yard FG cuts Titans deficit to 14-10 at the half vs. Eagles",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNUV6SG1FSUl4ZWlPSUZHblFvZl9CMTdZUG9peEp6Wnd3XzZ0Q05MLVBlbGhNdkx0Q2VqR3dwRGV1clczWGhvX0FVRGk5bUtUSU1rMnFCU0RrSU5mMlVGQ3IzbVVnU3RFQlNwM1RIbnBDZHRwSWVsX09rZUlILWlkVTJOdFFBQ1ZncWs5NTlKNEZCb3A4MU9tUWtYYUVkWWRONmpiQ0JBOHpHQQ?oc=5",
-    "published": "2026-10-25",
+    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONGZ3NTEyUk9PSTV2MkEyMGFtN3N2WEl4d29kUVI3Z1hXSlQxRG1aR3p6S1ZsRWVCTElaeHc0VF8yY0JVRFZvT2pOMDV4Ul9id1JPRVVLamlCc042ZTlRVTNwSHhIb0lCYkNGdkZkVDRVWFJSdjE2UW5JajZtRmdUN2pSWFJHb3ZTMHlIMWlnSTQ3WUpLazBrTEk2OV9jb0Z3V3c?oc=5",
+    "published": "2026-09-20",
     "player": "Joey Slye",
     "impact": "neutral",
     "category": "general",
@@ -766,16 +758,6 @@
     "summary": "General news mentioning Jason Myers."
   },
   {
-    "title": "Jason Myers Week 9 Outlook for Fantasy Football (2026)",
-    "source": "RotoBaller",
-    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPOVh4MVFvZ25PMHMzaFc2RnpVWWVsTlhCcnhzR29wQUQzNks0Zi1JZVlQLVNyam5pQ3dycFpqN2hPSkUzaXlDal9DZTh6LUJKMnVRNlhGQ3o1cGRkSHZ5NGg0eVY4RnRXV2lrdGtZRVZSMU1kalJsVEVWNlVzT3d2dERGOEwtZlZkeW5MSXBlYnM?oc=5",
-    "published": "2026-11-07",
-    "player": "Jason Myers",
-    "impact": "neutral",
-    "category": "fantasy_advice",
-    "summary": "Fantasy advice article that mentions Jason Myers."
-  },
-  {
     "title": "Seahawks increase their lead with Jason Myers 45-yard FG",
     "source": "NFL.com",
     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxObHlBejNVU0RTbVltMm9JYk5UNHNGZ29GQ1V1TnJkM2IwSVREYzFCdjFUNG84eHRsYmdYakdjUWNKeDZzWW10QTU3REpQRjdfZmxFZVFXQ1c1RFF3ejY5eFpXTmdobGZ5ajR5dEJJc3ZFT2NzVGJHLWxNZzlfOERfZWdOSWRHR3NMd2pz?oc=5",
@@ -789,6 +771,16 @@
     "video": true
   },
   {
+    "title": "Jason Myers' fourth FG of game extends Seahawks lead to 26-21",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNSXRlZGhFcHB1eWFBLUR5bk1aaFdtclp2SWxqRlFpeFpLY1NobC13bUFkSTlyOUh4eDQ0WHlmazlIbVdEc1hydlZ5SFRXRlI3dUFpNlZJRVdOc2ZEaW1GZVhLRndCdWN1Tl80M3dvWjd4dWxRQTBDVzJaWXVBeXExbzlBVUV5cnQ1bTZhYVJLZVc?oc=5",
+    "published": "2026-10-11",
+    "player": "Jason Myers",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jason Myers."
+  },
+  {
     "title": "Lions K Jake Bates expects to have a 'pinch-me moment' Sunday",
     "source": "Detroit Free Press",
     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcDZHMnFfU1hwaVRuTk4wcUVQZWEydjJIa0JySVJqVl9IT2FiVUp6REpVUXhUZlRJZ3I3NHZLYnpUcUVWRXlyMUh3X1RRamJSczFGM2JRWlFOZXg5eVMzVmV1X1cxWHplaFAxT3FRcUhlSldUWkY0V002X0JUQ0dIUm1FZVVXOWktR0RGRzZpTkpRR21ySDRaa3NIU1RxWUF6MVFfdVVabGQyV0NMVEI4R2FFTTdERklDSjJoQzhrbXVVbGp2VVFSdGxB?oc=5",
@@ -798,6 +790,18 @@
     "category": "general",
     "summary": "General news mentioning Jake Bates.",
     "url": "https://www.freep.com/story/sports/nfl/lions/2026/11/13/detroit-lions-k-jake-bates-set-for-pinch-me-moment-in-germany/92751111007/",
+    "image_tries": 2
+  },
+  {
+    "title": "Long before he made it to the NFL with the Detroit Lions, kicker Jake Bates dreamed of playing in Europe as a soccer player. See link below ⬇️ 📸 Junfu Han, Detroit Free Press",
+    "source": "Facebook",
+    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNR0o5aG5haUpaeEpqVnh1eHZidVZnczZJMkdIOGJxSllyWGQxa0tpeEZqOURzWFlHdy11bjd5ODZrOEFNWE81OV9UekRlQ080S0lFUVNPZndIM1ZlQWtGb1hvWVpwenlOeGw3SmtEeTlQRTYtMnE2MWg3cTJrNWNmZVFsa2t2S2xqRmg4eDNFYjlpOGR3SmhSRDhiNmh0REo4MlJqanBBOUtud2FhSjI1cUxEeHg3V1l2NzA1RUtlQWJVcEx4Ykc0TVZYcTNJdl8xbV9qaG1ib3QtRWhBLXpr?oc=5",
+    "published": "2026-11-13",
+    "player": "Jake Bates",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jake Bates.",
+    "url": "https://www.facebook.com/detroitfreepress/posts/long-before-he-made-it-to-the-nfl-with-the-detroit-lions-kicker-jake-bates-dream/1615239607314852/",
     "image_tries": 1
   },
   {
@@ -811,18 +815,6 @@
     "summary": "General news mentioning Jake Bates.",
     "url": "https://roundtable.io/sports/nfl/lions/players/quietly-clutch-how-jake-bates-has-become-the-unsung-engine-of-the-detroit-lions-offense",
     "image": "https://deweb-519a7.b-cdn.net/post-images/016a06ff-f26d-4138-81d9-53eeae9177e4.jpeg"
-  },
-  {
-    "title": "Jake Bates wins NFC special teams player of the week",
-    "source": "NBC Sports",
-    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQc3Y0eEkzOHk3Mll5NVU1R1VTdFJkWHVCcGN3Mk5ueHIyeFNCaV9KMFlGckc4aWJ4R0ZLZXpPSnJ2Ymp4dkVLdVNWeUdNMXNRSkx6U2lXek9JVXBtVUtST3pkb0JpTjN3N3p4bGlJaVBpNzRPd3pFcVNPRTNWTFYtSXo0ajRyR2V2WWduWWtrRlBwNmFHOVdsdGpMdndaX1RlMjdGYml6VXRab3dWdXZQamJJOFM?oc=5",
-    "published": "2026-11-11",
-    "player": "Jake Bates",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Jake Bates.",
-    "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jake-bates-wins-nfc-special-teams-player-of-the-week",
-    "image": "https://nbcsports.brightspotcdn.com/dims4/default/67a0b95/2147483647/strip/true/crop/3000x1688+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F66%2Fbe%2Ff517411341fbb66ce2f64c3acfc2%2F2304174559.jpg"
   },
   {
     "title": "'It's exciting': New Rams kicker Brandon McManus looking forward to opportunity",
@@ -855,6 +847,18 @@
     "summary": "Roster move involving Brandon McManus. His role and fantasy value could change with it."
   },
   {
+    "title": "Spencer Shrader Week 10 Outlook for Fantasy Football (2026)",
+    "source": "RotoBaller",
+    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2UzM1d3b1lEelk4QlA3UXVObXF5SjIzWHJYSl9jSXdzakM1aWVEdHl4M0Z4TTBxdnl6WXRPRDJRYjkycFJJb2h1SWZaQ0d1SlluaDdvT1RXd1JfYWctNmhnbGlHZFFXaFA0UVVqMzRYUDUxNTJsbGl4LWRXd1RFYk8wWk1IeDNjYTAtUFhLcUk2Nl9YcnlmbUlFZ1UyM3FD?oc=5",
+    "published": "2026-11-13",
+    "player": "Spencer Shrader",
+    "impact": "neutral",
+    "category": "fantasy_advice",
+    "summary": "Fantasy advice article that mentions Spencer Shrader.",
+    "url": "https://www.rotoballer.com/player-news/spencer-shrader-a-quality-fantasy-kicker-for-week-10/1992718",
+    "image": "https://www.rotoballer.com/wp-content/uploads/2025/10/Spencer-Shrader-Fantasy-Football-Kicker-Streamers-Waiver-Wire-Pickups-Starts-icon-rotoballer-1220x813.jpeg"
+  },
+  {
     "title": "Spencer Shrader's 59-yard FG ties Cowboys-Colts game with just under six minutes left in regulation",
     "source": "NFL.com",
     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNd1h0aWhjRF9hVHdPRmNiUzhaQndQRTdtOUpFbFJkSmF6WU5rRDJmRFFBYjVhVEVwMGhZR2M4ZWFxUDNUMjg3X1p0d0tnMkFYVTB3U2U0N1hHM0JhQ3lLcUljQjhIaFhzSmU4WHJhMlhNNUNvRmFFOXZyRl9sYlVaUWlHV3ZCQV9OTDBJQjlycUpYV2JKOWtramQwbXNHeXkzeUYwNHFtUEhrUVp6NXo2cF83NndGNUFyWjlhZVoyeEwyaVZy?oc=5",
@@ -863,16 +867,6 @@
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Spencer Shrader."
-  },
-  {
-    "title": "Colts’ Spencer Shrader Would Be a Top-11 Fantasy Running Back",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZ2Q0czRsejd5Zjh4eTVLZzRlSWtNWV9rT3JVXzJQTXhQS3NFZm05V2l6amxwbTNrU0VvUkc2bUFMWTV0RXl0WGUycmpjRVRCLVVzNVYzZWVMenAtcTlUOUMtSWE5aXNORTEtTWozeF9BV0cxcjJlVGNsSGZtWUZHcHZTWQ?oc=5",
-    "published": "2026-10-14",
-    "player": "Spencer Shrader",
-    "impact": "neutral",
-    "category": "fantasy_advice",
-    "summary": "Fantasy advice article that mentions Spencer Shrader."
   },
   {
     "title": "Practice Notebook: Spencer Shrader (right groin) a full participant in practice, Ashton Dulin (ankle) remains out",
