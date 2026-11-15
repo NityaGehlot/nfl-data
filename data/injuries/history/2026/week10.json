@@ -4386,6 +4386,11 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "7611": [
@@ -6610,6 +6615,20 @@
       "date": "2026-11-15",
       "day": "Sun",
       "status": "OUT"
+    }
+  ],
+  "11564": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "4892": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
     }
   ]
 }
