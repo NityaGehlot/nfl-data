@@ -3389,12 +3389,22 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "13602": [
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -3456,12 +3466,22 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "13415": [
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -3577,6 +3597,11 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4060,6 +4085,11 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "10220": [
@@ -4089,6 +4119,11 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "11273": [
@@ -4096,12 +4131,22 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "13404": [
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4172,6 +4217,11 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "10866": [
@@ -4200,13 +4250,18 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13329": [
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4233,6 +4288,11 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4378,7 +4438,7 @@
       "day": "Sun",
       "practice_status": "LP",
       "game_status": "QUESTIONABLE",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "13295": [
@@ -4496,6 +4556,11 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "12481": [
@@ -4570,6 +4635,11 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4826,6 +4896,11 @@
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -5112,6 +5187,11 @@
       "date": "2026-11-12",
       "day": "Thu",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
     }
   ],
   "4054": [
@@ -5236,7 +5316,7 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "9493": [
@@ -5692,7 +5772,7 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "10236": [
@@ -5952,6 +6032,11 @@
       "date": "2026-11-13",
       "day": "Fri",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "12490": [
@@ -6107,7 +6192,7 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "DOUBTFUL"
+      "status": "OUT"
     }
   ],
   "5844": [
@@ -6290,7 +6375,7 @@
       "date": "2026-11-15",
       "day": "Sun",
       "practice_status": "FP",
-      "status": ""
+      "status": "QUESTIONABLE"
     }
   ],
   "421": [
@@ -6458,7 +6543,7 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "9511": [
@@ -6578,7 +6663,7 @@
     {
       "date": "2026-11-15",
       "day": "Sun",
-      "status": "QUESTIONABLE"
+      "status": "OUT"
     }
   ],
   "11625": [
@@ -6625,6 +6710,132 @@
     }
   ],
   "4892": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "13428": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "8002": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "11600": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "12486": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "8116": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "11595": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "11604": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "12775": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "1373": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "8219": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "11435": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "12048": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "2197": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "13288": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "8112": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "10218": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11911": [
+    {
+      "date": "2026-11-15",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8126": [
     {
       "date": "2026-11-15",
       "day": "Sun",
