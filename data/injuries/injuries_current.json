@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T19:52:52Z",
+  "generated_at": "2026-11-17T04:13:02Z",
   "season": 2026,
   "week": 10,
   "season_type": "regular",
@@ -2660,62 +2660,6 @@
         {
           "date": "2026-11-16",
           "day": "Mon",
-          "status": "IR"
-        }
-      ]
-    },
-    {
-      "player_id": "4033",
-      "gsis_id": "00-0033885",
-      "full_name": "David Njoku",
-      "team": "LAC",
-      "position": "TE",
-      "status": "IR",
-      "game_status": "QUESTIONABLE",
-      "practice_status": "FP",
-      "injury": "Lower Leg",
-      "status_note": "From this week's official injury report.",
-      "notes": null,
-      "injury_start_date": null,
-      "history": [
-        {
-          "date": "2026-11-10",
-          "day": "Tue",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-11",
-          "day": "Wed",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-12",
-          "day": "Thu",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-13",
-          "day": "Fri",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-14",
-          "day": "Sat",
-          "practice_status": "LP",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-15",
-          "day": "Sun",
-          "practice_status": "FP",
-          "game_status": "QUESTIONABLE",
-          "status": "IR"
-        },
-        {
-          "date": "2026-11-16",
-          "day": "Mon",
-          "practice_status": "FP",
-          "game_status": "QUESTIONABLE",
           "status": "IR"
         }
       ]
@@ -5563,6 +5507,58 @@
       ]
     },
     {
+      "player_id": "13268",
+      "gsis_id": null,
+      "full_name": "Elijah Sarratt",
+      "team": "BAL",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "11648",
+      "gsis_id": null,
+      "full_name": "Kedon Slovis",
+      "team": "BAL",
+      "position": "QB",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Coach's Decision",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
       "player_id": "8002",
       "gsis_id": null,
       "full_name": "Shane Buechele",
@@ -6939,6 +6935,70 @@
           "date": "2026-11-15",
           "day": "Sun",
           "status": "OUT"
+        },
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
+          "status": "OUT"
+        }
+      ]
+    },
+    {
+      "player_id": "13380",
+      "gsis_id": null,
+      "full_name": "Brenen Thompson",
+      "team": "LAC",
+      "position": "WR",
+      "status": "OUT",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Hamstring",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "latest_news": {
+        "title": "Chargers Injury Report: Ladd McConkey, Brenen Thompson DNP for 2nd consecutive practice",
+        "source": "Yahoo Sports",
+        "published": "2026-11-13",
+        "impact": "slightly_negative",
+        "summary": "Brenen Thompson wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
+        "link": "https://sports.yahoo.com/articles/chargers-injury-report-ladd-mcconkey-232409284.html",
+        "practice": "DNP"
+      },
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "OUT"
+        },
+        {
+          "date": "2026-11-11",
+          "day": "Wed",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-12",
+          "day": "Thu",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-13",
+          "day": "Fri",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "QUESTIONABLE"
+        },
+        {
+          "date": "2026-11-14",
+          "day": "Sat",
+          "practice_status": "DNP",
+          "practice_source": "news",
+          "status": "DOUBTFUL"
+        },
+        {
+          "date": "2026-11-15",
+          "day": "Sun",
+          "status": "DOUBTFUL"
         },
         {
           "date": "2026-11-16",
@@ -8739,70 +8799,6 @@
       ]
     },
     {
-      "player_id": "13380",
-      "gsis_id": null,
-      "full_name": "Brenen Thompson",
-      "team": "LAC",
-      "position": "WR",
-      "status": "DOUBTFUL",
-      "game_status": null,
-      "practice_status": null,
-      "injury": "Hamstring",
-      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
-      "notes": null,
-      "injury_start_date": null,
-      "latest_news": {
-        "title": "Chargers Injury Report: Ladd McConkey, Brenen Thompson DNP for 2nd consecutive practice",
-        "source": "Yahoo Sports",
-        "published": "2026-11-13",
-        "impact": "slightly_negative",
-        "summary": "Brenen Thompson wasn't practicing. That's a bad sign for this week: check the final injury report on Friday before you start him.",
-        "link": "https://sports.yahoo.com/articles/chargers-injury-report-ladd-mcconkey-232409284.html",
-        "practice": "DNP"
-      },
-      "history": [
-        {
-          "date": "2026-11-10",
-          "day": "Tue",
-          "status": "OUT"
-        },
-        {
-          "date": "2026-11-11",
-          "day": "Wed",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-12",
-          "day": "Thu",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-13",
-          "day": "Fri",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "QUESTIONABLE"
-        },
-        {
-          "date": "2026-11-14",
-          "day": "Sat",
-          "practice_status": "DNP",
-          "practice_source": "news",
-          "status": "DOUBTFUL"
-        },
-        {
-          "date": "2026-11-15",
-          "day": "Sun",
-          "status": "DOUBTFUL"
-        },
-        {
-          "date": "2026-11-16",
-          "day": "Mon",
-          "status": "DOUBTFUL"
-        }
-      ]
-    },
-    {
       "player_id": "8112",
       "gsis_id": null,
       "full_name": "Drake London",
@@ -9014,6 +9010,27 @@
       ]
     },
     {
+      "player_id": "11762",
+      "gsis_id": null,
+      "full_name": "Anthony Gould",
+      "team": "IND",
+      "position": "WR",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Toe",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
       "player_id": "1466",
       "gsis_id": "00-0030506",
       "full_name": "Travis Kelce",
@@ -9063,6 +9080,83 @@
           "date": "2026-11-16",
           "day": "Mon",
           "practice_status": "FP",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "4033",
+      "gsis_id": "00-0033885",
+      "full_name": "David Njoku",
+      "team": "LAC",
+      "position": "TE",
+      "status": "QUESTIONABLE",
+      "game_status": "QUESTIONABLE",
+      "practice_status": "FP",
+      "injury": "Fibula",
+      "status_note": "From this week's official injury report.",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-10",
+          "day": "Tue",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-11",
+          "day": "Wed",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-12",
+          "day": "Thu",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-13",
+          "day": "Fri",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-14",
+          "day": "Sat",
+          "practice_status": "LP",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-15",
+          "day": "Sun",
+          "practice_status": "FP",
+          "game_status": "QUESTIONABLE",
+          "status": "IR"
+        },
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
+          "practice_status": "FP",
+          "game_status": "QUESTIONABLE",
+          "status": "QUESTIONABLE"
+        }
+      ]
+    },
+    {
+      "player_id": "12493",
+      "gsis_id": null,
+      "full_name": "Oronde Gadsden",
+      "team": "LAC",
+      "position": "TE",
+      "status": "QUESTIONABLE",
+      "game_status": null,
+      "practice_status": null,
+      "injury": "Eye",
+      "status_note": "Carried over from his last game. This week's official status comes out on Friday (Thursday or Saturday for other game days).",
+      "notes": null,
+      "injury_start_date": null,
+      "history": [
+        {
+          "date": "2026-11-16",
+          "day": "Mon",
           "status": "QUESTIONABLE"
         }
       ]

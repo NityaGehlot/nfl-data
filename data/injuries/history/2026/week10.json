@@ -1910,7 +1910,7 @@
       "day": "Mon",
       "practice_status": "FP",
       "game_status": "QUESTIONABLE",
-      "status": "IR"
+      "status": "QUESTIONABLE"
     }
   ],
   "7610": [
@@ -3962,12 +3962,22 @@
       "date": "2026-11-10",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-16",
+      "day": "Mon",
+      "status": "OUT"
     }
   ],
   "11648": [
     {
       "date": "2026-11-10",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-16",
+      "day": "Mon",
       "status": "OUT"
     }
   ],
@@ -4831,7 +4841,7 @@
     {
       "date": "2026-11-16",
       "day": "Mon",
-      "status": "DOUBTFUL"
+      "status": "OUT"
     }
   ],
   "13630": [
@@ -7940,6 +7950,20 @@
       "day": "Sun",
       "status": "QUESTIONABLE"
     },
+    {
+      "date": "2026-11-16",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "11762": [
+    {
+      "date": "2026-11-16",
+      "day": "Mon",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "12493": [
     {
       "date": "2026-11-16",
       "day": "Mon",
