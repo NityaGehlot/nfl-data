@@ -8,6 +8,11 @@ concurrency:
 
 on:
   workflow_dispatch:
+    inputs:
+      image_minutes:
+        description: "Minutes to spend finding article pictures (15 normally; 90 to catch up a backlog)"
+        required: false
+        default: "15"
 
   schedule:
     # Every 2 hours at :15 (a full run takes ~30 minutes). Off-the-hour times get
@@ -53,8 +58,12 @@ jobs:
         run: |
           Rscript scripts/tests/test_news_helpers.R
           Rscript scripts/tests/test_espn_news.R
+          Rscript scripts/tests/test_link_cache.R
+          Rscript scripts/tests/test_article_images.R
 
       - name: Generate NFL news
+        env:
+          IMAGE_MINUTES: ${{ inputs.image_minutes || '15' }}
         run: |
           Rscript scripts/generate_nfl_news.R
 

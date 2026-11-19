@@ -285,10 +285,21 @@ build_news <- function(df) {
 # GENERATE ALL GROUPS
 # =====================
 # ESPN team feeds once per run (32 requests), indexed by the players each story tags.
-espn_by_player <- espn_articles_by_player(tryCatch(fetch_espn_news(), error = function(e) {
+espn_team <- tryCatch(fetch_espn_news(), error = function(e) {
   message("⚠️ ESPN news unavailable: ", conditionMessage(e))
   list()
-}))
+})
+# ESPN's per-player fantasy news (stories with pictures) for fantasy players on a team.
+espn_players <- tryCatch({
+  rows <- players[players$position %in% ESPN_PLAYER_POSITIONS & !is.na(players$team) & nzchar(players$team), ]
+  plist <- lapply(seq_len(nrow(rows)), function(i) list(player_id = rows$player_id[i], full_name = rows$player_name[i],
+                                                       team = rows$team[i], position = rows$position[i]))
+  fetch_espn_player_news(plist, load_espn_ids())
+}, error = function(e) {
+  message("⚠️ ESPN player news unavailable: ", conditionMessage(e))
+  list()
+})
+espn_by_player <- espn_articles_by_player(c(espn_team, espn_players))
 
 news_by_pos <- lapply(groups, build_news)
 
@@ -297,30 +308,48 @@ news_by_pos <- lapply(groups, build_news)
 # =====================
 if (!dir.exists(OUTPUT_DIR)) dir.create(OUTPUT_DIR, recursive = TRUE)
 
-# Images found in earlier runs (read before the files are overwritten), and how many new
-# articles to look up this run. Override with MAX_NEW_IMAGES.
-previous_images <- previous_image_index(OUTPUT_DIR)
-image_budget <- new_image_budget(as.integer(Sys.getenv("MAX_NEW_IMAGES", "300")))
-# Newest articles first across all positions, plus earlier misses being retried.
-image_lookups <- plan_image_lookups(news_by_pos, previous_images, image_budget$left)
+# Real links and pictures: the permanent link cache (data/news/link_cache.json), plus whatever the
+# previous run's files know. Then look up new articles, newest first, within this run's budget:
+# MAX_NEW_IMAGES articles and IMAGE_MINUTES minutes (a manual "backfill" run can raise it).
+LINK_CACHE <- file.path(OUTPUT_DIR, "link_cache.json")
+run_now <- Sys.time()
+link_cache <- load_link_cache(LINK_CACHE)
+for (f in list.files(OUTPUT_DIR, pattern = "^news_.*\\.json$", full.names = TRUE)) {
+  if (basename(f) == "news_meta.json") next
+  link_cache <- seed_cache_from_articles(link_cache, tryCatch(fromJSON(f, simplifyVector = FALSE), error = function(e) list()), run_now)
+}
+image_budget <- new_image_budget(as.integer(Sys.getenv("MAX_NEW_IMAGES", "1500")),
+                                 minutes = as.numeric(Sys.getenv("IMAGE_MINUTES", "15")))
+
+# Drop exact duplicates (the same article saved twice for the same player).
+news_by_pos <- lapply(news_by_pos, function(articles) {
+  links <- vapply(articles, function(a) paste(a$link, a$player), character(1))
+  articles[!duplicated(links)]
+})
+# Newest first across all positions, each article once.
+image_lookups <- plan_image_lookups(news_by_pos, link_cache, image_budget$left, run_now)
+for (pos in names(news_by_pos)) {
+  res <- attach_images(news_by_pos[[pos]], link_cache, image_budget, lookups = image_lookups, now = run_now)
+  news_by_pos[[pos]] <- res$articles
+  link_cache <- res$cache
+}
 
 for (pos in names(news_by_pos)) {
   # Sanitize position name for filename (e.g. OL_OTHER -> ol_other, OT -> ot)
   safe_pos <- tolower(gsub("[^a-zA-Z0-9]", "_", pos))
-
-  # Drop exact duplicates (the same article saved twice for the same player).
-  articles <- news_by_pos[[pos]]
-  links    <- vapply(articles, function(a) paste(a$link, a$player), character(1))
-  articles <- articles[!duplicated(links)]
-  articles <- attach_images(articles, previous_images, image_budget, lookups = image_lookups)
-
   write_json(
-    articles,
+    news_by_pos[[pos]],
     file.path(OUTPUT_DIR, paste0("news_", safe_pos, ".json")),
     pretty     = TRUE,
     auto_unbox = TRUE
   )
 }
+
+# Keep the cache small: articles still in the news are "seen" today; drop ones gone 45+ days.
+all_keys <- unique(unlist(lapply(news_by_pos, function(arts) vapply(arts, function(a) cache_key(a$link), character(1)))))
+link_cache <- prune_cache(touch_seen(link_cache, all_keys, as.Date(run_now)), as.Date(run_now))
+save_link_cache(link_cache, LINK_CACHE)
+message(image_summary(image_budget, news_by_pos))
 
 # When this run finished, so the app can show how fresh the news is.
 write_json(

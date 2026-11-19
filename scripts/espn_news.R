@@ -113,3 +113,53 @@ espn_player_articles <- function(by_player, player_name, season_start = NULL) {
   }
   out
 }
+
+# ---------------------------------------------------------------------------------------------
+# ESPN's per-player fantasy news (the feed behind ESPN Fantasy player cards): stories and videos
+# about one player, with their cover pictures and real links. RotoWire blurbs in the same feed
+# have no picture or link and are skipped.
+ESPN_PLAYER_NEWS_URL <- "https://site.api.espn.com/apis/fantasy/v2/games/ffl/news/players?playerId=%s&limit=10"
+ESPN_ID_MAP_URL <- "https://raw.githubusercontent.com/dynastyprocess/data/master/files/db_playerids.csv"
+ESPN_PLAYER_POSITIONS <- c("QB", "RB", "WR", "TE", "K")
+
+#' Player feed JSON -> articles (same shape as parse_espn_articles), tagged with the player.
+parse_espn_player_news <- function(data, player_name) {
+  items <- Filter(function(a) !identical(a$type, "Rotowire"), data$feed %||% list())
+  arts <- parse_espn_articles(list(articles = items))
+  arts <- Filter(function(a) !is.null(a$image), arts)
+  # This feed is about the player we asked for: tag his stories with our spelling of his name
+  # (ESPN may write "Kenneth Walker III" where we have "Kenneth Walker").
+  lapply(arts, function(a) {
+    a$athletes <- player_name
+    a
+  })
+}
+
+#' Sleeper id -> ESPN id, from the public player id table. Empty when it can't be downloaded.
+load_espn_ids <- function(get_csv = function(url) utils::read.csv(url, colClasses = "character")) {
+  tab <- tryCatch(get_csv(ESPN_ID_MAP_URL), error = function(e) NULL)
+  if (is.null(tab) || !all(c("sleeper_id", "espn_id") %in% names(tab))) {
+    message("⚠️ ESPN id map unavailable; skipping ESPN player news")
+    return(character(0))
+  }
+  ok <- !is.na(tab$sleeper_id) & nzchar(tab$sleeper_id) & !is.na(tab$espn_id) & nzchar(tab$espn_id)
+  stats::setNames(as.character(tab$espn_id[ok]), as.character(tab$sleeper_id[ok]))
+}
+
+#' Stories from each fantasy-position player on an NFL team who has an ESPN id (flat list).
+fetch_espn_player_news <- function(players, ids, get_json = espn_get_json, delay = 0.2) {
+  out <- list()
+  asked <- 0L
+  for (p in players) {
+    pos <- toupper(p$position %||% "")
+    team <- p$team %||% ""
+    espn_id <- if (!is.null(p$player_id)) unname(ids[as.character(p$player_id)]) else NA
+    if (!(pos %in% ESPN_PLAYER_POSITIONS) || !nzchar(team) || length(espn_id) == 0 || is.na(espn_id)) next
+    asked <- asked + 1L
+    data <- get_json(sprintf(ESPN_PLAYER_NEWS_URL, espn_id))
+    if (!is.null(data)) out <- c(out, parse_espn_player_news(data, p$full_name %||% ""))
+    if (delay > 0) Sys.sleep(delay)
+  }
+  message("ESPN player news: ", length(out), " stories from ", asked, " players")
+  out
+}
