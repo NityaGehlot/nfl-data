@@ -7,7 +7,9 @@
     "player": "Hjalte Froholdt",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Hjalte Froholdt."
+    "summary": "General news mentioning Hjalte Froholdt.",
+    "url": "https://www.nfl.com/players/hjalte-froholdt/stats/situational/2021/reg/",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/ylkuycgg5mlekrd0e7uy"
   },
   {
     "title": "How Hjalte Froholdt out vs. Rams just made Carson Beck's NFL debut 10x harder",
@@ -17,7 +19,10 @@
     "player": "Hjalte Froholdt",
     "impact": "negative",
     "category": "performance",
-    "summary": "Concerning news about Hjalte Froholdt's role or production."
+    "summary": "Concerning news about Hjalte Froholdt's role or production.",
+    "url": "https://arizonasports.com/watch/how-hjalte-froholdt-out-vs-rams-just-made-carson-becks-nfl-debut-10x-harder/01a1d63c-27c8-8008-c1c5-567e4b99b93c",
+    "image": "https://cdn.jwplayer.com/v2/media/rZ3OkJgA/thumbnails/LeAU1u9u.jpg?width=720",
+    "video": true
   },
   {
     "title": "Cardinals to start 3rd-string center vs. Rams with Hjalte Froholdt ruled out",
@@ -27,7 +32,9 @@
     "player": "Hjalte Froholdt",
     "impact": "negative",
     "category": "injury",
-    "summary": "Hjalte Froholdt is dealing with an injury that could keep him out. Check his status before lineups lock."
+    "summary": "Hjalte Froholdt is dealing with an injury that could keep him out. Check his status before lineups lock.",
+    "url": "https://arizonasports.com/nfl/arizona-cardinals/cardinals-start-3rd-string-center-vs-rams-hjalte-froholdt-ruled-out",
+    "image": "https://cdn.arizonasports.com/arizonasports/wp-content/uploads/2026/09/DSC04706-1.jpg"
   },
   {
     "title": "Gus Hartwig: Gets look from Green Bay",
@@ -102,6 +109,26 @@
     "image": "https://www.bleachernation.com/wp-content/uploads/2026/07/Logan-Jones-Bears-2026-06-11T231113Z_647816341_MT1USATODAY29177736_RTRMADP_3_NFL-CHICAGO-BEARS-MINICAMP.jpg"
   },
   {
+    "title": "Logan Jones",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5Lc3Rab1pFU2NYaVJHQ2djWTZld1lMTnhDTGpuTWVrUnNPWjhraDFRTHhHNUs4YVNhZC11Z0VXQVl3eUZ6VkRXTGtzcFo0YnNDMjZ0OV9Gbjd6OXQ2NldfSWdJRDVWWVBOVDQ2R2VHRGdzVVpFRkE?oc=5",
+    "published": "2026-10-11",
+    "player": "Logan Jones",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Logan Jones."
+  },
+  {
+    "title": "Garrett Bradbury 2020 Situational Stats",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1FYnNFZ2o3VEdIU2VFSEs1OEpqRUE0RnBNdWNnaGdzclBld0VGN01ob0EteUhxVUJwZGRZZUZLbjZrWVNuTWZCNjNrU1YxNDNYbkZWWURSTnJZenR1UUtuYzdtVUFsWkRtSXR2Wnlza3E0bjY1NFZrb2MwS1U?oc=5",
+    "published": "2026-10-26",
+    "player": "Garrett Bradbury",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Garrett Bradbury."
+  },
+  {
     "title": "Braxton Jones and Garrett Bradbury's Struggles Becoming Major Threat to Bears' Offense",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWEtMQkVWX21sc3lxRFE0SlBDTWRWdFlfYXZUWUs5OU5VekNkaXJvYXZCLVZIanNXOWJXeUZvaXg2STA3RFEzMHpyem45eWNmMkM4bzZTZzFNbUFDV05pU1RvZTc0TWRSWUtfdjVFc0RGNFlLM2tGWXZjWmtmNlAyMjQtcklSc18zWklPb2h0QnoxVnpK?oc=5",
@@ -129,7 +156,9 @@
     "player": "Connor Lew",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Connor Lew."
+    "summary": "General news mentioning Connor Lew.",
+    "url": "https://www.nfl.com/players/connor-lew/stats/situational/2026/PRE",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/p0nnxqjniklz0nqdmpm2"
   },
   {
     "title": "Browns' Teven Jenkins out for Week 1 in Jacksonville, Parker Brailsford Questionable",
@@ -198,12 +227,14 @@
   {
     "title": "Jager Burton 2026 Situational Stats",
     "source": "NFL.com",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE45eUNJYkdzYTlVZm9Oem9LWEd5TWFGVVEyY29TQVZHQm1RNDMzbU5FTHg2clRMMThraEZtUmZ1bHUyYmpOS0JXNzh1X3h4b0Z0RFc0Zmo0V3pGbFdSbGUtSmJjUGl4TGZOT1RRUnYxV2ZIanRSbGc?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0zYjlpU0txdEJRWTA1RzVOWnc4ZnZNTGZfdmE2am9KWDFxVDJnZzJkZ1lpdjdHSkRST3V6clFFajZ5V0V2SFpHRHdxX1VqNnZyNkdUTmJmV083NlBlNjFzNldqNGl3SHJlenFISkpIblZUZllCLWJR?oc=5",
     "published": "2026-11-09",
     "player": "Jager Burton",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Jager Burton."
+    "summary": "General news mentioning Jager Burton.",
+    "url": "https://www.nfl.com/players/jager-burton/stats/situational/2026/pre/",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/zidvccgdzgf3lwkfcg7v"
   },
   {
     "title": "Eli Cox 2026 Situational Stats",
@@ -228,10 +259,10 @@
     "image": "https://images.fantasypros.com/images/players/nfl/26202/bust/1200x1200.webp"
   },
   {
-    "title": "Licensable picture: Jacksonville Jaguars Eli Cox (66) talks with Jacksonville Jaguars quarterback Quinn Ewers (10) after an NFL Jaguars practice at",
-    "source": "Reuters Connect",
-    "link": "https://news.google.com/rss/articles/CBMiuANBVV95cUxOZGJlZ2N0VWtnRFdleDB1TVJ2bWFDN0t6YWtSY0RmUzE5ek9SNXBPbkFQQld1WEFkMDdSaUpVaFYzbVVYYzRXZC1NVk9BUkQ2R3p3S3NpUms0UElWbTgzVDZ6OHF2SlY2MFBfYlFEaC1EZExzeG9mYmhESnNNR2o2dUFheF9TZ09xcFhxVDRsX3c4d1VKdGxxRU5MdmQ5RjZQbkt6bXgtWHl5c0RmeTVwVUhnZXFTMmpqeEsxZVRZYXFVZ1BFczFoeTZSU01jaU9sd0VadHRLbkNhRUZZZVdwODF4MkhCSGFsQ0JmUTlYVzl6aU9udGt3aGZHSmxrckplVks3VW93RXdfcXJPSHBxdEE0b3VWWUszS3RmSGhEUkFQMzZBYlctSHRaM2M4LXJiWlVYMHBoYVdudlkzRXlvU2M1S1ZNVWFCMWJaSWlYQnBqTXNZYUh6WWRaVXo2SnNTNklDWVpfc3poRUppNWpWUW5La3l0OFFUX2tadWFKMUxrc1lmMUxSN3AtdFk3ZUdOd3F2ODgtemdjT1pwS0FzNTVaR2tmX2lKQjF5VjN4TDBZRm9kQTM1VQ?oc=5",
-    "published": "2026-09-02",
+    "title": "Eli Cox (C): Bio, News, Stats & more",
+    "source": "Jacksonville Jaguars",
+    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9oWW80SXNnWnFPYWVudDFOa21lUjI0SEpGWTU4OFZSMjFQT2FaRGFFcDhNbHdyRW1GTGhNdHVCTTFReksyWnA3ZnpVR00wbXpPaUZZOHFOQVNZM0xCTGJwcWh3cjJQVW5R?oc=5",
+    "published": "2026-09-01",
     "player": "Eli Cox",
     "impact": "neutral",
     "category": "general",
@@ -263,7 +294,7 @@
     "title": "Chargers' Jake Slaughter Was Drafted to Play Guard, and Injuries Made Him an All-Rookie Center",
     "source": "Yahoo Sports",
     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOV2hKMkY2d3pxa0RTaV9EQ1drdXIwX29vTmRDU1B0ZVZleWRPZGx6dFBqbTktXzZ6Z0RRS0VfYTJEcldRMVphNzUtbjNzTF9DUVdseWNGVWFLdS1PM25xcENtV29NaXI3YWhRNWFab2FJaVVkcnNqUWRFWlh3Z0t5dmVTN2ttYTBGdUdHRmtn?oc=5",
-    "published": "2026-10-06",
+    "published": "2026-10-07",
     "player": "Jake Slaughter",
     "impact": "neutral",
     "category": "general",
@@ -347,7 +378,8 @@
     "player": "Coleman Shelton",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Coleman Shelton."
+    "summary": "General news mentioning Coleman Shelton.",
+    "url": "https://athlonsports.com/nfl/rams-coleman-shelton-dylan-mcmahon-center-injuries"
   },
   {
     "title": "Rams Face Critical Offensive Line Decisions After Coleman Shelton Injury",
@@ -357,7 +389,9 @@
     "player": "Coleman Shelton",
     "impact": "slightly_negative",
     "category": "injury",
-    "summary": "Coleman Shelton has an injury note. Monitor practice reports before kickoff."
+    "summary": "Coleman Shelton has an injury note. Monitor practice reports before kickoff.",
+    "url": "https://www.si.com/nfl/rams/onsi/rams-coleman-shelton-injury-offensive-line-concerns",
+    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_448,w_5950,h_3346/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/ram_digest/01m7n4k9xvxrpg4y9n0y.jpg"
   },
   {
     "title": "Steve Avila NFL Stats, Game Log & Bio",
@@ -416,28 +450,38 @@
     "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_340,w_1200,h_675/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/62/01m79b7rjj51j8hntfz2.jpg"
   },
   {
+    "title": "Andrew Meyer NFL Stats, Game Log & Bio",
+    "source": "Pro Football Network",
+    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE44LW9Yd2xVdzg0dnp5MEh2NExnVjhrZGpGV3NnLUs0Wk5iTndWMjRrZGFjWVNCZWZUT1E5ak9Bd09GSTZHdkE4eHF6d1lEYmU2LVVpRUpyb2dLeHpUUWJOaW5jdUZ2V0RFbXFJ?oc=5",
+    "published": "2026-10-30",
+    "player": "Andrew Meyer",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Andrew Meyer."
+  },
+  {
+    "title": "Dolphins' Aaron Brewer: Still in concussion protocol Wednesday",
+    "source": "CBS Sports",
+    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPYXVRR2dTTW5fZHdkZzdJbk1nNnlmemx1ei1MMDl4OXNWekhvbXAwN0xLSk5iWXpWTXFVNThoQlJCdy02OU1zTkhKYUZXaEswR1NNRGJTU1VaMV9DZnRmczJzQ0RzbmtXTDAtemotQkJ2ZlVLYzZZMlc1Q05sSnptQklwa1RVREg4WjBHcFlTZ0xCNmhsRmxkNUtHTlBnT25WT1BkY0h1Um9FR0Y3ZFE?oc=5",
+    "published": "2026-11-19",
+    "player": "Aaron Brewer",
+    "impact": "slightly_negative",
+    "category": "injury",
+    "summary": "Aaron Brewer has an injury note (concussion). Monitor practice reports before kickoff.",
+    "url": "https://www.cbssports.com/fantasy/football/news/dolphins-aaron-brewer-still-in-concussion-protocol-wednesday/",
+    "image": "https://sportshub.cbsistatic.com/i/r/2026/11/17/79738dce-c695-4df6-9ca1-dba917514fd1/thumbnail/640x360/a9cc0a697c6fdb0647623173d25a608a/111726-fft-clip.jpg"
+  },
+  {
     "title": "Dolphins hit with challenge of depleted D-line; Aaron Brewer still missing practice",
     "source": "Sun Sentinel",
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxON3FfbjNkMFJSM0NnQzEzSGZSaWlScU9QcjdQa0ZLcjNLWklhcnNFdFVPQXJtcFBCMzRBY2UtbUtEdGFaNUgxOFVnR3BLbVZMZmtQWkZqd3dBOElEMHBiaC1WTU5xMDJjRFd6ZUJHd2MtUnl6bF9rSm5MSTBfRVBKZW9LNnRueC05WkVDS1lId214aTktWkNpa3Q2cFNPbHpJNWtmQWxxbGNudEtCcDBvbGNybWU5Tm12ZHFlNnk1OVA?oc=5",
-    "published": "2026-11-18",
+    "published": "2026-11-19",
     "player": "Aaron Brewer",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Aaron Brewer.",
     "url": "https://www.sun-sentinel.com/2026/11/18/dolphins-hit-with-challenge-of-depleted-d-line-aaron-brewer-still-missing-practice/",
     "image": "https://www.sun-sentinel.com/wp-content/uploads/2026/11/tfl-z-dolphins1-81.jpg?w=5542&#038;h=3695"
-  },
-  {
-    "title": "Dolphins Center Aaron Brewer Remains in Concussion Protocol",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOTEl4TTEwa1lEQXVDU2tBMHBITkcwVGl6cmpQd05ud3I2UG5xNGRqR2U2UWZMNVJMMzFGd2ZMY0txM0VEQU1wdldWSnhkVGFOdGxMM3o1TzhLY1dLS1VHX0NIVS13dkFpU2ZFaUFONVMwcnF0ajFfUUF4U3dXazRWT2hlUGRQTENzU1RFdDh3?oc=5",
-    "published": "2026-11-18",
-    "player": "Aaron Brewer",
-    "impact": "slightly_negative",
-    "category": "injury",
-    "summary": "Aaron Brewer has an injury note (concussion). Monitor practice reports before kickoff.",
-    "url": "https://sports.yahoo.com/articles/dolphins-center-aaron-brewer-remains-170042159.html",
-    "image": "https://s.yimg.com/lo/mysterio/api/3259b1392f0e285b14b1ba52d50cfd94827a65e7b66ec9787001efde344d443e/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Froundtable_sports_miami_dolphins_152%2Fb7ce19a65aeffe66ab1a0fc6ecb61337.jpg"
   },
   {
     "title": "Dolphins injury report: QB Malik Willis, C Aaron Brewer out vs. Colts",
@@ -447,7 +491,9 @@
     "player": "Aaron Brewer",
     "impact": "negative",
     "category": "performance",
-    "summary": "Concerning news about Aaron Brewer's role or production."
+    "summary": "Concerning news about Aaron Brewer's role or production.",
+    "url": "https://sports.yahoo.com/articles/dolphins-missing-qb-malik-willis-155559836.html",
+    "image": "https://s.yimg.com/lo/mysterio/api/604b294dd9f60e9acf06b84abe09a2c5e4df47db7ecad11677ac81bfabda14f5/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fpalm_beach_post_natl_articles_437%2F6dbd475045d2a5703e6f7c81c15702a7.jpg"
   },
   {
     "title": "Blake Brandel Game Log - NFL",
@@ -491,7 +537,10 @@
     "player": "Erik McCoy",
     "impact": "slightly_negative",
     "category": "injury",
-    "summary": "Erik McCoy has an injury note. Monitor practice reports before kickoff."
+    "summary": "Erik McCoy has an injury note. Monitor practice reports before kickoff.",
+    "url": "https://www.neworleanssaints.com/video/tyler-shough-interview-saints-vs-panthers-2026-nfl-week-10-november-11-2026",
+    "image": "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/tdpwt0mquhlfsvq6lumy",
+    "video": true
   },
   {
     "title": "Erik McCoy on coaching change, communication | Saints vs. Browns 2026 NFL Week 9",
@@ -580,15 +629,16 @@
     "summary": "General news mentioning Drew Kendall."
   },
   {
-    "title": "Hometown close-up with Brock Hoffman",
-    "source": "247Sports",
-    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNdVZJNlJNTG9VdHYxTzNoVWl6QjcxendfMW9VTGFEQ1VxRGw4VVJ5Q0E3SXkwb3hZZkxnWVFzNWxDek52LUNHUGF0TWE3eEVzYVE5UmM2UFluX2NIemRXaVdzVUt3d0tiTlVsb1d1Z01xcUVEZE5wTWF1blVlbUh5X01RRDdfMlAtWTl6TkttcEs?oc=5",
-    "published": "2026-10-14",
+    "title": "Brock Hoffman 2022 Situational Stats",
+    "source": "NFL.com",
+    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBYV3N1bTZxRzZaOTh4V1EtN21odmU4QjFPOXhJZWg0VDJkTzhOVFZFNXVuZnJadmp1dVA0TFMxNjREcVJadmxGbkFHVUM4dS1GMlprZG8tMGJBbTFKUW5QMk83R3Z6WjRINDJWb1lyZE85NmRoaUFr?oc=5",
+    "published": "2026-11-08",
     "player": "Brock Hoffman",
     "impact": "neutral",
     "category": "general",
     "summary": "General news mentioning Brock Hoffman.",
-    "url": "https://247sports.com/nfl/pittsburgh-steelers/article/steelers-hoffman-plott-291261292/"
+    "url": "https://www.nfl.com/players/brock-hoffman/stats/situational/2022/PRE",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/hiicig3ulzzr8euomzvi"
   },
   {
     "title": "‘This is Dirty’: Former Steelers Defensive Lineman Calls for Brock Hoffman to Be Suspended",
@@ -601,14 +651,15 @@
     "summary": "Brock Hoffman is facing a suspension. Plan to replace him in your lineup."
   },
   {
-    "title": "Ex-Steelers Player Calls for Severe Punishment for Brock Hoffman Over ‘Dirty’ Hit",
-    "source": "Yahoo Sports",
-    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPYS1WTTlGb01LX2tLME94b3RjeWI3dnA4cWF0eWVmMW5JSldsLVJLLVNTRmNTWVRSSEVrcTZMRGQ0Q0VLeGJpcFVySm5XdUZlaXRnYVpBcnhQT3I0U0U0MF9scXhiXzFhazg0TklwRG9KVy1yd0JPTHBsX0s2dkVRMzl1bEZXUkk?oc=5",
-    "published": "2026-10-05",
+    "title": "Hometown close-up with Brock Hoffman",
+    "source": "247Sports",
+    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNdVZJNlJNTG9VdHYxTzNoVWl6QjcxendfMW9VTGFEQ1VxRGw4VVJ5Q0E3SXkwb3hZZkxnWVFzNWxDek52LUNHUGF0TWE3eEVzYVE5UmM2UFluX2NIemRXaVdzVUt3d0tiTlVsb1d1Z01xcUVEZE5wTWF1blVlbUh5X01RRDdfMlAtWTl6TkttcEs?oc=5",
+    "published": "2026-10-14",
     "player": "Brock Hoffman",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Brock Hoffman."
+    "summary": "General news mentioning Brock Hoffman.",
+    "url": "https://247sports.com/nfl/pittsburgh-steelers/article/steelers-hoffman-plott-291261292/"
   },
   {
     "title": "Ryan McCollum 2022 Situational Stats",
@@ -665,7 +716,9 @@
     "player": "Jalen Sundell",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Jalen Sundell."
+    "summary": "General news mentioning Jalen Sundell.",
+    "url": "https://www.nfl.com/players/jalen-sundell/stats/situational/2025/reg/",
+    "image": "https://static.www.nfl.com/image/upload/t_headshot_desktop/league/egojfsvdjkcu1tabsxbt"
   },
   {
     "title": "Olu Oluwatimi NFL Stats, Game Log & Bio",
@@ -675,7 +728,22 @@
     "player": "Olu Oluwatimi",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Olu Oluwatimi."
+    "summary": "General news mentioning Olu Oluwatimi.",
+    "url": "https://www.profootballnetwork.com/players/olu-oluwatimi/nfl",
+    "image": "https://a.espncdn.com/i/headshots/nfl/players/full/4370807.png"
+  },
+  {
+    "title": "49ers center Jake Brendel reflects on unique NFL journey amid best season yet",
+    "source": "NBC Sports Bay Area & California",
+    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdXVjbGJKUFB2Q0V2aVppa3lMSTd1YjFza2Q4VXBBdkRQQ0l2N05Mc1hyck40WGxoaGhEeW51d0g3d1pLQ19oQW1LY2dLS2xuWl9MTGpKOXA0NE9XMl9yZzhjZU5WVFY1WTVNMERpeDJDUDNfTXNudXZCUU5Ieml4XzRodjREUjhrQlNTRkVTdTNHUVpRbjdLdHBSS0Y4eFF00gGoAUFVX3lxTE5pRTF2TFd2b2phRC1EUlhYQlA2TXF5a0Rabl9LUlFlNGtfbEFsLURKT3hENUk5TFZNeVNWWWtUcl96MFBYNFFYQmVLR3ZpeEZkOWZ5dlE3TXpheVRpeGR5N0lFbmJGRkl4eUZwWmFtSzlDU0xCOVN2MmpIZEpKOHB2Z1FrSThpTnVMWEZtZExyaV80UGtaNGk1U1pENHFsSWQ1OHZxVUpsTA?oc=5",
+    "published": "2026-11-19",
+    "player": "Jake Brendel",
+    "impact": "neutral",
+    "category": "general",
+    "summary": "General news mentioning Jake Brendel.",
+    "url": "https://www.nbcsportsbayarea.com/video/nfl/san-francisco-49ers/watch-jake-brendel-analysis/1981334/",
+    "image": "https://media.nbcsportsbayarea.com/2026/11/52796704966-1080pnbcstations.jpg?quality=85&#038;strip=all&#038;resize=1200%2C675",
+    "video": true
   },
   {
     "title": "Jake Brendel NFL Stats, Game Log & Bio",
@@ -685,23 +753,15 @@
     "player": "Jake Brendel",
     "impact": "neutral",
     "category": "general",
-    "summary": "General news mentioning Jake Brendel."
+    "summary": "General news mentioning Jake Brendel.",
+    "url": "https://www.profootballnetwork.com/players/jake-brendel/nfl",
+    "image": "https://a.espncdn.com/i/headshots/nfl/players/full/2577185.png"
   },
   {
     "title": "Jake Brendel Stats, Props & Recent Performance",
     "source": "PrizePicks",
     "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1VNU9mb05EUDlWUjJCS0R4Mnh6WkxXVkdJNHBQaVhhWXpZancwNVNIUTdkUk5tRU5xWE41ZWlfbkJfX0JVWDlKMnlwcU1RWGxGekpGdnFXMF9KRTNWc0Y5UGo3TjZoRDRRc1R0cQ?oc=5",
     "published": "2026-10-03",
-    "player": "Jake Brendel",
-    "impact": "neutral",
-    "category": "general",
-    "summary": "General news mentioning Jake Brendel."
-  },
-  {
-    "title": "Jake Brendel has just as many catches this season as these 3 prolific NFL names",
-    "source": "Niner Noise",
-    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQLVdYellJZlMySHZJWFZYYTF0NmZ4RF9rakJqRXpYTFJGTVRDMk91UElwcXVtWUJ0SHJhM09TY1gyU2pVSGw3ZHFCelRHX3NJRjZwdU1aVmRzVkdJOVkzRHNaTjdFNVFmdlRBbTNwbFpuQ3RZQTlyQkNrMDZXZTVseUln?oc=5",
-    "published": "2026-09-23",
     "player": "Jake Brendel",
     "impact": "neutral",
     "category": "general",
