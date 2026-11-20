@@ -2184,6 +2184,11 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-19",
+      "day": "Thu",
+      "status": "OUT"
     }
   ],
   "10220": [
@@ -2339,8 +2344,6 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
-      "practice_status": "DNP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3120,7 +3123,7 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
-      "practice_status": "DNP",
+      "practice_status": "LP",
       "practice_source": "news",
       "status": "QUESTIONABLE"
     }
@@ -3150,8 +3153,6 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
-      "practice_status": "DNP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3202,8 +3203,6 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
-      "practice_status": "LP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3304,8 +3303,6 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
-      "practice_status": "LP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3334,6 +3331,8 @@
     {
       "date": "2026-11-19",
       "day": "Thu",
+      "practice_status": "DNP",
+      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -3391,6 +3390,27 @@
       "day": "Thu",
       "practice_status": "DNP",
       "status": ""
+    }
+  ],
+  "13272": [
+    {
+      "date": "2026-11-19",
+      "day": "Thu",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "10871": [
+    {
+      "date": "2026-11-19",
+      "day": "Thu",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "12467": [
+    {
+      "date": "2026-11-19",
+      "day": "Thu",
+      "status": "QUESTIONABLE"
     }
   ]
 }
