@@ -2168,7 +2168,7 @@
     {
       "date": "2026-11-21",
       "day": "Sat",
-      "status": "IR"
+      "status": "QUESTIONABLE"
     }
   ],
   "6819": [
@@ -2222,7 +2222,7 @@
     {
       "date": "2026-11-21",
       "day": "Sat",
-      "status": "IR"
+      "status": "QUESTIONABLE"
     }
   ],
   "12521": [
@@ -4122,7 +4122,7 @@
     {
       "date": "2026-11-21",
       "day": "Sat",
-      "status": "OUT"
+      "status": "IR"
     }
   ],
   "13289": [
@@ -4337,8 +4337,6 @@
     {
       "date": "2026-11-21",
       "day": "Sat",
-      "practice_status": "FP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -5387,6 +5385,13 @@
       "day": "Sat",
       "practice_status": "DNP",
       "practice_source": "news",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "8150": [
+    {
+      "date": "2026-11-21",
+      "day": "Sat",
       "status": "QUESTIONABLE"
     }
   ]
