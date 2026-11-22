@@ -297,6 +297,11 @@
       "date": "2026-11-18",
       "day": "Wed",
       "status": "IR"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "5008": [
@@ -3427,12 +3432,22 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "11648": [
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -3448,12 +3463,22 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "13415": [
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -3489,12 +3514,22 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "1737": [
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4052,6 +4087,11 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "11595": [
@@ -4159,7 +4199,7 @@
     {
       "date": "2026-11-22",
       "day": "Sun",
-      "status": "DOUBTFUL"
+      "status": "OUT"
     }
   ],
   "11635": [
@@ -4305,6 +4345,11 @@
       "practice_status": "LP",
       "practice_source": "news",
       "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
     }
   ],
   "11056": [
@@ -4343,6 +4388,11 @@
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4650,6 +4700,11 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "12715": [
@@ -4699,6 +4754,11 @@
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4825,12 +4885,22 @@
       "date": "2026-11-17",
       "day": "Tue",
       "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
     }
   ],
   "13423": [
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -4850,6 +4920,11 @@
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -5071,6 +5146,11 @@
     {
       "date": "2026-11-17",
       "day": "Tue",
+      "status": "OUT"
+    },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
       "status": "OUT"
     }
   ],
@@ -5581,7 +5661,7 @@
     {
       "date": "2026-11-22",
       "day": "Sun",
-      "status": "DOUBTFUL"
+      "status": "OUT"
     }
   ],
   "12658": [
@@ -6324,6 +6404,62 @@
       "day": "Sat",
       "status": "QUESTIONABLE"
     },
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "QUESTIONABLE"
+    }
+  ],
+  "13402": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "10235": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "12670": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "11579": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "13335": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "13491": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "6185": [
+    {
+      "date": "2026-11-22",
+      "day": "Sun",
+      "status": "OUT"
+    }
+  ],
+  "4983": [
     {
       "date": "2026-11-22",
       "day": "Sun",
