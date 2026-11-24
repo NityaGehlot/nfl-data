@@ -1,7 +1,7 @@
 {
   "season": 2026,
-  "through_week": 10,
-  "generated_at": "2026-11-17T15:24:37Z",
+  "through_week": 11,
+  "generated_at": "2026-11-24T16:53:16Z",
   "rank_note": "Rank 1 = allows the fewest yards/points (toughest matchup); rank 32 = allows the most (easiest matchup).",
   "teams": {
     "SEA": {
@@ -23,10 +23,10 @@
         "rush": 4,
         "overall": 1,
         "QB": 2,
-        "RB": 8,
+        "RB": 10,
         "WR": 1,
-        "TE": 6,
-        "K": 6
+        "TE": 7,
+        "K": 5
       },
       "tiers": {
         "pass": "tough",
@@ -34,15 +34,15 @@
         "overall": "tough"
       },
       "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 180.2,
-        "rush_yds_allowed": 72.8,
+        "games": 3,
+        "pass_yds_allowed": 185.3,
+        "rush_yds_allowed": 80.3,
         "fantasy_points_allowed": {
-          "QB": 10.2,
-          "RB": 16.4,
-          "WR": 19.3,
-          "TE": 13.6,
-          "K": 6.2
+          "QB": 11.6,
+          "RB": 17.5,
+          "WR": 22.4,
+          "TE": 12.9,
+          "K": 7.3
         }
       }
     },
@@ -61,56 +61,14 @@
         "K": 9.5
       },
       "ranks": {
-        "pass": 4,
-        "rush": 9,
-        "overall": 2,
-        "QB": 7,
-        "RB": 3,
-        "WR": 4,
-        "TE": 6,
-        "K": 21
-      },
-      "tiers": {
-        "pass": "tough",
-        "rush": "tough",
-        "overall": "tough"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 233.2,
-        "rush_yds_allowed": 51.5,
-        "fantasy_points_allowed": {
-          "QB": 10.8,
-          "RB": 14.2,
-          "WR": 24.3,
-          "TE": 14.5,
-          "K": 8.8
-        }
-      }
-    },
-    "MIN": {
-      "games": 9,
-      "pass_yds_allowed": 190.9,
-      "pass_td_allowed": 0.7,
-      "rush_yds_allowed": 111.9,
-      "rush_td_allowed": 0.6,
-      "total_yds_allowed": 302.8,
-      "fantasy_points_allowed": {
-        "QB": 8.7,
-        "RB": 18.2,
-        "WR": 26.4,
-        "TE": 8.5,
-        "K": 6.6
-      },
-      "ranks": {
         "pass": 2,
-        "rush": 17,
-        "overall": 3,
-        "QB": 1,
-        "RB": 4,
-        "WR": 5,
-        "TE": 1,
-        "K": 5
+        "rush": 12,
+        "overall": 2,
+        "QB": 8,
+        "RB": 2,
+        "WR": 3,
+        "TE": 7,
+        "K": 23
       },
       "tiers": {
         "pass": "tough",
@@ -118,82 +76,40 @@
         "overall": "tough"
       },
       "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 185.2,
-        "rush_yds_allowed": 143.5,
-        "fantasy_points_allowed": {
-          "QB": 9.1,
-          "RB": 23.1,
-          "WR": 25.4,
-          "TE": 9.7,
-          "K": 6.5
-        }
-      }
-    },
-    "TB": {
-      "games": 9,
-      "pass_yds_allowed": 226.7,
-      "pass_td_allowed": 1.3,
-      "rush_yds_allowed": 78.6,
-      "rush_td_allowed": 0.3,
-      "total_yds_allowed": 305.3,
-      "fantasy_points_allowed": {
-        "QB": 11.7,
-        "RB": 15.6,
-        "WR": 30.5,
-        "TE": 14.7,
-        "K": 9.6
-      },
-      "ranks": {
-        "pass": 9,
-        "rush": 1,
-        "overall": 4,
-        "QB": 3,
-        "RB": 1,
-        "WR": 12,
-        "TE": 23,
-        "K": 23
-      },
-      "tiers": {
-        "pass": "tough",
-        "rush": "tough",
-        "overall": "tough"
-      },
-      "last_4": {
         "games": 3,
-        "pass_yds_allowed": 204.7,
-        "rush_yds_allowed": 86.3,
+        "pass_yds_allowed": 212.7,
+        "rush_yds_allowed": 52.7,
         "fantasy_points_allowed": {
-          "QB": 6.6,
-          "RB": 12.8,
-          "WR": 24.9,
-          "TE": 12.6,
-          "K": 3
+          "QB": 7.6,
+          "RB": 10.9,
+          "WR": 23.7,
+          "TE": 12.3,
+          "K": 9
         }
       }
     },
-    "NYG": {
-      "games": 9,
-      "pass_yds_allowed": 195.9,
-      "pass_td_allowed": 1.9,
-      "rush_yds_allowed": 120.8,
-      "rush_td_allowed": 0.8,
-      "total_yds_allowed": 316.7,
+    "MIN": {
+      "games": 10,
+      "pass_yds_allowed": 197.8,
+      "pass_td_allowed": 0.9,
+      "rush_yds_allowed": 109.7,
+      "rush_td_allowed": 0.6,
+      "total_yds_allowed": 307.5,
       "fantasy_points_allowed": {
-        "QB": 19,
-        "RB": 18.7,
-        "WR": 30.9,
-        "TE": 13,
-        "K": 6
+        "QB": 10,
+        "RB": 18.1,
+        "WR": 27.8,
+        "TE": 9.7,
+        "K": 6.4
       },
       "ranks": {
         "pass": 3,
-        "rush": 20,
-        "overall": 5,
-        "QB": 26,
-        "RB": 5,
-        "WR": 13,
-        "TE": 18,
+        "rush": 15,
+        "overall": 3,
+        "QB": 1,
+        "RB": 4,
+        "WR": 5,
+        "TE": 1,
         "K": 4
       },
       "tiers": {
@@ -202,41 +118,41 @@
         "overall": "tough"
       },
       "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 190.3,
-        "rush_yds_allowed": 93.7,
+        "games": 4,
+        "pass_yds_allowed": 223.2,
+        "rush_yds_allowed": 127.5,
         "fantasy_points_allowed": {
-          "QB": 16.8,
-          "RB": 12.9,
-          "WR": 30,
-          "TE": 14.3,
-          "K": 7.3
+          "QB": 13.7,
+          "RB": 21.3,
+          "WR": 31.5,
+          "TE": 13.9,
+          "K": 7
         }
       }
     },
-    "SF": {
-      "games": 9,
-      "pass_yds_allowed": 236.2,
-      "pass_td_allowed": 1.8,
+    "TB": {
+      "games": 10,
+      "pass_yds_allowed": 231.9,
+      "pass_td_allowed": 1.4,
       "rush_yds_allowed": 81.6,
-      "rush_td_allowed": 0.4,
-      "total_yds_allowed": 317.8,
+      "rush_td_allowed": 0.5,
+      "total_yds_allowed": 313.5,
       "fantasy_points_allowed": {
-        "QB": 17.1,
-        "RB": 19.8,
-        "WR": 33.8,
-        "TE": 12.8,
-        "K": 9.7
+        "QB": 12.6,
+        "RB": 17,
+        "WR": 30.8,
+        "TE": 15,
+        "K": 9.4
       },
       "ranks": {
-        "pass": 17,
+        "pass": 13,
         "rush": 2,
-        "overall": 6,
-        "QB": 16,
-        "RB": 8,
-        "WR": 22,
-        "TE": 15,
-        "K": 25
+        "overall": 4,
+        "QB": 4,
+        "RB": 1,
+        "WR": 13,
+        "TE": 23,
+        "K": 22
       },
       "tiers": {
         "pass": "average",
@@ -245,40 +161,40 @@
       },
       "last_4": {
         "games": 3,
-        "pass_yds_allowed": 257.3,
-        "rush_yds_allowed": 64.3,
+        "pass_yds_allowed": 227.7,
+        "rush_yds_allowed": 93.3,
         "fantasy_points_allowed": {
-          "QB": 22.5,
-          "RB": 12.5,
-          "WR": 41.3,
-          "TE": 20.2,
-          "K": 9.3
+          "QB": 10.4,
+          "RB": 15,
+          "WR": 31.6,
+          "TE": 12.1,
+          "K": 5.3
         }
       }
     },
     "KC": {
-      "games": 9,
-      "pass_yds_allowed": 227.8,
+      "games": 10,
+      "pass_yds_allowed": 220.5,
       "pass_td_allowed": 0.8,
-      "rush_yds_allowed": 98.2,
-      "rush_td_allowed": 0.7,
-      "total_yds_allowed": 326,
+      "rush_yds_allowed": 95.9,
+      "rush_td_allowed": 0.6,
+      "total_yds_allowed": 316.4,
       "fantasy_points_allowed": {
-        "QB": 12.4,
-        "RB": 19.5,
-        "WR": 24.8,
-        "TE": 16,
-        "K": 9.2
+        "QB": 12.2,
+        "RB": 18.3,
+        "WR": 24.4,
+        "TE": 16.3,
+        "K": 8.4
       },
       "ranks": {
-        "pass": 10,
-        "rush": 10,
-        "overall": 7,
-        "QB": 4,
-        "RB": 7,
+        "pass": 8,
+        "rush": 9,
+        "overall": 5,
+        "QB": 3,
+        "RB": 5,
         "WR": 2,
-        "TE": 25,
-        "K": 20
+        "TE": 27,
+        "K": 14
       },
       "tiers": {
         "pass": "tough",
@@ -287,39 +203,165 @@
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 232.5,
-        "rush_yds_allowed": 109,
+        "pass_yds_allowed": 207,
+        "rush_yds_allowed": 89.5,
         "fantasy_points_allowed": {
-          "QB": 13.2,
-          "RB": 20.4,
-          "WR": 29.4,
-          "TE": 11.1,
+          "QB": 12.4,
+          "RB": 16.8,
+          "WR": 25.1,
+          "TE": 12.9,
+          "K": 8
+        }
+      }
+    },
+    "SF": {
+      "games": 10,
+      "pass_yds_allowed": 239,
+      "pass_td_allowed": 1.6,
+      "rush_yds_allowed": 80.3,
+      "rush_td_allowed": 0.5,
+      "total_yds_allowed": 319.3,
+      "fantasy_points_allowed": {
+        "QB": 16.2,
+        "RB": 19.6,
+        "WR": 34,
+        "TE": 12.9,
+        "K": 9
+      },
+      "ranks": {
+        "pass": 18,
+        "rush": 1,
+        "overall": 6,
+        "QB": 13,
+        "RB": 9,
+        "WR": 24,
+        "TE": 17,
+        "K": 19
+      },
+      "tiers": {
+        "pass": "average",
+        "rush": "tough",
+        "overall": "tough"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 274.3,
+        "rush_yds_allowed": 60,
+        "fantasy_points_allowed": {
+          "QB": 18.5,
+          "RB": 11.5,
+          "WR": 45.1,
+          "TE": 15.3,
+          "K": 7
+        }
+      }
+    },
+    "JAX": {
+      "games": 10,
+      "pass_yds_allowed": 229.8,
+      "pass_td_allowed": 1.1,
+      "rush_yds_allowed": 89.6,
+      "rush_td_allowed": 0.6,
+      "total_yds_allowed": 319.4,
+      "fantasy_points_allowed": {
+        "QB": 14,
+        "RB": 17.7,
+        "WR": 32.1,
+        "TE": 10.6,
+        "K": 8
+      },
+      "ranks": {
+        "pass": 11,
+        "rush": 5,
+        "overall": 7,
+        "QB": 7,
+        "RB": 3,
+        "WR": 15,
+        "TE": 5,
+        "K": 11
+      },
+      "tiers": {
+        "pass": "tough",
+        "rush": "tough",
+        "overall": "tough"
+      },
+      "last_4": {
+        "games": 4,
+        "pass_yds_allowed": 154,
+        "rush_yds_allowed": 115.8,
+        "fantasy_points_allowed": {
+          "QB": 11.7,
+          "RB": 18.3,
+          "WR": 23.2,
+          "TE": 8.9,
           "K": 9.8
         }
       }
     },
-    "CHI": {
-      "games": 9,
-      "pass_yds_allowed": 235.6,
-      "pass_td_allowed": 1.4,
-      "rush_yds_allowed": 91.1,
-      "rush_td_allowed": 0.9,
-      "total_yds_allowed": 326.7,
+    "NYG": {
+      "games": 10,
+      "pass_yds_allowed": 206.4,
+      "pass_td_allowed": 1.8,
+      "rush_yds_allowed": 115.5,
+      "rush_td_allowed": 0.7,
+      "total_yds_allowed": 321.9,
       "fantasy_points_allowed": {
-        "QB": 17.8,
-        "RB": 20.2,
-        "WR": 30.1,
-        "TE": 11.4,
-        "K": 5.1
+        "QB": 18.4,
+        "RB": 18.3,
+        "WR": 32.5,
+        "TE": 12.2,
+        "K": 6.7
+      },
+      "ranks": {
+        "pass": 5,
+        "rush": 18,
+        "overall": 8,
+        "QB": 24,
+        "RB": 5,
+        "WR": 19,
+        "TE": 14,
+        "K": 5
+      },
+      "tiers": {
+        "pass": "tough",
+        "rush": "average",
+        "overall": "tough"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 239.7,
+        "rush_yds_allowed": 88.3,
+        "fantasy_points_allowed": {
+          "QB": 15.6,
+          "RB": 14.6,
+          "WR": 34.7,
+          "TE": 11.7,
+          "K": 8
+        }
+      }
+    },
+    "CHI": {
+      "games": 10,
+      "pass_yds_allowed": 234.2,
+      "pass_td_allowed": 1.4,
+      "rush_yds_allowed": 94,
+      "rush_td_allowed": 0.8,
+      "total_yds_allowed": 328.2,
+      "fantasy_points_allowed": {
+        "QB": 17.5,
+        "RB": 20,
+        "WR": 30.7,
+        "TE": 10.8,
+        "K": 5.6
       },
       "ranks": {
         "pass": 15,
-        "rush": 7,
-        "overall": 8,
-        "QB": 21,
-        "RB": 12,
+        "rush": 8,
+        "overall": 9,
+        "QB": 19,
+        "RB": 11,
         "WR": 10,
-        "TE": 10,
+        "TE": 7,
         "K": 2
       },
       "tiers": {
@@ -329,40 +371,82 @@
       },
       "last_4": {
         "games": 3,
-        "pass_yds_allowed": 250.7,
-        "rush_yds_allowed": 92.3,
+        "pass_yds_allowed": 217.7,
+        "rush_yds_allowed": 109,
         "fantasy_points_allowed": {
-          "QB": 17.6,
-          "RB": 26.6,
-          "WR": 25.4,
-          "TE": 13.2,
-          "K": 6.3
+          "QB": 13.2,
+          "RB": 23.4,
+          "WR": 32.1,
+          "TE": 5.4,
+          "K": 7.3
         }
       }
     },
-    "JAX": {
-      "games": 9,
-      "pass_yds_allowed": 236.1,
+    "PIT": {
+      "games": 10,
+      "pass_yds_allowed": 248.6,
       "pass_td_allowed": 1.1,
-      "rush_yds_allowed": 91,
+      "rush_yds_allowed": 84,
       "rush_td_allowed": 0.6,
-      "total_yds_allowed": 327.1,
+      "total_yds_allowed": 332.6,
       "fantasy_points_allowed": {
-        "QB": 13.2,
-        "RB": 18.8,
-        "WR": 32.8,
-        "TE": 10.8,
-        "K": 7.2
+        "QB": 13.6,
+        "RB": 21.8,
+        "WR": 30.7,
+        "TE": 12,
+        "K": 11.2
       },
       "ranks": {
-        "pass": 16,
-        "rush": 6,
-        "overall": 9,
+        "pass": 24,
+        "rush": 3,
+        "overall": 10,
         "QB": 5,
-        "RB": 6,
-        "WR": 19,
-        "TE": 6,
-        "K": 8
+        "RB": 18,
+        "WR": 10,
+        "TE": 12,
+        "K": 32
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "tough",
+        "overall": "tough"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 292,
+        "rush_yds_allowed": 67.7,
+        "fantasy_points_allowed": {
+          "QB": 16.9,
+          "RB": 25.9,
+          "WR": 31.2,
+          "TE": 14.6,
+          "K": 10.7
+        }
+      }
+    },
+    "BUF": {
+      "games": 10,
+      "pass_yds_allowed": 240.9,
+      "pass_td_allowed": 1.5,
+      "rush_yds_allowed": 93.9,
+      "rush_td_allowed": 0.7,
+      "total_yds_allowed": 334.8,
+      "fantasy_points_allowed": {
+        "QB": 14.3,
+        "RB": 22.6,
+        "WR": 32.2,
+        "TE": 11.6,
+        "K": 8.2
+      },
+      "ranks": {
+        "pass": 20,
+        "rush": 7,
+        "overall": 11,
+        "QB": 8,
+        "RB": 21,
+        "WR": 17,
+        "TE": 11,
+        "K": 13
       },
       "tiers": {
         "pass": "average",
@@ -370,99 +454,57 @@
         "overall": "tough"
       },
       "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 147.7,
-        "rush_yds_allowed": 128.7,
+        "games": 4,
+        "pass_yds_allowed": 154.2,
+        "rush_yds_allowed": 83.2,
         "fantasy_points_allowed": {
-          "QB": 8.7,
-          "RB": 21.8,
-          "WR": 22.2,
-          "TE": 8.7,
-          "K": 8
+          "QB": 3.1,
+          "RB": 15.7,
+          "WR": 17,
+          "TE": 6.2,
+          "K": 9.8
         }
       }
     },
     "MIA": {
-      "games": 9,
-      "pass_yds_allowed": 210.4,
-      "pass_td_allowed": 1.9,
-      "rush_yds_allowed": 118.4,
+      "games": 10,
+      "pass_yds_allowed": 219.8,
+      "pass_td_allowed": 1.8,
+      "rush_yds_allowed": 116.1,
       "rush_td_allowed": 0.8,
-      "total_yds_allowed": 328.8,
+      "total_yds_allowed": 335.9,
       "fantasy_points_allowed": {
-        "QB": 16.7,
-        "RB": 24.3,
-        "WR": 25,
-        "TE": 16.2,
-        "K": 8.7
+        "QB": 16.3,
+        "RB": 25,
+        "WR": 26.7,
+        "TE": 15.4,
+        "K": 9.5
       },
       "ranks": {
-        "pass": 5,
-        "rush": 18,
-        "overall": 10,
-        "QB": 13,
-        "RB": 24,
-        "WR": 3,
-        "TE": 29,
-        "K": 18
+        "pass": 7,
+        "rush": 19,
+        "overall": 12,
+        "QB": 14,
+        "RB": 27,
+        "WR": 4,
+        "TE": 25,
+        "K": 23
       },
       "tiers": {
         "pass": "tough",
         "rush": "average",
-        "overall": "tough"
+        "overall": "average"
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 191,
-        "rush_yds_allowed": 128.5,
+        "pass_yds_allowed": 195.2,
+        "rush_yds_allowed": 125,
         "fantasy_points_allowed": {
-          "QB": 14.1,
-          "RB": 21.9,
-          "WR": 27.2,
-          "TE": 11.6,
-          "K": 8
-        }
-      }
-    },
-    "BAL": {
-      "games": 10,
-      "pass_yds_allowed": 230.6,
-      "pass_td_allowed": 1.2,
-      "rush_yds_allowed": 105.7,
-      "rush_td_allowed": 1.4,
-      "total_yds_allowed": 336.3,
-      "fantasy_points_allowed": {
-        "QB": 17.4,
-        "RB": 20,
-        "WR": 32.1,
-        "TE": 12.9,
-        "K": 10.2
-      },
-      "ranks": {
-        "pass": 12,
-        "rush": 13,
-        "overall": 11,
-        "QB": 18,
-        "RB": 11,
-        "WR": 18,
-        "TE": 17,
-        "K": 27
-      },
-      "tiers": {
-        "pass": "average",
-        "rush": "average",
-        "overall": "tough"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 238,
-        "rush_yds_allowed": 114,
-        "fantasy_points_allowed": {
-          "QB": 21.3,
-          "RB": 22.2,
-          "WR": 29.1,
-          "TE": 16.6,
-          "K": 12.2
+          "QB": 11.3,
+          "RB": 22.9,
+          "WR": 31,
+          "TE": 6.9,
+          "K": 11.2
         }
       }
     },
@@ -481,13 +523,13 @@
         "K": 5.8
       },
       "ranks": {
-        "pass": 11,
+        "pass": 10,
         "rush": 16,
-        "overall": 12,
-        "QB": 6,
-        "RB": 25,
+        "overall": 13,
+        "QB": 5,
+        "RB": 26,
         "WR": 28,
-        "TE": 2,
+        "TE": 3,
         "K": 3
       },
       "tiers": {
@@ -496,41 +538,41 @@
         "overall": "average"
       },
       "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 259.8,
-        "rush_yds_allowed": 106,
+        "games": 3,
+        "pass_yds_allowed": 245.3,
+        "rush_yds_allowed": 101.7,
         "fantasy_points_allowed": {
-          "QB": 15.7,
-          "RB": 22,
-          "WR": 41.2,
-          "TE": 10.6,
-          "K": 8.2
+          "QB": 14.9,
+          "RB": 23.4,
+          "WR": 37.5,
+          "TE": 12.7,
+          "K": 8
         }
       }
     },
-    "CAR": {
-      "games": 9,
-      "pass_yds_allowed": 217.9,
-      "pass_td_allowed": 1.4,
-      "rush_yds_allowed": 124,
-      "rush_td_allowed": 1.6,
-      "total_yds_allowed": 341.9,
+    "NYJ": {
+      "games": 11,
+      "pass_yds_allowed": 203.3,
+      "pass_td_allowed": 1.7,
+      "rush_yds_allowed": 137.4,
+      "rush_td_allowed": 1.3,
+      "total_yds_allowed": 340.7,
       "fantasy_points_allowed": {
-        "QB": 15.9,
-        "RB": 27.3,
-        "WR": 31.3,
-        "TE": 12.5,
-        "K": 8.2
+        "QB": 18.4,
+        "RB": 24.1,
+        "WR": 28.4,
+        "TE": 13.2,
+        "K": 7
       },
       "ranks": {
-        "pass": 7,
-        "rush": 23,
-        "overall": 13,
-        "QB": 12,
-        "RB": 30,
-        "WR": 15,
-        "TE": 11,
-        "K": 14
+        "pass": 4,
+        "rush": 30,
+        "overall": 14,
+        "QB": 24,
+        "RB": 23,
+        "WR": 7,
+        "TE": 19,
+        "K": 7
       },
       "tiers": {
         "pass": "tough",
@@ -539,56 +581,56 @@
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 194,
-        "rush_yds_allowed": 113.8,
+        "pass_yds_allowed": 204,
+        "rush_yds_allowed": 154.2,
         "fantasy_points_allowed": {
-          "QB": 13.4,
-          "RB": 29.2,
-          "WR": 33.5,
-          "TE": 8.2,
-          "K": 7.5
+          "QB": 21.8,
+          "RB": 28.9,
+          "WR": 23.7,
+          "TE": 18.6,
+          "K": 7.2
         }
       }
     },
-    "PIT": {
-      "games": 9,
-      "pass_yds_allowed": 260.6,
-      "pass_td_allowed": 1.2,
-      "rush_yds_allowed": 83.2,
-      "rush_td_allowed": 0.6,
-      "total_yds_allowed": 343.8,
+    "BAL": {
+      "games": 11,
+      "pass_yds_allowed": 232.7,
+      "pass_td_allowed": 1.3,
+      "rush_yds_allowed": 109.5,
+      "rush_td_allowed": 1.5,
+      "total_yds_allowed": 342.2,
       "fantasy_points_allowed": {
-        "QB": 14.4,
-        "RB": 22.6,
-        "WR": 31.9,
-        "TE": 12.8,
-        "K": 10.4
+        "QB": 17.3,
+        "RB": 21,
+        "WR": 32.1,
+        "TE": 14.1,
+        "K": 10.1
       },
       "ranks": {
-        "pass": 30,
-        "rush": 3,
-        "overall": 14,
-        "QB": 8,
-        "RB": 20,
-        "WR": 16,
-        "TE": 15,
-        "K": 30
+        "pass": 14,
+        "rush": 14,
+        "overall": 15,
+        "QB": 18,
+        "RB": 16,
+        "WR": 15,
+        "TE": 21,
+        "K": 29
       },
       "tiers": {
-        "pass": "easy",
-        "rush": "tough",
+        "pass": "average",
+        "rush": "average",
         "overall": "average"
       },
       "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 337.7,
-        "rush_yds_allowed": 43.3,
+        "games": 4,
+        "pass_yds_allowed": 228.5,
+        "rush_yds_allowed": 132.5,
         "fantasy_points_allowed": {
-          "QB": 19.4,
-          "RB": 27.4,
-          "WR": 37.8,
-          "TE": 15,
-          "K": 5.7
+          "QB": 18,
+          "RB": 25.4,
+          "WR": 25.8,
+          "TE": 17.1,
+          "K": 13.2
         }
       }
     },
@@ -607,138 +649,54 @@
         "K": 8.8
       },
       "ranks": {
-        "pass": 8,
-        "rush": 26,
-        "overall": 15,
-        "QB": 9,
-        "RB": 14,
-        "WR": 14,
-        "TE": 22,
-        "K": 19
-      },
-      "tiers": {
-        "pass": "tough",
-        "rush": "easy",
-        "overall": "average"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 207.2,
-        "rush_yds_allowed": 147.2,
-        "fantasy_points_allowed": {
-          "QB": 12.7,
-          "RB": 26.9,
-          "WR": 27.6,
-          "TE": 13.1,
-          "K": 8
-        }
-      }
-    },
-    "NYJ": {
-      "games": 10,
-      "pass_yds_allowed": 210.5,
-      "pass_td_allowed": 1.7,
-      "rush_yds_allowed": 135.3,
-      "rush_td_allowed": 1.3,
-      "total_yds_allowed": 345.8,
-      "fantasy_points_allowed": {
-        "QB": 18,
-        "RB": 24.6,
-        "WR": 28.5,
-        "TE": 13.9,
-        "K": 6.9
-      },
-      "ranks": {
         "pass": 6,
-        "rush": 30,
+        "rush": 22,
         "overall": 16,
-        "QB": 22,
-        "RB": 26,
-        "WR": 7,
+        "QB": 10,
+        "RB": 12,
+        "WR": 14,
         "TE": 21,
-        "K": 7
+        "K": 17
       },
       "tiers": {
         "pass": "tough",
         "rush": "easy",
-        "overall": "average"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 223.2,
-        "rush_yds_allowed": 153.8,
-        "fantasy_points_allowed": {
-          "QB": 22.7,
-          "RB": 28.6,
-          "WR": 25.1,
-          "TE": 20.6,
-          "K": 6.2
-        }
-      }
-    },
-    "BUF": {
-      "games": 9,
-      "pass_yds_allowed": 256.3,
-      "pass_td_allowed": 1.7,
-      "rush_yds_allowed": 93.3,
-      "rush_td_allowed": 0.8,
-      "total_yds_allowed": 349.6,
-      "fantasy_points_allowed": {
-        "QB": 15.6,
-        "RB": 24.1,
-        "WR": 33.9,
-        "TE": 12.6,
-        "K": 7.7
-      },
-      "ranks": {
-        "pass": 26,
-        "rush": 8,
-        "overall": 17,
-        "QB": 10,
-        "RB": 23,
-        "WR": 23,
-        "TE": 13,
-        "K": 11
-      },
-      "tiers": {
-        "pass": "easy",
-        "rush": "tough",
         "overall": "average"
       },
       "last_4": {
         "games": 3,
-        "pass_yds_allowed": 171.7,
-        "rush_yds_allowed": 78,
+        "pass_yds_allowed": 216,
+        "rush_yds_allowed": 149.3,
         "fantasy_points_allowed": {
-          "QB": 3.2,
-          "RB": 17.6,
-          "WR": 17.2,
-          "TE": 7.2,
+          "QB": 15,
+          "RB": 22.8,
+          "WR": 29.4,
+          "TE": 15.2,
           "K": 8.7
         }
       }
     },
     "DET": {
-      "games": 9,
-      "pass_yds_allowed": 260.1,
+      "games": 10,
+      "pass_yds_allowed": 252.8,
       "pass_td_allowed": 2.1,
-      "rush_yds_allowed": 90.4,
+      "rush_yds_allowed": 93.4,
       "rush_td_allowed": 0.7,
-      "total_yds_allowed": 350.5,
+      "total_yds_allowed": 346.2,
       "fantasy_points_allowed": {
-        "QB": 20.8,
-        "RB": 17.3,
-        "WR": 33.1,
-        "TE": 22.9,
-        "K": 4.7
+        "QB": 20.7,
+        "RB": 18.5,
+        "WR": 33.2,
+        "TE": 20.8,
+        "K": 4.5
       },
       "ranks": {
         "pass": 29,
-        "rush": 5,
-        "overall": 18,
-        "QB": 31,
-        "RB": 2,
-        "WR": 21,
+        "rush": 6,
+        "overall": 17,
+        "QB": 30,
+        "RB": 7,
+        "WR": 22,
         "TE": 32,
         "K": 1
       },
@@ -749,40 +707,166 @@
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 185.2,
-        "rush_yds_allowed": 69.8,
+        "pass_yds_allowed": 163.5,
+        "rush_yds_allowed": 84.8,
         "fantasy_points_allowed": {
-          "QB": 12.7,
-          "RB": 15.6,
-          "WR": 23.4,
-          "TE": 11.7,
-          "K": 4.8
+          "QB": 13.2,
+          "RB": 16.4,
+          "WR": 24.5,
+          "TE": 8,
+          "K": 4.2
+        }
+      }
+    },
+    "HOU": {
+      "games": 10,
+      "pass_yds_allowed": 251.2,
+      "pass_td_allowed": 1.2,
+      "rush_yds_allowed": 96.1,
+      "rush_td_allowed": 1.2,
+      "total_yds_allowed": 347.3,
+      "fantasy_points_allowed": {
+        "QB": 16.8,
+        "RB": 20.9,
+        "WR": 34.1,
+        "TE": 10,
+        "K": 9
+      },
+      "ranks": {
+        "pass": 25,
+        "rush": 10,
+        "overall": 18,
+        "QB": 16,
+        "RB": 15,
+        "WR": 25,
+        "TE": 2,
+        "K": 19
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "tough",
+        "overall": "average"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 224.3,
+        "rush_yds_allowed": 91.7,
+        "fantasy_points_allowed": {
+          "QB": 13.7,
+          "RB": 17.7,
+          "WR": 26.7,
+          "TE": 9.8,
+          "K": 8
+        }
+      }
+    },
+    "CAR": {
+      "games": 10,
+      "pass_yds_allowed": 223.7,
+      "pass_td_allowed": 1.4,
+      "rush_yds_allowed": 127.3,
+      "rush_td_allowed": 1.6,
+      "total_yds_allowed": 351,
+      "fantasy_points_allowed": {
+        "QB": 15.7,
+        "RB": 28.2,
+        "WR": 32.3,
+        "TE": 12.1,
+        "K": 8.1
+      },
+      "ranks": {
+        "pass": 9,
+        "rush": 26,
+        "overall": 19,
+        "QB": 11,
+        "RB": 32,
+        "WR": 18,
+        "TE": 13,
+        "K": 12
+      },
+      "tiers": {
+        "pass": "tough",
+        "rush": "easy",
+        "overall": "average"
+      },
+      "last_4": {
+        "games": 4,
+        "pass_yds_allowed": 247,
+        "rush_yds_allowed": 88.5,
+        "fantasy_points_allowed": {
+          "QB": 15.2,
+          "RB": 27.4,
+          "WR": 39,
+          "TE": 10.3,
+          "K": 6.2
         }
       }
     },
     "LAC": {
-      "games": 9,
-      "pass_yds_allowed": 242.8,
-      "pass_td_allowed": 1.4,
-      "rush_yds_allowed": 109.8,
-      "rush_td_allowed": 1.4,
-      "total_yds_allowed": 352.6,
+      "games": 10,
+      "pass_yds_allowed": 236.1,
+      "pass_td_allowed": 1.6,
+      "rush_yds_allowed": 115.3,
+      "rush_td_allowed": 1.3,
+      "total_yds_allowed": 351.4,
       "fantasy_points_allowed": {
-        "QB": 15.7,
-        "RB": 23.1,
-        "WR": 35.8,
-        "TE": 11.2,
-        "K": 9.6
+        "QB": 16.1,
+        "RB": 23.6,
+        "WR": 35.2,
+        "TE": 11.1,
+        "K": 9.7
       },
       "ranks": {
-        "pass": 20,
-        "rush": 15,
-        "overall": 19,
-        "QB": 11,
-        "RB": 21,
-        "WR": 27,
-        "TE": 9,
-        "K": 23
+        "pass": 16,
+        "rush": 17,
+        "overall": 20,
+        "QB": 12,
+        "RB": 22,
+        "WR": 26,
+        "TE": 10,
+        "K": 25
+      },
+      "tiers": {
+        "pass": "average",
+        "rush": "average",
+        "overall": "average"
+      },
+      "last_4": {
+        "games": 4,
+        "pass_yds_allowed": 266,
+        "rush_yds_allowed": 103.5,
+        "fantasy_points_allowed": {
+          "QB": 18.7,
+          "RB": 23.9,
+          "WR": 42.5,
+          "TE": 11.2,
+          "K": 10.5
+        }
+      }
+    },
+    "PHI": {
+      "games": 10,
+      "pass_yds_allowed": 237.7,
+      "pass_td_allowed": 1.4,
+      "rush_yds_allowed": 120.5,
+      "rush_td_allowed": 1,
+      "total_yds_allowed": 358.2,
+      "fantasy_points_allowed": {
+        "QB": 18.3,
+        "RB": 19.2,
+        "WR": 37.6,
+        "TE": 10.7,
+        "K": 10.5
+      },
+      "ranks": {
+        "pass": 17,
+        "rush": 21,
+        "overall": 21,
+        "QB": 23,
+        "RB": 8,
+        "WR": 30,
+        "TE": 6,
+        "K": 30
       },
       "tiers": {
         "pass": "average",
@@ -791,78 +875,36 @@
       },
       "last_4": {
         "games": 3,
-        "pass_yds_allowed": 296,
-        "rush_yds_allowed": 83,
+        "pass_yds_allowed": 214,
+        "rush_yds_allowed": 96,
         "fantasy_points_allowed": {
-          "QB": 18.5,
-          "RB": 22.4,
-          "WR": 46.8,
-          "TE": 11.4,
-          "K": 10.3
-        }
-      }
-    },
-    "CIN": {
-      "games": 9,
-      "pass_yds_allowed": 237.1,
-      "pass_td_allowed": 1.2,
-      "rush_yds_allowed": 123.9,
-      "rush_td_allowed": 0.9,
-      "total_yds_allowed": 361,
-      "fantasy_points_allowed": {
-        "QB": 17.2,
-        "RB": 20.6,
-        "WR": 29.7,
-        "TE": 15.6,
-        "K": 8
-      },
-      "ranks": {
-        "pass": 18,
-        "rush": 22,
-        "overall": 20,
-        "QB": 17,
-        "RB": 15,
-        "WR": 9,
-        "TE": 24,
-        "K": 13
-      },
-      "tiers": {
-        "pass": "average",
-        "rush": "easy",
-        "overall": "average"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 227.2,
-        "rush_yds_allowed": 125,
-        "fantasy_points_allowed": {
-          "QB": 17.9,
-          "RB": 23.1,
-          "WR": 30.2,
-          "TE": 14.3,
-          "K": 6.2
+          "QB": 15.4,
+          "RB": 14.5,
+          "WR": 31.7,
+          "TE": 11.2,
+          "K": 15
         }
       }
     },
     "WAS": {
-      "games": 9,
-      "pass_yds_allowed": 258.6,
+      "games": 10,
+      "pass_yds_allowed": 262.7,
       "pass_td_allowed": 1.9,
-      "rush_yds_allowed": 103.7,
-      "rush_td_allowed": 1,
-      "total_yds_allowed": 362.3,
+      "rush_yds_allowed": 96.4,
+      "rush_td_allowed": 0.9,
+      "total_yds_allowed": 359.1,
       "fantasy_points_allowed": {
-        "QB": 18.8,
-        "RB": 20.2,
-        "WR": 33,
-        "TE": 20.2,
-        "K": 8.3
+        "QB": 18.9,
+        "RB": 20.4,
+        "WR": 32.6,
+        "TE": 20.4,
+        "K": 8.5
       },
       "ranks": {
-        "pass": 28,
-        "rush": 12,
-        "overall": 21,
-        "QB": 25,
+        "pass": 31,
+        "rush": 11,
+        "overall": 22,
+        "QB": 26,
         "RB": 12,
         "WR": 20,
         "TE": 31,
@@ -870,61 +912,19 @@
       },
       "tiers": {
         "pass": "easy",
-        "rush": "average",
-        "overall": "average"
-      },
-      "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 244.3,
-        "rush_yds_allowed": 110.3,
-        "fantasy_points_allowed": {
-          "QB": 11.8,
-          "RB": 23.5,
-          "WR": 27.1,
-          "TE": 17.5,
-          "K": 4.7
-        }
-      }
-    },
-    "ARI": {
-      "games": 10,
-      "pass_yds_allowed": 232.5,
-      "pass_td_allowed": 2.2,
-      "rush_yds_allowed": 129.9,
-      "rush_td_allowed": 1.1,
-      "total_yds_allowed": 362.4,
-      "fantasy_points_allowed": {
-        "QB": 20.8,
-        "RB": 22.1,
-        "WR": 32,
-        "TE": 16.1,
-        "K": 8.6
-      },
-      "ranks": {
-        "pass": 13,
-        "rush": 28,
-        "overall": 22,
-        "QB": 31,
-        "RB": 19,
-        "WR": 17,
-        "TE": 28,
-        "K": 16
-      },
-      "tiers": {
-        "pass": "average",
-        "rush": "easy",
+        "rush": "tough",
         "overall": "easy"
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 210.2,
-        "rush_yds_allowed": 143.5,
+        "pass_yds_allowed": 258.2,
+        "rush_yds_allowed": 90.5,
         "fantasy_points_allowed": {
-          "QB": 19.6,
-          "RB": 24.7,
-          "WR": 27.8,
-          "TE": 11.5,
-          "K": 10.8
+          "QB": 13.8,
+          "RB": 23.2,
+          "WR": 27.6,
+          "TE": 18.6,
+          "K": 6
         }
       }
     },
@@ -943,13 +943,13 @@
         "K": 8.6
       },
       "ranks": {
-        "pass": 27,
-        "rush": 14,
+        "pass": 30,
+        "rush": 13,
         "overall": 23,
-        "QB": 20,
+        "QB": 21,
         "RB": 17,
         "WR": 31,
-        "TE": 3,
+        "TE": 4,
         "K": 16
       },
       "tiers": {
@@ -958,40 +958,40 @@
         "overall": "easy"
       },
       "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 300.2,
-        "rush_yds_allowed": 127.5,
+        "games": 3,
+        "pass_yds_allowed": 297.7,
+        "rush_yds_allowed": 131.3,
         "fantasy_points_allowed": {
-          "QB": 23.4,
-          "RB": 24.2,
-          "WR": 50,
-          "TE": 10.4,
-          "K": 10.8
+          "QB": 23.8,
+          "RB": 25.5,
+          "WR": 55.2,
+          "TE": 5.3,
+          "K": 9.7
         }
       }
     },
-    "PHI": {
-      "games": 9,
-      "pass_yds_allowed": 238.9,
-      "pass_td_allowed": 1.4,
-      "rush_yds_allowed": 125.8,
-      "rush_td_allowed": 1.1,
-      "total_yds_allowed": 364.7,
+    "IND": {
+      "games": 11,
+      "pass_yds_allowed": 231.6,
+      "pass_td_allowed": 1.7,
+      "rush_yds_allowed": 133.6,
+      "rush_td_allowed": 0.9,
+      "total_yds_allowed": 365.2,
       "fantasy_points_allowed": {
-        "QB": 18.5,
-        "RB": 19.9,
-        "WR": 37.7,
-        "TE": 10.3,
-        "K": 10.2
+        "QB": 17.9,
+        "RB": 24.4,
+        "WR": 30.7,
+        "TE": 13.4,
+        "K": 10
       },
       "ranks": {
-        "pass": 19,
-        "rush": 25,
+        "pass": 12,
+        "rush": 29,
         "overall": 24,
-        "QB": 24,
-        "RB": 10,
-        "WR": 30,
-        "TE": 3,
+        "QB": 22,
+        "RB": 24,
+        "WR": 10,
+        "TE": 20,
         "K": 27
       },
       "tiers": {
@@ -1000,83 +1000,41 @@
         "overall": "easy"
       },
       "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 209,
-        "rush_yds_allowed": 138.7,
+        "games": 4,
+        "pass_yds_allowed": 239,
+        "rush_yds_allowed": 150.5,
         "fantasy_points_allowed": {
-          "QB": 17.8,
-          "RB": 18.9,
-          "WR": 36.6,
-          "TE": 7.5,
-          "K": 15.3
+          "QB": 18.1,
+          "RB": 28.5,
+          "WR": 33.5,
+          "TE": 12.8,
+          "K": 6
         }
       }
     },
-    "HOU": {
-      "games": 9,
-      "pass_yds_allowed": 263.1,
-      "pass_td_allowed": 1.3,
-      "rush_yds_allowed": 102.6,
-      "rush_td_allowed": 1.3,
-      "total_yds_allowed": 365.7,
-      "fantasy_points_allowed": {
-        "QB": 18.2,
-        "RB": 22,
-        "WR": 36.2,
-        "TE": 10.7,
-        "K": 9.8
-      },
-      "ranks": {
-        "pass": 31,
-        "rush": 11,
-        "overall": 25,
-        "QB": 23,
-        "RB": 18,
-        "WR": 28,
-        "TE": 5,
-        "K": 26
-      },
-      "tiers": {
-        "pass": "easy",
-        "rush": "tough",
-        "overall": "easy"
-      },
-      "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 260.3,
-        "rush_yds_allowed": 141.7,
-        "fantasy_points_allowed": {
-          "QB": 17.8,
-          "RB": 28.1,
-          "WR": 32.3,
-          "TE": 11.1,
-          "K": 7.7
-        }
-      }
-    },
-    "IND": {
+    "CIN": {
       "games": 10,
-      "pass_yds_allowed": 235.4,
-      "pass_td_allowed": 1.6,
-      "rush_yds_allowed": 130.3,
-      "rush_td_allowed": 1,
-      "total_yds_allowed": 365.7,
+      "pass_yds_allowed": 242.3,
+      "pass_td_allowed": 1.1,
+      "rush_yds_allowed": 126.5,
+      "rush_td_allowed": 0.9,
+      "total_yds_allowed": 368.8,
       "fantasy_points_allowed": {
-        "QB": 17.6,
-        "RB": 24.8,
-        "WR": 30.1,
-        "TE": 13.1,
-        "K": 10.4
+        "QB": 17.2,
+        "RB": 20.8,
+        "WR": 30.2,
+        "TE": 15.1,
+        "K": 9
       },
       "ranks": {
-        "pass": 14,
-        "rush": 29,
+        "pass": 21,
+        "rush": 24,
         "overall": 25,
-        "QB": 19,
-        "RB": 27,
-        "WR": 10,
-        "TE": 19,
-        "K": 30
+        "QB": 17,
+        "RB": 14,
+        "WR": 9,
+        "TE": 24,
+        "K": 19
       },
       "tiers": {
         "pass": "average",
@@ -1085,14 +1043,56 @@
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 228,
-        "rush_yds_allowed": 142.8,
+        "pass_yds_allowed": 225,
+        "rush_yds_allowed": 141.8,
         "fantasy_points_allowed": {
-          "QB": 16.5,
-          "RB": 26,
-          "WR": 29.1,
-          "TE": 12.8,
-          "K": 7.8
+          "QB": 18.4,
+          "RB": 25.1,
+          "WR": 28.7,
+          "TE": 14.3,
+          "K": 9
+        }
+      }
+    },
+    "ARI": {
+      "games": 11,
+      "pass_yds_allowed": 240.8,
+      "pass_td_allowed": 2.3,
+      "rush_yds_allowed": 128.8,
+      "rush_td_allowed": 1.1,
+      "total_yds_allowed": 369.6,
+      "fantasy_points_allowed": {
+        "QB": 21.2,
+        "RB": 22.4,
+        "WR": 32.7,
+        "TE": 17.4,
+        "K": 8.9
+      },
+      "ranks": {
+        "pass": 19,
+        "rush": 27,
+        "overall": 26,
+        "QB": 32,
+        "RB": 20,
+        "WR": 21,
+        "TE": 29,
+        "K": 18
+      },
+      "tiers": {
+        "pass": "average",
+        "rush": "easy",
+        "overall": "easy"
+      },
+      "last_4": {
+        "games": 4,
+        "pass_yds_allowed": 235.8,
+        "rush_yds_allowed": 133.2,
+        "fantasy_points_allowed": {
+          "QB": 19.2,
+          "RB": 23.4,
+          "WR": 31.2,
+          "TE": 18.8,
+          "K": 10.2
         }
       }
     },
@@ -1111,224 +1111,140 @@
         "K": 7.8
       },
       "ranks": {
-        "pass": 24,
-        "rush": 19,
+        "pass": 28,
+        "rush": 20,
         "overall": 27,
-        "QB": 26,
-        "RB": 29,
-        "WR": 25,
-        "TE": 11,
-        "K": 12
-      },
-      "tiers": {
-        "pass": "easy",
-        "rush": "average",
-        "overall": "easy"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 226.8,
-        "rush_yds_allowed": 173,
-        "fantasy_points_allowed": {
-          "QB": 19.6,
-          "RB": 30.3,
-          "WR": 33.1,
-          "TE": 7.8,
-          "K": 7.8
-        }
-      }
-    },
-    "DEN": {
-      "games": 9,
-      "pass_yds_allowed": 249.9,
-      "pass_td_allowed": 1.6,
-      "rush_yds_allowed": 124.3,
-      "rush_td_allowed": 0.7,
-      "total_yds_allowed": 374.2,
-      "fantasy_points_allowed": {
-        "QB": 16.9,
-        "RB": 23.6,
-        "WR": 27.6,
-        "TE": 19.2,
-        "K": 7.6
-      },
-      "ranks": {
-        "pass": 23,
-        "rush": 24,
-        "overall": 28,
-        "QB": 15,
-        "RB": 22,
-        "WR": 6,
-        "TE": 30,
+        "QB": 27,
+        "RB": 28,
+        "WR": 27,
+        "TE": 16,
         "K": 10
       },
       "tiers": {
         "pass": "easy",
-        "rush": "easy",
-        "overall": "easy"
-      },
-      "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 289.7,
-        "rush_yds_allowed": 93.3,
-        "fantasy_points_allowed": {
-          "QB": 20.8,
-          "RB": 23.1,
-          "WR": 25.1,
-          "TE": 31.3,
-          "K": 6.3
-        }
-      }
-    },
-    "NO": {
-      "games": 9,
-      "pass_yds_allowed": 249.4,
-      "pass_td_allowed": 1.4,
-      "rush_yds_allowed": 129.8,
-      "rush_td_allowed": 1.4,
-      "total_yds_allowed": 379.2,
-      "fantasy_points_allowed": {
-        "QB": 16.8,
-        "RB": 29.1,
-        "WR": 28.8,
-        "TE": 16,
-        "K": 10.3
-      },
-      "ranks": {
-        "pass": 22,
-        "rush": 27,
-        "overall": 29,
-        "QB": 14,
-        "RB": 31,
-        "WR": 8,
-        "TE": 25,
-        "K": 29
-      },
-      "tiers": {
-        "pass": "easy",
-        "rush": "easy",
-        "overall": "easy"
-      },
-      "last_4": {
-        "games": 3,
-        "pass_yds_allowed": 236.3,
-        "rush_yds_allowed": 113.3,
-        "fantasy_points_allowed": {
-          "QB": 14.6,
-          "RB": 27.3,
-          "WR": 22.6,
-          "TE": 12.3,
-          "K": 11.7
-        }
-      }
-    },
-    "LV": {
-      "games": 10,
-      "pass_yds_allowed": 247.8,
-      "pass_td_allowed": 2.2,
-      "rush_yds_allowed": 149.5,
-      "rush_td_allowed": 1.3,
-      "total_yds_allowed": 397.3,
-      "fantasy_points_allowed": {
-        "QB": 19.9,
-        "RB": 25.4,
-        "WR": 34.6,
-        "TE": 16,
-        "K": 7.3
-      },
-      "ranks": {
-        "pass": 21,
-        "rush": 31,
-        "overall": 30,
-        "QB": 29,
-        "RB": 28,
-        "WR": 24,
-        "TE": 25,
-        "K": 9
-      },
-      "tiers": {
-        "pass": "average",
-        "rush": "easy",
-        "overall": "easy"
-      },
-      "last_4": {
-        "games": 4,
-        "pass_yds_allowed": 239.2,
-        "rush_yds_allowed": 175.2,
-        "fantasy_points_allowed": {
-          "QB": 19,
-          "RB": 27.9,
-          "WR": 37.6,
-          "TE": 13.5,
-          "K": 7.5
-        }
-      }
-    },
-    "TEN": {
-      "games": 9,
-      "pass_yds_allowed": 281.6,
-      "pass_td_allowed": 1.6,
-      "rush_yds_allowed": 123.7,
-      "rush_td_allowed": 1.2,
-      "total_yds_allowed": 405.3,
-      "fantasy_points_allowed": {
-        "QB": 19.3,
-        "RB": 21.5,
-        "WR": 42.4,
-        "TE": 12.6,
-        "K": 11
-      },
-      "ranks": {
-        "pass": 32,
-        "rush": 21,
-        "overall": 31,
-        "QB": 28,
-        "RB": 16,
-        "WR": 32,
-        "TE": 13,
-        "K": 32
-      },
-      "tiers": {
-        "pass": "easy",
         "rush": "average",
         "overall": "easy"
       },
       "last_4": {
         "games": 3,
-        "pass_yds_allowed": 374,
-        "rush_yds_allowed": 126,
+        "pass_yds_allowed": 206.3,
+        "rush_yds_allowed": 189.7,
         "fantasy_points_allowed": {
-          "QB": 28.2,
-          "RB": 24.6,
-          "WR": 55.4,
-          "TE": 16.9,
-          "K": 10.7
+          "QB": 22.1,
+          "RB": 28.5,
+          "WR": 37.9,
+          "TE": 4.7,
+          "K": 10
         }
       }
     },
-    "DAL": {
+    "NO": {
       "games": 10,
-      "pass_yds_allowed": 252.2,
-      "pass_td_allowed": 1.9,
-      "rush_yds_allowed": 154.1,
-      "rush_td_allowed": 1.4,
-      "total_yds_allowed": 406.3,
+      "pass_yds_allowed": 242.6,
+      "pass_td_allowed": 1.5,
+      "rush_yds_allowed": 131.4,
+      "rush_td_allowed": 1.3,
+      "total_yds_allowed": 374,
       "fantasy_points_allowed": {
-        "QB": 20.3,
-        "RB": 29.3,
-        "WR": 35.7,
-        "TE": 13.2,
-        "K": 9.5
+        "QB": 16.5,
+        "RB": 27.9,
+        "WR": 28.4,
+        "TE": 15.9,
+        "K": 10
       },
       "ranks": {
-        "pass": 25,
-        "rush": 32,
-        "overall": 32,
-        "QB": 30,
-        "RB": 32,
-        "WR": 26,
-        "TE": 20,
-        "K": 21
+        "pass": 22,
+        "rush": 28,
+        "overall": 28,
+        "QB": 15,
+        "RB": 31,
+        "WR": 7,
+        "TE": 26,
+        "K": 27
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "easy",
+        "overall": "easy"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 226,
+        "rush_yds_allowed": 112.7,
+        "fantasy_points_allowed": {
+          "QB": 15,
+          "RB": 22.5,
+          "WR": 25,
+          "TE": 13.4,
+          "K": 10.3
+        }
+      }
+    },
+    "DEN": {
+      "games": 10,
+      "pass_yds_allowed": 251.6,
+      "pass_td_allowed": 1.7,
+      "rush_yds_allowed": 126.2,
+      "rush_td_allowed": 0.6,
+      "total_yds_allowed": 377.8,
+      "fantasy_points_allowed": {
+        "QB": 17.5,
+        "RB": 24.4,
+        "WR": 28.1,
+        "TE": 18.3,
+        "K": 7.4
+      },
+      "ranks": {
+        "pass": 26,
+        "rush": 23,
+        "overall": 29,
+        "QB": 19,
+        "RB": 24,
+        "WR": 6,
+        "TE": 30,
+        "K": 8
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "easy",
+        "overall": "easy"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 288,
+        "rush_yds_allowed": 109.7,
+        "fantasy_points_allowed": {
+          "QB": 22.9,
+          "RB": 28,
+          "WR": 29.5,
+          "TE": 24.2,
+          "K": 4.7
+        }
+      }
+    },
+    "LV": {
+      "games": 11,
+      "pass_yds_allowed": 245.7,
+      "pass_td_allowed": 2.1,
+      "rush_yds_allowed": 147.7,
+      "rush_td_allowed": 1.5,
+      "total_yds_allowed": 393.4,
+      "fantasy_points_allowed": {
+        "QB": 19.2,
+        "RB": 26.3,
+        "WR": 33.4,
+        "TE": 16.6,
+        "K": 7.4
+      },
+      "ranks": {
+        "pass": 23,
+        "rush": 31,
+        "overall": 30,
+        "QB": 28,
+        "RB": 29,
+        "WR": 23,
+        "TE": 28,
+        "K": 8
       },
       "tiers": {
         "pass": "easy",
@@ -1337,14 +1253,98 @@
       },
       "last_4": {
         "games": 4,
-        "pass_yds_allowed": 271.8,
-        "rush_yds_allowed": 160.5,
+        "pass_yds_allowed": 246.8,
+        "rush_yds_allowed": 158,
         "fantasy_points_allowed": {
-          "QB": 18.9,
-          "RB": 38.5,
-          "WR": 35,
-          "TE": 13.7,
-          "K": 9
+          "QB": 17.5,
+          "RB": 27.9,
+          "WR": 36.8,
+          "TE": 11.2,
+          "K": 8.2
+        }
+      }
+    },
+    "DAL": {
+      "games": 11,
+      "pass_yds_allowed": 251.8,
+      "pass_td_allowed": 1.9,
+      "rush_yds_allowed": 151.5,
+      "rush_td_allowed": 1.4,
+      "total_yds_allowed": 403.3,
+      "fantasy_points_allowed": {
+        "QB": 20.5,
+        "RB": 27.8,
+        "WR": 37.2,
+        "TE": 12.4,
+        "K": 9.8
+      },
+      "ranks": {
+        "pass": 27,
+        "rush": 32,
+        "overall": 31,
+        "QB": 29,
+        "RB": 30,
+        "WR": 29,
+        "TE": 15,
+        "K": 26
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "easy",
+        "overall": "easy"
+      },
+      "last_4": {
+        "games": 4,
+        "pass_yds_allowed": 281,
+        "rush_yds_allowed": 161.8,
+        "fantasy_points_allowed": {
+          "QB": 21.8,
+          "RB": 33.5,
+          "WR": 40.3,
+          "TE": 12.5,
+          "K": 11.5
+        }
+      }
+    },
+    "TEN": {
+      "games": 10,
+      "pass_yds_allowed": 285.9,
+      "pass_td_allowed": 1.8,
+      "rush_yds_allowed": 126.8,
+      "rush_td_allowed": 1.4,
+      "total_yds_allowed": 412.7,
+      "fantasy_points_allowed": {
+        "QB": 21,
+        "RB": 22.2,
+        "WR": 44.8,
+        "TE": 13,
+        "K": 10.9
+      },
+      "ranks": {
+        "pass": 32,
+        "rush": 25,
+        "overall": 32,
+        "QB": 31,
+        "RB": 19,
+        "WR": 32,
+        "TE": 18,
+        "K": 31
+      },
+      "tiers": {
+        "pass": "easy",
+        "rush": "easy",
+        "overall": "easy"
+      },
+      "last_4": {
+        "games": 3,
+        "pass_yds_allowed": 379.7,
+        "rush_yds_allowed": 116.7,
+        "fantasy_points_allowed": {
+          "QB": 34.1,
+          "RB": 22.9,
+          "WR": 65.8,
+          "TE": 17.9,
+          "K": 11.3
         }
       }
     }
