@@ -1407,7 +1407,7 @@
     {
       "date": "2026-11-25",
       "day": "Wed",
-      "status": "DOUBTFUL"
+      "status": "OUT"
     }
   ],
   "10225": [
@@ -1571,7 +1571,9 @@
     {
       "date": "2026-11-25",
       "day": "Wed",
-      "status": "QUESTIONABLE"
+      "practice_status": "FP",
+      "practice_source": "news",
+      "status": "OUT"
     }
   ],
   "13380": [
@@ -1855,8 +1857,6 @@
     {
       "date": "2026-11-25",
       "day": "Wed",
-      "practice_status": "FP",
-      "practice_source": "news",
       "status": "QUESTIONABLE"
     }
   ],
@@ -2017,6 +2017,13 @@
     {
       "date": "2026-11-24",
       "day": "Tue",
+      "practice_status": "DNP",
+      "practice_source": "news",
+      "status": "QUESTIONABLE"
+    },
+    {
+      "date": "2026-11-25",
+      "day": "Wed",
       "practice_status": "DNP",
       "practice_source": "news",
       "status": "QUESTIONABLE"
